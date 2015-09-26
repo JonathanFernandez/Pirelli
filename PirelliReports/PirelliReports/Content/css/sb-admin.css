@@ -339,6 +339,10 @@ ul.alert-dropdown {
     width: 350px;
 }
 
+.modal-lost-password{
+    display: none;
+}
+
 #login-modal input[type=text], input[type=password] {
     margin-top: 10px;
 }

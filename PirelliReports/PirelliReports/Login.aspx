@@ -31,7 +31,7 @@
 
 </head>
 <body>
-    <form id="form1" runat="server">
+    <div id="form1">
         <div class="login-wrapper">
 
         <!-- BEGIN # BOOTSNIP INFO -->
@@ -43,10 +43,14 @@
                     </div>
                     <h2 class="">Bienvenido a Pirelli Promotions & Reports</h2>
                     <h3> Haga click para ingresar</h3>
-                    <p class=""><a href="#" class="btn btn-warning btn-lg" id="login-btn" role="button" data-toggle="modal" data-target="#login-modal">Login</a></p>
+                    <p class="">
+                        <a href="#" class="btn btn-warning btn-lg" id="login-btn" role="button" data-toggle="modal" data-target="#login-modal">Login</a>
+                        <%--<asp:Button runat="server" ID="btnLoginInicio" text="Login" class="btn btn-warning btn-lg"  data-toggle="modal" data-target="#login-modal" ></asp:Button>--%>
+                    </p>
                 </div>
             </div>
         </div>
+   </div>
         <!-- END # BOOTSNIP INFO -->
 
         <!-- BEGIN # MODAL LOGIN -->
@@ -64,50 +68,56 @@
                         <div id="div-forms">
                         
                             <!-- Begin # Login Form -->
-                            <form id="login-form" method="post" action="index.html">
-                                <div class="modal-body">
-                                    <div id="div-login-msg">
-                                        <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
-                                        <span id="text-login-msg">Ingrese su nombre y contraseña.</span>
+                            <form runat="server" id="loginform" method="post" action="index.html">
+                                <div id="login-backup"></div>
+                                <div class="modal-login">
+                                    <div class="modal-body">
+                                        <div id="div-login-msg">
+                                            <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                            <span id="text-login-msg">Ingrese su nombre y contraseña.</span>
+                                        </div>
+                                        <asp:TextBox runat="server" id="login_username" class="form-control"  placeholder="Usuario" required/>
+                                        <asp:TextBox runat="server" TextMode="Password" class="form-control" id="login_password" placeholder="Contraseña" required/>
+                                        <div class="checkbox">
+                                            <label>
+                                                <asp:CheckBox runat="server" Text="Recordarme"></asp:CheckBox>
+                                                <%--<input type="checkbox">--%>
+                                            </label>
+                                        </div>
                                     </div>
-                                    <input id="login_username" class="form-control" type="text" placeholder="Usuario" required>
-                                    <input id="login_password" class="form-control" type="password" placeholder="Contraseña" required>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Recordarme
-                                        </label>
+                                    <div class="modal-footer">
+                                        <div>
+                                            <asp:Button runat="server" Text="Login" id="btnLogin" class="btn btn-warning btn-lg btn-block"/>
+                                        </div>
+                                        <div>
+                                            <asp:Button runat="server" id="login_lost_btn" class="btn btn-link" Text="¿Olvidaste tu contraseña?"/>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <div>
-                                        <button type="submit" class="btn btn-warning btn-lg btn-block">Login</button>
+                                
+                                <div class="modal-lost-password">
+                                     <div class="modal-body">
+                                        <div id="div-lost-msg">
+                                            <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                            <span id="text-lost-msg">Ingrese su e-mail.</span>
+                                        </div>
+                                        <%--<input id="lost_email" class="form-control" type="text" placeholder="E-mail" required>--%>
+                                        <asp:TextBox runat="server" id="lost_email" class="form-control" placeholder="E-mail" required />
+                                    
                                     </div>
-                                    <div>
-                                        <button id="login_lost_btn" type="button" class="btn btn-link">¿Olvidaste tu contraseña?</button>
+                                    <div class="modal-footer">
+                                        <div>
+                                            <%--<button type="submit" class="btn btn-warning btn-lg btn-block">Enviar</button>--%>
+                                            <asp:Button runat="server" class="btn btn-warning btn-lg btn-block" Text="Enviar" />
+                                        </div>
+                                        <div>
+                                            <%--<button id="lost_login_btn" type="button" class="btn btn-link">Login</button>--%>
+                                            <asp:Button runat="server" id="lost_login_btn" class="btn btn-link" Text="Login"/>
+                                        </div>
                                     </div>
-                                </div>
+                                  </div>
                             </form>
-                            <!-- End # Login Form -->
-                            
-                            <!-- Begin | Lost Password Form -->
-                            <form id="lost-form" style="display:none;">
-                                <div class="modal-body">
-                                    <div id="div-lost-msg">
-                                        <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
-                                        <span id="text-lost-msg">Ingrese su e-mail.</span>
-                                    </div>
-                                    <input id="lost_email" class="form-control" type="text" placeholder="E-mail" required>
-                                </div>
-                                <div class="modal-footer">
-                                    <div>
-                                        <button type="submit" class="btn btn-warning btn-lg btn-block">Enviar</button>
-                                    </div>
-                                    <div>
-                                        <button id="lost_login_btn" type="button" class="btn btn-link">Login</button>
-                                    </div>
-                                </div>
-                            </form>
-                            <!-- End | Lost Password Form -->
+                            <!-- End # Login Form -->                
                             
                         </div>
                         <!-- End # DIV Form -->
@@ -118,7 +128,7 @@
             <!-- END # MODAL LOGIN -->
 
     </div>
-    </form>
+    <%--</form>--%>
      <!-- /#wrapper -->
 
     <!-- jQuery -->
