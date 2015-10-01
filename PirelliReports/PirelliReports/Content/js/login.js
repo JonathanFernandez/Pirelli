@@ -2,10 +2,11 @@
 $(function () {
 
     var $formLogin = $('#login-form');
-    var $divForms = $('#div-forms');
+    //var $divForms = $('#div-forms');
     var $modalAnimateTime = 300;
     var $msgAnimateTime = 150;
     var $msgShowTime = 2000;
+    $('#lost_email').prop('disabled', true);
 
     $("div").submit(function () {
         switch (this.id) {

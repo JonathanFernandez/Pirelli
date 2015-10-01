@@ -67,6 +67,15 @@ namespace PirelliReports {
         protected global::System.Web.UI.WebControls.TextBox lost_email;
         
         /// <summary>
+        /// Control btn_enviar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_enviar;
+        
+        /// <summary>
         /// Control lost_login_btn.
         /// </summary>
         /// <remarks>

@@ -28,10 +28,25 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+   <script >
 
+       function btnLogin_OnClientClick() {
+
+          // document.getElementById("loginform").action = "About.aspx";
+           //  document.getElementById("loginform").submit();
+       }
+       function btn_enviar_OnClientClick() {
+           //document.getElementById("loginform").action = "Default.aspx";
+           //document.getElementById("loginform").submit();
+       }
+       function lost_login_btn_OnClientClick() {
+
+       }
+     </script>
 </head>
 <body>
-    <div id="form1">
+    <form id="loginform" runat="server"  method="post" >
+    <div >
         <div class="login-wrapper">
 
         <!-- BEGIN # BOOTSNIP INFO -->
@@ -39,7 +54,7 @@
             <div class="row">
                 <div class="row-50 margin-5 background-black">
                     <div class="logo-login">
-                        <img class="logo-pirelli" src="Content/img/logo_pirelli.jpg">
+                        <img class="logo-pirelli" src="Content/img/logo_pirelli.jpg"/>
                     </div>
                     <h2 class="">Bienvenido a Pirelli Promotions & Reports</h2>
                     <h3> Haga click para ingresar</h3>
@@ -61,14 +76,15 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
-                            <img id="img_logo" src="Content/img/logo_pirelli_small.svg">                            
+                            <img id="img_logo" src="Content/img/logo_pirelli_small.svg"/>                            
                         </div>
                         
                         <!-- Begin # DIV Form -->
-                        <div id="div-forms">
+                       
                         
                             <!-- Begin # Login Form -->
-                            <form runat="server" id="loginform" method="post" action="index.html">
+                            
+                                
                                 <div id="login-backup"></div>
                                 <div class="modal-login">
                                     <div class="modal-body">
@@ -78,16 +94,16 @@
                                         </div>
                                         <asp:TextBox runat="server" id="login_username" class="form-control"  placeholder="Usuario" required/>
                                         <asp:TextBox runat="server" TextMode="Password" class="form-control" id="login_password" placeholder="Contraseña" required/>
-                                        <div class="checkbox">
+                                       <%-- <div class="checkbox">
                                             <label>
                                                 <asp:CheckBox runat="server" Text="Recordarme"></asp:CheckBox>
-                                                <%--<input type="checkbox">--%>
                                             </label>
-                                        </div>
+                                        </div>--%>
                                     </div>
                                     <div class="modal-footer">
                                         <div>
-                                            <asp:Button runat="server" Text="Login" id="btnLogin" class="btn btn-warning btn-lg btn-block"/>
+                                            <asp:Button runat="server" Text="Loginnnn" id="btnLogin" class="btn btn-warning btn-lg btn-block" OnClick="btnLogin_Click" OnClientClick="btnLogin_OnClientClick()" />
+                                            
                                         </div>
                                         <div>
                                             <asp:Button runat="server" id="login_lost_btn" class="btn btn-link" Text="¿Olvidaste tu contraseña?"/>
@@ -108,18 +124,18 @@
                                     <div class="modal-footer">
                                         <div>
                                             <%--<button type="submit" class="btn btn-warning btn-lg btn-block">Enviar</button>--%>
-                                            <asp:Button runat="server" class="btn btn-warning btn-lg btn-block" Text="Enviar" />
+                                            <asp:Button runat="server" id="btn_enviar" class="btn btn-warning btn-lg btn-block" Text="Enviar" OnClick="btn_enviar_Click" OnClientClick="btn_enviar_OnClientClick()"  />
                                         </div>
                                         <div>
                                             <%--<button id="lost_login_btn" type="button" class="btn btn-link">Login</button>--%>
-                                            <asp:Button runat="server" id="lost_login_btn" class="btn btn-link" Text="Login"/>
+                                            <asp:Button runat="server" id="lost_login_btn" class="btn btn-link" Text="Login" OnClick="lost_login_btn_Click" />
                                         </div>
                                     </div>
                                   </div>
-                            </form>
+                            
                             <!-- End # Login Form -->                
                             
-                        </div>
+                       
                         <!-- End # DIV Form -->
                         
                     </div>
@@ -128,6 +144,7 @@
             <!-- END # MODAL LOGIN -->
 
     </div>
+    </form>
     <%--</form>--%>
      <!-- /#wrapper -->
 

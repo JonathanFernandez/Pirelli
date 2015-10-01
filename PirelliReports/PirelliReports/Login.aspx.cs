@@ -11,7 +11,26 @@ namespace PirelliReports
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script type=\"text/javascript\">alert('aprete login!!!');</script>");
+        }
+
+        protected void btn_enviar_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script type=\"text/javascript\">alert('aprete enviar!!!');</script>");
+        }
+
+        protected void lost_login_btn_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script type=\"text/javascript\">alert('vuelvo al login!!!');</script>");
+        }
+
+       
+       
+       
     }
 }
