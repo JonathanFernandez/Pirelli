@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Pirelli - Login</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="Content/css/bootstrap.min.css" rel="stylesheet">
@@ -30,9 +30,10 @@
     <![endif]-->
    <script >
 
+       
        function btnLogin_OnClientClick() {
-
-          // document.getElementById("loginform").action = "About.aspx";
+           //debugger;
+           //document.getElementById("loginform").action = "About.aspx";
            //  document.getElementById("loginform").submit();
        }
        function btn_enviar_OnClientClick() {
@@ -45,7 +46,7 @@
      </script>
 </head>
 <body>
-    <form id="loginform" runat="server"  method="post" >
+    <form id="loginform" runat="server" >
     <div >
         <div class="login-wrapper">
 
@@ -59,8 +60,18 @@
                     <h2 class="">Bienvenido a Pirelli Promotions & Reports</h2>
                     <h3> Haga click para ingresar</h3>
                     <p class="">
-                        <a href="#" class="btn btn-warning btn-lg" id="login-btn" role="button" data-toggle="modal" data-target="#login-modal">Login</a>
-                        <%--<asp:Button runat="server" ID="btnLoginInicio" text="Login" class="btn btn-warning btn-lg"  data-toggle="modal" data-target="#login-modal" ></asp:Button>--%>
+                        <a href="#" class="btn btn-warning btn-lg" id="login-btn" role="button" data-toggle="modal" data-target="#login_modal">Login</a>
+                        <%--<asp:Button runat="server" ID="btnLoginInicio" text="Login" class="btn btn-warning btn-lg"  data-toggle="modal" data-target="#login_modal" ></asp:Button>--%>
+                    </p>
+                    <p class="">
+                        <label>
+                            <asp:Label runat="server" id="lblPassIncorrecta" Text="Contraseña incorrecta" Visible="false"></asp:Label>
+                        </label>
+                    </p>
+                    <p class="">
+                        <label>
+                            <asp:Label runat="server" id="lblMailIncorrecto" Text="E-mail incorrecto" Visible="false"></asp:Label>
+                        </label>
                     </p>
                 </div>
             </div>
@@ -69,7 +80,7 @@
         <!-- END # BOOTSNIP INFO -->
 
         <!-- BEGIN # MODAL LOGIN -->
-        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header" align="center">
@@ -94,19 +105,19 @@
                                         </div>
                                         <asp:TextBox runat="server" id="login_username" class="form-control"  placeholder="Usuario" required/>
                                         <asp:TextBox runat="server" TextMode="Password" class="form-control" id="login_password" placeholder="Contraseña" required/>
-                                       <%-- <div class="checkbox">
+                                       <div class="checkbox">
                                             <label>
-                                                <asp:CheckBox runat="server" Text="Recordarme"></asp:CheckBox>
+                                                <%--<asp:Label runat="server" id="lblPassIncorrecta" Text="Contraseña incorrecta" Visible="false"></asp:Label>--%>
                                             </label>
-                                        </div>--%>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <div>
-                                            <asp:Button runat="server" Text="Loginnnn" id="btnLogin" class="btn btn-warning btn-lg btn-block" OnClick="btnLogin_Click" OnClientClick="btnLogin_OnClientClick()" />
-                                            
+                                            <asp:Button runat="server" Text="Login" id="btnLogin" class="btn btn-warning btn-lg btn-block"  OnClick="btnLogin_Click" OnClientClick="btnLogin_OnClientClick()" />
+                     
                                         </div>
                                         <div>
-                                            <asp:Button runat="server" id="login_lost_btn" class="btn btn-link" Text="¿Olvidaste tu contraseña?"/>
+                                            <asp:Button runat="server" id="login_lost_btn" class="btn btn-link" Text="¿Olvidaste tu contraseña?" OnClientClick="return false;"/>
                                         </div>
                                     </div>
                                 </div>

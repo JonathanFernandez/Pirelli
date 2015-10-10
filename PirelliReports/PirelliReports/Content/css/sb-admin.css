@@ -335,7 +335,7 @@ ul.alert-dropdown {
     margin: 0px 13%;
 }
 
-#login-modal .modal-dialog {
+#login_modal .modal-dialog {
     width: 350px;
 }
 
@@ -343,7 +343,7 @@ ul.alert-dropdown {
     display: none;
 }
 
-#login-modal input[type=text], input[type=password] {
+#login_modal input[type=text], input[type=password] {
     margin-top: 10px;
 }
 
@@ -472,3 +472,9 @@ ul.alert-dropdown {
 }
 
 /* /Login */
+
+/* Form */
+.form-pirelli label, .form-pirelli p, .form-pirelli h2, .form-pirelli input{
+    color: white;
+}
+/* /Form */

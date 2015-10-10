@@ -64,3 +64,9 @@ C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\es\
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.csprojResolveAssemblyReference.cache
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\DBLayer.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Entitdades.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Negocio.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\DBLayer.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Entitdades.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Negocio.pdb
