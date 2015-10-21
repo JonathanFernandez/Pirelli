@@ -38,6 +38,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GMaps, Version=4.1.0.5, Culture=neutral, PublicKeyToken=564d55b144e7aa5a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\GMaps.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -169,6 +173,7 @@
     <Content Include="Content\css\bootstrap-rtl.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\jquery-ui.min.css" />
     <Content Include="Content\css\plugins\morris.css" />
     <Content Include="Content\css\sb-admin-rtl.css" />
     <Content Include="Content\css\sb-admin.css" />
@@ -183,7 +188,10 @@
     <Content Include="Content\img\wallpaper_3.jpg" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\jquery-ui.min.js" />
     <Content Include="Content\js\jquery.js" />
+    <Content Include="Content\js\datepicker.js" />
+    <Content Include="Content\js\jquery.sticky.js" />
     <Content Include="Content\js\login.js" />
     <Content Include="Content\js\plugins\flot\excanvas.min.js" />
     <Content Include="Content\js\plugins\flot\flot-data.js" />
@@ -274,6 +282,7 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Site\FacturasPromoVisa.aspx" />
+    <Content Include="Site\Mapa.aspx" />
     <Content Include="Templates\blank-page.html" />
     <Content Include="Templates\bootstrap-elements.html" />
     <Content Include="Templates\bootstrap-grid.html" />
@@ -314,6 +323,7 @@
     <Content Include="Templates\js\plugins\morris\raphael.min.js" />
     <Content Include="Templates\login.html" />
     <Content Include="Templates\tables.html" />
+    <Content Include="testmapa.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -550,7 +560,21 @@
     <Compile Include="Site\FacturasPromoVisa.aspx.designer.cs">
       <DependentUpon>FacturasPromoVisa.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site\Mapa.aspx.cs">
+      <DependentUpon>Mapa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\Mapa.aspx.designer.cs">
+      <DependentUpon>Mapa.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="testmapa.aspx.cs">
+      <DependentUpon>testmapa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testmapa.aspx.designer.cs">
+      <DependentUpon>testmapa.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -563,6 +587,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Controles\Controles.csproj">
+      <Project>{683047f2-7497-4bb4-bed4-f5d7d929ab8f}</Project>
+      <Name>Controles</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DBLayer\DBLayer.csproj">
       <Project>{20196f76-fa82-4c13-8544-a20590f03c5d}</Project>
       <Name>DBLayer</Name>

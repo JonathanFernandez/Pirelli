@@ -70,3 +70,5 @@ C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Neg
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\DBLayer.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Entitdades.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Negocio.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Controles.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Controles.pdb

@@ -29,8 +29,8 @@ namespace PirelliReports
             if (!connUsuario.VerificarMaiExistente(lost_email.Text))
             {
                 lblMailIncorrecto.Visible = true;
-                //loginform.s
-                //return false;
+               
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
             else
             {
@@ -41,10 +41,7 @@ namespace PirelliReports
             }
         }
 
-        protected void lost_login_btn_Click(object sender, EventArgs e)
-        {
-            Response.Write("<script type=\"text/javascript\">alert('vuelvo al login!!!');</script>");
-        }
+       
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
@@ -52,8 +49,7 @@ namespace PirelliReports
             if (!connUsuario.VerificarLogin(login_username.Text, login_password.Text))
             {
                 lblPassIncorrecta.Visible = true;
-                //login_modal.Style.Add("display", "block");
-                //login_modal.Style.Add("visible", "true");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 
             }
             else
@@ -64,8 +60,8 @@ namespace PirelliReports
 
                 user = connUsuario.CargarUsuario(login_username.Text, login_password.Text);
                 
-                Session["Usuario"] = user; 
-                Response.Redirect("Index.aspx");
+                Session["Usuario"] = user;
+                Response.Redirect("~/Index.aspx");
                 
             }
 

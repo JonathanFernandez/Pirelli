@@ -37,7 +37,8 @@ namespace PirelliReports
             scriptStyle = new HtmlHeaderStyleLink("~/Content/font-awesome/css/font-awesome.min.css");
             scriptStyle.IncludeOn(Page.Header);
 
-
+            scriptStyle = new HtmlHeaderStyleLink("~/Content/css/jquery-ui.min.css");
+            scriptStyle.IncludeOn(Page.Header);
         }
         private void LoadScripts()
         {
@@ -47,7 +48,13 @@ namespace PirelliReports
             HtmlHeaderJSLink scriptLink = new HtmlHeaderJSLink("~/Content/js/jquery.js");
             scriptLink.IncludeOn(Page.Header);
 
+            scriptLink = new HtmlHeaderJSLink("~/Content/js/jquery-ui.min.js");
+            scriptLink.IncludeOn(Page.Header);
+
             scriptLink = new HtmlHeaderJSLink("~/Content/js/bootstrap.min.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            scriptLink = new HtmlHeaderJSLink("~/Content/js/jquery.sticky.js");
             scriptLink.IncludeOn(Page.Header);
 
             scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/morris/raphael.min.js");

@@ -13,6 +13,15 @@
 
     <title>Pirelli - Login</title>
 
+    <!-- jQuery -->
+    <script src="Content/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Content/js/bootstrap.min.js"></script>
+
+    <!-- login -->
+    <script src="Content/js/login.js"></script>    
+
     <!-- Bootstrap Core CSS -->
     <link href="Content/css/bootstrap.min.css" rel="stylesheet">
 
@@ -29,8 +38,11 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
    <script >
-
        
+       function openModal() {
+          
+           $('#login_modal').modal('show');
+       }
        function btnLogin_OnClientClick() {
            //debugger;
            //document.getElementById("loginform").action = "About.aspx";
@@ -63,7 +75,7 @@
                         <a href="#" class="btn btn-warning btn-lg" id="login-btn" role="button" data-toggle="modal" data-target="#login_modal">Login</a>
                         <%--<asp:Button runat="server" ID="btnLoginInicio" text="Login" class="btn btn-warning btn-lg"  data-toggle="modal" data-target="#login_modal" ></asp:Button>--%>
                     </p>
-                    <p class="">
+                    <%--<p class="">
                         <label>
                             <asp:Label runat="server" id="lblPassIncorrecta" Text="Contraseña incorrecta" Visible="false"></asp:Label>
                         </label>
@@ -72,7 +84,7 @@
                         <label>
                             <asp:Label runat="server" id="lblMailIncorrecto" Text="E-mail incorrecto" Visible="false"></asp:Label>
                         </label>
-                    </p>
+                    </p>--%>
                 </div>
             </div>
         </div>
@@ -105,11 +117,17 @@
                                         </div>
                                         <asp:TextBox runat="server" id="login_username" class="form-control"  placeholder="Usuario" required/>
                                         <asp:TextBox runat="server" TextMode="Password" class="form-control" id="login_password" placeholder="Contraseña" required/>
-                                       <div class="checkbox">
+                                       <%--<div class="checkbox">
                                             <label>
-                                                <%--<asp:Label runat="server" id="lblPassIncorrecta" Text="Contraseña incorrecta" Visible="false"></asp:Label>--%>
+                                                <asp:Label runat="server" id="lblPassIncorrecta" Text="Contraseña incorrecta" Visible="false"></asp:Label
                                             </label>
-                                        </div>
+                                        </div>--%>
+                                        <p>
+                                            <label>
+                                                <asp:Label runat="server" id="lblPassIncorrecta" Text="Contraseña incorrecta" Visible="false"></asp:Label>
+                                            </label>
+                                        </p>
+                                        
                                     </div>
                                     <div class="modal-footer">
                                         <div>
@@ -130,7 +148,11 @@
                                         </div>
                                         <%--<input id="lost_email" class="form-control" type="text" placeholder="E-mail" required>--%>
                                         <asp:TextBox runat="server" id="lost_email" class="form-control" placeholder="E-mail" required />
-                                    
+                                        <p>
+                                                <label>
+                                                    <asp:Label runat="server" id="lblMailIncorrecto" Text="E-mail incorrecto" Visible="false"></asp:Label>
+                                                </label>
+                                        </p>
                                     </div>
                                     <div class="modal-footer">
                                         <div>
@@ -139,7 +161,7 @@
                                         </div>
                                         <div>
                                             <%--<button id="lost_login_btn" type="button" class="btn btn-link">Login</button>--%>
-                                            <asp:Button runat="server" id="lost_login_btn" class="btn btn-link" Text="Login" OnClick="lost_login_btn_Click" />
+                                            <asp:Button runat="server" id="lost_login_btn" class="btn btn-link" Text="Login"  OnClientClick="return false;"/>
                                         </div>
                                     </div>
                                   </div>
@@ -159,13 +181,6 @@
     <%--</form>--%>
      <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="Content/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="Content/js/bootstrap.min.js"></script>
-
-    <!-- login -->
-    <script src="Content/js/login.js"></script>    
+    
 </body>
 </html>

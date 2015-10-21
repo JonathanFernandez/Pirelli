@@ -177,7 +177,6 @@ ul.alert-dropdown {
 .table-pirelli h2{
     color: white;
 }
-
 /* Side Navigation */
 
 @media(min-width:768px) {
@@ -478,3 +477,11 @@ ul.alert-dropdown {
     color: white;
 }
 /* /Form */
+
+/* BTN Sticky*/
+.btn-sticky{
+    background-color: #222;
+    padding-bottom: 15px;
+    z-index: 99999;
+}
+

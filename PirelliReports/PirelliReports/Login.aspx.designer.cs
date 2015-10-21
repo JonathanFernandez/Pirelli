@@ -22,24 +22,6 @@ namespace PirelliReports {
         protected global::System.Web.UI.HtmlControls.HtmlForm loginform;
         
         /// <summary>
-        /// lblPassIncorrecta control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPassIncorrecta;
-        
-        /// <summary>
-        /// lblMailIncorrecto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMailIncorrecto;
-        
-        /// <summary>
         /// login_username control.
         /// </summary>
         /// <remarks>
@@ -56,6 +38,15 @@ namespace PirelliReports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox login_password;
+        
+        /// <summary>
+        /// lblPassIncorrecta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPassIncorrecta;
         
         /// <summary>
         /// btnLogin control.
@@ -83,6 +74,15 @@ namespace PirelliReports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox lost_email;
+        
+        /// <summary>
+        /// lblMailIncorrecto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMailIncorrecto;
         
         /// <summary>
         /// btn_enviar control.
