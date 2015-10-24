@@ -14,13 +14,15 @@ using Subgurim.Controles;
 using System.Drawing;
 using System.Configuration;
 
+
 namespace PirelliReports.Site
 {
     public partial class FacturasPromoVisa : System.Web.UI.Page
     {
         ConexionFacturasPromo conFacturas = new ConexionFacturasPromo();
+        ConexionClientes conClientes = new ConexionClientes();
         PirelliMetodos pMetodos = new PirelliMetodos();
-        
+        ArrayList clientes = new ArrayList();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -28,46 +30,26 @@ namespace PirelliReports.Site
                
                 gvListadosFacturasVisa.DataSource = conFacturas.ListadoDeFacturas();
                 gvListadosFacturasVisa.DataBind();
-                
 
-                cargarFamilia(ddlFamilia);
-                cargarCantidadDeRegistros(ddlCantidadRegistros);
 
-                GLatLng ubicacion = new GLatLng(-34.667070, -58.649490);//(40.381090863719436, -3.6222052574157715);
-                GMap1.setCenter(ubicacion, 15);
+                cargarFamilia(ddlFiltrosFamilia);
+                cargarCantidadDeRegistros(ddlFiltrosCantidadRegistros);
+
+                //me centro en argentina
+                GLatLng ubicacion = new GLatLng(-35.3139685, -65.104704);//(40.381090863719436, -3.6222052574157715);
+                GMap1.setCenter(ubicacion, 4);
 
                 //Establecemos alto y ancho en px
-                GMap1.Height = 400;
+                GMap1.Height = 600;
                 GMap1.Width = 558;
 
                 //Adiciona el control de la parte izq superior (moverse, ampliar y reducir)
-                GMap1.addControl(new GControl(GControl.preBuilt.LargeMapControl));
+                GMap1.Add(new GControl(GControl.preBuilt.LargeMapControl));
 
                 //GControl.preBuilt.MapTypeControl: permite elegir un tipo de mapa y otro.
-                GMap1.addControl(new GControl(GControl.preBuilt.MapTypeControl));
+                GMap1.Add(new GControl(GControl.preBuilt.MapTypeControl));
 
-                //Con esto podemos definir el icono que se mostrara en la ubicacion
-                //#region Crear Icono
-                //GIcon iconPropio = new GIcon();
-                //iconPropio.image = "../images/iconBuilding.png";
-                //iconPropio.shadow = "../images/iconBuildingS.png";
-                //iconPropio.iconSize = new GSize(32, 32);
-                //iconPropio.shadowSize = new GSize(29, 16);
-                //iconPropio.iconAnchor = new GPoint(10, 18);
-                //iconPropio.infoWindowAnchor = new GPoint(10, 9);
-                //#endregion
-
-                //Pone la marca de gota de agua con el nombre de la ubicacion
-                GMarker marker = new GMarker(ubicacion);
-                string strMarker = "<div style='width: 250px; height: 185px'><b>" +
-                    "<span style='color:#ff7e00'>es</span>ASP.NET</b><br>" +
-                    " C/ C/ Nombre de Calle, No X <br /> 28031 Madrid, España <br />" +
-                    "Tel: +34 902 00 00 00 <br />Fax: +34 91 000 00 00<br />" +
-                    "Web: <a href='http://www.esASP.net/' class='txtBKM' >www.esASP.net</a>" +
-                    "<br />Email: <a href='mailto:derbis.corrales@gmail.com' class='txtBKM'>" +
-                    "derbis.corrales@gmail.com</a><br><br></div>";
-                GInfoWindow window = new GInfoWindow(marker, strMarker, false);
-                GMap1.addInfoWindow(window);
+                cargarClientes(clientes);
 
                 GMap1.enableHookMouseWheelToZoom = true;
 
@@ -76,64 +58,59 @@ namespace PirelliReports.Site
 
                 //Moverse con el cursor del teclado
                 GMap1.enableGKeyboardHandler = true;
+            }
+        }
 
+        private void cargarClientes(ArrayList clientes)
+        {
+            clientes.Clear();
+            DataSet ds = new DataSet();
+            ds = conClientes.ListadoGeoClientesDeFacturas();
+            ZoCliente c;
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    c = new ZoCliente();
+                    c.Cod = ds.Tables[0].Rows[i]["COD"].ToString();
+                    c.RazSoc = ds.Tables[0].Rows[i]["RAZSOC"].ToString();
+                    c.DirSuc = ds.Tables[0].Rows[i]["DIRSUC"].ToString();
+                    c.Latitud = Convert.ToDouble(ds.Tables[0].Rows[i]["LATITUD"].ToString());
+                    c.Longitud = Convert.ToDouble(ds.Tables[0].Rows[i]["LONGITUD"].ToString());
+                    
+                    clientes.Add(c);
+                }
+                pMetodos.LlenarMapaConClientes(clientes,GMap1);
+                //LlenarMapaConClientes(clientes);
+            }
+            
+        }
 
-                ubicacion = new GLatLng(-34.667070, -58.649490);
-                GMap2.setCenter(ubicacion, 15);
-
-                //Establecemos alto y ancho en px
-                GMap2.Height = 400;
-                GMap2.Width = 558;
-
-                //Adiciona el control de la parte izq superior (moverse, ampliar y reducir)
-                GMap2.addControl(new GControl(GControl.preBuilt.LargeMapControl));
-
-                //GControl.preBuilt.MapTypeControl: permite elegir un tipo de mapa y otro.
-                GMap2.addControl(new GControl(GControl.preBuilt.MapTypeControl));
-
-                //Con esto podemos definir el icono que se mostrara en la ubicacion
-                //#region Crear Icono
-                //GIcon iconPropio = new GIcon();
-                //iconPropio.image = "../images/iconBuilding.png";
-                //iconPropio.shadow = "../images/iconBuildingS.png";
-                //iconPropio.iconSize = new GSize(32, 32);
-                //iconPropio.shadowSize = new GSize(29, 16);
-                //iconPropio.iconAnchor = new GPoint(10, 18);
-                //iconPropio.infoWindowAnchor = new GPoint(10, 9);
-                //#endregion
-
+        private void LlenarMapaConClientes(ArrayList clientes)
+        {
+            GLatLng ubicacion;
+            GMarker marker;
+            string strMarker;
+            foreach (ZoCliente c in clientes)
+            {
+                ubicacion = new GLatLng(c.Latitud, c.Longitud);
                 //Pone la marca de gota de agua con el nombre de la ubicacion
                 marker = new GMarker(ubicacion);
                 strMarker = "<div style='width: 250px; height: 185px'><b>" +
-                          "<span style='color:#ff7e00'>es</span>ASP.NET</b><br>" +
-                          " C/ C/ Nombre de Calle, No X <br /> 28031 Madrid, España <br />" +
-                          "Tel: +34 902 00 00 00 <br />Fax: +34 91 000 00 00<br />" +
-                          "Web: <a href='http://www.esASP.net/' class='txtBKM' >www.esASP.net</a>" +
-                          "<br />Email: <a href='mailto:derbis.corrales@gmail.com' class='txtBKM'>" +
-                          "derbis.corrales@gmail.com</a><br><br></div>";
-                window = new GInfoWindow(marker, strMarker, false);
-                GMap2.addInfoWindow(window);
+                                "<span style='color:#ff7e00'>es</span>ASP.NET</b><br>" +
+                                 " C/ C/ " + c.RazSoc + " <br /> " + c.DirSuc + " <br />" +
+                                 "</div>";
+                GInfoWindow window = new GInfoWindow(marker, strMarker, false);
+                GMap1.Add(window);
 
-                GMap2.enableHookMouseWheelToZoom = true;
 
-                //Tipo de mapa a mostrar
-                GMap2.mapType = GMapType.GTypes.Normal;
-
-                //Moverse con el cursor del teclado
-                GMap2.enableGKeyboardHandler = true;
-
-                //if (chkFechas.Checked)
-                //{
-                //    dpDesde.Enabled = true;
-                //    dpHasta.Enabled = true;
-                //}
-                //else
-                //{
-                //    dpDesde.Enabled = false;
-                //    dpHasta.Enabled = false;
-                //}
             }
         }
+
+       
+
+        
+       
 
         private void cargarCantidadDeRegistros(DropDownList ddl)
         {
@@ -148,14 +125,14 @@ namespace PirelliReports.Site
 
         private void cargarFamilia(DropDownList ddl)
         {
-            DataSet dt = new DataSet();
-            dt = conFacturas.ListadoDeFamilia();
+            DataSet ds = new DataSet();
+            ds = conFacturas.ListadoDeFamilia();
             ddl.Items.Add(new ListItem("TODOS", "%"));
-            if (dt.Tables[0].Rows.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0)
             {
-                for (int i = 0; i < dt.Tables[0].Rows.Count; i++)
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    ddl.Items.Add(new ListItem(dt.Tables[0].Rows[i]["FAMIAGRDESC"].ToString(), dt.Tables[0].Rows[i]["FAMIAGRCODI"].ToString()));
+                    ddl.Items.Add(new ListItem(ds.Tables[0].Rows[i]["FAMIAGRDESC"].ToString(), ds.Tables[0].Rows[i]["FAMIAGRCODI"].ToString()));
                 }
             }
 
@@ -166,33 +143,33 @@ namespace PirelliReports.Site
         //    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
        
 
-        protected void btnBuscar_Click(object sender, EventArgs e)
+        protected void btnFiltrosBuscar_Click(object sender, EventArgs e)
         {
             ArrayList parametros = new ArrayList();
-            parametros.Add((string.IsNullOrEmpty(txtCodCliente.Text) ? "%%" : txtCodCliente.Text));
-            parametros.Add((string.IsNullOrEmpty(txtRazonSocial.Text)? "%%" :txtRazonSocial.Text));
-            parametros.Add((string.IsNullOrEmpty(txtCuotas.Text)? "%" : txtCuotas.Text));
-            parametros.Add((string.IsNullOrEmpty(txtFlag.Text)? "%" :txtFlag.Text));
-            parametros.Add((string.IsNullOrEmpty(txtDescuento.Text)? "%" :txtDescuento.Text));
-            parametros.Add((string.IsNullOrEmpty(txtUsuarioAlta.Text)? "%" :txtUsuarioAlta.Text));
-            parametros.Add((string.IsNullOrEmpty(txtNumeroFactura.Text)? "%" :txtNumeroFactura.Text));
-            parametros.Add((string.IsNullOrEmpty(txtIP.Text)? "%%%" :txtIP.Text));
-            parametros.Add((string.IsNullOrEmpty(txtDescripcion.Text)? "%" : txtDescripcion.Text));
-            
-            if (!string.IsNullOrEmpty(dpDesde.Text))
-                parametros.Add(pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosCodCliente.Text) ? "%%" : txtFiltrosCodCliente.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosRazonSocial.Text) ? "%%" : txtFiltrosRazonSocial.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosCuotas.Text) ? "%" : txtFiltrosCuotas.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosFlag.Text) ? "%" : txtFiltrosFlag.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosDescuento.Text) ? "%" : txtFiltrosDescuento.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosUsuarioAlta.Text) ? "%" : txtFiltrosUsuarioAlta.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosNumeroFactura.Text) ? "%" : txtFiltrosNumeroFactura.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosIP.Text) ? "%%%" : txtFiltrosIP.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosDescripcion.Text) ? "%" : txtFiltrosDescripcion.Text));
+
+            if (!string.IsNullOrEmpty(dpFiltrosDesde.Text))
+                parametros.Add(pMetodos.ConvertmmddyyyyToyyyymmdd(dpFiltrosDesde.Text));
             else
                 parametros.Add("1900/1/1");
-            if (!string.IsNullOrEmpty(dpHasta.Text))
-                parametros.Add(pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text));
+            if (!string.IsNullOrEmpty(dpFiltrosHasta.Text))
+                parametros.Add(pMetodos.ConvertmmddyyyyToyyyymmdd(dpFiltrosHasta.Text));
             else
                 parametros.Add("2900/1/1");
 
-            parametros.Add(ddlCantidadRegistros.SelectedValue.ToString());
-            parametros.Add((string.IsNullOrEmpty(txtAgrup.Text)? "%" :txtAgrup.Text));
-            parametros.Add((string.IsNullOrEmpty(txtTicket.Text)? "%" :txtTicket.Text));
-            parametros.Add((string.IsNullOrEmpty(txtCodPromo.Text)? "%" :txtCodPromo.Text));
-            parametros.Add(ddlFamilia.SelectedValue.ToString());
+            parametros.Add(ddlFiltrosCantidadRegistros.SelectedValue.ToString());
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosAgrup.Text) ? "%" : txtFiltrosAgrup.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosTicket.Text) ? "%" : txtFiltrosTicket.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosCodPromo.Text) ? "%" : txtFiltrosCodPromo.Text));
+            parametros.Add(ddlFiltrosFamilia.SelectedValue.ToString());
           
 
             gvListadosFacturasVisa.DataSource = conFacturas.ListadoDeFacturas(parametros);
@@ -211,9 +188,17 @@ namespace PirelliReports.Site
 
         }
 
+
         protected void gvListadosFacturasVisa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string a = "pepe";
+            string a = gvListadosFacturasVisa.SelectedRow.Cells[1].Text;
+            a = a + gvListadosFacturasVisa.SelectedRow.Cells[2].Text;
+            a = a + gvListadosFacturasVisa.SelectedRow.Cells[3].Text;
+            txtEditCuota.Text = gvListadosFacturasVisa.SelectedRow.Cells[4].Text;
+            txtEditPrecio.Text = gvListadosFacturasVisa.SelectedRow.Cells[5].Text;
+            //Response.Write("<script type=\"text/javascript\">alert('"+a+"');</script>");
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalEdit();", true);
+
 
         }
     }

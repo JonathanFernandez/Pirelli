@@ -3,4 +3,11 @@ C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\Controle
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\Controles.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\obj\Debug\Controles.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\obj\Debug\Controles.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\DBLayer.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\Negocio.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\DBLayer.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\Negocio.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\obj\Debug\Controles.csprojResolveAssemblyReference.cache
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\Entidades.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\Entidades.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\GMaps.dll

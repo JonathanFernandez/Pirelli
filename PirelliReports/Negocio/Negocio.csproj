@@ -68,6 +68,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConexionClientes.cs" />
     <Compile Include="ConexionFacturasPromo.cs" />
     <Compile Include="ConexionUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

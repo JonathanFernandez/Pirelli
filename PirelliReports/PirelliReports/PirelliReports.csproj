@@ -283,6 +283,8 @@
     <Content Include="Site.Master" />
     <Content Include="Site\FacturasPromoVisa.aspx" />
     <Content Include="Site\Mapa.aspx" />
+    <Content Include="Site\Promociones.aspx" />
+    <Content Include="Site\Usuario.aspx" />
     <Content Include="Templates\blank-page.html" />
     <Content Include="Templates\bootstrap-elements.html" />
     <Content Include="Templates\bootstrap-grid.html" />
@@ -566,6 +568,20 @@
     </Compile>
     <Compile Include="Site\Mapa.aspx.designer.cs">
       <DependentUpon>Mapa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\Promociones.aspx.cs">
+      <DependentUpon>Promociones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\Promociones.aspx.designer.cs">
+      <DependentUpon>Promociones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\Usuario.aspx.cs">
+      <DependentUpon>Usuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\Usuario.aspx.designer.cs">
+      <DependentUpon>Usuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="testmapa.aspx.cs">

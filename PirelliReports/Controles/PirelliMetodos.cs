@@ -9,7 +9,9 @@ using System.Data;
 using System.Drawing;
 using System.Data.SqlClient;
 using System.Configuration;
-
+using System.Collections;
+using Entidades;
+using Subgurim.Controles;
 namespace Controles
 {
     public class PirelliMetodos
@@ -33,6 +35,27 @@ namespace Controles
         public string ConvertmmddyyyyToyyyymmdd(string fecha)
         {
             return fecha.Substring(6, 4) + "/" + fecha.Substring(0, 2) + "/" + fecha.Substring(3, 2);
+        }
+
+        public void LlenarMapaConClientes(ArrayList clientes , GMap map)
+        {
+            GLatLng ubicacion;
+            GMarker marker;
+            string strMarker;
+            foreach (ZoCliente c in clientes)
+            {
+                ubicacion = new GLatLng(c.Latitud, c.Longitud);
+                //Pone la marca de gota de agua con el nombre de la ubicacion
+                marker = new GMarker(ubicacion);
+                strMarker = "<div style='width: 250px; height: 185px'><b>" +
+                                "<span style='color:#ff7e00'>es</span>ASP.NET</b><br>" +
+                                 " C/ C/ "+ c.RazSoc +" <br /> "+ c.DirSuc+" <br />" +
+                                 "</div>";
+                GInfoWindow window = new GInfoWindow(marker, strMarker, false);
+                map.Add(window);
+
+                            
+            }
         }
     }
 }

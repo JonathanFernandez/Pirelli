@@ -44,6 +44,15 @@ body {
     margin-top: 5%;
 }
 
+.margin-15{
+    margin-bottom: 15px;
+}
+
+.margin-header{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
 .background-black{
     background-color: rgba(0, 0, 0, 0.6);
 }
@@ -60,6 +69,20 @@ body {
 
 a{
     color: #ED1D23;
+}
+
+.form-inline .form-control.input-mini{
+    width:25%;
+}
+.form-inline .form-control.input-medium{
+    width:50%;
+}
+.form-inline .form-control.input-full{
+    width:100%;
+}
+
+.borde-separador{
+    border-right: 1px solid #C3C3C3;
 }
 
 /* Boostrap override*/
@@ -291,6 +314,10 @@ ul.alert-dropdown {
 
 .panel-yellow > a:hover {
     color: #df8a13;
+}
+
+.modal-full-width{
+    width: 75%;
 }
 
 /* Login */

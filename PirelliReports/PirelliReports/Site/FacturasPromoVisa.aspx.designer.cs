@@ -49,175 +49,166 @@ namespace PirelliReports.Site {
         protected global::Subgurim.Controles.GMap GMap1;
         
         /// <summary>
-        /// txtIP control.
+        /// txtFiltrosIP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIP;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosIP;
         
         /// <summary>
-        /// txtAgrup control.
+        /// txtFiltrosAgrup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAgrup;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosAgrup;
         
         /// <summary>
-        /// txtDescripcion control.
+        /// txtFiltrosDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosDescripcion;
         
         /// <summary>
-        /// txtCodCliente control.
+        /// txtFiltrosCodCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosCodCliente;
         
         /// <summary>
-        /// txtRazonSocial control.
+        /// txtFiltrosRazonSocial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRazonSocial;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosRazonSocial;
         
         /// <summary>
-        /// txtCodPromo control.
+        /// txtFiltrosCodPromo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodPromo;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosCodPromo;
         
         /// <summary>
-        /// txtCuotas control.
+        /// txtFiltrosCuotas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCuotas;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosCuotas;
         
         /// <summary>
-        /// ddlCantidadRegistros control.
+        /// ddlFiltrosCantidadRegistros control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCantidadRegistros;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFiltrosCantidadRegistros;
         
         /// <summary>
-        /// txtTicket control.
+        /// txtFiltrosTicket control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTicket;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosTicket;
         
         /// <summary>
-        /// txtFlag control.
+        /// txtFiltrosFlag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFlag;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosFlag;
         
         /// <summary>
-        /// txtDescuento control.
+        /// txtFiltrosDescuento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescuento;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosDescuento;
         
         /// <summary>
-        /// txtUsuarioAlta control.
+        /// txtFiltrosUsuarioAlta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsuarioAlta;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosUsuarioAlta;
         
         /// <summary>
-        /// txtNumeroFactura control.
+        /// txtFiltrosNumeroFactura control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumeroFactura;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosNumeroFactura;
         
         /// <summary>
-        /// ddlFamilia control.
+        /// ddlFiltrosFamilia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFamilia;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFiltrosFamilia;
         
         /// <summary>
-        /// dpDesde control.
+        /// dpFiltrosDesde control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dpDesde;
+        protected global::System.Web.UI.WebControls.TextBox dpFiltrosDesde;
         
         /// <summary>
-        /// dpHasta control.
+        /// dpFiltrosHasta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dpHasta;
+        protected global::System.Web.UI.WebControls.TextBox dpFiltrosHasta;
         
         /// <summary>
-        /// btnLimpiar control.
+        /// btnLFiltrosimpiar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnLimpiar;
+        protected global::System.Web.UI.WebControls.LinkButton btnLFiltrosimpiar;
         
         /// <summary>
-        /// btnBuscar control.
+        /// btnFiltrosBuscar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnBuscar;
-        
-        /// <summary>
-        /// GMap2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Subgurim.Controles.GMap GMap2;
+        protected global::System.Web.UI.WebControls.LinkButton btnFiltrosBuscar;
         
         /// <summary>
         /// gvListadosFacturasVisa control.
@@ -227,5 +218,77 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvListadosFacturasVisa;
+        
+        /// <summary>
+        /// DropDownList1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        
+        /// <summary>
+        /// txtEditCuota control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEditCuota;
+        
+        /// <summary>
+        /// DropDownList2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        
+        /// <summary>
+        /// DropDownList5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList5;
+        
+        /// <summary>
+        /// txtEditPrecio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEditPrecio;
+        
+        /// <summary>
+        /// DropDownList6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList6;
+        
+        /// <summary>
+        /// DropDownList3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        
+        /// <summary>
+        /// DropDownList4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
     }
 }

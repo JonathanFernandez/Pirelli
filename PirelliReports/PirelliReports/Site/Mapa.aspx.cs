@@ -11,7 +11,7 @@ namespace PirelliReports.Site
     public partial class Mapa : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {/*
             if (!Page.IsPostBack)
             {
                 GLatLng ubicacion = new GLatLng(40.381090863719436, -3.6222052574157715);
@@ -57,7 +57,7 @@ namespace PirelliReports.Site
 
                 //Moverse con el cursor del teclado
                 GMap1.enableGKeyboardHandler = true;
-            }
+            }*/
 
         }
     }
