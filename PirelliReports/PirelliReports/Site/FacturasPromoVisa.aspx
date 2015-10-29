@@ -229,7 +229,7 @@
                             </div>
                             <div class="modal-footer">
                                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
-                                <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-close"></i>Close</button>
+                                <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-close"></i>Cerrar</button>
                                 <asp:LinkButton runat="server" ID="btnLFiltrosimpiar" OnClientClick="btnFiltrosLimpiar_OnClientClick()" CssClass="btn btn-warning"><i class="fa fa-search"></i> Limpiar</asp:LinkButton>
                                 <asp:LinkButton runat="server" ID="btnFiltrosBuscar" OnClick="btnFiltrosBuscar_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
                             </div>
@@ -366,7 +366,7 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     <div class="input-group margin-15">
-                                        <input id="date-picker-1" type="text" class="date-picker form-control" placeholder="Fecha" />
+                                        <asp:TextBox runat="server" ID="dpEditarFecha" class="date-picker form-control" placeholder="Fecha"></asp:TextBox>
                                         <label for="date-picker-1" class="input-group-addon btn">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </label>
@@ -376,28 +376,27 @@
                                 <div class="col-lg-3">
                                     <div class="form-inline">
                                         <label>Tipo promo:</label>
-                                        <asp:DropDownList runat="server" ID="DropDownList1" CssClass="form-control" placeholder="Cantidad de Registros"></asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="ddlEditarTipoPromo" CssClass="form-control" placeholder="Promo"></asp:DropDownList>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-2">
                                     <div class="form-inline">
                                         <label>Cuotas: </label>
-                                        <%--<input type="text" class="form-control input-mini" id="txtEditPrecio" placeholder="1" />--%>
-                                        <asp:TextBox runat="server" class="form-control input-mini" id="txtEditCuota" placeholder="1"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control input-mini" id="txtEditCuota" placeholder="Cuotas"></asp:TextBox>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-2">
                                     <div class="form-inline">
                                         <label>Descuento: </label>
-                                        <asp:DropDownList runat="server" ID="DropDownList2" CssClass="form-control" placeholder="Cantidad de Registros"></asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="ddlDescuento" CssClass="form-control" placeholder="Descuento"></asp:DropDownList>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-2">
                                     <div class="form-inline">
-                                        <button class="btn btn-warning">Limpiar Campos</button>
+                                        <asp:LinkButton runat="server" ID="btnEditarLimpiarCampos" OnClientClick="btnEditarLimpiarCampos_OnClientClick()" CssClass="btn btn-warning"><i class="fa fa-search"></i> Limpiar</asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
@@ -411,34 +410,34 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Medida: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="Código" />
+                                                <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarMedida" placeholder="Medida"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
-                                            <asp:DropDownList runat="server" ID="DropDownList5" CssClass="form-control pull-right" placeholder="Medida"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="ddlEditarMedida" CssClass="form-control pull-right" placeholder="Medida"></asp:DropDownList>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Rango: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="1" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarRango" placeholder="Rango"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Diseño: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="1" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarDisenio" placeholder="Diseño"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Marca: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="1" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarMarca" placeholder="Marca"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -452,14 +451,13 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Cantidad: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="10" />
+                                               <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarCantidad" placeholder="Cantidad"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Precio: </label>
-                                            <%--<input type="text" class="form-control pull-right" id="" placeholder="$" />--%>
                                             <asp:TextBox runat="server" class="form-control pull-right" id="txtEditPrecio" placeholder="$"></asp:TextBox>
                                         </div>
                                     </div>
@@ -467,35 +465,35 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Nro Fac: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="1234" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarNumFactura" placeholder="Factura"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Nro Ticket: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="4321" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarticket" placeholder="Ticket"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Nro Autor: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="4321" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarAutor" placeholder="Autor"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Tarjeta: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="4321" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarTarjeta" placeholder="Tarjeta"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Nro Comp: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="4321" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarNumCompra" placeholder="Num Compra"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -508,20 +506,25 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Cliente: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="Código" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarCliente" placeholder="Cliente"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
-                                           <asp:DropDownList runat="server" ID="DropDownList6" CssClass="form-control pull-right" placeholder="Medida"></asp:DropDownList>
+                                           <asp:DropDownList runat="server" ID="ddlEditarCliente" CssClass="form-control pull-right" placeholder="Cliente"></asp:DropDownList>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Región: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="01" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarRegion" placeholder="Región"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-12 margin-15">
+                                        <div class="form-inline">
+                                           <asp:DropDownList runat="server" ID="ddlEditarRegion" CssClass="form-control pull-right" placeholder="Region"></asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
@@ -540,23 +543,18 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Nombre: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="Juan Jose" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarNombre" placeholder="Nombre"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Dirección: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="Habana 1234" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarDireccion" placeholder="Dirección"></asp:TextBox>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 margin-15">
-                                        <div class="form-inline">
-                                            <label>Vehículo: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="Gol 1.6" />
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <%-- /Primera Columna Neumaticos --%>
 
@@ -565,28 +563,28 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Provincia: </label>
-                                            <asp:DropDownList runat="server" ID="DropDownList3" CssClass="form-control pull-right" placeholder="Provincia"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="ddlProvincia" CssClass="form-control pull-right" placeholder="Provincia"></asp:DropDownList>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Teléfono: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="3456-3456" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarTelefono" placeholder="Telefono"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Nro: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="1" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarNumero" placeholder="Número"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Piso: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="1" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarPiso" placeholder="Piso"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -597,7 +595,8 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Ciudad: </label>
-                                            <asp:DropDownList runat="server" ID="DropDownList4" CssClass="form-control pull-right" placeholder="Provincia"></asp:DropDownList>
+                                            <%--<asp:DropDownList runat="server" ID="ddlEditarCiudad" CssClass="form-control pull-right" placeholder="Ciudad"></asp:DropDownList>--%>
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarCiudad" placeholder="Ciudad"></asp:TextBox>
                                         </div>
                                     </div>
 
@@ -611,7 +610,7 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Vehículo: </label>
-                                            <input type="text" class="form-control pull-right" id="" placeholder="Gol 1.6" />
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarVehiculo" placeholder="Vehículo"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -625,15 +624,15 @@
                                 <div class="col-lg-8">
                                     <div class="form-inline">
                                         <label>Nota: </label>
-                                        <textarea class="form-control input-full" rows="3" placeholder="Nota"></textarea>
+                                        <textarea class="form-control input-full" rows="3" id="txtEditarNota"placeholder="Nota"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4">
                                     <div class="form-inline">
                                         <br />
-                                        <button class="btn btn-success btn-block">Aceptar</button>
-                                        <button class="btn btn-danger btn-block">Cancelar</button>
+                                        <asp:LinkButton runat="server" ID="btnEditarAceptar" OnClick="btnEditarAceptar_Click" CssClass="btn btn-success btn-block">Aceptar</asp:LinkButton>
+                                        <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Cancelar</button>
                                     </div>
                                 </div>
 
