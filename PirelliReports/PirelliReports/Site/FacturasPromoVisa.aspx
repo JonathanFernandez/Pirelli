@@ -134,7 +134,7 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-lg-12" id="googleMaps">
-                                    <cc:GMap ID="GMap1" runat="server" />
+                                    <%--<cc:GMap ID="GMap1" runat="server" />--%>
                                     <br />
                                 </div>
 
@@ -419,7 +419,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-inline">
                                         <label>Tipo promo:</label>
-                                        <asp:DropDownList runat="server" ID="ddlEditarTipoPromo" CssClass="form-control" placeholder="Promo"></asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="ddlEditarTipoPromo" CssClass="form-control form-small" placeholder="Promo"></asp:DropDownList>
                                     </div>
                                 </div>
 
@@ -433,7 +433,7 @@
                                 <div class="col-lg-2">
                                     <div class="form-inline">
                                         <label>Descuento: </label>
-                                        <asp:DropDownList runat="server" ID="ddlDescuento" CssClass="form-control" placeholder="Descuento"></asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="ddlDescuento" CssClass="form-control form-medium" placeholder="Descuento"></asp:DropDownList>
                                     </div>
                                 </div>
 
@@ -454,7 +454,7 @@
                                         <div class="form-inline">
                                             <label>Medida: </label>
                                                 <%--<asp:TextBox runat="server" class="form-control pull-right" id="txtEditarMedida" placeholder="Medida"></asp:TextBox>--%>
-                                                <asp:DropDownList runat="server" ID="ddlEditarMedida" CssClass="form-control pull-right" placeholder="Medida"></asp:DropDownList>
+                                                <asp:DropDownList runat="server" ID="ddlEditarMedida" CssClass="form-control pull-right form-medium" placeholder="Medida"></asp:DropDownList>
                                         </div>
                                     </div>
 
@@ -551,7 +551,7 @@
                                         <div class="form-inline">
                                             <label>Cliente: </label>
                                             <%--<asp:TextBox runat="server" class="form-control pull-right" id="txtEditarCliente" placeholder="Cliente"></asp:TextBox>--%>
-                                            <asp:DropDownList runat="server" ID="ddlEditarCliente" CssClass="form-control pull-right" placeholder="Cliente"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="ddlEditarCliente" CssClass="form-control pull-right form-medium" placeholder="Cliente"></asp:DropDownList>
                                         </div>
                                     </div>
 
@@ -565,7 +565,7 @@
                                         <div class="form-inline">
                                             <label>Región: </label>
                                             <%--<asp:TextBox runat="server" class="form-control pull-right" id="txtEditarRegion" placeholder="Región"></asp:TextBox>--%>
-                                            <asp:DropDownList runat="server" ID="ddlEditarRegion" CssClass="form-control pull-right" placeholder="Region"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="ddlEditarRegion" CssClass="form-control pull-right form-medium" placeholder="Region"></asp:DropDownList>
                                         </div>
                                     </div>
                                      <%--<div class="col-lg-12 margin-15">

@@ -503,6 +503,14 @@ ul.alert-dropdown {
 .form-pirelli label, .form-pirelli p, .form-pirelli h2, .form-pirelli input{
     color: white;
 }
+
+.form-control.form-small{
+    max-width: 125px!important;
+}
+
+.form-control.form-medium{
+    max-width: 195px!important;
+}
 /* /Form */
 
 /* BTN Sticky*/

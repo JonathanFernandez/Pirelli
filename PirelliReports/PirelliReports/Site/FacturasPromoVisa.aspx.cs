@@ -41,7 +41,8 @@ namespace PirelliReports.Site
                 cargarMedidas(ddlEditarMedida);
                 cargarProvincia(ddlEditarProvincia);
                 cargarRegion(ddlEditarRegion);
-                //me centro en argentina
+                
+                /*//me centro en argentina
                 GLatLng ubicacion = new GLatLng(-13.533406, -88.4127875);//(-35.3139685, -65.104704);//(40.381090863719436, -3.6222052574157715);
                 GMap1.setCenter(ubicacion, 4);
 
@@ -64,6 +65,7 @@ namespace PirelliReports.Site
 
                 //Moverse con el cursor del teclado
                 GMap1.enableGKeyboardHandler = true;
+                 * */
             }
         }
 
@@ -86,7 +88,7 @@ namespace PirelliReports.Site
                     
                     clientes.Add(c);
                 }
-                pMetodos.LlenarMapaConClientes(clientes, GMap1);
+               // pMetodos.LlenarMapaConClientes(clientes, GMap1);
                 //LlenarMapaConClientes(clientes);
             }
             
