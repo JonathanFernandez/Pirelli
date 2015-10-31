@@ -71,7 +71,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="ZoCliente.cs" />
+    <Compile Include="Zoprodu.cs" />
+    <Compile Include="ZoProvincia.cs" />
     <Compile Include="ZoSolicitud.cs" />
+    <Compile Include="ZoTipoPromo.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

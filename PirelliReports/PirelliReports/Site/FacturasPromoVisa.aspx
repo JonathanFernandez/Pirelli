@@ -28,10 +28,37 @@
             document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosCodPromo").value = "";
             document.getElementById("PaginaCentral_ContentPlaceHolder_dpFiltrosDesde").value = "";
             document.getElementById("PaginaCentral_ContentPlaceHolder_dpFiltrosHasta").value = "";
-            openModal();
+            openModalFiltros();
             return false;
         }
-
+        function btnEditarLimpiarCampos_OnClientClick()
+        {
+            
+            document.getElementById("PaginaCentral_ContentPlaceHolder_dpEditarFecha").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditCuota").value = "0";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarMedida").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarRango").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarDisenio").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarMarca").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarCantidad").value = "1";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditPrecio").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarNumFactura").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarticket").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarAutor").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarTarjeta").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarNumCompra").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarNombre").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarDireccion").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarTelefono").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarNumero").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarPiso").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarNota").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarCiudad").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarCodigoPostal").value = "";
+            document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarVehiculo").value = "";
+            openModalEdit();
+            return False;
+        }
         function chkFechas_OnChange() {
             if (document.getElementById("PaginaCentral_ContentPlaceHolder_chkFechas").checked) {
                 document.getElementById("PaginaCentral_ContentPlaceHolder_dpFiltrosDesde").disabled = false;
@@ -45,7 +72,7 @@
 
 
 
-        function openModal() {
+        function openModalFiltros() {
             $('#modalFiltros').modal('show');
         }
 
@@ -372,6 +399,22 @@
                                         </label>
                                     </div>
                                 </div>
+                                 <script>
+
+                                     $(".date-picker").datepicker();
+
+                                     //var date = $('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
+
+                                     $(".date-picker").on("change", function () {
+
+                                         var id = $(this).attr("id");
+                                         var val = $("label[for='" + id + "']").text();
+                                         $("#msg").text(val + " changed");
+                                     });
+
+
+                                     $(".date-picker").css("z-index", "9999");
+                                        </script>
 
                                 <div class="col-lg-3">
                                     <div class="form-inline">
@@ -394,11 +437,11 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-2">
+                                <%--<div class="col-lg-2">
                                     <div class="form-inline">
                                         <asp:LinkButton runat="server" ID="btnEditarLimpiarCampos" OnClientClick="btnEditarLimpiarCampos_OnClientClick()" CssClass="btn btn-warning"><i class="fa fa-search"></i> Limpiar</asp:LinkButton>
                                     </div>
-                                </div>
+                                </div>--%>
                             </div>
                             <%-- Fin primera fila --%>
 
@@ -410,15 +453,16 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Medida: </label>
-                                                <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarMedida" placeholder="Medida"></asp:TextBox>
+                                                <%--<asp:TextBox runat="server" class="form-control pull-right" id="txtEditarMedida" placeholder="Medida"></asp:TextBox>--%>
+                                                <asp:DropDownList runat="server" ID="ddlEditarMedida" CssClass="form-control pull-right" placeholder="Medida"></asp:DropDownList>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 margin-15">
+                                   <%-- <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <asp:DropDownList runat="server" ID="ddlEditarMedida" CssClass="form-control pull-right" placeholder="Medida"></asp:DropDownList>
                                         </div>
-                                    </div>
+                                    </div>--%>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
@@ -506,27 +550,29 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Cliente: </label>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarCliente" placeholder="Cliente"></asp:TextBox>
+                                            <%--<asp:TextBox runat="server" class="form-control pull-right" id="txtEditarCliente" placeholder="Cliente"></asp:TextBox>--%>
+                                            <asp:DropDownList runat="server" ID="ddlEditarCliente" CssClass="form-control pull-right" placeholder="Cliente"></asp:DropDownList>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 margin-15">
+                                    <%--<div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                            <asp:DropDownList runat="server" ID="ddlEditarCliente" CssClass="form-control pull-right" placeholder="Cliente"></asp:DropDownList>
                                         </div>
-                                    </div>
+                                    </div>--%>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Región: </label>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarRegion" placeholder="Región"></asp:TextBox>
+                                            <%--<asp:TextBox runat="server" class="form-control pull-right" id="txtEditarRegion" placeholder="Región"></asp:TextBox>--%>
+                                            <asp:DropDownList runat="server" ID="ddlEditarRegion" CssClass="form-control pull-right" placeholder="Region"></asp:DropDownList>
                                         </div>
                                     </div>
-                                     <div class="col-lg-12 margin-15">
+                                     <%--<div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                            <asp:DropDownList runat="server" ID="ddlEditarRegion" CssClass="form-control pull-right" placeholder="Region"></asp:DropDownList>
                                         </div>
-                                    </div>
+                                    </div>--%>
                                 </div>
 
                                 <%-- /Tercera Columna Clientes --%>
@@ -563,7 +609,7 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Provincia: </label>
-                                            <asp:DropDownList runat="server" ID="ddlProvincia" CssClass="form-control pull-right" placeholder="Provincia"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="ddlEditarProvincia" CssClass="form-control pull-right" placeholder="Provincia"></asp:DropDownList>
                                         </div>
                                     </div>
 
@@ -603,7 +649,7 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Cod Postal: </label>
-                                            <input type="text" class="form-control input-medium pull-right" id="" placeholder="Habana 1234" />
+                                            <asp:TextBox runat="server" class="form-control input-medium pull-right" id="txtEditarCodigoPostal" placeholder="Codigo Postal"></asp:TextBox>
                                         </div>
                                     </div>
 
@@ -624,14 +670,15 @@
                                 <div class="col-lg-8">
                                     <div class="form-inline">
                                         <label>Nota: </label>
-                                        <textarea class="form-control input-full" rows="3" id="txtEditarNota"placeholder="Nota"></textarea>
+                                        <%--<textarea class="form-control input-full" rows="3" id="txtEditarNota"placeholder="Nota"></textarea>--%>
+                                        <asp:TextBox runat="server" TextMode="MultiLine" class="form-control input-full" rows="3" id="txtEditarNota" placeholder="Nota"></asp:TextBox>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4">
                                     <div class="form-inline">
                                         <br />
-                                        <asp:LinkButton runat="server" ID="btnEditarAceptar" OnClick="btnEditarAceptar_Click" CssClass="btn btn-success btn-block">Aceptar</asp:LinkButton>
+                                        <asp:LinkButton runat="server" ID="btnEditarAceptar" OnClientClick="btnEditarAceptar_OnClientClick()" CssClass="btn btn-success btn-block">Aceptar</asp:LinkButton>
                                         <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Cancelar</button>
                                     </div>
                                 </div>

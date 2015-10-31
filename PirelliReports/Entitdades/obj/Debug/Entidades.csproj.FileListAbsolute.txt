@@ -3,3 +3,4 @@ C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Entitdades\bin\Entidad
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Entitdades\bin\Entidades.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Entitdades\obj\Debug\Entidades.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Entitdades\obj\Debug\Entidades.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Entitdades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache

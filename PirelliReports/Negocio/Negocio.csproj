@@ -71,6 +71,8 @@
     <Compile Include="ConexionClientes.cs" />
     <Compile Include="ConexionFacturasPromo.cs" />
     <Compile Include="ConexionUsuario.cs" />
+    <Compile Include="ConexionZonas.cs" />
+    <Compile Include="ConexionZoProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -47,9 +47,9 @@ namespace Controles
                 ubicacion = new GLatLng(c.Latitud, c.Longitud);
                 //Pone la marca de gota de agua con el nombre de la ubicacion
                 marker = new GMarker(ubicacion);
-                strMarker = "<div style='width: 250px; height: 185px'><b>" +
-                                "<span style='color:#ff7e00'>es</span>ASP.NET</b><br>" +
-                                 " C/ C/ "+ c.RazSoc +" <br /> "+ c.DirSuc+" <br />" +
+                strMarker = "<div style='width: 150px; height: 85px'><b>" +
+                                "<span style='color:#ff7e00'></span></b><br>" +
+                                 " "+ c.RazSoc +" <br /> "+ c.DirSuc+" <br />" +
                                  "</div>";
                 GInfoWindow window = new GInfoWindow(marker, strMarker, false);
                 map.Add(window);

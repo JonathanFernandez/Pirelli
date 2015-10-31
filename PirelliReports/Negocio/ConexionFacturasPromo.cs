@@ -14,7 +14,7 @@ namespace Negocio
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();
             //DataTable dt = new DataTable();
-            ds = ado.ExecuteStoredProcedureDS("ST_SOLICITUDES");
+            ds = ado.ExecuteStoredProcedureDS("ST_SOLICITUDES2");
 
             return ds;
         }
@@ -23,7 +23,7 @@ namespace Negocio
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();
 
-            ds = ado.ExecuteStoredProcedureDS("ST_SOLICITUDES", parametros);
+            ds = ado.ExecuteStoredProcedureDS("ST_SOLICITUDES2", parametros);
 
             return ds;
         }
@@ -33,6 +33,26 @@ namespace Negocio
             DataSet ds = new DataSet();
 
             ds = ado.ExecuteStoredProcedureDS("SP_SELECT_FAMILIA");
+
+            return ds;
+        }
+
+        public DataSet ListadoDeTipoPromo()
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_TIPO_PROMO");
+
+            return ds;
+        }
+
+        public DataSet ListadoDeMedidas()
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_MEDIDAS_ACTIVAS");
 
             return ds;
         }

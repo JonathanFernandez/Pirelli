@@ -256,24 +256,6 @@ namespace PirelliReports.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlDescuento;
         
         /// <summary>
-        /// btnEditarLimpiarCampos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnEditarLimpiarCampos;
-        
-        /// <summary>
-        /// txtEditarMedida control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditarMedida;
-        
-        /// <summary>
         /// ddlEditarMedida control.
         /// </summary>
         /// <remarks>
@@ -373,15 +355,6 @@ namespace PirelliReports.Site {
         protected global::System.Web.UI.WebControls.TextBox txtEditarNumCompra;
         
         /// <summary>
-        /// txtEditarCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditarCliente;
-        
-        /// <summary>
         /// ddlEditarCliente control.
         /// </summary>
         /// <remarks>
@@ -389,15 +362,6 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEditarCliente;
-        
-        /// <summary>
-        /// txtEditarRegion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditarRegion;
         
         /// <summary>
         /// ddlEditarRegion control.
@@ -427,13 +391,13 @@ namespace PirelliReports.Site {
         protected global::System.Web.UI.WebControls.TextBox txtEditarDireccion;
         
         /// <summary>
-        /// ddlProvincia control.
+        /// ddlEditarProvincia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProvincia;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEditarProvincia;
         
         /// <summary>
         /// txtEditarTelefono control.
@@ -472,6 +436,15 @@ namespace PirelliReports.Site {
         protected global::System.Web.UI.WebControls.TextBox txtEditarCiudad;
         
         /// <summary>
+        /// txtEditarCodigoPostal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEditarCodigoPostal;
+        
+        /// <summary>
         /// txtEditarVehiculo control.
         /// </summary>
         /// <remarks>
@@ -479,6 +452,15 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEditarVehiculo;
+        
+        /// <summary>
+        /// txtEditarNota control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEditarNota;
         
         /// <summary>
         /// btnEditarAceptar control.

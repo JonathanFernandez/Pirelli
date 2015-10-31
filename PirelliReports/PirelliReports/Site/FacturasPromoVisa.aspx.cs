@@ -21,8 +21,10 @@ namespace PirelliReports.Site
     {
         ConexionFacturasPromo conFacturas = new ConexionFacturasPromo();
         ConexionClientes conClientes = new ConexionClientes();
+        ConexionZonas conZonas = new ConexionZonas();
+
         PirelliMetodos pMetodos = new PirelliMetodos();
-        ArrayList clientes = new ArrayList();
+        ArrayList clientesMap = new ArrayList();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -33,10 +35,14 @@ namespace PirelliReports.Site
 
 
                 cargarFamilia(ddlFiltrosFamilia);
+                cargarTipoPromo(ddlEditarTipoPromo);
                 cargarCantidadDeRegistros(ddlFiltrosCantidadRegistros);
-
+                cargarClientes(ddlEditarCliente);
+                cargarMedidas(ddlEditarMedida);
+                cargarProvincia(ddlEditarProvincia);
+                cargarRegion(ddlEditarRegion);
                 //me centro en argentina
-                GLatLng ubicacion = new GLatLng(-35.3139685, -65.104704);//(40.381090863719436, -3.6222052574157715);
+                GLatLng ubicacion = new GLatLng(-13.533406, -88.4127875);//(-35.3139685, -65.104704);//(40.381090863719436, -3.6222052574157715);
                 GMap1.setCenter(ubicacion, 4);
 
                 //Establecemos alto y ancho en px
@@ -49,7 +55,7 @@ namespace PirelliReports.Site
                 //GControl.preBuilt.MapTypeControl: permite elegir un tipo de mapa y otro.
                 GMap1.Add(new GControl(GControl.preBuilt.MapTypeControl));
 
-                cargarClientes(clientes);
+                cargarClientesEnMapa(clientesMap);
 
                 GMap1.enableHookMouseWheelToZoom = true;
 
@@ -61,7 +67,7 @@ namespace PirelliReports.Site
             }
         }
 
-        private void cargarClientes(ArrayList clientes)
+        private void cargarClientesEnMapa(ArrayList clientes)
         {
             clientes.Clear();
             DataSet ds = new DataSet();
@@ -138,7 +144,89 @@ namespace PirelliReports.Site
 
 
         }
+        private void cargarTipoPromo(DropDownList ddl)
+        {
+            DataSet ds = new DataSet();
+            ds = conFacturas.ListadoDeTipoPromo();
+            string mostrar;
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    mostrar = "(" + ds.Tables[0].Rows[i]["CodTipoPromo"].ToString() + ")" + ds.Tables[0].Rows[i]["DescTipoPromo"].ToString();
+                    ddl.Items.Add(new ListItem(mostrar, ds.Tables[0].Rows[i]["CodTipoPromo"].ToString()));
+                }
+            }
 
+
+        }
+        private void cargarProvincia(DropDownList ddl)
+        {
+            DataSet ds = new DataSet();
+            ds = conZonas.ListadoDeProvincias();
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    ddl.Items.Add(new ListItem(ds.Tables[0].Rows[i]["ZODESC"].ToString(), ds.Tables[0].Rows[i]["ZOCOD"].ToString()));
+                }
+            }
+
+
+        }
+        private void cargarRegion(DropDownList ddl)
+        {
+            DataSet ds = new DataSet();
+            ds = conZonas.ListadoDeRegion();
+            string mostrar;
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    mostrar = "(" + ds.Tables[0].Rows[i]["REG_COD"].ToString() + ")" + ds.Tables[0].Rows[i]["Descripcion"].ToString();
+                    ddl.Items.Add(new ListItem(mostrar, ds.Tables[0].Rows[i]["REG_COD"].ToString()));
+                }
+            }
+
+
+        }
+        private void cargarClientes(DropDownList ddl)
+        {
+            DataSet ds = new DataSet();
+            ds = conClientes.ListadoClientesActivos();
+            string mostrar;
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    mostrar = "(" + ds.Tables[0].Rows[i]["Cod"].ToString() + ") " + ds.Tables[0].Rows[i]["RazSoc"].ToString();
+                    ddl.Items.Add(new ListItem(mostrar, ds.Tables[0].Rows[i]["Cod"].ToString()));
+                }
+            }
+
+
+        }
+        private void cargarMedidas(DropDownList ddl)
+        {
+            DataSet ds = new DataSet();
+            ds = conFacturas.ListadoDeMedidas();
+            string mostrar;
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    mostrar = "(" + ds.Tables[0].Rows[i]["CODIGO"].ToString() + ") " + ds.Tables[0].Rows[i]["DESCRIPCION"].ToString()
+                        + " " + ds.Tables[0].Rows[i]["Rango"].ToString()
+                        + " " + ds.Tables[0].Rows[i]["Marca"].ToString()
+                        + " " + ds.Tables[0].Rows[i]["pais"].ToString()
+                        + " " + ds.Tables[0].Rows[i]["DISEÑO"].ToString();
+                    ddl.Items.Add(new ListItem(mostrar, ds.Tables[0].Rows[i]["CODIGO"].ToString()));
+                }
+            }
+
+
+        }
        
         //    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
        
@@ -202,10 +290,7 @@ namespace PirelliReports.Site
 
         }
 
-        protected void btnEditarAceptar_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         
     }

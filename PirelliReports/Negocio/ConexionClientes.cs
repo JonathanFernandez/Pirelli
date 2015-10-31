@@ -19,5 +19,23 @@ namespace Negocio
 
             return ds;
         }
+        public DataSet ListadoClientesActivos()
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_CLIENTES_ACTIVOS");
+
+            return ds;
+        }
+        public DataSet ListaodAlteraClientes()
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_ALTERA_CLIENTE");
+
+            return ds;
+        }
     }
 }

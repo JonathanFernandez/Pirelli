@@ -291,8 +291,14 @@
     <Content Include="Sql Scripts\dbo.MD_GRUPOS.Table.sql" />
     <Content Include="Sql Scripts\dbo.MD_PERMISOS.Table.sql" />
     <Content Include="Sql Scripts\dbo.MD_USUARIOS.Table.sql" />
+    <Content Include="Sql Scripts\dbo.SP_GEO_CLIENTES_SOLICITUDES.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_REESTABLECERCONTRASEÑA.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_CLIENTES_ACTIVOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_FAMILIA.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_MEDIDAS_ACTIVAS.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_PROVINCIAS.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_REGION.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_TIPO_PROMO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VerificarLogin.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VERIFICAR_MAIL_EXISTENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.ST_SOLICITUDES.StoredProcedure.sql" />
