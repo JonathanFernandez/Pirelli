@@ -285,23 +285,80 @@
     <Content Include="Site\Mapa.aspx" />
     <Content Include="Site\ModificarClienteIP.aspx" />
     <Content Include="Site\Promociones.aspx" />
+    <Content Include="Site\SincronizarClientes.aspx" />
+    <Content Include="Site\SincronizarNeumaticos.aspx" />
     <Content Include="Site\Usuario.aspx" />
+    <Content Include="Sql Scripts\dbo.00_SP_BUSCA_STRING_EN_SP_or_VIEW_byEJB.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_addtosourcecontrol.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_addtosourcecontrol_u.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_adduserobject.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_adduserobject_vcs.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_checkinobject.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_checkinobject_u.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_checkoutobject.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_checkoutobject_u.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_displayoaerror.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_displayoaerror_u.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_droppropertiesbyid.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_dropuserobjectbyid.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_generateansiname.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_getobjwithprop.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_getobjwithprop_u.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_getpropertiesbyid.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_getpropertiesbyid_u.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_getpropertiesbyid_vcs.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_getpropertiesbyid_vcs_u.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_isundersourcecontrol.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_isundersourcecontrol_u.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_removefromsourcecontrol.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_setpropertybyid.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_setpropertybyid_u.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_validateloginparams.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_validateloginparams_u.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_vcsenabled.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_verstamp006.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_whocheckedout.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.dt_whocheckedout_u.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.GRUPOS_PERMISOS.Table.sql" />
     <Content Include="Sql Scripts\dbo.GRUPOS_USUARIOS.Table.sql" />
     <Content Include="Sql Scripts\dbo.MD_GRUPOS.Table.sql" />
     <Content Include="Sql Scripts\dbo.MD_PERMISOS.Table.sql" />
     <Content Include="Sql Scripts\dbo.MD_USUARIOS.Table.sql" />
+    <Content Include="Sql Scripts\dbo.SP_ALTERA_CLIENTE_CODSOL.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_ALTERA_IP_CODSOL.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_ALTERA_PRECIO_CODSOL.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_ALTERA_STATUS_CODSOL.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_ESTRUCTURA_TABLA.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_GEO_CLIENTES_SOLICITUDES.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_PROCESA_ZoSolicitud_DatosExternos.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_REESTABLECERCONTRASEÑA.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_ALTERA_CLIENTE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_ALTERA_IP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_CLIENTES_ACTIVOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_FAMILIA.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_MEDIDAS_ACTIVAS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PROVINCIAS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_REGION.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_TIPO_PROMO.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_UPDATE_ALTERA_CLIENTE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_UPDATE_ALTERA_IP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VerificarLogin.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_VERIFICAR_CLIENTE_EXISTENTE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_VERIFICAR_IP_EXISTENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VERIFICAR_MAIL_EXISTENTE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.ST_ALTERAR_IP_CLIENTES.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.ST_PROMOCIONES_VIGENTES.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.ST_SOLICITUDES.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.ST_SOLICITUDES2.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.ST_SOLICITUDES_SAP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.ST_SOLICITUDES_SAP_DIA_PADRE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\PROD.IpXCliente.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\PROD.IpXRegion.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\PROD.SP_INSERT_UPDATE_ZOTIPOPROMOxIP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\PROD.SP_PRECIO_REGION_CLIENTE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\PROD.SP_UPDATE_ZOCLIEN1_FROM_EXCEL.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\PROD.ST_REPORT_IP_CLIE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\PROD.ST_REPORT_SOLICITUDES.StoredProcedure.sql" />
     <Content Include="Templates\blank-page.html" />
     <Content Include="Templates\bootstrap-elements.html" />
     <Content Include="Templates\bootstrap-grid.html" />
@@ -599,6 +656,20 @@
     </Compile>
     <Compile Include="Site\Promociones.aspx.designer.cs">
       <DependentUpon>Promociones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\SincronizarClientes.aspx.cs">
+      <DependentUpon>SincronizarClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\SincronizarClientes.aspx.designer.cs">
+      <DependentUpon>SincronizarClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\SincronizarNeumaticos.aspx.cs">
+      <DependentUpon>SincronizarNeumaticos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\SincronizarNeumaticos.aspx.designer.cs">
+      <DependentUpon>SincronizarNeumaticos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\Usuario.aspx.cs">
       <DependentUpon>Usuario.aspx</DependentUpon>

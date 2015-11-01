@@ -28,7 +28,7 @@ namespace Negocio
 
             return ds;
         }
-        public DataSet ListaodAlteraClientes()
+        public DataSet ListadoAlteraClientes()
         {
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();
@@ -36,6 +36,35 @@ namespace Negocio
             ds = ado.ExecuteStoredProcedureDS("SP_SELECT_ALTERA_CLIENTE");
 
             return ds;
+        }
+
+        public bool VerificarClienteExistente(string codigo)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(codigo);
+
+            ds = ado.ExecuteStoredProcedureDS("SP_VERIFICAR_CLIENTE_EXISTENTE",parametros);
+
+            if (ds.Tables[0].Rows.Count > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool ModificarAlteraCliente(string codigo, string codigoNuevo, string usuario)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(codigo);
+            parametros.Add(codigoNuevo);
+            parametros.Add(usuario);
+           
+            ds = ado.ExecuteStoredProcedureDS("SP_UPDATE_ALTERA_CLIENTE", parametros);
+
+            return true;
         }
     }
 }

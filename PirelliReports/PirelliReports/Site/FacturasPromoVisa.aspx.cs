@@ -17,7 +17,7 @@ using System.Configuration;
 
 namespace PirelliReports.Site
 {
-    public partial class FacturasPromoVisa : System.Web.UI.Page
+    public partial class FacturasPromoVisa : PirelliMaster
     {
         ConexionFacturasPromo conFacturas = new ConexionFacturasPromo();
         ConexionClientes conClientes = new ConexionClientes();

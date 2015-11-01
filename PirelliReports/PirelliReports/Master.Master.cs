@@ -12,11 +12,12 @@ namespace PirelliReports
 {
     public partial class Master : System.Web.UI.MasterPage
     {
+        public Usuario userLog = new Usuario(); 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario user = ((Usuario)Session["Usuario"]);
+            userLog  = ((Usuario)Session["Usuario"]);
 
-            lblUsuario.Text = user.Usu_desc;
+            lblUsuario.Text = userLog.Usu_desc;
             
             LoadScripts();
 

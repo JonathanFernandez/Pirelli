@@ -94,16 +94,18 @@
                     </li>
                  
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Sincronizacíon <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-refresh"></i> Sincronizacíon <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="#"> Facturas</a>
+                                <a href="#"><i class="fa fa-fw fa-file"></i> Facturas</a>
                             </li>
                             <li>
-                                <a href="#"> Clientes</a>
+                               <asp:HyperLink runat="server" NavigateUrl="~/Site/SincronizarClientes.aspx"><i class="fa fa-fw fa-user"></i> Clientes </asp:HyperLink>
+                                <%--<a href="#"> Clientes</a>--%>
                             </li>
                             <li>
-                                <a href="#"> Neumaticos</a>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/SincronizarNeumaticos.aspx"><i class="fa fa-fw fa-user"></i> Neumaticos </asp:HyperLink>
+                                <%--<a href="#"> Neumaticos</a>--%>
                             </li>
                         </ul>
                     </li>

@@ -71,6 +71,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PirelliMaster.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="PirelliMetodos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -61,7 +61,7 @@ namespace PirelliReports
                 user = connUsuario.CargarUsuario(login_username.Text, login_password.Text);
                 
                 Session["Usuario"] = user;
-                Response.Redirect("~/Index.aspx");
+                Response.Redirect("~/Index.aspx",false);
                 
             }
 

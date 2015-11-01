@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Subgurim.Controles;
+using Controles;
 
 namespace PirelliReports.Site
 {
-    public partial class Mapa : System.Web.UI.Page
+    public partial class Mapa : PirelliMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {/*
