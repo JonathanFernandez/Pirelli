@@ -57,7 +57,7 @@
             document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarCodigoPostal").value = "";
             document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarVehiculo").value = "";
             openModalEdit();
-            return False;
+            return false;
         }
         function chkFechas_OnChange() {
             if (document.getElementById("PaginaCentral_ContentPlaceHolder_chkFechas").checked) {

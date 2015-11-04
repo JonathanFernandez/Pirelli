@@ -73,6 +73,7 @@
     <Compile Include="ConexionUsuario.cs" />
     <Compile Include="ConexionZonas.cs" />
     <Compile Include="ConexionZoProduct.cs" />
+    <Compile Include="ConexionZoTipoPromo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
