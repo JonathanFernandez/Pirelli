@@ -6,6 +6,27 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script>
+        
+            //$(".only-float").on("input", function () {
+            //    this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+        //})
+        $(document).ready(function () {
+            $('.only-float').keypress(function (eve) {
+                if ((eve.which != 46 || $(this).val().indexOf('.') != -1) && (eve.which < 48 || eve.which > 57) || (eve.which == 46 && $(this).caret().start == 0)) {
+                    eve.preventDefault();
+                }
+
+                // this part is when left part of number is deleted and leaves a . in the leftmost position. For example, 33.25, then 33 is deleted
+                $('.only-float').keyup(function (eve) {
+                    if ($(this).val().indexOf('.') == 0) {
+                        $(this).val($(this).val().substring(1));
+                    }
+                });
+            });
+        });
+            
+
+     
         function btnGuardarOnClientClick() {
             //document.getElementById("codigoPromo").value = document.getElementById('PaginaCentral_ContentPlaceHolder_ddlPromociones').value;
             //document.getElementById('PaginaCentral_ContentPlaceHolder_ddlPromociones').disabled = false;
@@ -71,7 +92,9 @@
                             </li>
                     </ol>
                 </div>
+            </div>
 
+            <div class="row">
                 <div class="col-lg-12 margin-15">
                     <asp:LinkButton runat="server" OnClientClick="btnAltaOnClientClick();return false;" ID="btnAlta" CssClass="btn btn-warning"><i class="fa fa-plus"></i> Alta</asp:LinkButton>
                     <%--<button class="btn btn-warning"><i class="fa fa-plus"></i>Alta</button>--%>
@@ -80,24 +103,26 @@
                     <asp:LinkButton runat="server" ID="btnEdit" OnClientClick="btnEditOnClientClick();" CssClass="btn btn-warning"><i class="fa fa-edit"></i> Modificación</asp:LinkButton>
                     <%--<button class="btn btn-warning pull-right disabled"><i class="fa fa-trash"></i>Baja Ĺógica</button>--%>
                 </div>
+            </div>
 
-                <br />
+            <div class="row">
                 <div class="col-lg-4">
                     <label>Promoción:</label>
                     <asp:DropDownList runat="server" ID="ddlPromociones" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlPromociones_SelectedIndexChanged"></asp:DropDownList>
                     <br />
                 </div>
 
-                <div class="col-lg-12">
-                    <div class="form-inline">
+                <div class="col-lg-4">
                         <label>Nombre de promoción:</label>
                         <asp:TextBox runat="server" class="form-control" id="txtDescTipoPromo" placeholder="Promoción" ></asp:TextBox>
-                    
+                </div>
+                <div class="col-lg-4">    
                         <label>Baja Lógica: </label>
                         <asp:CheckBox runat="server" ID="chkBajaLogica" />
-                    </div>
                 </div>
+            </div>
 
+            <div class="row">
                 <div class="col-lg-4">
                     <label>Rango de fechas</label>
                     <div class="control-group">
@@ -142,74 +167,75 @@
 
                     <div class="col-lg-12">
 
-                        <div class="form-group margin-15">
+                        <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Domingo</label>
-                            <div class="col-sm-8">
                                 <asp:TextBox runat="server" class="form-control" TextMode="Number" id="txtDomingo" placeholder="0" ></asp:TextBox>
-                            </div>
                         </div>
 
-                        <div class="form-group margin-15">
+                        <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Lunes</label>
-                            <div class="col-sm-8">
-                                <asp:TextBox runat="server" class="form-control" id="txtLunes" placeholder="0" ></asp:TextBox>
-                            </div>
+                                <asp:TextBox runat="server" class="form-control" id="txtLunes" placeholder="0" TextMode="Number" ></asp:TextBox>
                         </div>
 
-
-                        <div class="form-group">
+                        <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Martes</label>
-                            <div class="col-sm-8">
-                                <asp:TextBox runat="server" class="form-control" id="txtMartes" placeholder="0" ></asp:TextBox>
-                            </div>
+                                <asp:TextBox runat="server" class="form-control" id="txtMartes" placeholder="0" TextMode="Number"></asp:TextBox>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Miércoles</label>
-                            <div class="col-sm-8">
-                                <asp:TextBox runat="server" class="form-control" id="txtMiercoles" placeholder="0" ></asp:TextBox>
-                            </div>
+                                <asp:TextBox runat="server" class="form-control" id="txtMiercoles" placeholder="0" TextMode="Number"></asp:TextBox>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Jueves</label>
-                            <div class="col-sm-8">
-                                <asp:TextBox runat="server" class="form-control" id="txtJueves" placeholder="0" ></asp:TextBox>
-                            </div>
+                                <asp:TextBox runat="server" class="form-control" id="txtJueves" placeholder="0" TextMode="Number"></asp:TextBox>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Viernes</label>
-                            <div class="col-sm-8">
-                                <asp:TextBox runat="server" class="form-control" id="txtViernes" placeholder="0" ></asp:TextBox>
-                            </div>
+                                <asp:TextBox runat="server" class="form-control" id="txtViernes" placeholder="0" TextMode="Number" ></asp:TextBox>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Sábado</label>
-                            <div class="col-sm-8">
                                 <asp:TextBox runat="server" class="form-control" id="txtSabado" placeholder="0" ></asp:TextBox>
-                            </div>
-
                         </div>
                     </div>
             </div>
             <div class="col-lg-4">
                 <label>Descuentos</label>
-
-                <div class="col-lg-12">
-                    <div class="form-group">
-                        <asp:TextBox runat="server" class="form-control" id="txtDescu1" placeholder="%" ></asp:TextBox>
-                        <asp:TextBox runat="server" class="form-control" id="txtDescu2" placeholder="%" ></asp:TextBox>
-                        <asp:TextBox runat="server" class="form-control" id="txtDescu3" placeholder="%" ></asp:TextBox>
-                        <asp:TextBox runat="server" class="form-control" id="txtDescu4" placeholder="%" ></asp:TextBox>
-                        <asp:TextBox runat="server" class="form-control" id="txtDescu5" placeholder="%" ></asp:TextBox>
-                        <asp:TextBox runat="server" class="form-control" id="txtDescu6" placeholder="%" ></asp:TextBox>
-                        <asp:TextBox runat="server" class="form-control" id="txtDescu7" placeholder="%" ></asp:TextBox>
-                        <asp:LinkButton runat="server" ID="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="btnGuardarOnClientClick();" CssClass="btn btn-warning"><i class="fa fa-edit"></i> Guardar</asp:LinkButton>
+                    <div class="form-group margin-15">
+                        <asp:TextBox runat="server" class="form-control only-float" id="txtDescu1" placeholder="%" ></asp:TextBox>
                     </div>
-                </div>
+
+                    <div class="form-group margin-15">
+                        <asp:TextBox runat="server" class="form-control only-float" id="txtDescu2" placeholder="%" ></asp:TextBox>
+                    </div>
+
+                    <div class="form-group margin-15">
+                        <asp:TextBox runat="server" class="form-control only-float" id="txtDescu3" placeholder="%" ></asp:TextBox>
+                    </div>
+
+                    <div class="form-group margin-15">
+                        <asp:TextBox runat="server" class="form-control only-float" id="txtDescu4" placeholder="%" ></asp:TextBox>
+                    </div>
+
+                    <div class="form-group margin-15">
+                        <asp:TextBox runat="server" class="form-control only-float" id="txtDescu5" placeholder="%" ></asp:TextBox>
+                    </div>
+
+                    <div class="form-group margin-15">
+                        <asp:TextBox runat="server" class="form-control only-float" id="txtDescu6" placeholder="%" ></asp:TextBox>
+                    </div>
+
+                    <div class="form-group margin-15">
+                        <asp:TextBox runat="server" class="form-control only-float" id="txtDescu7" placeholder="%"  ></asp:TextBox>
+                    </div>
+
+                        <asp:LinkButton runat="server" ID="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="btnGuardarOnClientClick();" CssClass="btn btn-warning pull-right"><i class="fa fa-edit"></i> Guardar</asp:LinkButton>
             </div>
+
          
         </div>
     <!-- /.row -->

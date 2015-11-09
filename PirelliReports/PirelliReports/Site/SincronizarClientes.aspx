@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <h2><asp:Label runat="server" ID="lblMensage"></asp:Label> </h2>
+                                        <h4><asp:Label runat="server" ID="lblMensage"></asp:Label> </h4>
                                     </div>
 
                                 </div>

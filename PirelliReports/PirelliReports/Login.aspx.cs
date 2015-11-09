@@ -56,10 +56,11 @@ namespace PirelliReports
             {
                 lblPassIncorrecta.Visible = false;
 
-                FormsAuthentication.SetAuthCookie(login_username.Text, false);
+                //FormsAuthentication.SetAuthCookie(login_username.Text, false);
 
                 user = connUsuario.CargarUsuario(login_username.Text, login_password.Text);
-                
+
+                FormsAuthentication.SetAuthCookie(user.Usu_id, false);
                 Session["Usuario"] = user;
                 Response.Redirect("~/Index.aspx",false);
                 

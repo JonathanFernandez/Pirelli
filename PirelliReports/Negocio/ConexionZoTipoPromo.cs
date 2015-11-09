@@ -80,5 +80,34 @@ namespace Negocio
 
             return true;
         }
+        public bool InsertarPromoVisa(ZoTipoPromo promo)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            ArrayList parametros = new ArrayList();
+
+            parametros.Add(promo.DescTipoPromo);
+            parametros.Add(promo.FecDesde);
+            parametros.Add(promo.FecHasta);
+            parametros.Add(promo.Descu1);
+            parametros.Add(promo.Descu2);
+            parametros.Add(promo.Descu3);
+            parametros.Add(promo.Descu4);
+            parametros.Add(promo.Descu5);
+            parametros.Add(promo.Descu6);
+            parametros.Add(promo.Descu7);
+            parametros.Add(promo.Cuota1);
+            parametros.Add(promo.Cuota2);
+            parametros.Add(promo.Cuota3);
+            parametros.Add(promo.Cuota4);
+            parametros.Add(promo.Cuota5);
+            parametros.Add(promo.Cuota6);
+            parametros.Add(promo.Cuota7);
+            parametros.Add(promo.FlgBajaLogica);
+
+            ado.ExecuteNonStoredProcedure("SP_INSERTAR_ZOPROMO", parametros);
+
+            return true;
+        }
     }
 }

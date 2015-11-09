@@ -39,6 +39,7 @@ namespace Controles
 
         public void LlenarMapaConClientes(ArrayList clientes , GMap map)
         {
+            
             GLatLng ubicacion;
             GMarker marker;
             string strMarker;

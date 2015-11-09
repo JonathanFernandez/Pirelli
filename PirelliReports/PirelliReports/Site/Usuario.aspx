@@ -5,6 +5,36 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
+    <script>
+        function openModal() {
+            $('#modalMensaje').modal('show');
+        }
+
+        function btnAceptar_OnClientClick()
+        {
+            if (document.getElementById("PaginaCentral_ContentPlaceHolder_txtPassAnterior").value.length < 1) {
+                document.getElementById("PaginaCentral_ContentPlaceHolder_lblMensaje").innerHTML = "Complete la contraseña";
+                openModal();
+                return false;
+            }
+            if (document.getElementById("PaginaCentral_ContentPlaceHolder_txtClaveNueva").value.length < 1 && document.getElementById("PaginaCentral_ContentPlaceHolder_txtClaveNueva").value.length < 1)
+            {
+                document.getElementById("PaginaCentral_ContentPlaceHolder_lblMensaje").innerHTML = "Ambas claves estan vacias";
+                openModal();
+                return false;
+            }
+            if (document.getElementById("PaginaCentral_ContentPlaceHolder_txtClaveNueva").value != document.getElementById("PaginaCentral_ContentPlaceHolder_txtReingresarClave").value) {
+                document.getElementById("PaginaCentral_ContentPlaceHolder_lblMensaje").innerHTML = "Ambas claves deben ser iguales";
+                openModal();
+                return false;
+            }
+        }
+        function btnCancelar_OnClientClick()
+        {
+            window.locationf = "../Index.aspx";
+            return false;
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div class="container-fluid form-pirelli">
@@ -27,38 +57,76 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-inline margin-15">
-                    <label>Piso: </label>
-                    <input type="text" class="form-control pull-right" id="" placeholder="1" />
+                    <label>Usuario: </label>
+                    <asp:TextBox runat="server" class="form-control pull-right" id="txtUsuId" placeholder="" Enabled="false"></asp:TextBox>
                 </div>
 
                 <div class="form-inline margin-15">
-                    <label>Piso: </label>
-                    <input type="text" class="form-control pull-right" id="" placeholder="1" />
+                    <label>Legajo: </label>
+                    <asp:TextBox runat="server" class="form-control pull-right"  id="txtLegajo" placeholder="" Enabled="False"> </asp:TextBox>
                 </div>
 
                 <div class="form-inline">
-                    <label>Piso: </label>
-                    <input type="text" class="form-control pull-right" id="" placeholder="1" />
+                    <label>Descripción: </label>
+                    <asp:TextBox runat="server" class="form-control pull-right" id="txtUsuDesc" placeholder="" Enabled="false"></asp:TextBox>
                 </div>
             </div>
 
             <div class="col-lg-6">
                 <div class="form-inline margin-15">
-                    <label>Piso: </label>
-                    <input type="text" class="form-control pull-right" id="" placeholder="1" />
+                    <label>Estado: </label>
+                    <asp:CheckBox runat="server" ID="chkActivo"/><asp:Label runat="server" ID="lblEstado" disable="true"></asp:Label>
+                </div>
+                
+                <div class="form-inline margin-15">
+                    <label>E-Mail: </label>
+                    <asp:TextBox runat="server" class="form-control pull-right" id="txtMail" Enabled="false"></asp:TextBox>
                 </div>
 
                 <div class="form-inline margin-15">
-                    <label>Piso: </label>
-                    <input type="text" class="form-control pull-right" id="" placeholder="1" />
+                    <label>Clave Anterior: </label>
+                    <asp:TextBox runat="server" class="form-control pull-right" id="txtPassAnterior" MaxLength="20" TextMode="Password" ></asp:TextBox>
+                    <%--<asp:RequiredFieldValidator ID="txtPassAnteriorRequired" ControlToValidate="txtPassAnterior" runat="server" ErrorMessage="Complete Campo"></asp:RequiredFieldValidator>--%>
                 </div>
+                <div class="form-inline margin-15">
+                    <label>Clave Nueva: </label>
+                    <asp:TextBox runat="server" class="form-control pull-right" id="txtClaveNueva"  MaxLength="20" TextMode="Password" ></asp:TextBox>
+                    <%--<asp:RequiredFieldValidator ID="txtClaveNuevaRequired" ControlToValidate="txtClaveNueva" runat="server" ErrorMessage="Complete Campo"></asp:RequiredFieldValidator>--%>
+                </div>
+                <div class="form-inline margin-15">
+                    <label>Reingrese Clave Nueva: </label>
+                    <asp:TextBox runat="server" class="form-control pull-right" id="txtReingresarClave"  MaxLength="20" TextMode="Password" ></asp:TextBox>
+                    <%--<asp:RequiredFieldValidator ID="txtReingresarClaveRequired" ControlToValidate="txtReingresarClave" runat="server" ErrorMessage="Complete Campo"></asp:RequiredFieldValidator>--%>
+                    <%--<asp:CompareValidator ID="txtReingresarCompare" ControlToValidate="txtReingresarClave" ControlToCompare="txtClaveNueva" runat="server" ErrorMessage="Ambas claves deben ser iguales"></asp:CompareValidator>--%>
+                </div>
+                
 
                 <div class="form-inline pull-right">
-                    <button class="btn btn-success">Aceptar</button>
-                    <button class="btn btn-danger">Cancelar</button>
+                    <asp:Button runat="server" class="btn btn-success" OnClientClick="return btnAceptar_OnClientClick(); "  OnClick="btnAceptar_Click" Text="Aceptar"  ID="btnAceptar" />
+                    <asp:Button runat="server" class="btn btn-danger" Text="Cancelar" ID="btnCancelar" OnClientClick="return btnCancelar_OnClientClick();"/>
+                    
                 </div>
             </div>
         </div>
-        <!-- Page Heading /.row -->
-    </div>
+     </div>
+      <!-- Page Heading /.row -->
+              <%-- MODAL mensaje --%>
+                    <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="page-header modal-title" id="mymodalMensaje">Mensaje
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <h4><asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label> </h4>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+      <%-- Fin modal Sincronización --%>
 </asp:Content>

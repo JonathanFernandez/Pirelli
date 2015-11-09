@@ -32,11 +32,36 @@
                 </div>
 
                 <div class="col-lg-12 margin-15">
-                    <button class="btn btn-warning"><i class="fa fa-refresh"></i> Sincronizar</button>
+                    <%--<button class="btn btn-warning" onclick="#"><i class="fa fa-refresh"></i> Sincronizar</button>--%>
+                    <asp:LinkButton runat="server" ID="btnCargar" OnClick="btnCargar_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Cargar</asp:LinkButton> 
+                    <asp:LinkButton runat="server" ID="btnSincronizar" OnClick="btnSincronizar_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Sincronizar</asp:LinkButton>
                 </div>
                 <br />
-
-              
+                <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">
+                <asp:GridView ID="gvListadoNeumaticos" class="table table-responsive table-bordered table-hover table-striped table-condensed" AutoGenerateColumns="false" runat="server">
+                    <Columns>
+                        <asp:BoundField HeaderText="IP" DataField="IP" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="Descripcion" DataField="Descrip" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="Pais" DataField="pais" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="Otro" DataField="otro" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="Familia" DataField="Familia" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="Marca" DataField="Marca" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="Rango" DataField="Rango" />
+                    </Columns>
+                </asp:GridView>
+                </div>
         </div>
     <!-- /.row -->
 
@@ -54,14 +79,14 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <h2><asp:Label runat="server" ID="lblMensage"></asp:Label> </h2>
+                                        <h4><asp:Label runat="server" ID="lblMensage"></asp:Label> </h4>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
                     </div>
-                <%-- Fin modal Sincronización --%>
+      <%-- Fin modal Sincronización --%>
     </div>
        
     <!-- /#page-wrapper -->

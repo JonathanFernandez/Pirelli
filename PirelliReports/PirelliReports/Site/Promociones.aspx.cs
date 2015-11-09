@@ -143,13 +143,15 @@ namespace PirelliReports.Site
                 p.Cuota5 = Convert.ToInt32(txtJueves.Text);
                 p.Cuota6 = Convert.ToInt32(txtViernes.Text);
                 p.Cuota7 = Convert.ToInt32(txtSabado.Text);
-                p.Descu1 = Convert.ToInt32(txtDescu1.Text);
-                p.Descu2 = Convert.ToInt32(txtDescu2.Text);
-                p.Descu3 = Convert.ToInt32(txtDescu3.Text);
-                p.Descu4 = Convert.ToInt32(txtDescu4.Text);
-                p.Descu5 = Convert.ToInt32(txtDescu5.Text);
-                p.Descu6 = Convert.ToInt32(txtDescu6.Text);
-                p.Descu7 = Convert.ToInt32(txtDescu7.Text);
+                p.Descu1 = Convert.ToDouble(txtDescu1.Text);
+                p.Descu2 = Convert.ToDouble(txtDescu2.Text);
+                p.Descu3 = Convert.ToDouble(txtDescu3.Text);
+                p.Descu4 = Convert.ToDouble(txtDescu4.Text);
+                p.Descu5 = Convert.ToDouble(txtDescu5.Text);
+                p.Descu6 = Convert.ToDouble(txtDescu6.Text);
+                p.Descu7 = Convert.ToDouble(txtDescu7.Text);
+
+                conZoTipoPromo.InsertarPromoVisa(p);
             }
         }
         

@@ -28,6 +28,24 @@ namespace Negocio
 
             return ds;
         }
+        public DataSet ListadoClientes()
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_ZOCLIENTE");
+
+            return ds;
+        }
+        public DataSet ListadoClientes(ArrayList parametros)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_ZOCLIENTE",parametros);
+
+            return ds;
+        }
         public DataSet ListadoAlteraClientes()
         {
             AdoConn ado = new AdoConn();

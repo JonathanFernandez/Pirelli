@@ -43,6 +43,7 @@ namespace Negocio
             user.Usu_desc = ds.Tables[0].Rows[0]["USU_DESC"].ToString();
             user.Usu_id = ds.Tables[0].Rows[0]["USU_ID"].ToString();
             user.Activo = Convert.ToInt32(ds.Tables[0].Rows[0]["ACTIVO"]);
+            user.Pass = ds.Tables[0].Rows[0]["PASS"].ToString();
 
             return user;
 
@@ -138,5 +139,19 @@ namespace Negocio
                 return false;
             }
         }
+
+        public bool CambiarClave(string claveNueva, Usuario usuario)
+        {
+            AdoConn ado = new AdoConn();
+            ArrayList parametros = new ArrayList();
+            DataSet ds = new DataSet();
+            parametros.Add(claveNueva);
+            parametros.Add(usuario.Usu_id);
+
+            ds = ado.ExecuteStoredProcedureDS("SP_MODIFICAR_CLAVE", parametros);
+
+            return true;
+        }
+
     }
 }

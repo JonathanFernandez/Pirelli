@@ -6,6 +6,7 @@ C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Asp
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\AspNet.ScriptManager.jQuery.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Controles.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\DBLayer.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Entidades.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\EntityFramework.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\EntityFramework.SqlServer.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Microsoft.AspNet.FriendlyUrls.dll
@@ -33,6 +34,7 @@ C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Sys
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\WebGrease.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Controles.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\DBLayer.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Entidades.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Negocio.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\System.Web.Optimization.xml
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Antlr3.Runtime.pdb
@@ -70,5 +72,3 @@ C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\es\
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.csprojResolveAssemblyReference.cache
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.pdb
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Entidades.dll
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Entidades.pdb
