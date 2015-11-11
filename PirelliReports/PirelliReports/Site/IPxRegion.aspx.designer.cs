@@ -13,21 +13,48 @@ namespace PirelliReports.Site {
     public partial class IPxRegion {
         
         /// <summary>
-        /// dpFiltrosDesde control.
+        /// dpDesde control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dpFiltrosDesde;
+        protected global::System.Web.UI.WebControls.TextBox dpDesde;
         
         /// <summary>
-        /// dpFiltrosHasta control.
+        /// dpHasta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dpFiltrosHasta;
+        protected global::System.Web.UI.WebControls.TextBox dpHasta;
+        
+        /// <summary>
+        /// txtIP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIP;
+        
+        /// <summary>
+        /// chklistFiltro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList chklistFiltro;
+        
+        /// <summary>
+        /// btnAceptar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAceptar;
     }
 }

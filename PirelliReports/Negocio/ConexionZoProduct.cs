@@ -5,6 +5,7 @@ using System.Web;
 using DBLayer;
 using System.Data;
 using System.Collections;
+using System.Web.UI.WebControls;
 
 namespace Negocio
 {
@@ -48,5 +49,50 @@ namespace Negocio
             return true;
         }
 
+        public DataSet ListadoZoProduct()
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_ZOPRODU");
+
+            return ds;
+        }
+        public void cargarFamilia(DropDownList ddl)
+        {
+            DataSet ds = new DataSet();
+            ds = ListadoFamilia();
+
+            ddl.Items.Add(new ListItem("", "%"));
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    ddl.Items.Add(new ListItem(ds.Tables[0].Rows[i]["FAMILIA"].ToString(), ds.Tables[0].Rows[i]["CODFAMILIA"].ToString()));
+                }
+            }
+
+
+        }
+        public DataSet ListadoFamilia()
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_FAMILIA");
+
+            return ds;
+        }
+
+        public object ListadoZoProduct(ArrayList parametros)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_ZOPRODU",parametros);
+
+            return ds;
+        }
     }
 }

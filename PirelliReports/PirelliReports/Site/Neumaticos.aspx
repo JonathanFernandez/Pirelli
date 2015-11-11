@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Neumaticos.aspx.cs" Inherits="PirelliReports.Site.Neumaticos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Neumaticos.aspx.cs" Inherits="PirelliReports.Site.Neumaticos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
@@ -42,7 +42,7 @@
                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
                 <asp:LinkButton runat="server" ID="btnOpenModal" OnClientClick="return false;" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</asp:LinkButton>
 
-                <asp:LinkButton runat="server" ID="btnExportar" class="btn btn-warning"><i class="fa fa-search"></i> Envio A Excel</asp:LinkButton>
+                <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-search"></i> Envio A Excel</asp:LinkButton>
             </div>
 
             <%-- MODAL filtros --%>
@@ -60,32 +60,32 @@
                                     <div class="form-group">
                                         <%--<label>IP:</label>--%>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosCod" CssClass="form-control" placeholder="Código de Neumatico"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosIP" CssClass="form-control" placeholder="Código de Neumatico"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosRazSoc" CssClass="form-control" placeholder="Descripción"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosDescripcion" CssClass="form-control" placeholder="Descripción"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:DropDownList runat="server" ID="DropDownList1" CssClass="form-control" placeholder="Provincias"></asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="ddlFiltrosPais" CssClass="form-control" placeholder="Pais"></asp:DropDownList>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="TextBox8" CssClass="form-control" placeholder="Otro"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosOtros" CssClass="form-control" placeholder="Otro"></asp:TextBox>
                                         <p class="help-block"></p>
 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <asp:TextBox runat="server" ID="TextBox9" CssClass="form-control" placeholder="Familia"></asp:TextBox>
+                                         <asp:DropDownList runat="server" ID="ddlFiltrosFamilia" CssClass="form-control" placeholder="familia"></asp:DropDownList>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="TextBox10" CssClass="form-control" placeholder="Marca"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosMarca" CssClass="form-control" placeholder="Marca"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="TextBox11" CssClass="form-control" placeholder="Rango"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosRango" CssClass="form-control" placeholder="Rango"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="TextBox12" CssClass="form-control" placeholder="Rodado"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosRodado" CssClass="form-control" placeholder="Rodado"></asp:TextBox>
                                         <p class="help-block"></p>
 
                                         <div class="form-inline">
@@ -99,7 +99,7 @@
                                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
                                 <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
                                 <asp:LinkButton runat="server" ID="btnLFiltrosimpiar" OnClientClick="btnFiltrosLimpiar_OnClientClick()" CssClass="btn btn-warning"><i class="fa fa-trash"></i> Limpiar</asp:LinkButton>
-                                <asp:LinkButton runat="server" ID="btnFiltrosBuscar" CssClass="btn btn-warning"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
+                                <asp:LinkButton runat="server" OnClick="btnFiltrosBuscar_Click" ID="btnFiltrosBuscar" CssClass="btn btn-warning"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -109,6 +109,58 @@
             <br />
             <br />
             <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">
+                <asp:GridView ID="gvListadoNeumaticos" class="table table-responsive table-bordered table-hover table-striped table-condensed" OnSelectedIndexChanged="gvListadoNeumaticos_SelectedIndexChanged" AutoGenerateColumns="false" runat="server">
+                     <Columns>
+                        <asp:CommandField ControlStyle-CssClass="btn btn-warning btn-edit-modal"   HeaderText="Edición"  SelectText="Editar" ShowSelectButton="true" />
+                    </Columns>
+                     <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button  ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning btn-edit-modal" CommandName="Editar" OnClientClick="alert();return false;" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                    
+                    <Columns>
+                        <asp:BoundField HeaderText="IP" DataField="IP" />
+                    </Columns>
+                    
+                    <Columns>
+                        <asp:BoundField HeaderText="Descripción" DataField="Descrip" />
+                    </Columns>
+                    
+                    <Columns>
+                        <asp:BoundField HeaderText="País" DataField="pais" />
+                    </Columns>
+                    
+                    <Columns>
+                        <asp:BoundField HeaderText="Otro" DataField="Otro" />
+                    </Columns>
+                    
+                    <Columns>
+                        <asp:BoundField HeaderText="Familia" DataField="Familia" />
+                    </Columns>
+                    
+                    <Columns>
+                        <asp:BoundField HeaderText="Marca" DataField="Marca" />
+                    </Columns>
+                    
+                    <Columns>
+                        <asp:BoundField HeaderText="Rango" DataField="Rango" />
+                    </Columns>
+                    
+                    <Columns>
+                        <asp:BoundField HeaderText="Rodado" DataField="Rodado" />
+                    </Columns>
+                    
+                    <Columns>
+                        <asp:BoundField HeaderText="FlgBajaLogica" DataField="FlgBajaLogica" />
+                    </Columns>
+                    
+                    <Columns>
+                        <asp:BoundField HeaderText="FlgFilBusq" DataField="FlgFilBusq" />
+                    </Columns>
+                </asp:GridView>
 
             </div>
 
@@ -151,7 +203,7 @@
     </div>
 
 
-         <%-- MODAL sincronización --%>
+         <%-- MODAL mensaje --%>
                     <div class="modal fade" id="modalSincro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -169,6 +221,6 @@
                             </div>
                         </div>
                     </div>
-         <%-- Fin modal Sincronización --%>
+         <%-- Fin modal mensaje --%>
 
 </asp:Content>

@@ -31,76 +31,76 @@ namespace PirelliReports.Site {
         protected global::System.Web.UI.WebControls.LinkButton btnExportar;
         
         /// <summary>
-        /// txtFiltrosCod control.
+        /// txtFiltrosIP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFiltrosCod;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosIP;
         
         /// <summary>
-        /// txtFiltrosRazSoc control.
+        /// txtFiltrosDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFiltrosRazSoc;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosDescripcion;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlFiltrosPais control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFiltrosPais;
         
         /// <summary>
-        /// TextBox8 control.
+        /// txtFiltrosOtros control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox8;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosOtros;
         
         /// <summary>
-        /// TextBox9 control.
+        /// ddlFiltrosFamilia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox9;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFiltrosFamilia;
         
         /// <summary>
-        /// TextBox10 control.
+        /// txtFiltrosMarca control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox10;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosMarca;
         
         /// <summary>
-        /// TextBox11 control.
+        /// txtFiltrosRango control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox11;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosRango;
         
         /// <summary>
-        /// TextBox12 control.
+        /// txtFiltrosRodado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox12;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrosRodado;
         
         /// <summary>
         /// chkFiltrosBajaLogica control.
@@ -128,6 +128,15 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnFiltrosBuscar;
+        
+        /// <summary>
+        /// gvListadoNeumaticos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvListadoNeumaticos;
         
         /// <summary>
         /// TextBox2 control.

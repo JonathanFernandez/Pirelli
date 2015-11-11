@@ -4,6 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
+    <script>
+        function OpenPopUp(url) {
+            hidden = open(url, "NewWindow", "top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes");
+            return false;
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div id="page-wrapper">
@@ -27,19 +33,15 @@
                     </div>
                 </div>
 
-
-
-
-
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label>Nombre de promoción:</label>
+                            <label>Seleccione rango de fechas:</label>
                             <div class="control-group pull-right">
                                             <div class="controls">
                                                 <div class="input-group">
                                                     <p>
-                                                        <asp:TextBox runat="server" ID="dpFiltrosDesde" class="date-picker form-control" placeholder="Desde"></asp:TextBox>
+                                                        <asp:TextBox runat="server" ID="dpDesde" class="date-picker form-control" placeholder="Desde"></asp:TextBox>
                                                         <label for="dpDesde" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
@@ -48,7 +50,7 @@
 
                                                 <div class="input-group">
                                                     <p>
-                                                        <asp:TextBox runat="server" ID="dpFiltrosHasta" class="date-picker form-control" placeholder="Hasta"></asp:TextBox>
+                                                        <asp:TextBox runat="server" ID="dpHasta" class="date-picker form-control" placeholder="Hasta"></asp:TextBox>
                                                         <label for="dpHasta" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
@@ -93,24 +95,28 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-inline">
-                            <label>Algo sobre el input: </label>
-                            <input type="text" class="form-control pull-right">
+                            <label>Seleccione IP: </label>
+                            <asp:TextBox runat="server" id="txtIP" class="form-control pull-right" ></asp:TextBox>
+                            <input type="text" class="form-control pull-right"/>
                             <p class="help-block"></p>
                         </div>
                     </div>  
                 </div>
 
-                <h4>Cuotas</h4>
+                <h4>Seleccione filtro:</h4>
                 <div class="row">
                     <div class="col-md-offset-2">
                         <div class="form-inline">
-                            <input type="checkbox">
-                            <label>Algo del checkbox</label>
+                            <asp:CheckBoxList runat="server" ID="chklistFiltro"></asp:CheckBoxList>
+
+                            <%--<input type="checkbox"/>
+                            <label>Algo del checkbox</label>--%>
                             <p class="help-block"></p>
                         </div>
                     </div>  
                 </div>
                 <!-- /.row -->
+                <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClick="btnAceptar_Click"/>
 
             </div>
             <!-- /.container-fluid -->
