@@ -30,7 +30,8 @@ namespace Controles
             Hresponse.Output.Write(sw.ToString());
             Hresponse.Flush();
             Hresponse.Close();
-            Hresponse.End();
+            //Hresponse.End();
+            Hresponse.OutputStream.Close();
         }
         public string ConvertmmddyyyyToyyyymmdd(string fecha)
         {

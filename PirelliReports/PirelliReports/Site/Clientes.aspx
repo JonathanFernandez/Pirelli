@@ -137,13 +137,13 @@
                     <Columns>
                         <asp:CommandField ControlStyle-CssClass="btn btn-warning btn-edit-modal"   HeaderText="Edición"  SelectText="Editar" ShowSelectButton="true" />
                     </Columns>
-                     <Columns>
+                   <%--  <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:Button  ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning btn-edit-modal" CommandName="Editar" OnClientClick="alert();return false;" />
                             </ItemTemplate>
                         </asp:TemplateField>
-                    </Columns>
+                    </Columns>--%>
 
                     <Columns>
                         <asp:BoundField HeaderText="Cod" DataField="Cod" />

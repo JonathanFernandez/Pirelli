@@ -77,21 +77,25 @@ namespace PirelliReports.Site
                     {
                         lblMensage.Text = "Error: " + ex.Message;
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
                     }
                     // Se agrega los productos de la tabla temporal a la grilla
                     gvListadoNeumaticos.DataSource = conProductoTemp.ListadoDeProductosTemp();
                     gvListadoNeumaticos.DataBind();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
                 }
                 else
                 {
                     lblMensage.Text = "El archivo no tiene ningun producto";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
                 }
             }
             else
             {
                 lblMensage.Text = "El archivo no se encontro. Consulte con el administrador del sistema SAP";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
             }
         }
 
@@ -112,7 +116,9 @@ namespace PirelliReports.Site
             {
                 lblMensage.Text = "No se encontraron registros";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
             }
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
         }
     }
 }

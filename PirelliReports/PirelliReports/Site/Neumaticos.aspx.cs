@@ -22,10 +22,13 @@ namespace PirelliReports.Site
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            gvListadoNeumaticos.DataSource = conZoProduct.ListadoZoProduct();
-            gvListadoNeumaticos.DataBind();
-            cargarPaises();
-            cargarFamilia();
+            if (!IsPostBack)
+            {
+                gvListadoNeumaticos.DataSource = conZoProduct.ListadoZoProduct();
+                gvListadoNeumaticos.DataBind();
+                cargarPaises();
+                cargarFamilia();
+            }
         }
 
         private void cargarFamilia()
@@ -40,14 +43,21 @@ namespace PirelliReports.Site
 
         protected void gvListadoNeumaticos_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            txtRango.Text = gvListadoNeumaticos.SelectedRow.Cells[7].Text;
+            chkBajaLogica.Checked = gvListadoNeumaticos.SelectedRow.Cells[9].Text == "1" ? true : false;
+            IP.Value = gvListadoNeumaticos.SelectedRow.Cells[1].Text;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
         protected void btnExportar_Click(object sender, EventArgs e)
         {
-            pMetodos.ExportGridViewToExcel(gvListadoNeumaticos,"Listado De IPs",Response);
+            pMetodos.ExportGridViewToExcel(gvListadoNeumaticos,"ListadoIPs", Response);
         }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            // this is required for avoid error (control must be placed inside form tag)
 
+        }
         protected void btnFiltrosBuscar_Click(object sender, EventArgs e)
         {
             ArrayList parametros = new ArrayList();
