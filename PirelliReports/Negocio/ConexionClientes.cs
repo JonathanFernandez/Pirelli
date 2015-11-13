@@ -84,5 +84,15 @@ namespace Negocio
 
             return true;
         }
+
+        public bool ModificarAlteraCliente(ArrayList parametros)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+
+            ds = ado.ExecuteStoredProcedureDS("SP_MODIFICAR_ZOCLIEN", parametros);
+
+            return true;
+        }
     }
 }

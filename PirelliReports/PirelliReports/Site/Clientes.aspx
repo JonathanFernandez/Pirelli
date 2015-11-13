@@ -7,29 +7,94 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
+      <script>
+
+          function btnEditarOnClientClick(obj)
+          {
+              
+              var row = obj.parentNode.parentNode;
+              var rowIndex = row.rowIndex - 1;
+              
+              document.getElementById("PaginaCentral_ContentPlaceHolder_lblCodigo").innerHTML = row.cells[1].innerHTML;
+              document.getElementById("PaginaCentral_ContentPlaceHolder_CODIGO").value = row.cells[1].innerHTML;
+
+              if (row.cells[2].innerHTML == "&nbsp;")
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtMatriz").value = "";
+              else
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtMatriz").value = row.cells[2].innerHTML;
+
+              if (row.cells[3].innerHTML == "&nbsp;")
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtRefil").value = "";
+              else
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtRefil").value = row.cells[3].innerHTML;
+
+              if (row.cells[7].innerHTML == "&nbsp;")
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtRazonSocial").value = "";
+              else
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtRazonSocial").value = row.cells[7].innerHTML;
+
+              if (row.cells[9].innerHTML == "&nbsp;")
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtDireccion").value = "";
+              else
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtDireccion").value = row.cells[9].innerHTML;
+
+              if(row.cells[19].innerHTML == "&nbsp;")
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtEmail").value = "";
+              else
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtEmail").value = row.cells[19].innerHTML;
+
+              if(row.cells[20].innerHTML == "&nbsp;")
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtWeb").value = "";
+              else
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtWeb").value = row.cells[20].innerHTML;
+
+              if(row.cells[28].innerHTML == "&nbsp;")
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtLatitud").value = "";
+              else
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtLatitud").value = row.cells[28].innerHTML;
+
+              if (row.cells[29].innerHTML == "&nbsp;")
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtLongitud").value = "";
+              else
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtLongitud").value = row.cells[29].innerHTML;
+
+              if (row.cells[26].innerHTML == "1")
+                  document.getElementById('PaginaCentral_ContentPlaceHolder_chkBajaLogica').checked = true;
+              else
+                  document.getElementById('PaginaCentral_ContentPlaceHolder_chkBajaLogica').checked = false;
+
+
+
+              openModal();
+              return false;
+          }
+
+          function OpenPopUp(url) {
+              hidden = open(url, "NewWindow", "top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes");
+              return false;
+          }
+
+          function openModal() {
+              $('#modalEdit').modal('show');
+          }
+
+          function openModalMensaje() {
+              $('#modalMensaje').modal('show');
+          }
+
+          function reDrawMaps() {
+
+              $('#modalMaps').on('shown.bs.modal', function () {
+
+                  google.maps.event.trigger(document.getElementById("subgurim_GMap1"), "resize");
+
+              });
+
+          }
+    </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
-    <script>
-
-        function OpenPopUp(url) {
-            hidden = open(url, "NewWindow", "top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes");
-            return false;
-        }
-
-        function openModal() {
-            $('#modalEdit').modal('show');
-        }
-
-        function reDrawMaps() {
-
-            $('#modalMaps').on('shown.bs.modal', function () {
-
-                google.maps.event.trigger(document.getElementById("subgurim_GMap1"), "resize");
-
-            });
-
-        }
-    </script>
+  
 
     <div class="container-fluid table-pirelli">
         <!-- Page Heading -->
@@ -134,16 +199,16 @@
             <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">
 
                 <asp:GridView ID="gvListadoClientes" class="table table-responsive table-bordered table-hover table-striped table-condensed" OnSelectedIndexChanged="gvListadoClientes_SelectedIndexChanged" AutoGenerateColumns="false" runat="server">
-                    <Columns>
+                   <%-- <Columns>
                         <asp:CommandField ControlStyle-CssClass="btn btn-warning btn-edit-modal"   HeaderText="Edición"  SelectText="Editar" ShowSelectButton="true" />
-                    </Columns>
-                   <%--  <Columns>
+                    </Columns>--%>
+                   <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:Button  ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning btn-edit-modal" CommandName="Editar" OnClientClick="alert();return false;" />
+                                <asp:Button  ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning btn-edit-modal" CommandName="Editar"  OnClientClick="return btnEditarOnClientClick(this);" />
                             </ItemTemplate>
                         </asp:TemplateField>
-                    </Columns>--%>
+                    </Columns>
 
                     <Columns>
                         <asp:BoundField HeaderText="Cod" DataField="Cod" />
@@ -227,7 +292,7 @@
                         <asp:BoundField HeaderText="FlgFilBusq" DataField="FlgFilBusq" />
                     </Columns>
                     <Columns>
-                        <asp:BoundField HeaderText="Latitud" DataField="Longitud" />
+                        <asp:BoundField HeaderText="Latitud" DataField="Latitud" />
                     </Columns>
                     <Columns>
                         <asp:BoundField HeaderText="Longitud" DataField="Longitud" />
@@ -251,30 +316,37 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <%--<label>IP:</label>--%>
+                                        <h2><asp:Label runat="server" ID="lblCodigo"></asp:Label> </h2>
 
-                                        <asp:TextBox runat="server" ID="TextBox2" CssClass="form-control" placeholder="Código" disabled="true"></asp:TextBox>
+                                        <%--<asp:TextBox runat="server" ID="txtCodigo" MaxLength="10" CssClass="form-control" placeholder="Código" disabled="true"></asp:TextBox>--%>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="TextBox3" CssClass="form-control" placeholder="Código Cliente Matriz"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtMatriz" MaxLength="10" CssClass="form-control" placeholder="Código Cliente Matriz"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" placeholder="Código Cliente Refil"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtRefil" MaxLength="10" CssClass="form-control" placeholder="Código Cliente Refil"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="TextBox4" CssClass="form-control" placeholder="Razón social"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtRazonSocial" MaxLength="45" CssClass="form-control" placeholder="Razón social"></asp:TextBox>
                                         <p class="help-block"></p>
 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <asp:TextBox runat="server" ID="TextBox5" CssClass="form-control" placeholder="Dirección"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtDireccion" MaxLength="40" CssClass="form-control" placeholder="Dirección"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="TextBox6" CssClass="form-control" placeholder="Email"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtEmail" MaxLength="50" CssClass="form-control" placeholder="Email"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="TextBox7" CssClass="form-control" placeholder="Página Web"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtWeb" MaxLength="100" CssClass="form-control" placeholder="Página Web"></asp:TextBox>
+                                        <p class="help-block"></p>
+
+                                        <asp:TextBox runat="server" ID="txtLatitud" CssClass="form-control" placeholder="Latitud"></asp:TextBox>
+                                        <p class="help-block"></p>
+
+                                        <asp:TextBox runat="server" ID="txtLongitud" CssClass="form-control" placeholder="Longitud"></asp:TextBox>
                                         <p class="help-block"></p>
 
                                         <div class="form-inline">
@@ -284,6 +356,8 @@
                                    </div>
                                 </div>
                             </div>
+                             <h2><asp:Label runat="server" ID="lblMensaje2"></asp:Label> </h2><br />
+                            <asp:LinkButton runat="server" ID="btnAceptar"  OnClick="btnAceptar_Click" class="btn btn-warning"> Aceptar</asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -291,9 +365,25 @@
         <%-- Fin modal EDIT --%>
     </div>
     </div>
-    <script>
-        //window.setTimeout(function () { google.maps.event.trigger("googleMaps", 'resize') }, 0);
+   <%-- MODAL mensaje --%>
+                    <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="page-header modal-title" id="myModalSincro">Edición de Cliente
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <h2><asp:Label runat="server" ID="lblMensaje"></asp:Label> </h2>
+                                    </div>
 
-    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+         <%-- Fin modal mensaje --%>
+    <asp:HiddenField runat="server" ID="CODIGO" />
 </asp:Content>
 

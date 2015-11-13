@@ -116,5 +116,62 @@ namespace PirelliReports.Site
 
         }
 
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            lblCodigo.Text = CODIGO.Value;
+            
+            if (!conClientes.VerificarClienteExistente(txtMatriz.Text))
+            {
+                lblMensaje2.Text = "Cliente Matriz no existe";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                return;
+            } 
+            if (!conClientes.VerificarClienteExistente(txtRefil.Text))
+            {
+                lblMensaje2.Text = "Cliente refil no existe";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                return;
+            }
+            
+            if((txtLongitud.Text.Length > 0 && txtLatitud.Text.Length == 0) || (txtLatitud.Text.Length > 0 && txtLongitud.Text.Length == 0))
+            {
+                lblMensaje2.Text = "Si completa la latitud o longitud ambos campos deben estar completados";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                return;
+            }
+
+            ArrayList parametos = new ArrayList();
+            parametos.Add(CODIGO.Value);
+            parametos.Add(txtMatriz.Text);
+            parametos.Add(txtRefil.Text);
+            parametos.Add(txtRazonSocial.Text);
+            parametos.Add(txtDireccion.Text);
+            parametos.Add(txtEmail.Text);
+            parametos.Add(txtWeb.Text);
+
+            if (txtLatitud.Text.Length > 0)
+                parametos.Add(Convert.ToDouble(txtLatitud.Text));
+            else
+                parametos.Add(DBNull.Value);
+            if (txtLongitud.Text.Length > 0)
+                parametos.Add(Convert.ToDouble(txtLongitud.Text));
+            else
+                parametos.Add(DBNull.Value);
+            
+            parametos.Add(chkBajaLogica.Checked ? true : false);
+
+            conClientes.ModificarAlteraCliente(parametos);
+
+            gvListadoClientes.DataSource = conClientes.ListadoClientes();
+            gvListadoClientes.DataBind();
+
+            lblMensaje.Text = "El cliente " + CODIGO.Value + "se ha modificado correctamente";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalMensaje();", true);
+
+            lblMensaje2.Text = string.Empty;
+            CODIGO.Value = "";
+
+        }
+
     }
 }

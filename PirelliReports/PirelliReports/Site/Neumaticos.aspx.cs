@@ -10,6 +10,7 @@ using Entidades;
 using Negocio;
 using Subgurim.Controles;
 using System.Data;
+using System.Web.Services;
 
 namespace PirelliReports.Site
 {
@@ -24,6 +25,7 @@ namespace PirelliReports.Site
         {
             if (!IsPostBack)
             {
+
                 gvListadoNeumaticos.DataSource = conZoProduct.ListadoZoProduct();
                 gvListadoNeumaticos.DataBind();
                 cargarPaises();
@@ -46,7 +48,9 @@ namespace PirelliReports.Site
             txtRango.Text = gvListadoNeumaticos.SelectedRow.Cells[7].Text;
             chkBajaLogica.Checked = gvListadoNeumaticos.SelectedRow.Cells[9].Text == "1" ? true : false;
             IP.Value = gvListadoNeumaticos.SelectedRow.Cells[1].Text;
+            lblEdicion.Text = "Editando " + IP.Value;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+           
         }
 
         protected void btnExportar_Click(object sender, EventArgs e)
@@ -76,5 +80,25 @@ namespace PirelliReports.Site
             gvListadoNeumaticos.DataBind();
 
         }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            ArrayList parametros = new ArrayList();
+            parametros.Add(IP.Value);
+            parametros.Add(PAIS.Value);
+            parametros.Add(txtRango.Text.ToUpper());
+            parametros.Add(((chkBajaLogica.Checked) ? "1" : "0"));
+
+            conZoProduct.ModificarZoProduct(parametros);
+
+            lblMensaje.Text = "Se modifico correctamente el neumatico " + IP.Value;
+            
+            gvListadoNeumaticos.DataSource = conZoProduct.ListadoZoProduct();
+            gvListadoNeumaticos.DataBind();
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalMensaje();", true);
+        }
+
+        
     }
 }

@@ -1475,6 +1475,8 @@
     <Content Include="Sql Scripts\dbo.SP_INSERT_CLIEN1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_PRODUC1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_CLAVE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_MODIFICAR_ZOCLIEN.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_MODIFICAR_ZOPRODU.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_ZOPROMO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_PROCESA_ZoSolicitud_DatosExternos.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_PRODUCTOS_TEMP.StoredProcedure.sql" />

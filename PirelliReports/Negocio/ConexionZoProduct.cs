@@ -94,5 +94,14 @@ namespace Negocio
 
             return ds;
         }
+        public object ModificarZoProduct(ArrayList parametros)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("SP_MODIFICAR_ZOPRODU", parametros);
+
+            return ds;
+        }
     }
 }
