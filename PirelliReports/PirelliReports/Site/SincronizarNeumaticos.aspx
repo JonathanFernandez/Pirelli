@@ -38,39 +38,38 @@
                 </div>
                 <br />
                 <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">
-                <asp:GridView ID="gvListadoNeumaticos" class="table table-responsive table-bordered table-hover table-striped table-condensed" AutoGenerateColumns="false" runat="server">
-                    <Columns>
-                        <asp:BoundField HeaderText="IP" DataField="IP" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Descripcion" DataField="Descrip" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Pais" DataField="pais" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Otro" DataField="otro" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Familia" DataField="Familia" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Marca" DataField="Marca" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Rango" DataField="Rango" />
-                    </Columns>
-                </asp:GridView>
+                    <asp:GridView ID="gvListadoNeumaticos" class="table table-responsive table-bordered table-hover table-striped table-condensed" AutoGenerateColumns="false" runat="server">
+                        <Columns>
+                            <asp:BoundField HeaderText="IP" DataField="IP" />
+                        </Columns>
+                        <Columns>
+                            <asp:BoundField HeaderText="Descripcion" DataField="Descrip" />
+                        </Columns>
+                        <Columns>
+                            <asp:BoundField HeaderText="Pais" DataField="pais" />
+                        </Columns>
+                        <Columns>
+                            <asp:BoundField HeaderText="Otro" DataField="otro" />
+                        </Columns>
+                        <Columns>
+                            <asp:BoundField HeaderText="Familia" DataField="Familia" />
+                        </Columns>
+                        <Columns>
+                            <asp:BoundField HeaderText="Marca" DataField="Marca" />
+                        </Columns>
+                        <Columns>
+                            <asp:BoundField HeaderText="Rango" DataField="Rango" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
-        </div>
-    <!-- /.row -->
+            </div>
+            <!-- /.row -->
 
-    </div>
-           
-    <!-- /.container-fluid -->
-      <%-- MODAL sincronización --%>
-                    <div class="modal fade" id="modalSincro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
+        </div>   
+        <!-- /.container-fluid -->
+        <%-- MODAL sincronización --%>
+        <div class="modal fade" id="modalSincro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -79,15 +78,14 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <h4><asp:Label runat="server" ID="lblMensage"></asp:Label> </h4>
+                                        <h4><asp:Label runat="server" ID="lblMensaje"></asp:Label> </h4>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-                    </div>
+            </div>
       <%-- Fin modal Sincronización --%>
-    </div>
-       
+    </div>   
     <!-- /#page-wrapper -->
 </asp:Content>

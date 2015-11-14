@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
+using System.Collections;
 using DBLayer;
 using Entidades;
-using System.Collections;
 
 namespace Negocio
 {
@@ -21,27 +21,6 @@ namespace Negocio
             return ds;
         }
 
-        public bool InsertarProductoTemp(Zoprodu arg)
-        {
-            AdoConn ado = new AdoConn();
-            DataSet ds = new DataSet();
-            ArrayList parametros = new ArrayList();
-            parametros.Add(arg.IP);
-            parametros.Add(arg.Descrip);
-            parametros.Add(arg.Pais);
-            parametros.Add(arg.Otro);
-            parametros.Add(arg.Familia);
-            parametros.Add(arg.Marca);
-            parametros.Add(arg.Rango);
-
-            ds = ado.ExecuteStoredProcedureDS("SP_INSERT_PRODUC1_TEMP", parametros);
-
-            //if (ds.Tables[0].Rows.Count > 0)
-            //    return true;
-            //else
-            //    return false;
-            return true;
-        }
         public bool InsertarProductoTemp(List<Zoprodu> productos)
         {
             AdoConn ado = new AdoConn();
@@ -62,22 +41,6 @@ namespace Negocio
                 ds = ado.ExecuteStoredProcedureDS("SP_INSERT_PRODUC1_TEMP", parametros);
             }
 
-            
-
-            //if (ds.Tables[0].Rows.Count > 0)
-            //    return true;
-            //else
-            //    return false;
-            return true;
-        }
-
-        public bool borrarProductos()
-        {
-            AdoConn ado = new AdoConn();
-            DataSet ds = new DataSet();
-            //DataTable dt = new DataTable();
-            ds = ado.ExecuteStoredProcedureDS("SP_DELETE_ALL_PRODUC1_TEMP");
-
             return true;
         }
 
@@ -90,10 +53,6 @@ namespace Negocio
             ado.ExecuteNonStoredProcedure("SP_SINCRONIZAR_PRODUCTOS");
 
             return true;
-            //if (ds.Tables[0].Rows.Count > 0)
-            //    return true;
-            //else
-            //    return false;
         }
     }
 }

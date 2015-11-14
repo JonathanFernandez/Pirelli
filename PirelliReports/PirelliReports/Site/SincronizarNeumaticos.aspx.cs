@@ -27,8 +27,6 @@ namespace PirelliReports.Site
             }
         }
 
-    
-
         protected void btnCargar_Click(object sender, EventArgs e)
         {
             // Se obtiene la ruta completa al archivo de productos que genera SAP
@@ -75,22 +73,22 @@ namespace PirelliReports.Site
                     }
                     catch (Exception ex)
                     {
-                        lblMensage.Text = "Error: " + ex.Message;
+                        lblMensaje.Text = "Error: " + ex.Message;
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                     }
-                    // Se agrega los productos de la tabla temporal a la grilla
+                    // Se agregan los productos de la tabla temporal a la grilla
                     gvListadoNeumaticos.DataSource = conProductoTemp.ListadoDeProductosTemp();
                     gvListadoNeumaticos.DataBind();
                 }
                 else
                 {
-                    lblMensage.Text = "El archivo no tiene ningun producto";
+                    lblMensaje.Text = "El archivo no tiene ningun producto";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }
             }
             else
             {
-                lblMensage.Text = "El archivo no se encontro. Consulte con el administrador del sistema SAP";
+                lblMensaje.Text = "El archivo no se encontro. Consulte con el administrador del sistema SAP";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
         }
@@ -105,12 +103,12 @@ namespace PirelliReports.Site
                 productos.TrimExcess();
                 gvListadoNeumaticos.DataSource = null;
                 gvListadoNeumaticos.DataBind();
-                lblMensage.Text = "La sincronización ha finalizado con exito";
+                lblMensaje.Text = "La sincronización ha finalizado con exito";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
             else
             {
-                lblMensage.Text = "No se encontraron registros";
+                lblMensaje.Text = "No se encontraron productos para sincronizar";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
         }

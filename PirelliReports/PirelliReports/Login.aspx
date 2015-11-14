@@ -55,7 +55,7 @@
        function lost_login_btn_OnClientClick() {
 
        }
-     </script>
+   </script>
 </head>
 <body>
     <form id="loginform" runat="server" >

@@ -72,6 +72,7 @@
     <Compile Include="ConexionFacturasPromo.cs" />
     <Compile Include="ConexionReportes.cs" />
     <Compile Include="ConexionUsuario.cs" />
+    <Compile Include="ConexionZoClienteTemp.cs" />
     <Compile Include="ConexionZonas.cs" />
     <Compile Include="ConexionZoProduct.cs" />
     <Compile Include="ConexionZoProductTemp.cs" />
