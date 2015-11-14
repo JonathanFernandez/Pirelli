@@ -78,7 +78,7 @@
                     </div>
                 </div>
 
-<%--                <div class="row">
+                <%--<div class="row">
                     <div class="col-lg-6">
                         <div class="form-inline">
                             <div class="input-group pull-right">
@@ -107,10 +107,9 @@
                 <div class="row">
                     <div class="col-md-offset-2">
                         <div class="form-inline">
-                            <asp:CheckBoxList runat="server" ID="chklistFiltro"></asp:CheckBoxList>
-
-                            <%--<input type="checkbox"/>
-                            <label>Algo del checkbox</label>--%>
+                            <div class="checklist-container">
+                                <asp:CheckBoxList runat="server" ID="chklistFiltro"></asp:CheckBoxList>
+                            </div>
                             <p class="help-block"></p>
                         </div>
                     </div>  

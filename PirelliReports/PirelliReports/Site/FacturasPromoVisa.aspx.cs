@@ -140,7 +140,7 @@ namespace PirelliReports.Site
             {
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    ddl.Items.Add(new ListItem(ds.Tables[0].Rows[i]["FAMIAGRDESC"].ToString(), ds.Tables[0].Rows[i]["FAMIAGRCODI"].ToString()));
+                    ddl.Items.Add(new ListItem(ds.Tables[0].Rows[i]["FAMILIA"].ToString(), ds.Tables[0].Rows[i]["CODFAMILIA"].ToString()));
                 }
             }
 

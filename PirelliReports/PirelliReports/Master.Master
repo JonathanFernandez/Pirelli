@@ -130,7 +130,18 @@
                             </li>
                         </ul>
                     </li>
-                    
+                     <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-arrows-v"></i> Administración <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo3" class="collapse">
+                            <li>
+                              <asp:HyperLink runat="server" NavigateUrl="~/Site/AdministracionUsuarios.aspx"><i class="fa fa-fw fa-user"></i> Administación de Usuarios </asp:HyperLink>
+                            </li>
+                            <li>
+                               <asp:HyperLink runat="server" NavigateUrl="~/Site/AdministracionPermisos.aspx"><i class="fa fa-fw fa-user"></i> Administación de Permisos </asp:HyperLink>
+                            </li>
+                            
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
