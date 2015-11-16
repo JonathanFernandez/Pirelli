@@ -77,19 +77,20 @@
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
                         <asp:HyperLink runat="server" NavigateUrl="~/Site/FacturasPromoVisa.aspx"><i class="fa fa-fw fa-dashboard"></i> Facturas Promo Visa </asp:HyperLink>
-                        <%--<a href="~/Site/FacturasPromoVisa.aspx"><i class="fa fa-fw fa-dashboard"></i> Facturas Promo Visa</a>--%>
+                        <%--<a href="~/Site/FacturasPromoVisa.aspx"><i class="fa fa-fw bar-chart-o"></i> Facturas Promo Visa</a>--%>
                     </li>
                     <li>
-                        <a href="Site/Mapa.aspx"><i class="fa fa-fw fa-bar-chart-o"></i> Envio a SAP</a>
+                         <asp:HyperLink runat="server" NavigateUrl="~/Site/EnvioASap.aspx"><i class="fa fa-fw fa-upload"></i> Envio a SAP </asp:HyperLink>
+                        <%--<a href="Site/Mapa.aspx"><i class="fa fa-fw fa-bar-chart-o"></i> Envio a SAP</a>--%>
                     </li>
                     <li>
-                         <asp:HyperLink runat="server" NavigateUrl="~/Site/Clientes.aspx"><i class="fa fa-fw fa-dashboard"></i>Clientes</asp:HyperLink>
+                         <asp:HyperLink runat="server" NavigateUrl="~/Site/Clientes.aspx"><i class="fa fa-fw fa-user"></i> Clientes</asp:HyperLink>
                     </li>
                      <li>
-                         <asp:HyperLink runat="server" NavigateUrl="~/Site/Neumaticos.aspx"><i class="fa fa-fw fa-car"></i>Neumaticos</asp:HyperLink>
+                         <asp:HyperLink runat="server" NavigateUrl="~/Site/Neumaticos.aspx"><i class="fa fa-fw fa-car"></i> Neumaticos</asp:HyperLink>
                     </li>
                     <li>
-                        <asp:HyperLink runat="server" NavigateUrl="~/Site/Promociones.aspx"><i class="fa fa-fw fa-charts"></i> Promociones </asp:HyperLink>
+                        <asp:HyperLink runat="server" NavigateUrl="~/Site/Promociones.aspx"><i class="fa fa-fw fa-bar-chart-o"></i> Promociones </asp:HyperLink>
                         <%--<a href="Site/Promociones.aspx"><i class="fa fa-fw fa-edit"></i> Promociones</a>--%>
                     </li>
                   <li>

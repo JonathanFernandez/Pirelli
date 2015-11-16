@@ -21,11 +21,18 @@ namespace Negocio
             return ds;
         }
 
+        public bool DeleteProductTemp()
+        {
+            AdoConn ado = new AdoConn();
+            ado.ExecuteNonStoredProcedure("SP_DELETE_PRODUC1_TEMP");
+            return true;
+        }
         public bool InsertarProductoTemp(List<Zoprodu> productos)
         {
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();
             ArrayList parametros;
+           
 
             foreach (Zoprodu prod in productos)
             {

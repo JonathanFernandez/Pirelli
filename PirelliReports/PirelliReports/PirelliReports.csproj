@@ -1417,6 +1417,7 @@
     <Content Include="Site\AdministracionUsuarios.aspx" />
     <Content Include="Site\Clientes.aspx" />
     <Content Include="Site\CrystalViewer.aspx" />
+    <Content Include="Site\EnvioASap.aspx" />
     <Content Include="Site\FacturasPromoVisa.aspx" />
     <Content Include="Site\IPxRegion.aspx" />
     <Content Include="Site\Mapa.aspx" />
@@ -1750,6 +1751,13 @@
     </Compile>
     <Compile Include="Site\CrystalViewer.aspx.designer.cs">
       <DependentUpon>CrystalViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\EnvioASap.aspx.cs">
+      <DependentUpon>EnvioASap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\EnvioASap.aspx.designer.cs">
+      <DependentUpon>EnvioASap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\FacturasPromoVisa.aspx.cs">
       <DependentUpon>FacturasPromoVisa.aspx</DependentUpon>

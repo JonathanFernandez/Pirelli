@@ -14,8 +14,8 @@ namespace Entidades
             set { usu_id = value; }
         }
         
-        private int legajo;
-        public int Legajo
+        private string legajo;
+        public string Legajo
         {
             get { return legajo; }
             set { legajo = value; }

@@ -8,7 +8,7 @@ using Controles;
 using System.Collections;
 using Entidades;
 using Negocio;
-using Controles;
+
 namespace PirelliReports.Site
 {
     public partial class Promociones : PirelliMaster

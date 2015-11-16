@@ -30,6 +30,7 @@ namespace PirelliReports.Site
 
         protected void btnCargar_Click(object sender, EventArgs e)
         {
+            conClienteTemp.DeleteClientesTemp();
             // Se obtiene la ruta completa al archivo de clientes que genera SAP
             string rutaClientes = WebConfigurationManager.AppSettings["rutaClientes"];
             // Se consulta si el archivo existe
@@ -59,7 +60,7 @@ namespace PirelliReports.Site
                                     cliente.Ciudad = linea.Substring(110, 31).Trim();
                                     cliente.Pais = linea.Substring(150, 2).Trim();
                                     cliente.TelefonoSuc = linea.Substring(155, 11).Trim();
-                                    cliente.CodRegion = linea.Substring(170, 2).Trim();
+                                    cliente.CodRegion = linea.Substring(169, 2).Trim();
                                     cliente.Latitud = float.Parse(linea.Substring(250, 12).Trim());
                                     cliente.Longitud = float.Parse(linea.Substring(263, 12).Trim());
                                     // Se borran espacios en blanco al principio y al final de la cadena
@@ -82,22 +83,29 @@ namespace PirelliReports.Site
                     catch (Exception ex)
                     {
                         lblMensaje.Text = "Error: " + ex.Message;
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                        
                     }
                     // Se agregan los clientes de la tabla temporal a la grilla
                     gvListadoClientes.DataSource = conClienteTemp.ListadoDeClientesTemp();
                     gvListadoClientes.DataBind();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
                 }
                 else
                 {
                     lblMensaje.Text = "El archivo no tiene ningun cliente";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    
                 }
             }
             else
             {
                 lblMensaje.Text = "El archivo no se encontro. Consulte con el administrador del sistema SAP";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                
             }
         }
 

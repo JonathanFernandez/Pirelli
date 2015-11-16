@@ -37,7 +37,7 @@ namespace Negocio
             parametros.Add(password);
             ds = ado.ExecuteStoredProcedureDS("SP_VERIFICARLOGIN", parametros);
 
-            user.Legajo = Convert.ToInt32(ds.Tables[0].Rows[0]["LEGAJO"]);
+            user.Legajo = ds.Tables[0].Rows[0]["LEGAJO"].ToString();
             user.Mail = ds.Tables[0].Rows[0]["MAIL"].ToString();
             user.Pass = ds.Tables[0].Rows[0]["PASS"].ToString();
             user.Usu_desc = ds.Tables[0].Rows[0]["USU_DESC"].ToString();
