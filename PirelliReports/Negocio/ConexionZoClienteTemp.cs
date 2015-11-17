@@ -21,13 +21,21 @@ namespace Negocio
 
             return ds;
         }
+         public bool DeleteClientesTemp()
+         {
+             AdoConn ado = new AdoConn();
+             
+             ado.ExecuteNonStoredProcedure("SP_DELETE_CLIEN1_TEMP");
 
+             return true;
+         }
         public bool InsertarClientesTemp(List <ZoCliente> clientes)
         {
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();
             ArrayList parametros = new ArrayList();
-            
+            //ado.ExecuteNonStoredProcedure("SP_DELETE_CLIEN1_TEMP");
+
             foreach (ZoCliente item in clientes)
             {
                 parametros = new ArrayList();

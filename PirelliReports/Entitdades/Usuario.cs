@@ -14,8 +14,8 @@ namespace Entidades
             set { usu_id = value; }
         }
         
-        private int legajo;
-        public int Legajo
+        private string legajo;
+        public string Legajo
         {
             get { return legajo; }
             set { legajo = value; }
@@ -44,11 +44,19 @@ namespace Entidades
             set { pass = value; }
         }
 
-        private int activo;
-        public int Activo
+        private bool activo;
+        public bool Activo
         {
             get { return activo; }
             set { activo = value; }
+        }
+
+        private List<MDGrupos> grupos;
+
+        public List<MDGrupos> Grupos
+        {
+            get { return grupos; }
+            set { grupos = value; }
         }
     }
 }

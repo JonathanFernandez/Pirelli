@@ -23,6 +23,7 @@ body {
 
 #page-wrapper {
     width: 100%;
+    min-height: 615px;
     padding: 0;
     background-image: url("../img/wallpaper.jpg");
     background-repeat: no-repeat;
@@ -500,7 +501,7 @@ ul.alert-dropdown {
 /* /Login */
 
 /* Form */
-.form-pirelli label, .form-pirelli p, .form-pirelli h2{
+.form-pirelli label, .form-pirelli p, .form-pirelli h2, .form-pirelli h3{
     color: white;
 }
 

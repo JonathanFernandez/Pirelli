@@ -50,6 +50,14 @@ x64/
 build/
 [Bb]in/
 [Oo]bj/
+[Pp]irelliReports/PirelliReports/DBLayer/bin/
+[Pp]irelliReports/PirelliReports/DBLayer/obj/
+[Pp]irelliReports/PirelliReports/Entitdades/bin/
+[Pp]irelliReports/PirelliReports/Entitdades/obj/
+[Pp]irelliReports/PirelliReports/Negocio/bin/
+[Pp]irelliReports/PirelliReports/Negocio/obj/
+[Pp]irelliReports/PirelliReports/PirelliReports/bin/
+[Pp]irelliReports/PirelliReports/PirelliReports/obj/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -152,14 +160,6 @@ ClientBin/
 *.[Pp]ublish.xml
 *.pfx
 *.publishsettings
-PirelliReports/DBLayer/bin/
-PirelliReports/DBLayer/obj/
-PirelliReports/Entitdades/bin/
-PirelliReports/Entitdades/obj/
-PirelliReports/Negocio/bin/
-PirelliReports/Negocio/obj/
-PirelliReports/PirelliReports/bin/
-PirelliReports/PirelliReports/obj/
 
 # RIA/Silverlight projects
 Generated_Code/

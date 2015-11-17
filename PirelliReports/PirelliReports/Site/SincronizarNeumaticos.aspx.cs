@@ -29,6 +29,7 @@ namespace PirelliReports.Site
 
         protected void btnCargar_Click(object sender, EventArgs e)
         {
+            conProductoTemp.DeleteProductTemp();
             // Se obtiene la ruta completa al archivo de productos que genera SAP
             string rutaProductos = WebConfigurationManager.AppSettings["rutaProductos"];
             // Se consulta si el archivo existe

@@ -1,4 +1,4 @@
-USE [prueba]
+USE Comercial
 GO
 
 /****** Object:  Table [dbo].[MD_USUARIOS]    Script Date: 30/09/2015 15:51:42 ******/
@@ -22,7 +22,7 @@ CREATE TABLE [dbo].[MD_USUARIOS](
 GO
 
 
-USE [prueba]
+USE Comercial
 GO
 
 /****** Object:  Table [dbo].[GRUPOS_USUARIOS]    Script Date: 30/09/2015 15:53:26 ******/
@@ -33,7 +33,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[GRUPOS_USUARIOS](
-	[GRUPO_ID] [nvarchar](15) NOT NULL,
+	[GRUPO_ID]int,
 	[USU_ID] [nvarchar](50) NOT NULL,
  CONSTRAINT [PK_GRUPOS_USUARIOS] PRIMARY KEY CLUSTERED 
 (
@@ -46,7 +46,7 @@ GO
 
 
 
-USE [prueba]
+USE Comercial
 GO
 
 /****** Object:  Table [dbo].[MD_GRUPOS]    Script Date: 30/09/2015 15:54:17 ******/
@@ -57,7 +57,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[MD_GRUPOS](
-	[GRUPO_ID] [nvarchar](15) NOT NULL,
+	[GRUPO_ID] int not null identity,
 	[GRUPO_DESC] [nvarchar](50) NULL
 	
  CONSTRAINT [PK_MD_GRUPOS] PRIMARY KEY CLUSTERED 
@@ -68,7 +68,7 @@ CREATE TABLE [dbo].[MD_GRUPOS](
 
 GO
 
-USE [prueba]
+USE Comercial
 GO
 
 /****** Object:  Table [dbo].[GRUPOS_PERMISOS]    Script Date: 30/09/2015 15:54:52 ******/
@@ -79,8 +79,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[GRUPOS_PERMISOS](
-	[GRUPO_ID] [nvarchar](15) NOT NULL,
-	[PERMISO_ID] [nvarchar](15) NOT NULL,
+	[GRUPO_ID] int not null ,
+	[PERMISO_ID] int not null,
 
 	[VALOR] [bit] NOT NULL,
  CONSTRAINT [PK_GRUPOS_PERMISOS] PRIMARY KEY CLUSTERED 
@@ -94,7 +94,7 @@ GO
 
 
 
-USE [prueba]
+USE Comercial
 GO
 
 /****** Object:  Table [dbo].[MD_PERMISOS]    Script Date: 30/09/2015 15:56:21 ******/
@@ -105,7 +105,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[MD_PERMISOS](
-	[PERMISO_ID] [nvarchar](15) NOT NULL,
+	[PERMISO_ID] int NOT NULL identity,
 	[PERMISO_DESC] [nvarchar](50) NULL,
  CONSTRAINT [PK_MD_PERMISOS] PRIMARY KEY CLUSTERED 
 (

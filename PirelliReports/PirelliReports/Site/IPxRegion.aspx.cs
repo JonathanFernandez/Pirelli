@@ -61,7 +61,7 @@ namespace PirelliReports.Site
                 filter = "null";
             else
                filter = filter.Substring(1, filter.Length - 1);
-            string url = "CrystalViewer.aspx?ip=" + ip + "&desde=" + pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text) + "&hasta=" + pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text)+"&filter="+filter;
+            string url = "CrystalViewer.aspx?reporte=IPxRegion&ip=" + ip + "&desde=" + pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text) + "&hasta=" + pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text)+"&filter="+filter;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "OpenPopUp('"+url+"');", true);
             //Response.Redirect(url,false);
 

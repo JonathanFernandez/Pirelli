@@ -10,7 +10,7 @@ using Entidades;
 
 namespace PirelliReports.Site
 {
-    public partial class Usuario : PirelliMaster
+    public partial class UsuarioEdit : PirelliMaster
     {
         ConexionUsuario conUsuario = new ConexionUsuario();
 
@@ -21,7 +21,7 @@ namespace PirelliReports.Site
                 txtUsuId.Text = User.Usu_id;
                 txtUsuDesc.Text = User.Usu_desc;
                 txtLegajo.Text = User.Legajo.ToString();
-                chkActivo.Checked = User.Activo == 1 ? true : false;
+                chkActivo.Checked = User.Activo == true ? true : false;
                 chkActivo.Enabled = false;
                 txtMail.Text = User.Mail;
             }

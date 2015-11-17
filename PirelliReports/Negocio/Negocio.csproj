@@ -68,7 +68,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConexionAdministracionGrupos.cs" />
     <Compile Include="ConexionClientes.cs" />
+    <Compile Include="ConexionCTC.cs" />
     <Compile Include="ConexionFacturasPromo.cs" />
     <Compile Include="ConexionReportes.cs" />
     <Compile Include="ConexionUsuario.cs" />
