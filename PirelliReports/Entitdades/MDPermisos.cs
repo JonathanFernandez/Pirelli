@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Entidades
 {
-    public class Permisos
+    public class MDPermisos
     {
         private int permisoID;
 

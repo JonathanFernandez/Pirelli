@@ -69,7 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnumPermisos.cs" />
-    <Compile Include="Permisos.cs" />
+    <Compile Include="MDGrupos.cs" />
+    <Compile Include="MDPermisos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="ZoCliente.cs" />

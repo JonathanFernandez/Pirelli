@@ -12,51 +12,8 @@ namespace Negocio
 {
     public class ConexionAdministracionGrupos
     {
-        public bool ValidarUsuarioIDExistente(string usuID)
-        {
-            AdoConn ado = new AdoConn();
-            DataSet ds = new DataSet();
-            ArrayList parametros = new ArrayList();
-            parametros.Add(usuID);
+        
 
-            ds = ado.ExecuteStoredProcedureDS("SP_VERIFICA_USUARIO_ID", parametros);
-
-            if (ds.Tables[0].Rows.Count > 0)
-                return true;
-            else
-                return false;
-
-        }
-        public bool ValidarUsuarioMailExistente(string mail)
-        {
-            AdoConn ado = new AdoConn();
-            DataSet ds = new DataSet();
-            ArrayList parametros = new ArrayList();
-            parametros.Add(mail);
-
-            ds = ado.ExecuteStoredProcedureDS("SP_VERIFICA_USUARIO_MAIL", parametros);
-
-            if (ds.Tables[0].Rows.Count > 0)
-                return true;
-            else
-                return false;
-
-        }
-        public bool ValidarUsuarioLegajoExistente(string legajo)
-        {
-            AdoConn ado = new AdoConn();
-            DataSet ds = new DataSet();
-            ArrayList parametros = new ArrayList();
-            parametros.Add(legajo);
-
-            ds = ado.ExecuteStoredProcedureDS("SP_VERIFICA_USUARIO_LEGAJO", parametros);
-
-            if (ds.Tables[0].Rows.Count > 0)
-                return true;
-            else
-                return false;
-
-        }
         public void CargarPermisos(CheckBoxList chklist)
         {
             DataSet ds = new DataSet();
@@ -74,32 +31,7 @@ namespace Negocio
 
 
         }
-        public void CargarUsuarios(DropDownList ddl)
-        {
-            DataSet ds = new DataSet();
-            ds = ListadoDeUsuarios();
 
-
-
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
-                    ddl.Items.Add(new ListItem(ds.Tables[0].Rows[i]["USU_DESC"].ToString(), ds.Tables[0].Rows[i]["USU_ID"].ToString()));
-                }
-            }
-
-
-        }
-        public DataSet ListadoDeUsuarios()
-        {
-            AdoConn ado = new AdoConn();
-            DataSet ds = new DataSet();
-            //DataTable dt = new DataTable();
-            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_USUARIOS");
-
-            return ds;
-        }
         public void CargarGrupos(DropDownList ddl)
         {
             DataSet ds = new DataSet();

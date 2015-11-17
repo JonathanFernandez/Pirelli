@@ -10,7 +10,7 @@
 namespace PirelliReports.Site {
     
     
-    public partial class Usuario {
+    public partial class UsuarioEdit {
         
         /// <summary>
         /// txtUsuId control.

@@ -99,7 +99,9 @@ namespace PirelliReports.Site
 
             conAdminstracion.ModificarGrupoPermisos(permisos, ddlGrupos.SelectedItem.Text.ToUpper());
             lblMensaje.Text = "Modificación correcta";
+            //Response.Redirect(@"~/Site/AdministracionPermisos.aspx", false);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalMensaje();", true);
+            
         }
 
         protected void btnCerrar_Click(object sender, EventArgs e)

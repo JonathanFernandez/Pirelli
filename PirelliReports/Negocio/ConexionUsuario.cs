@@ -6,11 +6,181 @@ using DBLayer;
 using System.Collections;
 using System.Data;
 using Entidades;
+using System.Web.UI.WebControls;
 namespace Negocio
 {
     public class ConexionUsuario
     {
+        public Usuario TraerUsuario(string codigo)
+        {
+            Usuario u = new Usuario();
+            AdoConn ado = new AdoConn();
+            ArrayList parametros = new ArrayList();
+            DataSet ds = new DataSet();
 
+            ds = ListadoDeUsuarios(codigo);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                u.Usu_id = ds.Tables[0].Rows[0]["USU_ID"].ToString();
+                u.Usu_desc = ds.Tables[0].Rows[0]["USU_DESC"].ToString();
+                u.Legajo = ds.Tables[0].Rows[0]["LEGAJO"].ToString();
+                u.Mail = ds.Tables[0].Rows[0]["MAIL"].ToString();
+                u.Pass = ds.Tables[0].Rows[0]["PASS"].ToString();
+                u.Activo = Convert.ToBoolean(ds.Tables[0].Rows[0]["ACTIVO"]);
+                 
+            }
+            u.Grupos = new List<MDGrupos>();
+            parametros.Add(codigo);
+            ds = new DataSet();
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_GRUPOS_USUARIO", parametros);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                MDGrupos mdg;
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    mdg = new MDGrupos();
+                    mdg.Grupo_id = Convert.ToInt32(ds.Tables[0].Rows[i]["GRUPO_ID"]);
+                    mdg.Grupo_desc = ds.Tables[0].Rows[i]["GRUPO_DESC"].ToString();
+                    u.Grupos.Add(mdg);
+                }
+                
+            }
+
+            return u;
+        }
+        public bool InsertarUsuario(Usuario u)
+        {
+            AdoConn ado = new AdoConn();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(u.Usu_id);
+            parametros.Add(u.Usu_desc);
+            parametros.Add(u.Mail);
+            parametros.Add(u.Pass);
+            parametros.Add(u.Legajo);
+            parametros.Add(u.Activo);
+
+            ado.ExecuteStoredProcedureDS("SP_INSERTAR_USUARIO", parametros);
+
+            foreach (MDGrupos grup in u.Grupos)
+            {
+                parametros = new ArrayList();
+                parametros.Add(grup.Grupo_id);
+                parametros.Add(u.Usu_id);
+                ado.ExecuteStoredProcedureDS("SP_INSERTAR_GRUPOS_USUARIO", parametros);
+            }
+
+            return true;
+        }
+        public bool ModificarUsuario(Usuario u, string codigoOriginal)
+        {
+            AdoConn ado = new AdoConn();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(codigoOriginal);
+            ado.ExecuteStoredProcedureDS("SP_DELETE_GRUPOS_USUARIO", parametros);
+            
+
+            parametros = new ArrayList();
+            parametros.Add(codigoOriginal);
+            parametros.Add(u.Usu_id);
+            parametros.Add(u.Usu_desc);
+            parametros.Add(u.Mail);
+            parametros.Add(u.Pass);
+            parametros.Add(u.Legajo);
+            parametros.Add(u.Activo);
+            ado.ExecuteStoredProcedureDS("SP_MODIFICAR_USUARIO", parametros);
+            
+            foreach (MDGrupos grup in u.Grupos)
+            {
+                parametros = new ArrayList();
+                parametros.Add(grup.Grupo_id);
+                parametros.Add(u.Usu_id);
+                ado.ExecuteStoredProcedureDS("SP_INSERTAR_GRUPOS_USUARIO", parametros);
+            }
+
+            return true;
+        }
+        public bool ValidarUsuarioIDExistente(string usuID)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(usuID);
+
+            ds = ado.ExecuteStoredProcedureDS("SP_VERIFICA_USUARIO_ID", parametros);
+
+            if (ds.Tables[0].Rows.Count > 0)
+                return true;
+            else
+                return false;
+
+        }
+        public bool ValidarUsuarioMailExistente(string mail)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(mail);
+
+            ds = ado.ExecuteStoredProcedureDS("SP_VERIFICA_USUARIO_MAIL", parametros);
+
+            if (ds.Tables[0].Rows.Count > 0)
+                return true;
+            else
+                return false;
+
+        }
+        public bool ValidarUsuarioLegajoExistente(string legajo)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(legajo);
+
+            ds = ado.ExecuteStoredProcedureDS("SP_VERIFICA_USUARIO_LEGAJO", parametros);
+
+            if (ds.Tables[0].Rows.Count > 0)
+                return true;
+            else
+                return false;
+
+        }
+
+        public void CargarUsuarios(DropDownList ddl)
+        {
+            DataSet ds = new DataSet();
+            ds = ListadoDeUsuarios();
+
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    ddl.Items.Add(new ListItem(ds.Tables[0].Rows[i]["USU_DESC"].ToString(), ds.Tables[0].Rows[i]["USU_ID"].ToString()));
+                }
+            }
+
+
+        }
+        public DataSet ListadoDeUsuarios(string codigo)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(codigo);
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_USUARIOS",parametros);
+
+            return ds;
+        }
+        public DataSet ListadoDeUsuarios()
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_USUARIOS");
+
+            return ds;
+        }
         public bool VerificarLogin(string nombre, string password)
         {
             AdoConn ado = new AdoConn();
@@ -42,7 +212,7 @@ namespace Negocio
             user.Pass = ds.Tables[0].Rows[0]["PASS"].ToString();
             user.Usu_desc = ds.Tables[0].Rows[0]["USU_DESC"].ToString();
             user.Usu_id = ds.Tables[0].Rows[0]["USU_ID"].ToString();
-            user.Activo = Convert.ToInt32(ds.Tables[0].Rows[0]["ACTIVO"]);
+            user.Activo = Convert.ToBoolean(ds.Tables[0].Rows[0]["ACTIVO"]);
             user.Pass = ds.Tables[0].Rows[0]["PASS"].ToString();
 
             return user;
@@ -153,5 +323,7 @@ namespace Negocio
             return true;
         }
 
+
+      
     }
 }

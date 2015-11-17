@@ -63,15 +63,15 @@
 
             <div class="row">
                 <div class="col-lg-12 margin-15">
-                    <asp:LinkButton runat="server" OnClientClick="btnAltaOnClientClick();return false;" ID="btnAlta" CssClass="btn btn-warning"><i class="fa fa-plus"></i> Alta</asp:LinkButton>
-                    <asp:LinkButton runat="server" ID="btnEdit" OnClientClick="btnEditOnClientClick();" CssClass="btn btn-warning"><i class="fa fa-edit"></i> Modificación</asp:LinkButton>
+                    <asp:LinkButton runat="server" OnClientClick="btnAltaOnClientClick();return false;" OnClick="btnAlta_Click"  ID="btnAlta" CssClass="btn btn-warning"><i class="fa fa-plus"></i> Alta</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnEdit" OnClientClick="btnEditOnClientClick();" OnClick="btnEdit_Click" CssClass="btn btn-warning"><i class="fa fa-edit"></i> Modificación</asp:LinkButton>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-4 margin-15">
                     <label>Buscar Usuario: </label>
-                    <asp:DropDownList runat="server" ID="ddlUsuarios" CssClass="form-control" placeholder="usuarios"></asp:DropDownList>
+                    <asp:DropDownList runat="server" ID="ddlUsuarios" AutoPostBack="true" OnSelectedIndexChanged="ddlUsuarios_SelectedIndexChanged" CssClass="form-control" placeholder="usuarios"></asp:DropDownList>
                     <p class="help-block"></p>
                     <div class="form-group">
                         <asp:TextBox runat="server" ID="txtUsuarioID" MaxLength="50" CssClass="form-control" placeholder="ID de Usuario"></asp:TextBox>
@@ -129,5 +129,10 @@
             </div>
         </div>
     </div>
-    <%-- Fin modal Sincronización --%>
+    <%-- Fin modal mensaje --%>
+ <asp:HiddenField runat="server" ID="modo" value="ALTA"/>
+ <asp:HiddenField runat="server" ID="hdCodigoUsuario" value=""/>
+ <asp:HiddenField runat="server" ID="hdMail" value=""/>
+ <asp:HiddenField runat="server" ID="hdLegajo" value=""/>
+
 </asp:Content>

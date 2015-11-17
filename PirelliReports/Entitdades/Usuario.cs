@@ -44,11 +44,19 @@ namespace Entidades
             set { pass = value; }
         }
 
-        private int activo;
-        public int Activo
+        private bool activo;
+        public bool Activo
         {
             get { return activo; }
             set { activo = value; }
+        }
+
+        private List<MDGrupos> grupos;
+
+        public List<MDGrupos> Grupos
+        {
+            get { return grupos; }
+            set { grupos = value; }
         }
     }
 }

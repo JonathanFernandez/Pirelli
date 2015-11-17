@@ -1426,7 +1426,7 @@
     <Content Include="Site\Promociones.aspx" />
     <Content Include="Site\SincronizarClientes.aspx" />
     <Content Include="Site\SincronizarNeumaticos.aspx" />
-    <Content Include="Site\Usuario.aspx" />
+    <Content Include="Site\UsuarioEdit.aspx" />
     <Content Include="Sql Scripts\dbo.00_SP_BUSCA_STRING_EN_SP_or_VIEW_byEJB.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.dt_addtosourcecontrol.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.dt_addtosourcecontrol_u.StoredProcedure.sql" />
@@ -1458,24 +1458,32 @@
     <Content Include="Sql Scripts\dbo.dt_verstamp006.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.dt_whocheckedout.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.dt_whocheckedout_u.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.ELIMINAR_GRUPOS_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.GRUPOS_PERMISOS.Table.sql" />
     <Content Include="Sql Scripts\dbo.GRUPOS_USUARIOS.Table.sql" />
+    <Content Include="Sql Scripts\dbo.INSERT_GRUPOS_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.IPXCLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.IPXREGION.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.MD_GRUPOS.Table.sql" />
     <Content Include="Sql Scripts\dbo.MD_PERMISOS.Table.sql" />
     <Content Include="Sql Scripts\dbo.MD_USUARIOS.Table.sql" />
+    <Content Include="Sql Scripts\dbo.SELECT_PERMISOS_POR_ID.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ALTERA_CLIENTE_CODSOL.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ALTERA_IP_CODSOL.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ALTERA_PRECIO_CODSOL.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ALTERA_STATUS_CODSOL.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_CLIENTES_TEMP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_DELETE_CLIEN1_TEMP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_DELETE_PRODUC1_TEMP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_ELIMINAR_GRUPOS_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ESTRUCTURA_TABLA.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_GEO_CLIENTES_SOLICITUDES.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_INSERTAR_GRUPOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERTAR_ZOPROMO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_CLIEN1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_PRODUC1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_CLAVE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_MODIFICAR_NOMBRE_GRUPOS_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_ZOCLIEN.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_ZOPRODU.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_ZOPROMO.StoredProcedure.sql" />
@@ -1486,12 +1494,15 @@
     <Content Include="Sql Scripts\dbo.SP_SELECT_ALTERA_IP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_CLIENTES_ACTIVOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_FAMILIA.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_GRUPOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_MEDIDAS_ACTIVAS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PAIS.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PROMOCIONES.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PROVINCIAS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_REGION.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_TIPO_PROMO.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_USUARIOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_ZOCLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_ZOPRODU.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SINCRONIZAR_CLIENTES.StoredProcedure.sql" />
@@ -1502,12 +1513,17 @@
     <Content Include="Sql Scripts\dbo.SP_VERIFICAR_CLIENTE_EXISTENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VERIFICAR_IP_EXISTENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VERIFICAR_MAIL_EXISTENTE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_VERIFICA_GRUPO_EXISTENTE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_VERIFICA_USUARIO_ID.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_VERIFICA_USUARIO_LEGAJO.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_VERIFICA_USUARIO_MAIL.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.ST_ALTERAR_IP_CLIENTES.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.ST_PROMOCIONES_VIGENTES.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.ST_SOLICITUDES.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.ST_SOLICITUDES2.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.ST_SOLICITUDES_SAP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.ST_SOLICITUDES_SAP_DIA_PADRE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.Zoclien1_TEMP.Table.sql" />
     <Content Include="Sql Scripts\PROD.IpXCliente.StoredProcedure.sql" />
     <Content Include="Sql Scripts\PROD.IpXRegion.StoredProcedure.sql" />
     <Content Include="Sql Scripts\PROD.SP_INSERT_UPDATE_ZOTIPOPROMOxIP.StoredProcedure.sql" />
@@ -1815,12 +1831,12 @@
     <Compile Include="Site\SincronizarNeumaticos.aspx.designer.cs">
       <DependentUpon>SincronizarNeumaticos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site\Usuario.aspx.cs">
-      <DependentUpon>Usuario.aspx</DependentUpon>
+    <Compile Include="Site\UsuarioEdit.aspx.cs">
+      <DependentUpon>UsuarioEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site\Usuario.aspx.designer.cs">
-      <DependentUpon>Usuario.aspx</DependentUpon>
+    <Compile Include="Site\UsuarioEdit.aspx.designer.cs">
+      <DependentUpon>UsuarioEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="testmapa.aspx.cs">
