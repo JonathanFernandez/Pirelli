@@ -20,5 +20,15 @@ namespace Negocio
 
             return dt;
         }
+
+        public DataTable VentaTotalxCTC(ArrayList parametros)
+        {
+            AdoConn ado = new AdoConn();
+            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
+            dt = ado.ExecuteStoredProcedureDT("VENTATOTALXCTC", parametros);
+
+            return dt;
+        }
     }
 }

@@ -129,6 +129,9 @@
                             <li>
                                 <a href="#"> Región por IP</a>
                             </li>
+                             <li>
+                              <asp:HyperLink runat="server" NavigateUrl="~/Site/VentaMensualCTC.aspx"><i class="fa fa-fw fa-user"></i> Venta Mensual CTC </asp:HyperLink>
+                            </li>
                         </ul>
                     </li>
                      <li>
