@@ -121,16 +121,19 @@
                               <asp:HyperLink runat="server" NavigateUrl="~/Site/IPxRegion.aspx"><i class="fa fa-fw fa-user"></i> IP por Región </asp:HyperLink>
                             </li>
                             <li>
-                                <a href="#"> IP por Cliente</a>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/IPxCliente.aspx"><i class="fa fa-fw fa-user"></i> IP por Cliente </asp:HyperLink>
                             </li>
                             <li>
-                                <a href="#"> Cliente por IP</a>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/ClienteXIP.aspx"><i class="fa fa-fw fa-user"></i> Cliente por IP </asp:HyperLink>
                             </li>
                             <li>
-                                <a href="#"> Región por IP</a>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/RegionXIP.aspx"><i class="fa fa-fw fa-user"></i> Región por IP </asp:HyperLink>
                             </li>
                              <li>
                               <asp:HyperLink runat="server" NavigateUrl="~/Site/VentaMensualCTC.aspx"><i class="fa fa-fw fa-user"></i> Venta Mensual CTC </asp:HyperLink>
+                            </li>
+                             <li>
+                              <asp:HyperLink runat="server" NavigateUrl="~/Site/VentaTotalxCTCxCliente.aspx"><i class="fa fa-fw fa-user"></i> Venta Mensual CTC por Cliente </asp:HyperLink>
                             </li>
                         </ul>
                     </li>

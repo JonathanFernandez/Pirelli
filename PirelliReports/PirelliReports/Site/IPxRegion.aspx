@@ -97,7 +97,7 @@
                         <div class="form-inline">
                             <label>Seleccione IP: </label>
                             <asp:TextBox runat="server" id="txtIP" class="form-control pull-right" ></asp:TextBox>
-                            <input type="text" class="form-control pull-right"/>
+                           
                             <p class="help-block"></p>
                         </div>
                     </div>  
