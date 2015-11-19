@@ -13,49 +13,49 @@ namespace PirelliReports.Site {
     public partial class EnvioASap {
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtCodigoCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoCliente;
         
         /// <summary>
-        /// TextBox2 control.
+        /// txtDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlCantidadRegistros control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCantidadRegistros;
         
         /// <summary>
-        /// TextBox4 control.
+        /// ddlFamiliaAgrup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFamiliaAgrup;
         
         /// <summary>
-        /// CheckBox1 control.
+        /// txtPromo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtPromo;
         
         /// <summary>
         /// btnOpenModal control.
@@ -67,112 +67,58 @@ namespace PirelliReports.Site {
         protected global::System.Web.UI.WebControls.LinkButton btnOpenModal;
         
         /// <summary>
-        /// LinkButton1 control.
+        /// btnBuscar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.LinkButton btnBuscar;
         
         /// <summary>
-        /// txtFiltrosIP control.
+        /// btnExportar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFiltrosIP;
+        protected global::System.Web.UI.WebControls.LinkButton btnExportar;
         
         /// <summary>
-        /// txtFiltrosDescripcion control.
+        /// gvListadoFacturasAgrupadas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFiltrosDescripcion;
+        protected global::System.Web.UI.WebControls.GridView gvListadoFacturasAgrupadas;
         
         /// <summary>
-        /// ddlFiltrosPais control.
+        /// chklistIPFlgBus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFiltrosPais;
+        protected global::System.Web.UI.WebControls.CheckBoxList chklistIPFlgBus;
         
         /// <summary>
-        /// txtFiltrosOtros control.
+        /// chklistCliFlgBus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFiltrosOtros;
+        protected global::System.Web.UI.WebControls.CheckBoxList chklistCliFlgBus;
         
         /// <summary>
-        /// ddlFiltrosFamilia control.
+        /// btnFiltrosGrabar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFiltrosFamilia;
-        
-        /// <summary>
-        /// txtFiltrosMarca control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFiltrosMarca;
-        
-        /// <summary>
-        /// txtFiltrosRango control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFiltrosRango;
-        
-        /// <summary>
-        /// txtFiltrosRodado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFiltrosRodado;
-        
-        /// <summary>
-        /// chkFiltrosBajaLogica control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkFiltrosBajaLogica;
-        
-        /// <summary>
-        /// btnLFiltrosimpiar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnLFiltrosimpiar;
-        
-        /// <summary>
-        /// btnFiltrosBuscar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnFiltrosBuscar;
+        protected global::System.Web.UI.WebControls.LinkButton btnFiltrosGrabar;
         
         /// <summary>
         /// lblEdicion control.

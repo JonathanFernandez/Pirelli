@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="EnvioASap.aspx.cs" Inherits="PirelliReports.Site.EnvioASap" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="EnvioASap.aspx.cs" Inherits="PirelliReports.Site.EnvioASap" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
@@ -30,38 +30,83 @@
                 <div class="col-lg-6">
                     <div class="form-group form-pirelli">
 
-                        <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" placeholder="Código de Cliente"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtCodigoCliente" CssClass="form-control" placeholder="Código de Cliente"></asp:TextBox>
                         <p class="help-block"></p>
 
-                        <asp:TextBox runat="server" ID="TextBox2" CssClass="form-control" placeholder="Descripción de Cliente"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" placeholder="Descripción de Cliente"></asp:TextBox>
                         <p class="help-block"></p>
 
-                        
+                        <%--<asp:TextBox runat="server" ID="txtCantidadRegistro" CssClass="form-control" TextMode="Number" placeholder="Cantidad de Registro"></asp:TextBox>--%>
+                        <asp:DropDownList runat="server" ID="ddlCantidadRegistros" CssClass="form-control" placeholder="Cantidad de Registros"></asp:DropDownList>
+                        <p class="help-block"></p>
 
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
 
-                        <asp:DropDownList runat="server" ID="DropDownList1" CssClass="form-control" placeholder="Pais"></asp:DropDownList>
+                        <asp:DropDownList runat="server" ID="ddlFamiliaAgrup" CssClass="form-control" placeholder="Familia Agrup"></asp:DropDownList>
                         <p class="help-block"></p>
 
-                        <asp:TextBox runat="server" ID="TextBox4" CssClass="form-control" placeholder="Promo"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtPromo" CssClass="form-control" placeholder="Promo"></asp:TextBox>
                         <p class="help-block"></p>
 
-                        <div class="form-inline">
+                        <%--<div class="form-inline">
                             <label>Seleccionar Todos: </label>
-                                <asp:CheckBox runat="server" ID="CheckBox1" />
-                        </div>
+                                <asp:CheckBox runat="server" ID="chkSeleccionarTodos" />
+                        </div>--%>
 
                         <asp:LinkButton runat="server" ID="btnOpenModal" OnClientClick="return false;" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</asp:LinkButton>
 
-                        <asp:LinkButton runat="server" ID="LinkButton1" OnClientClick="return false;" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
+                        <asp:LinkButton runat="server" ID="btnBuscar" OnClick="btnBuscar_Click" class="btn btn-warning" ><i class="fa fa-search"></i> Buscar</asp:LinkButton>
                     </div>
                 </div>
             </div>
+         <div class="row">
+                <div class="col-lg-12">
+                <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-search"></i> Envio A Excel</asp:LinkButton>
+                </div>
+         </div>
             <%-- /ROW Form--%>
-            
+            <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">
+
+                <asp:GridView ID="gvListadoFacturasAgrupadas" class="table table-responsive table-bordered table-hover table-striped table-condensed"  AutoGenerateColumns="false" runat="server">
+                <Columns>
+                        <asp:BoundField HeaderText="CODCLIE" DataField="CODCLIE" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="DESCCLI" DataField="DESCCLI" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="CUIT" DataField="CUIT" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="IP" DataField="IP" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="DESCR" DataField="DESCR" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="CANTIDAD" DataField="CANTIDAD" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="PROCESADO" DataField="PROCESADO" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="DESCUENTO" DataField="DESCUENTO" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="CODPROMO" DataField="CODPROMO" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="DESCTIPOPROMO" DataField="DESCTIPOPROMO" />
+                    </Columns>
+                    <Columns>
+                        <asp:BoundField HeaderText="CLIREFILL" DataField="CLIREFILL" />
+                    </Columns>
+                </asp:GridView>
+
+            </div>
             <%-- MODAL filtros --%>
             <div class="modal fade" id="modalFiltros" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -77,7 +122,7 @@
                                     <div class="form-group">
                                         <%--<label>IP:</label>--%>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosIP" CssClass="form-control" placeholder="Código de Neumatico"></asp:TextBox>
+                                        <%--<asp:TextBox runat="server" ID="txtFiltrosIP" CssClass="form-control" placeholder="Código de Neumatico"></asp:TextBox>
                                         <p class="help-block"></p>
 
                                         <asp:TextBox runat="server" ID="txtFiltrosDescripcion" CssClass="form-control" placeholder="Descripción"></asp:TextBox>
@@ -87,13 +132,19 @@
                                         <p class="help-block"></p>
 
                                         <asp:TextBox runat="server" ID="txtFiltrosOtros" CssClass="form-control" placeholder="Otro"></asp:TextBox>
-                                        <p class="help-block"></p>
+                                        <p class="help-block"></p>--%>
+                                        <div class="checklist-container">
+                                             <asp:CheckBoxList runat="server" ID="chklistIPFlgBus"></asp:CheckBoxList>
+                                        </div>
 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                         <asp:DropDownList runat="server" ID="ddlFiltrosFamilia" CssClass="form-control" placeholder="familia"></asp:DropDownList>
+                                        <div class="checklist-container">
+                                            <asp:CheckBoxList runat="server" ID="chklistCliFlgBus"></asp:CheckBoxList>
+                                         </div>
+                                        <%-- <asp:DropDownList runat="server" ID="ddlFiltrosFamilia" CssClass="form-control" placeholder="familia"></asp:DropDownList>
                                         <p class="help-block"></p>
 
                                         <asp:TextBox runat="server" ID="txtFiltrosMarca" CssClass="form-control" placeholder="Marca"></asp:TextBox>
@@ -108,15 +159,14 @@
                                         <div class="form-inline">
                                             <label>Baja Lógica: </label>
                                              <asp:CheckBox runat="server" ID="chkFiltrosBajaLogica" />
-                                        </div>
+                                        </div>--%>
                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
                                 <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
-                                <asp:LinkButton runat="server" ID="btnLFiltrosimpiar" OnClientClick="return btnFiltrosLimpiar_OnClientClick();" CssClass="btn btn-warning"><i class="fa fa-trash"></i> Limpiar</asp:LinkButton>
-                                <asp:LinkButton runat="server" ID="btnFiltrosBuscar" CssClass="btn btn-warning"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
+                                <asp:LinkButton runat="server" OnClick="btnFiltrosGrabar_Click" ID="btnFiltrosGrabar" CssClass="btn btn-warning"><i class="fa fa-search"></i> Grabar</asp:LinkButton>
                             </div>
                         </div>
                     </div>

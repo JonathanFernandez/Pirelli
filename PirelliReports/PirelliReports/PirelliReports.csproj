@@ -1490,6 +1490,8 @@
     <Content Include="Sql Scripts\dbo.SP_INSERTAR_ZOPROMO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_CLIEN1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_PRODUC1_TEMP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_DE_CTC.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_MATRIZ.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_CLAVE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_NOMBRE_GRUPOS_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_USUARIO.StoredProcedure.sql" />
@@ -1535,6 +1537,7 @@
     <Content Include="Sql Scripts\dbo.ST_SOLICITUDES_SAP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.ST_SOLICITUDES_SAP_DIA_PADRE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.VENTATOTALXCTC.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.VENTATOTALXCTCXCLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.Zoclien1_TEMP.Table.sql" />
     <Content Include="Sql Scripts\PROD.IpXCliente.StoredProcedure.sql" />
     <Content Include="Sql Scripts\PROD.IpXRegion.StoredProcedure.sql" />
