@@ -178,3 +178,4 @@ C:\workspace\Pirelli\PirelliReports\PirelliReports\obj\Debug\Interop.SAXSERIALIZ
 C:\workspace\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.csproj.ResolveComReference.cache
 C:\workspace\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.dll
 C:\workspace\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.pdb
+C:\workspace\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.csprojFakesResolveAssemblyReference.cache
