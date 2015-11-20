@@ -10,34 +10,52 @@
 namespace PirelliReports.Site {
     
     
-    public partial class SincronizarClientes {
+    public partial class ActualizacionMasivaIP {
         
         /// <summary>
-        /// Control btnCargar.
+        /// Control fuSubirArchivo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCargar;
+        protected global::System.Web.UI.WebControls.FileUpload fuSubirArchivo;
         
         /// <summary>
-        /// Control btnSincronizar.
+        /// Control btnSubirSolicitudes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnSincronizar;
+        protected global::System.Web.UI.WebControls.LinkButton btnSubirSolicitudes;
         
         /// <summary>
-        /// Control gvListadoClientes.
+        /// Control btnLeerSolicitudes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvListadoClientes;
+        protected global::System.Web.UI.WebControls.LinkButton btnLeerSolicitudes;
+        
+        /// <summary>
+        /// Control btnActualizarSolicitudes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnActualizarSolicitudes;
+        
+        /// <summary>
+        /// Control gvListadoSolicitudes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvListadoSolicitudes;
         
         /// <summary>
         /// Control lblMensaje.

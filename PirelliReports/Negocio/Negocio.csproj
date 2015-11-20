@@ -78,6 +78,8 @@
     <Compile Include="ConexionZonas.cs" />
     <Compile Include="ConexionZoProduct.cs" />
     <Compile Include="ConexionZoProductTemp.cs" />
+    <Compile Include="ConexionZoSolicitudAlteraCliente.cs" />
+    <Compile Include="ConexionZoSolicitudAlteraIP.cs" />
     <Compile Include="ConexionZoTipoPromo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

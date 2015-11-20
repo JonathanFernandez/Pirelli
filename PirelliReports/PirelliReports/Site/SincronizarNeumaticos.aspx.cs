@@ -75,9 +75,10 @@ namespace PirelliReports.Site
                     catch (Exception ex)
                     {
                         lblMensaje.Text = "Error: " + ex.Message;
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                     }
+ 
                     // Se agregan los productos de la tabla temporal a la grilla
                     gvListadoNeumaticos.DataSource = conProductoTemp.ListadoDeProductosTemp();
                     gvListadoNeumaticos.DataBind();
@@ -86,15 +87,15 @@ namespace PirelliReports.Site
                 else
                 {
                     lblMensaje.Text = "El archivo no tiene ningun producto";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }
             }
             else
             {
                 lblMensaje.Text = "El archivo no se encontro. Consulte con el administrador del sistema SAP";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
         }
 
@@ -109,15 +110,13 @@ namespace PirelliReports.Site
                 gvListadoNeumaticos.DataSource = null;
                 gvListadoNeumaticos.DataBind();
                 lblMensaje.Text = "La sincronización ha finalizado con exito";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
             else
             {
                 lblMensaje.Text = "No se encontraron productos para sincronizar";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
             }
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
     }
 }

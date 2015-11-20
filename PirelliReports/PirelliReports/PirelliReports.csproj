@@ -1413,6 +1413,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="Site\ActualizacionMasivaCliente.aspx" />
+    <Content Include="Site\ActualizacionMasivaIP.aspx" />
     <Content Include="Site\AdministracionPermisos.aspx" />
     <Content Include="Site\AdministracionUsuarios.aspx" />
     <Content Include="Site\Clientes.aspx" />
@@ -1753,6 +1755,20 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ActualizacionMasivaCliente.aspx.cs">
+      <DependentUpon>ActualizacionMasivaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ActualizacionMasivaCliente.aspx.designer.cs">
+      <DependentUpon>ActualizacionMasivaCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ActualizacionMasivaIP.aspx.cs">
+      <DependentUpon>ActualizacionMasivaIP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ActualizacionMasivaIP.aspx.designer.cs">
+      <DependentUpon>ActualizacionMasivaIP.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\AdministracionPermisos.aspx.cs">
       <DependentUpon>AdministracionPermisos.aspx</DependentUpon>
