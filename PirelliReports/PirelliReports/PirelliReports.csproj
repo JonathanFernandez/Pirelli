@@ -1418,18 +1418,22 @@
     <Content Include="Site\AdministracionPermisos.aspx" />
     <Content Include="Site\AdministracionUsuarios.aspx" />
     <Content Include="Site\Clientes.aspx" />
+    <Content Include="Site\ClienteXIP.aspx" />
     <Content Include="Site\CrystalViewer.aspx" />
     <Content Include="Site\EnvioASap.aspx" />
     <Content Include="Site\FacturasPromoVisa.aspx" />
+    <Content Include="Site\IPxCliente.aspx" />
     <Content Include="Site\IPxRegion.aspx" />
     <Content Include="Site\Mapa.aspx" />
     <Content Include="Site\ModificarClienteIP.aspx" />
     <Content Include="Site\Neumaticos.aspx" />
     <Content Include="Site\Promociones.aspx" />
+    <Content Include="Site\RegionXIP.aspx" />
     <Content Include="Site\SincronizarClientes.aspx" />
     <Content Include="Site\SincronizarNeumaticos.aspx" />
     <Content Include="Site\UsuarioEdit.aspx" />
     <Content Include="Site\VentaMensualCTC.aspx" />
+    <Content Include="Site\VentaTotalxCTCxCliente.aspx" />
     <Content Include="Sql Scripts\dbo.00_SP_BUSCA_STRING_EN_SP_or_VIEW_byEJB.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.dt_addtosourcecontrol.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.dt_addtosourcecontrol_u.StoredProcedure.sql" />
@@ -1488,6 +1492,8 @@
     <Content Include="Sql Scripts\dbo.SP_INSERTAR_ZOPROMO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_CLIEN1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_PRODUC1_TEMP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_DE_CTC.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_MATRIZ.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_CLAVE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_NOMBRE_GRUPOS_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_USUARIO.StoredProcedure.sql" />
@@ -1533,6 +1539,7 @@
     <Content Include="Sql Scripts\dbo.ST_SOLICITUDES_SAP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.ST_SOLICITUDES_SAP_DIA_PADRE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.VENTATOTALXCTC.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.VENTATOTALXCTCXCLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.Zoclien1_TEMP.Table.sql" />
     <Content Include="Sql Scripts\PROD.IpXCliente.StoredProcedure.sql" />
     <Content Include="Sql Scripts\PROD.IpXRegion.StoredProcedure.sql" />
@@ -1742,6 +1749,12 @@
       <DependentUpon>VentaTotalxCTC.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RPT\VentaTotalxCTCxCliente.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VentaTotalxCTCxCliente.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1791,6 +1804,13 @@
     <Compile Include="Site\Clientes.aspx.designer.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site\ClienteXIP.aspx.cs">
+      <DependentUpon>ClienteXIP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ClienteXIP.aspx.designer.cs">
+      <DependentUpon>ClienteXIP.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\CrystalViewer.aspx.cs">
       <DependentUpon>CrystalViewer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1811,6 +1831,13 @@
     </Compile>
     <Compile Include="Site\FacturasPromoVisa.aspx.designer.cs">
       <DependentUpon>FacturasPromoVisa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\IPxCliente.aspx.cs">
+      <DependentUpon>IPxCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\IPxCliente.aspx.designer.cs">
+      <DependentUpon>IPxCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\IPxRegion.aspx.cs">
       <DependentUpon>IPxRegion.aspx</DependentUpon>
@@ -1847,6 +1874,13 @@
     <Compile Include="Site\Promociones.aspx.designer.cs">
       <DependentUpon>Promociones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site\RegionXIP.aspx.cs">
+      <DependentUpon>RegionXIP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\RegionXIP.aspx.designer.cs">
+      <DependentUpon>RegionXIP.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\SincronizarClientes.aspx.cs">
       <DependentUpon>SincronizarClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1874,6 +1908,13 @@
     </Compile>
     <Compile Include="Site\VentaMensualCTC.aspx.designer.cs">
       <DependentUpon>VentaMensualCTC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\VentaTotalxCTCxCliente.aspx.cs">
+      <DependentUpon>VentaTotalxCTCxCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\VentaTotalxCTCxCliente.aspx.designer.cs">
+      <DependentUpon>VentaTotalxCTCxCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="testmapa.aspx.cs">
@@ -1936,6 +1977,10 @@
     <EmbeddedResource Include="RPT\VentaTotalxCTC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>VentaTotalxCTC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\VentaTotalxCTCxCliente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VentaTotalxCTCxCliente.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

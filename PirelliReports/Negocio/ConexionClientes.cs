@@ -5,6 +5,7 @@ using System.Web;
 using DBLayer;
 using System.Data;
 using System.Collections;
+using System.Web.UI.WebControls;
 
 namespace Negocio
 {
@@ -93,6 +94,55 @@ namespace Negocio
             ds = ado.ExecuteStoredProcedureDS("SP_MODIFICAR_ZOCLIEN", parametros);
 
             return true;
+        }
+
+        public void cargarClientesMatriz(CheckBoxList ckhList)
+        {
+            DataSet ds = new DataSet();
+            ds = ListadoDeClientesMatriz();
+            
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    ckhList.Items.Add(new ListItem(ds.Tables[0].Rows[i]["RAZSOC"].ToString(), ds.Tables[0].Rows[i]["CODCLIMATRIZ"].ToString()));
+                }
+            }
+        }
+
+        private DataSet ListadoDeClientesMatriz()
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("SP_LISTADO_CLIENTES_MATRIZ");
+
+            return ds;
+        }
+
+        public void CargarClienteDeCTC(DropDownList ddl, string ctc)
+        {
+            DataSet ds = new DataSet();
+            ds = ListadoDeClientesDeCTC(ctc);
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    ddl.Items.Add(new ListItem(ds.Tables[0].Rows[i]["RAZSOC"].ToString(), ds.Tables[0].Rows[i]["COD"].ToString()));
+                }
+            }
+        }
+
+        private DataSet ListadoDeClientesDeCTC(string ctc)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(ctc);
+            ds = ado.ExecuteStoredProcedureDS("SP_LISTADO_CLIENTES_DE_CTC",parametros);
+
+            return ds;
         }
     }
 }

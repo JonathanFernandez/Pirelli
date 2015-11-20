@@ -20,6 +20,15 @@ namespace Negocio
 
             return dt;
         }
+        public DataTable IPXCliente(ArrayList parametros)
+        {
+            AdoConn ado = new AdoConn();
+            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
+            dt = ado.ExecuteStoredProcedureDT("IPXCLIENTE", parametros);
+
+            return dt;
+        }
 
         public DataTable VentaTotalxCTC(ArrayList parametros)
         {
@@ -27,6 +36,16 @@ namespace Negocio
             DataTable dt = new DataTable();
             //DataTable dt = new DataTable();
             dt = ado.ExecuteStoredProcedureDT("VENTATOTALXCTC", parametros);
+
+            return dt;
+        }
+
+        public DataTable VentaTotalxCTCxCliente(ArrayList parametros)
+        {
+            AdoConn ado = new AdoConn();
+            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
+            dt = ado.ExecuteStoredProcedureDT("VENTATOTALXCTCXCLIENTE", parametros);
 
             return dt;
         }

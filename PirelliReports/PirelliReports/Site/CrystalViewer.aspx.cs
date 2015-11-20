@@ -35,24 +35,110 @@ namespace PirelliReports.Site
         {
             if (Page.Request["reporte"] == "IPxRegion")
                 IPxRegion();
-
+            if (Page.Request["reporte"] == "RegionXIP")
+                RegionXIP();
+            if (Page.Request["reporte"] == "IPxCliente")
+                IPxCliente();
+            if (Page.Request["reporte"] == "ClienteXIP")
+                ClienteXIP();
             if (Page.Request["reporte"] == "VentaTotalxCTC")
                 VentaTotalxCTC();
+            if (Page.Request["reporte"] == "VentaTotalxCTCxCliente")
+                VentaTotalxCTCxCliente();
+            
         }
 
-        private void VentaTotalxCTC()
+        private void VentaTotalxCTCxCliente()
         {
             string ctc = string.Empty;
+            string cliente = string.Empty;
             desde = Convert.ToDateTime(Page.Request["desde"]);
             hasta = Convert.ToDateTime(Page.Request["hasta"]);
             ctc = Page.Request["ctc"];
+            cliente = Page.Request["cliente"];
             parametros.Add(desde);
             parametros.Add(hasta);
-            parametros.Add(ctc);
+            parametros.Add(cliente);
+            parametros.Add(ctc);            
 
-            ds.tVentaTotalCTC.Merge(conReportes.VentaTotalxCTC(parametros));
+            ds.tVentaTotalCTCxCliente.Merge(conReportes.VentaTotalxCTCxCliente(parametros));
             CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();
-            rpt.FileName = Server.MapPath("~/RPT/VentaTotalxCTC.rpt");
+            rpt.FileName = Server.MapPath("~/RPT/VentaTotalxCTCxCliente.rpt");
+            rpt.Load(rpt.FileName, OpenReportMethod.OpenReportByDefault);
+
+            rpt.SetDataSource(ds);
+            crviewer.ReportSource = rpt;
+        }
+
+        private void ClienteXIP()
+        {
+            string ip = string.Empty;
+            string filter;
+            desde = Convert.ToDateTime(Page.Request["desde"]);
+            hasta = Convert.ToDateTime(Page.Request["hasta"]);
+            ip = Page.Request["ip"];
+            filter = Page.Request["filter"];
+
+            parametros.Add(desde);
+            parametros.Add(hasta);
+            parametros.Add(ip);
+            parametros.Add(filter);
+
+
+
+            ds.tIpXCliente.Merge(conReportes.IPXCliente(parametros));
+            CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();
+            rpt.FileName = Server.MapPath("~/RPT/CLIENTExIP.rpt");
+            rpt.Load(rpt.FileName, OpenReportMethod.OpenReportByDefault);
+
+            rpt.SetDataSource(ds);
+            crviewer.ReportSource = rpt;
+        }
+
+        private void IPxCliente()
+        {
+            string ip = string.Empty;
+            string filter;
+            desde = Convert.ToDateTime(Page.Request["desde"]);
+            hasta = Convert.ToDateTime(Page.Request["hasta"]);
+            ip = Page.Request["ip"];
+            filter = Page.Request["filter"];
+
+            parametros.Add(desde);
+            parametros.Add(hasta);
+            parametros.Add(ip);
+            parametros.Add(filter);
+
+
+
+            ds.tIpXCliente.Merge(conReportes.IPXCliente(parametros));
+            CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();
+            rpt.FileName = Server.MapPath("~/RPT/IPxCLIENTE.rpt");
+            rpt.Load(rpt.FileName, OpenReportMethod.OpenReportByDefault);
+
+            rpt.SetDataSource(ds);
+            crviewer.ReportSource = rpt;
+        }
+
+        private void RegionXIP()
+        {
+            string ip = string.Empty;
+            string filter;
+            desde = Convert.ToDateTime(Page.Request["desde"]);
+            hasta = Convert.ToDateTime(Page.Request["hasta"]);
+            ip = Page.Request["ip"];
+            filter = Page.Request["filter"];
+
+            parametros.Add(desde);
+            parametros.Add(hasta);
+            parametros.Add(ip);
+            parametros.Add(filter);
+
+
+
+            ds.tIpXRegion.Merge(conReportes.IPXRegion(parametros));
+            CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();
+            rpt.FileName = Server.MapPath("~/RPT/REGIONxIP.rpt");
             rpt.Load(rpt.FileName, OpenReportMethod.OpenReportByDefault);
 
             rpt.SetDataSource(ds);
@@ -78,6 +164,25 @@ namespace PirelliReports.Site
             ds.tIpXRegion.Merge(conReportes.IPXRegion(parametros));
             CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();
             rpt.FileName = Server.MapPath("~/RPT/IPxREGION.rpt");
+            rpt.Load(rpt.FileName, OpenReportMethod.OpenReportByDefault);
+
+            rpt.SetDataSource(ds);
+            crviewer.ReportSource = rpt;
+        }
+
+        private void VentaTotalxCTC()
+        {
+            string ctc = string.Empty;
+            desde = Convert.ToDateTime(Page.Request["desde"]);
+            hasta = Convert.ToDateTime(Page.Request["hasta"]);
+            ctc = Page.Request["ctc"];
+            parametros.Add(desde);
+            parametros.Add(hasta);
+            parametros.Add(ctc);
+
+            ds.tVentaTotalCTC.Merge(conReportes.VentaTotalxCTC(parametros));
+            CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();
+            rpt.FileName = Server.MapPath("~/RPT/VentaTotalxCTC.rpt");
             rpt.Load(rpt.FileName, OpenReportMethod.OpenReportByDefault);
 
             rpt.SetDataSource(ds);

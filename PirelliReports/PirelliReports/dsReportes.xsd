@@ -12,7 +12,7 @@
   <xs:element name="dsReportes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReportes" msprop:Generator_UserDSName="dsReportes">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tIpXRegion" msprop:Generator_TableClassName="tIpXRegionDataTable" msprop:Generator_TableVarName="tabletIpXRegion" msprop:Generator_RowChangedName="tIpXRegionRowChanged" msprop:Generator_TablePropName="tIpXRegion" msprop:Generator_RowDeletingName="tIpXRegionRowDeleting" msprop:Generator_RowChangingName="tIpXRegionRowChanging" msprop:Generator_RowEvHandlerName="tIpXRegionRowChangeEventHandler" msprop:Generator_RowDeletedName="tIpXRegionRowDeleted" msprop:Generator_RowClassName="tIpXRegionRow" msprop:Generator_UserTableName="tIpXRegion" msprop:Generator_RowEvArgName="tIpXRegionRowChangeEvent">
+        <xs:element name="tIpXRegion" msprop:Generator_TableClassName="tIpXRegionDataTable" msprop:Generator_TableVarName="tabletIpXRegion" msprop:Generator_TablePropName="tIpXRegion" msprop:Generator_RowDeletingName="tIpXRegionRowDeleting" msprop:Generator_RowChangingName="tIpXRegionRowChanging" msprop:Generator_RowEvHandlerName="tIpXRegionRowChangeEventHandler" msprop:Generator_RowDeletedName="tIpXRegionRowDeleted" msprop:Generator_UserTableName="tIpXRegion" msprop:Generator_RowChangedName="tIpXRegionRowChanged" msprop:Generator_RowEvArgName="tIpXRegionRowChangeEvent" msprop:Generator_RowClassName="tIpXRegionRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ip" msprop:Generator_ColumnVarNameInTable="columnip" msprop:Generator_ColumnPropNameInRow="ip" msprop:Generator_ColumnPropNameInTable="ipColumn" msprop:Generator_UserColumnName="ip" type="xs:string" minOccurs="0" />
@@ -23,7 +23,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tIpXCliente" msprop:Generator_TableClassName="tIpXClienteDataTable" msprop:Generator_TableVarName="tabletIpXCliente" msprop:Generator_RowChangedName="tIpXClienteRowChanged" msprop:Generator_TablePropName="tIpXCliente" msprop:Generator_RowDeletingName="tIpXClienteRowDeleting" msprop:Generator_RowChangingName="tIpXClienteRowChanging" msprop:Generator_RowEvHandlerName="tIpXClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="tIpXClienteRowDeleted" msprop:Generator_RowClassName="tIpXClienteRow" msprop:Generator_UserTableName="tIpXCliente" msprop:Generator_RowEvArgName="tIpXClienteRowChangeEvent">
+        <xs:element name="tIpXCliente" msprop:Generator_TableClassName="tIpXClienteDataTable" msprop:Generator_TableVarName="tabletIpXCliente" msprop:Generator_TablePropName="tIpXCliente" msprop:Generator_RowDeletingName="tIpXClienteRowDeleting" msprop:Generator_RowChangingName="tIpXClienteRowChanging" msprop:Generator_RowEvHandlerName="tIpXClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="tIpXClienteRowDeleted" msprop:Generator_UserTableName="tIpXCliente" msprop:Generator_RowChangedName="tIpXClienteRowChanged" msprop:Generator_RowEvArgName="tIpXClienteRowChangeEvent" msprop:Generator_RowClassName="tIpXClienteRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ip" msprop:Generator_ColumnVarNameInTable="columnip" msprop:Generator_ColumnPropNameInRow="ip" msprop:Generator_ColumnPropNameInTable="ipColumn" msprop:Generator_UserColumnName="ip" type="xs:string" minOccurs="0" />
@@ -34,9 +34,18 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tVentaTotalCTC" msprop:Generator_TableClassName="tVentaTotalCTCDataTable" msprop:Generator_TableVarName="tabletVentaTotalCTC" msprop:Generator_TablePropName="tVentaTotalCTC" msprop:Generator_RowDeletingName="tVentaTotalCTCRowDeleting" msprop:Generator_RowChangingName="tVentaTotalCTCRowChanging" msprop:Generator_RowEvHandlerName="tVentaTotalCTCRowChangeEventHandler" msprop:Generator_RowDeletedName="tVentaTotalCTCRowDeleted" msprop:Generator_UserTableName="tVentaTotalCTC" msprop:Generator_RowChangedName="tVentaTotalCTCRowChanged" msprop:Generator_RowEvArgName="tVentaTotalCTCRowChangeEvent" msprop:Generator_RowClassName="tVentaTotalCTCRow">
+        <xs:element name="tVentaTotalCTC" msprop:Generator_TableClassName="tVentaTotalCTCDataTable" msprop:Generator_TableVarName="tabletVentaTotalCTC" msprop:Generator_RowChangedName="tVentaTotalCTCRowChanged" msprop:Generator_TablePropName="tVentaTotalCTC" msprop:Generator_RowDeletingName="tVentaTotalCTCRowDeleting" msprop:Generator_RowChangingName="tVentaTotalCTCRowChanging" msprop:Generator_RowEvHandlerName="tVentaTotalCTCRowChangeEventHandler" msprop:Generator_RowDeletedName="tVentaTotalCTCRowDeleted" msprop:Generator_RowClassName="tVentaTotalCTCRow" msprop:Generator_UserTableName="tVentaTotalCTC" msprop:Generator_RowEvArgName="tVentaTotalCTCRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tVentaTotalCTCxCliente" msprop:Generator_TableClassName="tVentaTotalCTCxClienteDataTable" msprop:Generator_TableVarName="tabletVentaTotalCTCxCliente" msprop:Generator_TablePropName="tVentaTotalCTCxCliente" msprop:Generator_RowDeletingName="tVentaTotalCTCxClienteRowDeleting" msprop:Generator_RowChangingName="tVentaTotalCTCxClienteRowChanging" msprop:Generator_RowEvHandlerName="tVentaTotalCTCxClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="tVentaTotalCTCxClienteRowDeleted" msprop:Generator_UserTableName="tVentaTotalCTCxCliente" msprop:Generator_RowChangedName="tVentaTotalCTCxClienteRowChanged" msprop:Generator_RowEvArgName="tVentaTotalCTCxClienteRowChangeEvent" msprop:Generator_RowClassName="tVentaTotalCTCxClienteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codclie" msprop:Generator_ColumnVarNameInTable="columncodclie" msprop:Generator_ColumnPropNameInRow="codclie" msprop:Generator_ColumnPropNameInTable="codclieColumn" msprop:Generator_UserColumnName="codclie" type="xs:string" minOccurs="0" />
               <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" minOccurs="0" />
               <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:double" minOccurs="0" />
             </xs:sequence>
