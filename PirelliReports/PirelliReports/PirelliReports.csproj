@@ -1428,6 +1428,7 @@
     <Content Include="Site\Promociones.aspx" />
     <Content Include="Site\RegionXIP.aspx" />
     <Content Include="Site\SincronizarClientes.aspx" />
+    <Content Include="Site\SincronizarFacturas.aspx" />
     <Content Include="Site\SincronizarNeumaticos.aspx" />
     <Content Include="Site\UsuarioEdit.aspx" />
     <Content Include="Site\VentaMensualCTC.aspx" />
@@ -1493,6 +1494,8 @@
     <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_DE_CTC.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_MATRIZ.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_CLAVE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_MODIFICAR_CLIENTE_FLGFILBUSQ.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_MODIFICAR_IP_FLGFILBUSQ.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_NOMBRE_GRUPOS_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_USUARIO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_ZOCLIEN.StoredProcedure.sql" />
@@ -1504,10 +1507,13 @@
     <Content Include="Sql Scripts\dbo.SP_SELECT_ALTERA_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_ALTERA_IP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_CLIENTES_ACTIVOS.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_CLIENTE_FLGFILBUSQ.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_CTC_ACTIVOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_FAMILIA.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_FAMILIA_AGRUP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_GRUPOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_GRUPOS_USUARIO.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_IP_FLGFILBUSQ.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_MEDIDAS_ACTIVAS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PAIS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PERMISOS.StoredProcedure.sql" />
@@ -1871,6 +1877,13 @@
     </Compile>
     <Compile Include="Site\SincronizarClientes.aspx.designer.cs">
       <DependentUpon>SincronizarClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\SincronizarFacturas.aspx.cs">
+      <DependentUpon>SincronizarFacturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\SincronizarFacturas.aspx.designer.cs">
+      <DependentUpon>SincronizarFacturas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\SincronizarNeumaticos.aspx.cs">
       <DependentUpon>SincronizarNeumaticos.aspx</DependentUpon>

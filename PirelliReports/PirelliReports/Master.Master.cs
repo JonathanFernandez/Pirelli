@@ -15,6 +15,8 @@ namespace PirelliReports
         public Usuario userLog = new Usuario(); 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string a = Request.Url.LocalPath;
+
             userLog  = ((Usuario)Session["Usuario"]);
 
             lblUsuario.Text = userLog.Usu_desc;
