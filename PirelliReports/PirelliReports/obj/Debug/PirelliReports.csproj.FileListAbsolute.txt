@@ -179,4 +179,7 @@ C:\workspace\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.cspr
 C:\workspace\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.dll
 C:\workspace\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.pdb
 C:\workspace\Pirelli\PirelliReports\PirelliReports\obj\Debug\PirelliReports.csprojFakesResolveAssemblyReference.cache
+<<<<<<< HEAD
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\PirelliReports\bin\Microsoft.QualityTools.Testing.Fakes.dll
+=======
+>>>>>>> origin/master
