@@ -47,6 +47,9 @@
       <HintPath>bin\GMaps.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -1413,6 +1416,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="Site\ActualizacionMasivaCliente.aspx" />
+    <Content Include="Site\ActualizacionMasivaIP.aspx" />
     <Content Include="Site\AdministracionPermisos.aspx" />
     <Content Include="Site\AdministracionUsuarios.aspx" />
     <Content Include="Site\Clientes.aspx" />
@@ -1773,6 +1778,20 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Site\ActualizacionMasivaCliente.aspx.cs">
+      <DependentUpon>ActualizacionMasivaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ActualizacionMasivaCliente.aspx.designer.cs">
+      <DependentUpon>ActualizacionMasivaCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ActualizacionMasivaIP.aspx.cs">
+      <DependentUpon>ActualizacionMasivaIP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ActualizacionMasivaIP.aspx.designer.cs">
+      <DependentUpon>ActualizacionMasivaIP.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\AdministracionPermisos.aspx.cs">
       <DependentUpon>AdministracionPermisos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1931,6 +1950,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Fakes\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Controles\Controles.csproj">

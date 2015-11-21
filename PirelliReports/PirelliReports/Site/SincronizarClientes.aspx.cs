@@ -96,16 +96,14 @@ namespace PirelliReports.Site
                 {
                     lblMensaje.Text = "El archivo no tiene ningun cliente";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-                    
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);  
                 }
             }
             else
             {
                 lblMensaje.Text = "El archivo no se encontro. Consulte con el administrador del sistema SAP";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-                
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);  
             }
         }
 
@@ -120,13 +118,13 @@ namespace PirelliReports.Site
                 gvListadoClientes.DataSource = null;
                 gvListadoClientes.DataBind();
                 lblMensaje.Text = "La sincronización ha finalizado con exito";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
             else
             {
                 lblMensaje.Text = "No se encontraron clientes para sincronizar";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
     }
 }
