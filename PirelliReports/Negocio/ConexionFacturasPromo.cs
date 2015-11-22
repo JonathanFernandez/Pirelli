@@ -10,6 +10,24 @@ namespace Negocio
 {
     public class ConexionFacturasPromo
     {
+        public bool ProcresarZoSolicitudDatosExternos()
+        {
+            AdoConn ado = new AdoConn();
+
+            ado.ExecuteNonStoredProcedure("SP_PROCESA_ZOSOLICITUD_DATOSEXTERNOS");
+
+            return true;
+        }
+        public DataSet ListadoDeZoDatosExternos()
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_ZOSOLICITUD_DATOSEXTERNOS");
+
+            return ds;
+        }
+        
         public DataSet ListadoDeFacturas()
         {
             AdoConn ado = new AdoConn();
@@ -19,7 +37,7 @@ namespace Negocio
 
             return ds;
         }
-        public object ListadoDeFacturasEnvioSAP(string CodigoCliente, string Descripcion, string Promo, int CantidadRegistro, string FamiliaAgrup)
+        public DataSet ListadoDeFacturasEnvioSAP(string CodigoCliente, string Descripcion, string Promo, int CantidadRegistro, string FamiliaAgrup)
         {
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();

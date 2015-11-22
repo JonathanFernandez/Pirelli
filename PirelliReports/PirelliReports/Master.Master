@@ -76,7 +76,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <asp:HyperLink runat="server" NavigateUrl="~/Site/FacturasPromoVisa.aspx"><i class="fa fa-fw fa-dashboard"></i> Facturas Promo Visa </asp:HyperLink>
+                        <asp:HyperLink runat="server" NavigateUrl="~/Site/FacturasPromoVisa.aspx"><i class="fa fa-fw fa-credit-card"></i> Facturas Promo Visa </asp:HyperLink>
                         <%--<a href="~/Site/FacturasPromoVisa.aspx"><i class="fa fa-fw bar-chart-o"></i> Facturas Promo Visa</a>--%>
                     </li>
                     <li>
@@ -94,7 +94,7 @@
                         <%--<a href="Site/Promociones.aspx"><i class="fa fa-fw fa-edit"></i> Promociones</a>--%>
                     </li>
                   <li>
-                        <asp:HyperLink runat="server" NavigateUrl="~/Site/ModificarClienteIP.aspx"><i class="fa fa-fw fa-dashboard"></i> Modificar Cliente IP </asp:HyperLink>
+                        <asp:HyperLink runat="server" NavigateUrl="~/Site/ModificarClienteIP.aspx"><i class="fa fa-fw fa-user"></i> Modificar Cliente IP </asp:HyperLink>
                         <%--<a href="Site/Promociones.aspx"><i class="fa fa-fw fa-edit"></i> Promociones</a>--%>
                     </li>
                  
@@ -102,7 +102,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-refresh"></i> Sincronizacíon <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/SincronizarFacturas.aspx"><i class="fa fa-fw fa-user"></i> Facturas </asp:HyperLink>
+                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/SincronizarFacturas.aspx"><i class="fa fa-fw fa-barcode"></i> Facturas </asp:HyperLink>
                                 <%--<a href="#"><i class="fa fa-fw fa-file"></i> SincronizarFacturas</a>--%>
                             </li>
                             <li>
@@ -110,16 +110,27 @@
                                 <%--<a href="#"> Clientes</a>--%>
                             </li>
                             <li>
-                                <asp:HyperLink runat="server" NavigateUrl="~/Site/SincronizarNeumaticos.aspx"><i class="fa fa-fw fa-user"></i> Neumaticos </asp:HyperLink>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/SincronizarNeumaticos.aspx"><i class="fa fa-fw fa-car"></i> Neumaticos </asp:HyperLink>
                                 <%--<a href="#"> Neumaticos</a>--%>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-arrows-v"></i> Reportes <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo4"><i class="fa fa-fw fa-edit"></i> Modificaciones Masivas <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo4" class="collapse">
+                            <li>
+                              <asp:HyperLink runat="server" NavigateUrl="~/Site/ActualizacionMasivaCliente.aspx"><i class="fa fa-fw fa-user"></i> Actualizacion Masiva Clientes </asp:HyperLink>
+                            </li>
+                            <li>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/ActualizacionMasivaIP.aspx"><i class="fa fa-fw fa-user"></i> Actualizacion Masiva IP </asp:HyperLink>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-area-chart"></i> Reportes <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo2" class="collapse">
                             <li>
-                              <asp:HyperLink runat="server" NavigateUrl="~/Site/IPxRegion.aspx"><i class="fa fa-fw fa-user"></i> IP por Región </asp:HyperLink>
+                              <asp:HyperLink runat="server" NavigateUrl="~/Site/IPxRegion.aspx"><i class="fa fa-fw fa-flag-checkered"></i> IP por Región </asp:HyperLink>
                             </li>
                             <li>
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/IPxCliente.aspx"><i class="fa fa-fw fa-user"></i> IP por Cliente </asp:HyperLink>
@@ -128,24 +139,24 @@
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/ClienteXIP.aspx"><i class="fa fa-fw fa-user"></i> Cliente por IP </asp:HyperLink>
                             </li>
                             <li>
-                                <asp:HyperLink runat="server" NavigateUrl="~/Site/RegionXIP.aspx"><i class="fa fa-fw fa-user"></i> Región por IP </asp:HyperLink>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/RegionXIP.aspx"><i class="fa fa-fw fa-flag"></i> Región por IP </asp:HyperLink>
                             </li>
                              <li>
-                              <asp:HyperLink runat="server" NavigateUrl="~/Site/VentaMensualCTC.aspx"><i class="fa fa-fw fa-user"></i> Venta Mensual CTC </asp:HyperLink>
+                              <asp:HyperLink runat="server" NavigateUrl="~/Site/VentaMensualCTC.aspx"><i class="fa fa-fw fa-pie-chart"></i> Venta Mensual CTC </asp:HyperLink>
                             </li>
                              <li>
-                              <asp:HyperLink runat="server" NavigateUrl="~/Site/VentaTotalxCTCxCliente.aspx"><i class="fa fa-fw fa-user"></i> Venta Mensual CTC por Cliente </asp:HyperLink>
+                              <asp:HyperLink runat="server" NavigateUrl="~/Site/VentaTotalxCTCxCliente.aspx"><i class="fa fa-fw fa-line-chart"></i> Venta Mensual CTC por Cliente </asp:HyperLink>
                             </li>
                         </ul>
                     </li>
                      <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-arrows-v"></i> Administración <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-cog"></i> Administración <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo3" class="collapse">
                             <li>
                               <asp:HyperLink runat="server" NavigateUrl="~/Site/AdministracionUsuarios.aspx"><i class="fa fa-fw fa-user"></i> Administación de Usuarios </asp:HyperLink>
                             </li>
                             <li>
-                               <asp:HyperLink runat="server" NavigateUrl="~/Site/AdministracionPermisos.aspx"><i class="fa fa-fw fa-user"></i> Administación de Permisos </asp:HyperLink>
+                               <asp:HyperLink runat="server" NavigateUrl="~/Site/AdministracionPermisos.aspx"><i class="fa fa-fw fa-cogs"></i> Administación de Permisos </asp:HyperLink>
                             </li>
                             
                         </ul>

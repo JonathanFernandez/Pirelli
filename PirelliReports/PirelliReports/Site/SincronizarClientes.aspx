@@ -13,7 +13,7 @@
     function activarSpinner() {
         $(".spinner-container").css({ display: "block" });
     }
-    function desctivarSpinner() {
+    function desactivarSpinner() {
         $(".spinner-container").css({ display: "none" });
     }
 </script>
@@ -49,18 +49,18 @@
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i><a href="index.html">Dashboard</a>
+                            <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-refresh"></i> Sincronizar Clientes
+                            <i class="fa fa-user"></i> Sincronizar Clientes
                             </li>
                     </ol>
                 </div>
 
                 <div class="col-lg-12 margin-15">
                     <%--<button class="btn btn-warning" onclick="#"><i class="fa fa-refresh"></i> Sincronizar</button>--%>
-                    <asp:LinkButton runat="server" ID="btnCargar" OnClientClick="activarSpinner();" OnClick="btnCargar_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Cargar</asp:LinkButton> 
-                    <asp:LinkButton runat="server" ID="btnSincronizar" OnClientClick="activarSpinner();" OnClick="btnSincronizar_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Sincronizar</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnCargar" OnClientClick="activarSpinner();" OnClick="btnCargar_Click" CssClass="btn btn-warning"><i class="fa fa-cloud-upload"></i> Cargar</asp:LinkButton> 
+                    <asp:LinkButton runat="server" ID="btnSincronizar" OnClientClick="activarSpinner();" OnClick="btnSincronizar_Click" CssClass="btn btn-warning"><i class="fa fa-refresh"></i> Sincronizar</asp:LinkButton>
                 </div>
                 <br />
             <br />
@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <h4><asp:Label runat="server" ID="lblMensaje"></asp:Label> </h4>
+                                        <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
                                     </div>
 
                                 </div>

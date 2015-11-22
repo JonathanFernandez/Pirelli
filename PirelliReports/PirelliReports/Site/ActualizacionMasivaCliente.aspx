@@ -13,7 +13,7 @@
     function activarSpinner() {
         $(".spinner-container").css({ display: "block" });
     }
-    function desctivarSpinner() {
+    function desactivarSpinner() {
         $(".spinner-container").css({ display: "none" });
     }
 </script>
@@ -45,14 +45,14 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Actuazalizacion masiva de clientes
+                    <h1 class="page-header">Actualización masiva de clientes
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i><a href="index.html">Dashboard</a>
+                            <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-refresh"></i> Actualizacion masiva de clientes
+                            <i class="fa fa-refresh"></i> Actualización masiva de clientes
                             </li>
                     </ol>
                 </div>
@@ -61,14 +61,14 @@
                     <%--<button class="btn btn-warning" onclick="#"><i class="fa fa-refresh"></i> Sincronizar</button>--%>
                     <%--<asp:TextBox runat="server" ID="txtNombreArchivo" Enabled="False"></asp:TextBox>
                     <asp:LinkButton runat="server" ID="btnExaminar" OnClick="btnExaminar_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Examinar...</asp:LinkButton>--%>
-                    <asp:FileUpload ID="fuSubirArchivo" runat="server" />
+                    <asp:FileUpload ID="fuSubirArchivo" CssClass="form-pirelli" runat="server" />
                 </div>
 
                 <div class="col-lg-12 margin-15">
                     <%--<button class="btn btn-warning" onclick="#"><i class="fa fa-refresh"></i> Sincronizar</button>--%>
-                    <asp:LinkButton runat="server" ID="btnSubirSolicitudes" OnClientClick="activarSpinner();" OnClick="btnSubirSolicitudes_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Subir solicitudes</asp:LinkButton>
-                    <asp:LinkButton runat="server" ID="btnLeerSolicitudes" OnClientClick="activarSpinner();" OnClick="btnLeerSolicitudes_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Leer solicitudes</asp:LinkButton> 
-                    <asp:LinkButton runat="server" ID="btnActualizarSolicitudes" OnClientClick="activarSpinner();" OnClick="btnActualizarSolicitudes_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Actualizar solicitudes</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnSubirSolicitudes" OnClientClick="activarSpinner();" OnClick="btnSubirSolicitudes_Click" CssClass="btn btn-warning"><i class="fa fa-cloud-upload"></i> Subir solicitudes</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnLeerSolicitudes" OnClientClick="activarSpinner();" OnClick="btnLeerSolicitudes_Click" CssClass="btn btn-warning"><i class="fa fa-cloud-download"></i> Leer solicitudes</asp:LinkButton> 
+                    <asp:LinkButton runat="server" ID="btnActualizarSolicitudes" OnClientClick="activarSpinner();" OnClick="btnActualizarSolicitudes_Click" CssClass="btn btn-warning"><i class="fa fa-refresh"></i> Actualizar solicitudes</asp:LinkButton>
                 </div>
                 <br />
             <br />
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <h4><asp:Label runat="server" ID="lblMensaje"></asp:Label> </h4>
+                                        <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
                                     </div>
 
                                 </div>
@@ -114,4 +114,5 @@
     </div>
        
     <!-- /#page-wrapper -->
+    <asp:HiddenField ID="HDrutaArchivoSubido" runat="server"/>
 </asp:Content>

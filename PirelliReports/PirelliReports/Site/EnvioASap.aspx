@@ -64,7 +64,7 @@
             </div>
          <div class="row">
                 <div class="col-lg-12">
-                <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-search"></i> Envio A Excel</asp:LinkButton>
+                <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
                 </div>
          </div>
             <%-- /ROW Form--%>
@@ -107,10 +107,13 @@
                 </asp:GridView>
 
             </div>
-            <%-- MODAL filtros --%>
-            <div class="modal fade" id="modalFiltros" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+          
+        </div>
+    </div>
+                <%-- MODAL filtros --%>
+            <div class="modal fade " id="modalFiltros" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-full-width" role="document">
+                    <div class="modal-content modal-full-height">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="page-header modal-title" id="myModalLabel">Filtros
@@ -133,7 +136,7 @@
 
                                         <asp:TextBox runat="server" ID="txtFiltrosOtros" CssClass="form-control" placeholder="Otro"></asp:TextBox>
                                         <p class="help-block"></p>--%>
-                                        <div class="checklist-container">
+                                        <div class="checklist-container full-height">
                                              <asp:CheckBoxList runat="server" ID="chklistIPFlgBus"></asp:CheckBoxList>
                                         </div>
 
@@ -141,7 +144,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <div class="checklist-container">
+                                        <div class="checklist-container full-height">
                                             <asp:CheckBoxList runat="server" ID="chklistCliFlgBus"></asp:CheckBoxList>
                                          </div>
                                         <%-- <asp:DropDownList runat="server" ID="ddlFiltrosFamilia" CssClass="form-control" placeholder="familia"></asp:DropDownList>
@@ -166,16 +169,15 @@
                             <div class="modal-footer">
                                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
                                 <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
-                                <asp:LinkButton runat="server" OnClick="btnFiltrosGrabar_Click" ID="btnFiltrosGrabar" CssClass="btn btn-warning"><i class="fa fa-search"></i> Grabar</asp:LinkButton>
+                                <asp:LinkButton runat="server" OnClick="btnFiltrosGrabar_Click" ID="btnFiltrosGrabar" CssClass="btn btn-warning"><i class="fa fa-save"></i> Grabar</asp:LinkButton>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <%-- Fin modal Filtrros --%>
-           
-        </div>
-    </div>
+
+
         <%-- MODAL EDIT --%>
        
         <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -228,7 +230,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <h2><asp:Label runat="server" ID="lblMensaje"></asp:Label> </h2>
+                                        <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
                                     </div>
 
                                 </div>

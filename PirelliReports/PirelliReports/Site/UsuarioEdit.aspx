@@ -45,10 +45,10 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i><a href="index.html">Index</a>
+                        <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-edit"></i>Edición Perfil
+                        <i class="fa fa-edit"></i> Edición Perfil
                     </li>
                 </ol>
             </div>
@@ -58,17 +58,17 @@
             <div class="col-lg-6">
                 <div class="form-inline margin-15">
                     <label>Usuario: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right" id="txtUsuId" placeholder="" Enabled="false"></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right input-profile" id="txtUsuId" placeholder="" disabled></asp:TextBox>
                 </div>
 
                 <div class="form-inline margin-15">
                     <label>Legajo: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right"  id="txtLegajo" placeholder="" Enabled="False"> </asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right input-profile"  id="txtLegajo" placeholder="" disabled> </asp:TextBox>
                 </div>
 
                 <div class="form-inline">
                     <label>Descripción: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right" id="txtUsuDesc" placeholder="" Enabled="false"></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right input-profile" disabled id="txtUsuDesc" placeholder="" ></asp:TextBox>
                 </div>
             </div>
 
@@ -80,7 +80,7 @@
                 
                 <div class="form-inline margin-15">
                     <label>E-Mail: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right" id="txtMail" Enabled="false"></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right" id="txtMail" disabled></asp:TextBox>
                 </div>
 
                 <div class="form-inline margin-15">
@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <h4><asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label> </h4>
+                                        <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
                                     </div>
 
                                 </div>

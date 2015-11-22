@@ -7,14 +7,16 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades;
 using Negocio;
+using Controles;
 
 namespace PirelliReports.Site
 {
-    public partial class ActualizacionMasivaCliente : System.Web.UI.Page
+    public partial class ActualizacionMasivaCliente : PirelliMaster
     {
         ConexionZoSolicitudAlteraCliente conSolicitud = new ConexionZoSolicitudAlteraCliente();
         List<ZoSolicitud> solicitudes = new List<ZoSolicitud>();
-        private string rutaArchivoSubido = "";
+        public string rutaArchivoSubido = "";
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,7 +48,7 @@ namespace PirelliReports.Site
                 catch (System.Web.HttpException ex)
                 {
                     lblMensaje.Text = "Error: " + ex.Message;
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }
 
@@ -54,14 +56,15 @@ namespace PirelliReports.Site
                 // was saved under.
                 lblMensaje.Text = "Se subio el archivo " + fileName;
                 rutaArchivoSubido = savePath;
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
+                HDrutaArchivoSubido.Value = savePath;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
             else
             {
                 // Notify the user that a file was not uploaded.
                 lblMensaje.Text = "No se pudo subir el archivo " + fileName;
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
         }
@@ -69,15 +72,15 @@ namespace PirelliReports.Site
         protected void btnLeerSolicitudes_Click(object sender, EventArgs e)
         {
             conSolicitud.BorrarSolicitudes();
-            if (File.Exists(rutaArchivoSubido))
+            if (File.Exists(HDrutaArchivoSubido.Value))
             {
-                FileInfo fi = new FileInfo(rutaArchivoSubido);
+                FileInfo fi = new FileInfo(HDrutaArchivoSubido.Value);
                 // Se consulta el tamaño del archivo en bytes
                 if (fi.Length > 0)
                 {
                     try
                     {
-                        using (StreamReader lector = new StreamReader(rutaArchivoSubido))
+                        using (StreamReader lector = new StreamReader(HDrutaArchivoSubido.Value))
                         {
                             // Se comienza a leer el archivo
                             while (lector.Peek() > -1)
@@ -101,19 +104,19 @@ namespace PirelliReports.Site
                     catch (Exception ex)
                     {
                         lblMensaje.Text = "Error: " + ex.Message;
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
 
                     }
                     // Se agregan las solicitudes de la tabla temporal a la grilla
                     gvListadoSolicitudes.DataSource = conSolicitud.ListadoDeSolicitudes();
                     gvListadoSolicitudes.DataBind();
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                 }
                 else
                 {
                     lblMensaje.Text = "No hay ninguna solicitud";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }
             }
@@ -135,7 +138,7 @@ namespace PirelliReports.Site
             {
                 lblMensaje.Text = "No se encontraron solicitudes para la actualizacion masiva";
             }
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desctivarSpinner();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 

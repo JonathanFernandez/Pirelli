@@ -104,7 +104,7 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i><a href="index.html">Index</a>
+                        <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
                     </li>
                     <li class="active">
                         <i class="fa fa-user"></i> Clientes
@@ -119,7 +119,7 @@
                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
                 <asp:LinkButton runat="server" ID="btnOpenModal" OnClientClick="return false;" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</asp:LinkButton>
 
-                <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-search"></i> Envio A Excel</asp:LinkButton>
+                <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
 
                 <asp:LinkButton runat="server" ID="btnVerMapa" OnClientClick="reDrawMaps();" class="btn btn-warning" data-toggle="modal" data-target="#modalMaps"><i class="fa fa-map-marker"></i> Ver Mapa</asp:LinkButton>
 
@@ -356,7 +356,7 @@
                                    </div>
                                 </div>
                             </div>
-                             <h2><asp:Label runat="server" ID="lblMensaje2"></asp:Label> </h2><br />
+                             <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje2"></asp:Label> </h4>
                             <asp:LinkButton runat="server" ID="btnAceptar"  OnClick="btnAceptar_Click" class="btn btn-warning"> Aceptar</asp:LinkButton>
                     </div>
                 </div>
@@ -376,7 +376,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <h2><asp:Label runat="server" ID="lblMensaje"></asp:Label> </h2>
+                                        <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
                                     </div>
 
                                 </div>

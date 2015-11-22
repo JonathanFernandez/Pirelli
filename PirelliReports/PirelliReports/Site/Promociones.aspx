@@ -79,16 +79,14 @@
             <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Blank Page
-                           
-                        <small>Subheading</small>
+                    <h1 class="page-header">Promociones
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i><a href="index.html">Dashboard</a>
+                            <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i>Blank Page
+                            <i class="fa fa-bar-chart-o"></i> Promociones
                             </li>
                     </ol>
                 </div>

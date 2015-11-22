@@ -24,10 +24,10 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html"> Index</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> Reportes
+                                <i class="fa fa-flag-checkered"></i> Ip Por Región
                             </li>
                         </ol>
                     </div>
@@ -39,22 +39,18 @@
                             <label>Seleccione rango de fechas:</label>
                             <div class="control-group pull-right">
                                             <div class="controls">
-                                                <div class="input-group">
-                                                    <p>
+                                                <div class="input-group margin-15">
                                                         <asp:TextBox runat="server" ID="dpDesde" class="date-picker form-control" placeholder="Desde"></asp:TextBox>
                                                         <label for="dpDesde" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
-                                                    </p>
                                                 </div>
 
-                                                <div class="input-group">
-                                                    <p>
+                                                <div class="input-group margin-15">
                                                         <asp:TextBox runat="server" ID="dpHasta" class="date-picker form-control" placeholder="Hasta"></asp:TextBox>
                                                         <label for="dpHasta" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -107,7 +103,7 @@
                 <div class="row">
                     <div class="col-md-offset-2">
                         <div class="form-inline">
-                            <div class="checklist-container">
+                            <div>
                                 <asp:CheckBoxList runat="server" ID="chklistFiltro"></asp:CheckBoxList>
                             </div>
                             <p class="help-block"></p>

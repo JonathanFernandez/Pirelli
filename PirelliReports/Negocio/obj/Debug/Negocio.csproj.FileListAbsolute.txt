@@ -1,12 +1,3 @@
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\Negocio.dll.config
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\Negocio.dll
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\Negocio.pdb
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\DBLayer.dll
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\Entidades.dll
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\DBLayer.pdb
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\Entidades.pdb
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\obj\Debug\Negocio.dll
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\obj\Debug\Negocio.pdb
 C:\workspace\Pirelli\PirelliReports\Negocio\bin\Negocio.dll.config
 C:\workspace\Pirelli\PirelliReports\Negocio\bin\Negocio.dll
 C:\workspace\Pirelli\PirelliReports\Negocio\bin\Negocio.pdb
@@ -17,3 +8,13 @@ C:\workspace\Pirelli\PirelliReports\Negocio\bin\Entidades.pdb
 C:\workspace\Pirelli\PirelliReports\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
 C:\workspace\Pirelli\PirelliReports\Negocio\obj\Debug\Negocio.dll
 C:\workspace\Pirelli\PirelliReports\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\Negocio.dll.config
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\Negocio.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\Negocio.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\DBLayer.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\Entidades.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\DBLayer.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\bin\Entidades.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\obj\Debug\Negocio.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Negocio\obj\Debug\Negocio.pdb

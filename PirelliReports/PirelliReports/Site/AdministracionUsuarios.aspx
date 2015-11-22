@@ -83,10 +83,10 @@
                         <asp:TextBox runat="server" ID="txtDescripcion" MaxLength="50" CssClass="form-control" placeholder="Descripción"></asp:TextBox>
                         <p class="help-block"></p>
 
-                        <asp:TextBox runat="server" ID="txtMail" MaxLength="50"  CssClass="form-control" placeholder="E-mail"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtMailUser" MaxLength="50"  CssClass="form-control" placeholder="E-mail"></asp:TextBox>
                         <p class="help-block"></p>
 
-                        <asp:TextBox runat="server" ID="txtPass" MaxLength="20" TextMode="Password" CssClass="form-control" placeholder="clave"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtPassUser" MaxLength="20" TextMode="Password" CssClass="form-control" placeholder="clave"></asp:TextBox>
                         <p class="help-block"></p>
 
                         <div class="form-inline">
@@ -120,9 +120,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <h4>
-                            <asp:Label runat="server" ID="lblMensaje"></asp:Label>
-                        </h4>
+                        <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
                     </div>
                     <asp:LinkButton runat="server" ID="btnCerrar" OnClick="btnCerrar_Click" CssClass="btn btn-danger pull-right"><i class="fa fa-trash"></i>Cerrar</asp:LinkButton>
                 </div>

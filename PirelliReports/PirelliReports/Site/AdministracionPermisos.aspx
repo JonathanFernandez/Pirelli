@@ -46,10 +46,10 @@
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i><a href="index.html">Dashboard</a>
+                            <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-user"></i> Administración de Grupos
+                            <i class="fa fa-users"></i> Administración de Grupos
                             </li>
                     </ol>
                 </div>
@@ -57,7 +57,7 @@
 
             
                 <div class="row">
-                    <div class="col-lg-4 margin-15 form-pirelli">
+                    <div class="col-lg-5 margin-15 form-pirelli">
                         <h3>Dar de Alta un Grupo</h3>
                             <div class="form-group">
                                 <asp:TextBox runat="server" MaxLength="50" ID="txtGrupoAlta" CssClass="form-control" placeholder="Nombre de Grupo"></asp:TextBox>
@@ -77,11 +77,10 @@
                             <p class="help-block"></p>
                                 <div class="form-group">
                                 <asp:TextBox runat="server" MaxLength="50" ID="txtEditarNombre" CssClass="form-control" placeholder="Nombre de Grupo"></asp:TextBox>
-                                <asp:LinkButton runat="server" ID="btnCambiarNombre" OnClick="btnCambiarNombre_Click" OnClientClick="return btnCambiarNombre();" CssClass="btn btn-warning pull-right"><i class="fa fa-edit"></i> Cambiar Nombre</asp:LinkButton>
-                            <p class="help-block"></p>
+                                <asp:LinkButton runat="server" ID="btnCambiarNombre" OnClick="btnCambiarNombre_Click" OnClientClick="return btnCambiarNombre();" CssClass="btn btn-warning pull-right margin-15"><i class="fa fa-edit"></i> Cambiar Nombre</asp:LinkButton>
 
                                  <div class="checklist-container">
-                                  <asp:CheckBoxList runat="server" ID="chkListPermisosEditar"></asp:CheckBoxList>
+                                  <asp:CheckBoxList runat="server" CssClass="margin-15" ID="chkListPermisosEditar"></asp:CheckBoxList>
                                  </div>
 
                             <asp:LinkButton runat="server" ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger pull-right"><i class="fa fa-trash"></i> Eliminar</asp:LinkButton>
@@ -108,7 +107,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <h4><asp:Label runat="server" ID="lblMensaje"></asp:Label> </h4>
+                                        <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
                                     </div>
                                     <asp:LinkButton runat="server" ID="btnCerrar" OnClick="btnCerrar_Click" CssClass="btn btn-danger pull-right"><i class="fa fa-trash"></i>Cerrar</asp:LinkButton>
                                 </div>

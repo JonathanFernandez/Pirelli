@@ -1416,6 +1416,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="Site\ABMFacturasPromoVisa.aspx" />
     <Content Include="Site\ActualizacionMasivaCliente.aspx" />
     <Content Include="Site\ActualizacionMasivaIP.aspx" />
     <Content Include="Site\AdministracionPermisos.aspx" />
@@ -1487,6 +1488,8 @@
     <Content Include="Sql Scripts\dbo.SP_DELETE_CLIEN1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_DELETE_GRUPOS_USUARIO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_DELETE_PRODUC1_TEMP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_DELETE_SOLICITUD_ALTERA_CLIENTE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_DELETE_SOLICITUD_ALTERA_IP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ELIMINAR_GRUPOS_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ESTRUCTURA_TABLA.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_GEO_CLIENTES_SOLICITUDES.StoredProcedure.sql" />
@@ -1496,6 +1499,8 @@
     <Content Include="Sql Scripts\dbo.SP_INSERTAR_ZOPROMO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_CLIEN1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_PRODUC1_TEMP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_INSERT_SOLICITUD_ALTERA_CLIENTE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_INSERT_SOLICITUD_ALTERA_IP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_DE_CTC.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_MATRIZ.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_CLAVE.StoredProcedure.sql" />
@@ -1525,10 +1530,13 @@
     <Content Include="Sql Scripts\dbo.SP_SELECT_PROMOCIONES.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PROVINCIAS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_REGION.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_SOLICITUD_ALTERA_CLIENTE.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_SOLICITUD_ALTERA_IP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_TIPO_PROMO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_USUARIOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_ZOCLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_ZOPRODU.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_ZOSOLICITUD_DATOSEXTERNOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SINCRONIZAR_CLIENTES.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SINCRONIZAR_PRODUCTOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_UPDATE_ALTERA_CLIENTE.StoredProcedure.sql" />
@@ -1777,6 +1785,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ABMFacturasPromoVisa.aspx.cs">
+      <DependentUpon>ABMFacturasPromoVisa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ABMFacturasPromoVisa.aspx.designer.cs">
+      <DependentUpon>ABMFacturasPromoVisa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\ActualizacionMasivaCliente.aspx.cs">
       <DependentUpon>ActualizacionMasivaCliente.aspx</DependentUpon>

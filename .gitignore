@@ -50,17 +50,17 @@ x64/
 build/
 [Bb]in/
 [Oo]bj/
-[Pp]irelliReports/PirelliReports/Controles/bin/
-[Pp]irelliReports/PirelliReports/Controles/obj/
-[Pp]irelliReports/PirelliReports/DBLayer/bin/
-[Pp]irelliReports/PirelliReports/DBLayer/obj/
-[Pp]irelliReports/PirelliReports/Entitdades/bin/
-[Pp]irelliReports/PirelliReports/Entitdades/obj/
-[Pp]irelliReports/PirelliReports/Negocio/bin/
-[Pp]irelliReports/PirelliReports/Negocio/obj/
-[Pp]irelliReports/PirelliReports/bin/
-[Pp]irelliReports/PirelliReports/obj/
-[Pp]irelliReports/packages/
+#[Pp]irelliReports/PirelliReports/Controles/bin/
+#[Pp]irelliReports/PirelliReports/Controles/obj/
+#[Pp]irelliReports/PirelliReports/DBLayer/bin/
+#[Pp]irelliReports/PirelliReports/DBLayer/obj/
+#[Pp]irelliReports/PirelliReports/Entitdades/bin/
+#[Pp]irelliReports/PirelliReports/Entitdades/obj/
+#[Pp]irelliReports/PirelliReports/Negocio/bin/
+#[Pp]irelliReports/PirelliReports/Negocio/obj/
+#[Pp]irelliReports/PirelliReports/bin/
+#[Pp]irelliReports/PirelliReports/obj/
+#[Pp]irelliReports/packages/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/

@@ -52,7 +52,7 @@ namespace PirelliReports.Site
                     lblMensaje.Text = "Ya existe un usuario con el mismo legajo";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalMensaje();", true);
                 }
-                else if (conUsuario.ValidarUsuarioMailExistente(txtMail.Text))
+                else if (conUsuario.ValidarUsuarioMailExistente(txtMailUser.Text))
                 {
                     lblMensaje.Text = "Ya existe un usuario con el mismo mail";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalMensaje();", true);
@@ -63,8 +63,8 @@ namespace PirelliReports.Site
                     u.Usu_id = txtUsuarioID.Text;
                     u.Usu_desc = txtDescripcion.Text;
                     u.Legajo = txtLegajo.Text;
-                    u.Mail = txtMail.Text;
-                    u.Pass = txtPass.Text;
+                    u.Mail = txtMailUser.Text;
+                    u.Pass = txtPassUser.Text;
                     u.Activo = chkActivo.Checked ? true : false;
                     u.Grupos = new List<MDGrupos>();
                     MDGrupos mdg;
@@ -104,9 +104,9 @@ namespace PirelliReports.Site
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalMensaje();", true);
                     }
                 }
-                if (hdMail.Value != txtMail.Text)
+                if (hdMail.Value != txtMailUser.Text)
                 {
-                    if (conUsuario.ValidarUsuarioMailExistente(txtMail.Text))
+                    if (conUsuario.ValidarUsuarioMailExistente(txtMailUser.Text))
                     {
                         flag = false;
                         lblMensaje.Text = "Ya existe un usuario con el mismo mail";
@@ -119,8 +119,8 @@ namespace PirelliReports.Site
                     u.Usu_id = txtUsuarioID.Text;
                     u.Usu_desc = txtDescripcion.Text;
                     u.Legajo = txtLegajo.Text;
-                    u.Mail = txtMail.Text;
-                    u.Pass = txtPass.Text;
+                    u.Mail = txtMailUser.Text;
+                    u.Pass = txtPassUser.Text;
                     u.Activo = chkActivo.Checked ? true : false;
                     u.Grupos = new List<MDGrupos>();
                     MDGrupos mdg;
@@ -147,8 +147,8 @@ namespace PirelliReports.Site
             ddlUsuarios.Enabled = true;
             txtDescripcion.Text = "";
             txtLegajo.Text = "";
-            txtMail.Text = "";
-            txtPass.Text = "";
+            txtMailUser.Text = "";
+            txtPassUser.Text = "";
             txtUsuarioID.Text = "";
             chkActivo.Checked = false;
             modo.Value = "EDITAR";
@@ -170,8 +170,8 @@ namespace PirelliReports.Site
 
             txtDescripcion.Text = u.Usu_desc;
             txtLegajo.Text = u.Legajo;
-            txtMail.Text = u.Mail;
-            txtPass.Text = u.Pass;
+            txtMailUser.Text = u.Mail;
+            txtPassUser.Text = u.Pass;
             txtUsuarioID.Text = u.Usu_id;
             chkActivo.Checked = u.Activo;
 

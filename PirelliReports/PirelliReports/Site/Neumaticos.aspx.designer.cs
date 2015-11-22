@@ -157,6 +157,15 @@ namespace PirelliReports.Site {
         protected global::System.Web.UI.WebControls.TextBox txtRango;
         
         /// <summary>
+        /// LinkButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        
+        /// <summary>
         /// chkBajaLogica control.
         /// </summary>
         /// <remarks>
@@ -164,15 +173,6 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkBajaLogica;
-        
-        /// <summary>
-        /// btnAceptar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAceptar;
         
         /// <summary>
         /// lblMensaje control.

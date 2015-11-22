@@ -12,7 +12,10 @@
             hidden = open(url, "NewWindow", "top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes");
             return false;
         }
-
+        function OpenNewTab(url) {
+            hidden = open(url);
+            return false;
+        }
         function btnFiltrosLimpiar_OnClientClick() {
             document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosCodCliente").value = "";
             document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosRazonSocial").value = "";
@@ -31,6 +34,7 @@
             openModalFiltros();
             return false;
         }
+
         function btnEditarLimpiarCampos_OnClientClick()
         {
             
@@ -59,6 +63,7 @@
             openModalEdit();
             return false;
         }
+
         function chkFechas_OnChange() {
             if (document.getElementById("PaginaCentral_ContentPlaceHolder_chkFechas").checked) {
                 document.getElementById("PaginaCentral_ContentPlaceHolder_dpFiltrosDesde").disabled = false;
@@ -69,9 +74,7 @@
                 document.getElementById("PaginaCentral_ContentPlaceHolder_dpFiltrosHasta").disabled = true;
             }
         }
-
-
-
+        
         function openModalFiltros() {
             $('#modalFiltros').modal('show');
         }
@@ -102,10 +105,10 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i><a href="index.html">Index</a>
+                        <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-edit"></i>Facturas Promo Visa
+                        <i class="fa fa-credit-card"></i> Facturas Promo Visa
                     </li>
                 </ol>
             </div>
@@ -117,7 +120,7 @@
                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
                 <asp:LinkButton runat="server" ID="btnOpenModal" OnClientClick="return false;" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</asp:LinkButton>
 
-                <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-search"></i> Envio A Excel</asp:LinkButton>
+                <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
 
                 <asp:LinkButton runat="server" ID="btnVerMapa" OnClientClick="reDrawMaps();" class="btn btn-warning" data-toggle="modal" data-target="#modalMaps"><i class="fa fa-map-marker"></i> Ver Mapa</asp:LinkButton>
 
@@ -276,7 +279,8 @@
                                 <asp:ButtonField ButtonType="Button" ControlStyle-CssClass="btn btn-warning" DataTextField="Boton"  HeaderText="Boton"  />
                             </Columns>--%>
                     <Columns>
-                        <asp:CommandField ControlStyle-CssClass="btn btn-warning btn-edit-modal" HeaderText="Edición" SelectText="Editar" ShowSelectButton="true" />
+                        <%--<asp:CommandField ControlStyle-CssClass="btn btn-warning btn-edit-modal" HeaderText="Edición" SelectText="Editar" ShowSelectButton="true" />--%>
+                        <asp:HyperLinkField HeaderText="Editar" DataTextField="Editar" DataNavigateUrlFormatString="http://{0}" />
                     </Columns>
                     <Columns>
                         <asp:BoundField HeaderText="ID" DataField="ID" />
