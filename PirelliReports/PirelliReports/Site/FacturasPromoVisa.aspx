@@ -131,9 +131,7 @@
 
                 <asp:LinkButton runat="server" ID="btnCrear" OnClientClick="btnCrearOnClientClick();" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Crear Factura</asp:LinkButton>
                 
-                <asp:TextBox runat="server" class="form-control input-mini" AutoPostBack="true" OnTextChanged="txtBuscarFactura_TextChanged" id="txtBuscarFactura" placeholder="Factura"></asp:TextBox>
-                
-                <asp:LinkButton runat="server" ID="btnBuscarRapido"  class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Busqueda Rapida</asp:LinkButton>
+                <asp:TextBox runat="server" class="form-control input-mini inline" AutoPostBack="true" OnTextChanged="txtBuscarFactura_TextChanged" id="txtBuscarFactura" placeholder="Buscar con escáner"></asp:TextBox>
 
             </div>
             <%-- MODAL maps --%>
@@ -148,7 +146,7 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-lg-12" id="googleMaps">
-                                    <cc:GMap ID="GMap1" runat="server" />
+                                    <%--<cc:GMap ID="GMap1" runat="server" />--%>
                                     <br />
                                 </div>
 

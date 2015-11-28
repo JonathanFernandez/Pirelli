@@ -75,14 +75,16 @@ body {
 a{
     color: #ED1D23;
 }
-
-.form-inline .form-control.input-mini{
+.inline{
+    display:inline-block;
+}
+.form-control.input-mini{
     width:25%;
 }
-.form-inline .form-control.input-medium{
+.form-control.input-medium{
     width:50%;
 }
-.form-inline .form-control.input-full{
+.form-control.input-full{
     width:100%;
 }
 
@@ -511,7 +513,7 @@ ul.alert-dropdown {
 .form-pirelli, .form-pirelli label, .form-pirelli p, .form-pirelli h2, .form-pirelli h3{
     color: white;
 }
-.form-pirelli i, .form-pirelli span{
+.form-pirelli i, .form-pirelli span, .form-pirelli table{
     color: black;
 }
 

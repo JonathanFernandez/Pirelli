@@ -4,11 +4,40 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
+    <script>
+
+        function openModal() {
+           
+            $('#modalMensaje').modal('show');
+        }
+        function activarSpinner() {
+            $(".spinner-container").css({ display: "block" });
+        }
+        function desactivarSpinner() {
+            $(".spinner-container").css({ display: "none" });
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div id="page-wrapper">
     <div class="container-fluid form-pirelli">
         <!-- Page Heading -->
+        <div class="spinner-container">
+                <div class="sk-circle">
+                    <div class="sk-circle1 sk-child"></div>
+                    <div class="sk-circle2 sk-child"></div>
+                    <div class="sk-circle3 sk-child"></div>
+                    <div class="sk-circle4 sk-child"></div>
+                    <div class="sk-circle5 sk-child"></div>
+                    <div class="sk-circle6 sk-child"></div>
+                    <div class="sk-circle7 sk-child"></div>
+                    <div class="sk-circle8 sk-child"></div>
+                    <div class="sk-circle9 sk-child"></div>
+                    <div class="sk-circle10 sk-child"></div>
+                    <div class="sk-circle11 sk-child"></div>
+                    <div class="sk-circle12 sk-child"></div>
+                </div>
+            </div>
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Envio a SAP
@@ -62,15 +91,16 @@
                     </div>
                 </div>
             </div>
-         <div class="row">
+         <div class="row margin-15">
                 <div class="col-lg-12">
-                <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnEnviarSap" OnClientClick="activarSpinner();" OnClick="btnEnviarSap_Click" class="btn btn-warning"><i class="fa fa-upload"></i> Envio A SAP</asp:LinkButton>
                 </div>
          </div>
             <%-- /ROW Form--%>
             <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">
 
-                <asp:GridView ID="gvListadoFacturasAgrupadas" class="table table-responsive table-bordered table-hover table-striped table-condensed"  AutoGenerateColumns="false" runat="server">
+                <asp:GridView ID="gvListadoFacturasAgrupadas" class="table table-responsive table-bordered table-hover table-striped table-condensed table-black"  AutoGenerateColumns="false" runat="server">
                 <Columns>
                         <asp:BoundField HeaderText="CODCLIE" DataField="CODCLIE" />
                     </Columns>
@@ -225,7 +255,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="page-header modal-title" id="myModalSincro">Edición de Neumatico
+                                    <h4 class="page-header modal-title" id="myModalSincro">Envio a SAP
                                     </h4>
                                 </div>
                                 <div class="modal-body">

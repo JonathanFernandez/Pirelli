@@ -58,24 +58,6 @@ namespace PirelliReports.Site {
         protected global::System.Web.UI.WebControls.TextBox txtBuscarFactura;
         
         /// <summary>
-        /// btnBuscarRapido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnBuscarRapido;
-        
-        /// <summary>
-        /// GMap1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Subgurim.Controles.GMap GMap1;
-        
-        /// <summary>
         /// txtFiltrosIP control.
         /// </summary>
         /// <remarks>

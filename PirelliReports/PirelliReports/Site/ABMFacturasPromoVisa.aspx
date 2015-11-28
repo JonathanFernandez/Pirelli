@@ -4,6 +4,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
+    <script>
+        function openModal() {
+
+            $('#modalMensaje').modal('show');
+        }
+        function btnCerrarOnClientClick()
+        {
+            window.close();
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
         <div id="page-wrapper">
@@ -324,8 +334,27 @@
                             </div>
                             <%-- /Row Nota y botones --%>
                     </div>
-            </div>
-       </div>
+            </div>     
+        <%-- MODAL mensaje --%>
+                    <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="page-header modal-title" id="myModalSincro">Envio a SAP
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
+                                    </div>
+                                    <asp:LinkButton runat="server" OnClientClick="btnCerrarOnClientClick();" ID="btnCerrar" class="btn btn-warning">Aceptar</asp:LinkButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+         <%-- Fin modal mensaje --%>
+      <%-- </div>--%>
     <asp:HiddenField runat="server" ID="HDModo" />
     <asp:HiddenField runat="server" ID="HDCodSolicitud" />
     <asp:HiddenField runat="server" ID="HDPais" />

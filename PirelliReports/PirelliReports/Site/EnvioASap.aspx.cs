@@ -64,5 +64,13 @@ namespace PirelliReports.Site
             conFacturas.ModificarFiltroBusquedaIP(chklistIPFlgBus);
             Response.Redirect(@"~/Site/EnvioASap.aspx", false);
         }
+
+        protected void btnEnviarSap_Click(object sender, EventArgs e)
+        {
+            lblMensaje.Text = "Facturas enviadas con exito";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true); 
+
+        }
     }
 }

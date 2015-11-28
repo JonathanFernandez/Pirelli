@@ -264,15 +264,20 @@ namespace PirelliReports.Site
             solicitud.Nota = txtEditarNota.Text;
 
             if (string.IsNullOrEmpty(HDCodSolicitud.Value))
+            {
                 conFacturas.InsertarFactura(solicitud);
+                lblMensaje.Text = "Facturas creada con exito";
+            }
             else
             {
                 solicitud.CodSolicitud = Convert.ToInt32(HDCodSolicitud.Value);
-                conFacturas.ModificarFactura(solicitud); 
+                conFacturas.ModificarFactura(solicitud);
+                lblMensaje.Text = "Facturas modifica con exito";
 
             }
 
-
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true); 
 
         }
 
