@@ -6,11 +6,28 @@ using DBLayer;
 using System.Data;
 using System.Collections;
 using System.Web.UI.WebControls;
+using Entidades;
 
 namespace Negocio
 {
     public class ConexionClientes
     {
+        public ZoRegion RegionDelCliente(string codCliente)
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(codCliente);
+
+            ZoRegion reg = new ZoRegion();
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_REGION_DEL_CLIENTE",parametros);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                reg.Reg_code = ds.Tables[0].Rows[0]["reg_cod"].ToString();
+                reg.Descripcion = ds.Tables[0].Rows[0]["Descripcion"].ToString();
+            }
+            return reg;
+        }
         public DataSet ListadoGeoClientesDeFacturas()
         {
             AdoConn ado = new AdoConn();

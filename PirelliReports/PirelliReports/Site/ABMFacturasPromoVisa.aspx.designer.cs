@@ -40,13 +40,13 @@ namespace PirelliReports.Site {
         protected global::System.Web.UI.WebControls.TextBox txtEditCuota;
         
         /// <summary>
-        /// ddlDescuento control.
+        /// txtDescuento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDescuento;
+        protected global::System.Web.UI.WebControls.TextBox txtDescuento;
         
         /// <summary>
         /// ddlEditarMedida control.
@@ -121,15 +121,6 @@ namespace PirelliReports.Site {
         protected global::System.Web.UI.WebControls.TextBox txtEditarticket;
         
         /// <summary>
-        /// txtEditarAutor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditarAutor;
-        
-        /// <summary>
         /// txtEditarTarjeta control.
         /// </summary>
         /// <remarks>
@@ -155,15 +146,6 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEditarCliente;
-        
-        /// <summary>
-        /// ddlEditarRegion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEditarRegion;
         
         /// <summary>
         /// txtEditarNombre control.
@@ -263,5 +245,77 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnEditarAceptar;
+        
+        /// <summary>
+        /// HDModo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HDModo;
+        
+        /// <summary>
+        /// HDCodSolicitud control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HDCodSolicitud;
+        
+        /// <summary>
+        /// HDPais control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HDPais;
+        
+        /// <summary>
+        /// HDCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HDCliente;
+        
+        /// <summary>
+        /// HDMedida control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HDMedida;
+        
+        /// <summary>
+        /// HDProvincia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HDProvincia;
+        
+        /// <summary>
+        /// HDRegion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HDRegion;
+        
+        /// <summary>
+        /// HDPromo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HDPromo;
     }
 }

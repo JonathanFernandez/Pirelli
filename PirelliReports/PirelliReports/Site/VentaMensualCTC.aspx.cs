@@ -37,6 +37,8 @@ namespace PirelliReports.Site
             string ctc = ddlCTC.SelectedValue;
 
             string url = "CrystalViewer.aspx?reporte=VentaTotalxCTC&ctc=" + ctc + "&desde=" + pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text) + "&hasta=" + pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text);
+            //Response.Redirect(url, false);
+
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "OpenPopUp('" + url + "');", true);
 
         }

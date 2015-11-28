@@ -76,6 +76,7 @@
     <Compile Include="ZoCliente.cs" />
     <Compile Include="Zoprodu.cs" />
     <Compile Include="ZoProvincia.cs" />
+    <Compile Include="ZoRegion.cs" />
     <Compile Include="ZoSolicitud.cs" />
     <Compile Include="ZoTipoPromo.cs" />
   </ItemGroup>

@@ -168,9 +168,9 @@ namespace Entidades
             get { return codPos; }
             set { codPos = value; }
         }
-        private float precio;
+        private double precio;
 
-        public float Precio
+        public double Precio
         {
             get { return precio; }
             set { precio = value; }
@@ -189,9 +189,9 @@ namespace Entidades
             get { return codPromo; }
             set { codPromo = value; }
         }
-        private float descuento;
+        private double descuento;
 
-        public float Descuento
+        public double Descuento
         {
             get { return descuento; }
             set { descuento = value; }

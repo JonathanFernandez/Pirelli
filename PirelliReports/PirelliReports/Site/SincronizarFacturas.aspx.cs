@@ -43,8 +43,8 @@ namespace PirelliReports.Site
             gvListadoClientes.DataSource = connFacturas.ListadoDeZoDatosExternos();
             gvListadoClientes.DataBind();
 
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
             lblMensaje.Text = "Sincronización finalizada";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
    
         }

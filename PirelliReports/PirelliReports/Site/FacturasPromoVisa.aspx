@@ -16,6 +16,11 @@
             hidden = open(url);
             return false;
         }
+        function btnCrearOnClientClick() {
+            url = "ABMFacturasPromoVisa.aspx";
+            OpenNewTab(url);
+            return false;
+        }
         function btnFiltrosLimpiar_OnClientClick() {
             document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosCodCliente").value = "";
             document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosRazonSocial").value = "";
@@ -123,6 +128,12 @@
                 <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
 
                 <asp:LinkButton runat="server" ID="btnVerMapa" OnClientClick="reDrawMaps();" class="btn btn-warning" data-toggle="modal" data-target="#modalMaps"><i class="fa fa-map-marker"></i> Ver Mapa</asp:LinkButton>
+
+                <asp:LinkButton runat="server" ID="btnCrear" OnClientClick="btnCrearOnClientClick();" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Crear Factura</asp:LinkButton>
+                
+                <asp:TextBox runat="server" class="form-control input-mini" AutoPostBack="true" OnTextChanged="txtBuscarFactura_TextChanged" id="txtBuscarFactura" placeholder="Factura"></asp:TextBox>
+                
+                <asp:LinkButton runat="server" ID="btnBuscarRapido"  class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Busqueda Rapida</asp:LinkButton>
 
             </div>
             <%-- MODAL maps --%>

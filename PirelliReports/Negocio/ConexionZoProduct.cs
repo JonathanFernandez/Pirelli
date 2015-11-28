@@ -58,6 +58,7 @@ namespace Negocio
 
             return ds;
         }
+
         public void cargarFamilia(DropDownList ddl)
         {
             DataSet ds = new DataSet();
@@ -85,7 +86,7 @@ namespace Negocio
             return ds;
         }
 
-        public object ListadoZoProduct(ArrayList parametros)
+        public DataSet ListadoZoProduct(ArrayList parametros)
         {
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();

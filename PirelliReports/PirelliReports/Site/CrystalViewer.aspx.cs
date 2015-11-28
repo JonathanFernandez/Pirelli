@@ -14,6 +14,7 @@ using Subgurim.Controles;
 using System.Drawing;
 using System.Configuration;
 
+using CrystalDecisions.Web;
 
 using System.Data.Odbc;
 using System.Data.SqlClient;
@@ -68,6 +69,7 @@ namespace PirelliReports.Site
 
             rpt.SetDataSource(ds);
             crviewer.ReportSource = rpt;
+            
         }
 
         private void ClienteXIP()
@@ -187,6 +189,7 @@ namespace PirelliReports.Site
 
             rpt.SetDataSource(ds);
             crviewer.ReportSource = rpt;
+            
         }
     }
 }

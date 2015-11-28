@@ -116,10 +116,6 @@ namespace PirelliReports.Site
         //}
 
        
-
-        
-       
-
         private void cargarCantidadDeRegistros(DropDownList ddl)
         {
            ddl.Items.Add(new ListItem("1000", "1000"));
@@ -130,7 +126,6 @@ namespace PirelliReports.Site
            ddl.Items.Add(new ListItem("10000", "10000"));
            
         }
-
         private void cargarFamilia(DropDownList ddl)
         {
             DataSet ds = new DataSet();
@@ -292,7 +287,36 @@ namespace PirelliReports.Site
 
         }
 
-        
+        protected void txtBuscarFactura_TextChanged(object sender, EventArgs e)
+        {
+            string factura = txtBuscarFactura.Text;
+            ArrayList parametros = new ArrayList();
+            parametros.Add("%%" );
+            parametros.Add("%%");
+            parametros.Add("%");
+            parametros.Add("%");
+            parametros.Add("%");
+            parametros.Add("%");
+            parametros.Add(factura);
+            parametros.Add("%%%");
+            parametros.Add("%");
+
+            parametros.Add("1900/1/1");
+            parametros.Add("2900/1/1");
+
+            parametros.Add("100");
+            parametros.Add("%");
+            parametros.Add("%");
+            parametros.Add("%");
+            parametros.Add("%");
+
+
+            gvListadosFacturasVisa.DataSource = conFacturas.ListadoDeFacturas(parametros);
+            gvListadosFacturasVisa.DataBind();
+         
+        }
+
+             
 
         
     }

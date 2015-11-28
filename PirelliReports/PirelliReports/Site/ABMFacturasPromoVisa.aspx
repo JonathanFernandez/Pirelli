@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     <div class="input-group margin-15">
-                                        <asp:TextBox runat="server" ID="dpEditarFecha" class="date-picker form-control" placeholder="Fecha"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="dpEditarFecha" OnTextChanged="dpEditarFecha_TextChanged" AutoPostBack="true" class="date-picker form-control" placeholder="Fecha"></asp:TextBox>
                                         <label for="date-picker-1" class="input-group-addon btn">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </label>
@@ -56,7 +56,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-inline">
                                         <label>Tipo promo:</label>
-                                        <asp:DropDownList runat="server" ID="ddlEditarTipoPromo" CssClass="form-control form-small" placeholder="Promo"></asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="ddlEditarTipoPromo" AutoPostBack="true" OnSelectedIndexChanged="ddlEditarTipoPromo_SelectedIndexChanged" CssClass="form-control form-small" placeholder="Promo"></asp:DropDownList>
                                     </div>
                                 </div>
 
@@ -70,7 +70,8 @@
                                 <div class="col-lg-2">
                                     <div class="form-inline">
                                         <label>Descuento: </label>
-                                        <asp:DropDownList runat="server" ID="ddlDescuento" CssClass="form-control form-medium" placeholder="Descuento"></asp:DropDownList>
+                                        <asp:TextBox runat="server" class="form-control input-mini" id="txtDescuento" placeholder="Descuento"></asp:TextBox>
+                                        <%--<asp:DropDownList runat="server" ID="ddlDescuento" CssClass="form-control form-medium" placeholder="Descuento"></asp:DropDownList>--%>
                                     </div>
                                 </div>
 
@@ -91,7 +92,7 @@
                                         <div class="form-inline">
                                             <label>Medida: </label>
                                                 <%--<asp:TextBox runat="server" class="form-control pull-right" id="txtEditarMedida" placeholder="Medida"></asp:TextBox>--%>
-                                                <asp:DropDownList runat="server" ID="ddlEditarMedida" CssClass="form-control pull-right form-medium" placeholder="Medida"></asp:DropDownList>
+                                                <asp:DropDownList runat="server" ID="ddlEditarMedida" AutoPostBack="true" OnSelectedIndexChanged="ddlEditarMedida_SelectedIndexChanged" CssClass="form-control pull-right form-medium" placeholder="Medida"></asp:DropDownList>
                                         </div>
                                     </div>
 
@@ -157,12 +158,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 margin-15">
+                                    <%--<div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Nro Autor: </label>
                                             <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarAutor" placeholder="Autor"></asp:TextBox>
                                         </div>
-                                    </div>
+                                    </div>--%>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
@@ -200,9 +201,9 @@
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
-                                            <label>Región: </label>
+                                            <%--<label>Región: </label>--%>
                                             <%--<asp:TextBox runat="server" class="form-control pull-right" id="txtEditarRegion" placeholder="Región"></asp:TextBox>--%>
-                                            <asp:DropDownList runat="server" ID="ddlEditarRegion" CssClass="form-control pull-right form-medium" placeholder="Region"></asp:DropDownList>
+                                            <%--<asp:DropDownList runat="server" ID="ddlEditarRegion" CssClass="form-control pull-right form-medium" placeholder="Region"></asp:DropDownList>--%>
                                         </div>
                                     </div>
                                      <%--<div class="col-lg-12 margin-15">
@@ -315,7 +316,7 @@
                                 <div class="col-lg-4">
                                     <div class="form-inline">
                                         <br />
-                                        <asp:LinkButton runat="server" ID="btnEditarAceptar" OnClientClick="btnEditarAceptar_OnClientClick()" CssClass="btn btn-success btn-block">Aceptar</asp:LinkButton>
+                                        <asp:LinkButton runat="server" ID="btnEditarAceptar" OnClick="btnEditarAceptar_Click" CssClass="btn btn-success btn-block">Aceptar</asp:LinkButton>
                                         <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Cancelar</button>
                                     </div>
                                 </div>
@@ -325,4 +326,12 @@
                     </div>
             </div>
        </div>
+    <asp:HiddenField runat="server" ID="HDModo" />
+    <asp:HiddenField runat="server" ID="HDCodSolicitud" />
+    <asp:HiddenField runat="server" ID="HDPais" />
+    <asp:HiddenField runat="server" ID="HDCliente" />
+    <asp:HiddenField runat="server" ID="HDMedida" />
+    <asp:HiddenField runat="server" ID="HDProvincia" />
+    <asp:HiddenField runat="server" ID="HDRegion" />
+    <asp:HiddenField runat="server" ID="HDPromo" />
 </asp:Content>
