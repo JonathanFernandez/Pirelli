@@ -11,9 +11,9 @@ using Controles;
 
 namespace PirelliReports.Site
 {
-    public partial class ActualizacionMasivaCliente : PirelliMaster
+    public partial class ActualizacionMasivaStatus : PirelliMaster
     {
-        ConexionZoSolicitudAlteraCliente conSolicitud = new ConexionZoSolicitudAlteraCliente();
+        ConexionZoSolicitudAlteraStatus conSolicitud = new ConexionZoSolicitudAlteraStatus();
         List<ZoSolicitud> solicitudes = new List<ZoSolicitud>();
         // public string rutaArchivoSubido = "";
 
@@ -32,10 +32,10 @@ namespace PirelliReports.Site
             string[] partsFileName;
             string extension;
 
+
             // Before attempting to perform operations
             // on the file, verify that the FileUpload 
             // control contains a file.
-
             if (fuSubirArchivo.HasFile)
             {
                 // Get the name of the file to upload.
@@ -105,7 +105,7 @@ namespace PirelliReports.Site
                                     ZoSolicitud solicitud = new ZoSolicitud();
                                     string[] componentes = linea.Split(',');
                                     solicitud.CodSolicitud = Convert.ToInt32(componentes[0]);
-                                    solicitud.CodClie = componentes[1];
+                                    solicitud.FlgProcesado = componentes[1];
                                     solicitud.Nota = componentes[2];
 
                                     solicitudes.Add(solicitud);
@@ -157,4 +157,5 @@ namespace PirelliReports.Site
         }
 
     }
+
 }

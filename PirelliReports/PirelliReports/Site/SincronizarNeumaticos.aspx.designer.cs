@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PirelliReports.Site {
-    
-    
-    public partial class SincronizarNeumaticos {
-        
+namespace PirelliReports.Site
+{
+
+
+    public partial class SincronizarNeumaticos
+    {
+
         /// <summary>
         /// btnCargar control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnCargar;
-        
+
         /// <summary>
         /// btnSincronizar control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnSincronizar;
-        
+
         /// <summary>
         /// gvListadoNeumaticos control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvListadoNeumaticos;
-        
+
         /// <summary>
         /// lblMensaje control.
         /// </summary>

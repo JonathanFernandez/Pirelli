@@ -50,12 +50,12 @@ namespace PirelliReports.Site
             IP.Value = gvListadoNeumaticos.SelectedRow.Cells[1].Text;
             lblEdicion.Text = "Editando " + IP.Value;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-           
+
         }
 
         protected void btnExportar_Click(object sender, EventArgs e)
         {
-            pMetodos.ExportGridViewToExcel(gvListadoNeumaticos,"ListadoIPs", Response);
+            pMetodos.ExportGridViewToExcel(gvListadoNeumaticos, "ListadoIPs", Response);
         }
         public override void VerifyRenderingInServerForm(Control control)
         {
@@ -92,13 +92,13 @@ namespace PirelliReports.Site
             conZoProduct.ModificarZoProduct(parametros);
 
             lblMensaje.Text = "Se modifico correctamente el neumatico " + IP.Value;
-            
+
             gvListadoNeumaticos.DataSource = conZoProduct.ListadoZoProduct();
             gvListadoNeumaticos.DataBind();
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalMensaje();", true);
         }
 
-        
+
     }
 }

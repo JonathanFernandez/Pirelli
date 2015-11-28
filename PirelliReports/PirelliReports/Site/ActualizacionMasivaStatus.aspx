@@ -1,13 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="SincronizarClientes.aspx.cs" Inherits="PirelliReports.Site.SincronizarClientes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ActualizacionMasivaStatus.aspx.cs" Inherits="PirelliReports.Site.ActualizacionMasivaStatus" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
 <script>
-
     function openModal() {
-
+       
         $('#modalSincro').modal('show');
     }
     function activarSpinner() {
@@ -45,59 +44,43 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Sincronizar Clientes
+                    <h1 class="page-header">Actualización masiva status
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-user"></i> Sincronizar Clientes
+                            <i class="fa fa-refresh"></i> Actualización masiva status
                             </li>
                     </ol>
                 </div>
 
                 <div class="col-lg-12 margin-15">
                     <%--<button class="btn btn-warning" onclick="#"><i class="fa fa-refresh"></i> Sincronizar</button>--%>
-                    <asp:LinkButton runat="server" ID="btnCargar" OnClientClick="activarSpinner();" OnClick="btnCargar_Click" CssClass="btn btn-warning"><i class="fa fa-cloud-upload"></i> Cargar</asp:LinkButton> 
-                    <asp:LinkButton runat="server" ID="btnSincronizar" OnClientClick="activarSpinner();" OnClick="btnSincronizar_Click" CssClass="btn btn-warning"><i class="fa fa-refresh"></i> Sincronizar</asp:LinkButton>
+                    <%--<asp:TextBox runat="server" ID="txtNombreArchivo" Enabled="False"></asp:TextBox>
+                    <asp:LinkButton runat="server" ID="btnExaminar" OnClick="btnExaminar_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Examinar...</asp:LinkButton>--%>
+                    <asp:FileUpload ID="fuSubirArchivo" CssClass="form-pirelli" runat="server" />
+                </div>
+
+                <div class="col-lg-12 margin-15">
+                    <%--<button class="btn btn-warning" onclick="#"><i class="fa fa-refresh"></i> Sincronizar</button>--%>
+                    <asp:LinkButton runat="server" ID="btnSubirSolicitudes" OnClientClick="activarSpinner();" OnClick="btnSubirSolicitudes_Click" CssClass="btn btn-warning"><i class="fa fa-cloud-upload"></i> Subir solicitudes</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnLeerSolicitudes" OnClientClick="activarSpinner();" OnClick="btnLeerSolicitudes_Click" CssClass="btn btn-warning"><i class="fa fa-cloud-download"></i> Leer solicitudes</asp:LinkButton> 
+                    <asp:LinkButton runat="server" ID="btnActualizarSolicitudes" OnClientClick="activarSpinner();" OnClick="btnActualizarSolicitudes_Click" CssClass="btn btn-warning"><i class="fa fa-refresh"></i> Actualizar solicitudes</asp:LinkButton>
                 </div>
                 <br />
             <br />
             <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">    
-                <asp:GridView ID="gvListadoClientes" CssClass="table table-responsive table-bordered table-hover table-striped table-condensed" AutoGenerateColumns="false" runat="server">
+                <asp:GridView ID="gvListadoSolicitudes" class="table table-responsive table-bordered table-hover table-striped table-condensed" AutoGenerateColumns="false" runat="server">
                     <Columns>
-                        <asp:BoundField HeaderText="Codigo" DataField="COD" />
+                        <asp:BoundField HeaderText="Codigo de solicitud" DataField="CodSolicitud" />
                     </Columns>
                     <Columns>
-                        <asp:BoundField HeaderText="Descripción" DataField="DESC" />
+                        <asp:BoundField HeaderText="¿Esta procesada?" DataField="FlgProcesado" />
                     </Columns>
                     <Columns>
-                        <asp:BoundField HeaderText="CUIT" DataField="CUIT" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Tipo" DataField="TIPO" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Direccion" DataField="DIR" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Provincia" DataField="PROV" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Pais" DataField="COL008" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Telefono Sucursal" DataField="COL009" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Region" DataField="REGION" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Latitud" DataField="LATITUD" />
-                    </Columns>
-                    <Columns>
-                        <asp:BoundField HeaderText="Longitud" DataField="LONGITUD" />
+                        <asp:BoundField HeaderText="Nota" DataField="Nota" />
                     </Columns>
                 </asp:GridView>
             </div>        
@@ -114,7 +97,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="page-header modal-title" id="myModalSincro">Sincronización
+                                    <h4 class="page-header modal-title" id="myModalSincro">Actualizacion masiva status
                                     </h4>
                                 </div>
                                 <div class="modal-body">
@@ -130,4 +113,5 @@
     </div>
        
     <!-- /#page-wrapper -->
+    <asp:HiddenField ID="HDrutaArchivoSubido" runat="server"/>
 </asp:Content>

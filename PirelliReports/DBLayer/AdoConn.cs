@@ -16,6 +16,8 @@ namespace DBLayer
         SqlDataReader reader;
         SqlDataAdapter adapter;
         SqlCommand command;
+        string mensajeExcepcion;
+        string mensajeSQLExcepcion;
         int cantidadParametros;
 
         private bool Conectar()
@@ -35,7 +37,7 @@ namespace DBLayer
 
             return (sqlConn.State == ConnectionState.Open);
         }
-        
+
         private bool Conectar(string cadenaDeConexion)
         {
             string cadenaConexion = cadenaDeConexion;
@@ -102,10 +104,12 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                 }
             }
 
@@ -157,10 +161,12 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                 }
             }
 
@@ -201,10 +207,12 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                 }
             }
 
@@ -245,10 +253,12 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                 }
             }
 
@@ -289,11 +299,13 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                     return false;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                     return false;
                 }
             }
@@ -327,11 +339,13 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                     return false;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                     return false;
                 }
             }
@@ -356,7 +370,7 @@ namespace DBLayer
 
                 try
                 {
-                   adapter = new SqlDataAdapter(command);
+                    adapter = new SqlDataAdapter(command);
 
                     adapter.Fill(ds);
 
@@ -368,10 +382,12 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                 }
             }
 
@@ -412,10 +428,12 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                 }
             }
 
@@ -435,7 +453,7 @@ namespace DBLayer
                 command.Transaction = transaction;
                 try
                 {
-                   command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
 
                     transaction.Commit();
 
@@ -446,18 +464,20 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                     return false;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                     return false;
                 }
             }
             return false;
 
         }
-    
+
         //con conexiones por parametros
         public DataSet ExecuteStoredProcedureDS(string nombreSp, ArrayList sqlParametros, string cadenaDeConexion)
         {
@@ -498,10 +518,12 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                 }
             }
 
@@ -553,10 +575,12 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                 }
             }
 
@@ -597,10 +621,12 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                 }
             }
 
@@ -641,10 +667,12 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                 }
             }
 
@@ -685,11 +713,13 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                     return false;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                     return false;
                 }
             }
@@ -723,11 +753,13 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                     return false;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                     return false;
                 }
             }
@@ -764,10 +796,12 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                 }
             }
 
@@ -808,10 +842,12 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                 }
             }
 
@@ -842,11 +878,13 @@ namespace DBLayer
                 catch (SqlException sqlEx)
                 {
                     transaction.Rollback();
+                    mensajeSQLExcepcion = sqlEx.Message;
                     return false;
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
+                    mensajeExcepcion = ex.Message;
                     return false;
                 }
             }

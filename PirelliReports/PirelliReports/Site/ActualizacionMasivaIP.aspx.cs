@@ -15,7 +15,7 @@ namespace PirelliReports.Site
     {
         ConexionZoSolicitudAlteraIP conSolicitud = new ConexionZoSolicitudAlteraIP();
         List<ZoSolicitud> solicitudes = new List<ZoSolicitud>();
-        private string rutaArchivoSubido = "";
+        //private string rutaArchivoSubido = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,8 +26,10 @@ namespace PirelliReports.Site
         {
             // Specify the path on the server to
             // save the uploaded file to.
-            String savePath = @"c:\temp\";
-            String fileName = "";
+            string savePath = @"c:\temp\";
+            string fileName = "";
+            string[] partsFileName;
+            string extension;
 
             // Before attempting to perform operations
             // on the file, verify that the FileUpload 
@@ -36,28 +38,39 @@ namespace PirelliReports.Site
             {
                 // Get the name of the file to upload.
                 fileName = fuSubirArchivo.FileName;
+                partsFileName = fileName.Split('.');
+                extension = partsFileName[1];
 
                 // Append the name of the file to upload to the path.
-                savePath += fileName;
+                if (extension.ToUpper() == "TXT")
+                {
+                    savePath += fileName;
 
-                try
-                {
-                    fuSubirArchivo.SaveAs(savePath);
-                }
-                catch (System.Web.HttpException ex)
-                {
-                    lblMensaje.Text = "Error: " + ex.Message;
+                    try
+                    {
+                        fuSubirArchivo.SaveAs(savePath);
+                    }
+                    catch (System.Web.HttpException ex)
+                    {
+                        lblMensaje.Text = "Error: " + ex.Message;
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    }
+
+                    // Notify the user of the name of the file
+                    // was saved under.
+                    lblMensaje.Text = "Se subio el archivo " + fileName;
+                    // rutaArchivoSubido = savePath;
+                    HDrutaArchivoSubido.Value = savePath;
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }
-
-                // Notify the user of the name of the file
-                // was saved under.
-                lblMensaje.Text = "Se subio el archivo " + fileName;
-                rutaArchivoSubido = savePath;
-                HDrutaArchivoSubido.Value = savePath;
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                else
+                {
+                    lblMensaje.Text = "Solo se pueden subir archivos de texto .txt";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                }
             }
             else
             {
@@ -75,7 +88,7 @@ namespace PirelliReports.Site
             {
                 FileInfo fi = new FileInfo(HDrutaArchivoSubido.Value);
                 // Se consulta el tamaño del archivo en bytes
-                if (fi.Length > 0)
+                if (fi.Length > 0 && fi.Extension.ToUpper() == "TXT")
                 {
                     try
                     {
@@ -115,7 +128,7 @@ namespace PirelliReports.Site
                 }
                 else
                 {
-                    lblMensaje.Text = "No hay ninguna solicitud";
+                    lblMensaje.Text = "No hay ninguna solicitud o el tipo de archivo es erroneo. Solo se permiten archivos de texto .txt";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }

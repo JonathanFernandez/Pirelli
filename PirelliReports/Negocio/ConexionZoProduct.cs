@@ -90,7 +90,7 @@ namespace Negocio
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();
             //DataTable dt = new DataTable();
-            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_ZOPRODU",parametros);
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_ZOPRODU", parametros);
 
             return ds;
         }

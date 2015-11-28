@@ -7,72 +7,74 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PirelliReports {
-    
-    
-    public partial class Master {
-        
+namespace PirelliReports.Site
+{
+
+
+    public partial class ActualizacionMasivaStatus
+    {
+
         /// <summary>
-        /// Control IncludeCssSection.
+        /// Control fuSubirArchivo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder IncludeCssSection;
-        
+        protected global::System.Web.UI.WebControls.FileUpload fuSubirArchivo;
+
         /// <summary>
-        /// Control includeJsSection.
+        /// Control btnSubirSolicitudes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder includeJsSection;
-        
+        protected global::System.Web.UI.WebControls.LinkButton btnSubirSolicitudes;
+
         /// <summary>
-        /// Control head.
+        /// Control btnLeerSolicitudes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-        
+        protected global::System.Web.UI.WebControls.LinkButton btnLeerSolicitudes;
+
         /// <summary>
-        /// Control frmMaster.
+        /// Control btnActualizarSolicitudes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmMaster;
-        
+        protected global::System.Web.UI.WebControls.LinkButton btnActualizarSolicitudes;
+
         /// <summary>
-        /// Control imgPirelli.
+        /// Control gvListadoSolicitudes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imgPirelli;
-        
+        protected global::System.Web.UI.WebControls.GridView gvListadoSolicitudes;
+
         /// <summary>
-        /// Control lblUsuario.
+        /// Control lblMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsuario;
-        
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
+
         /// <summary>
-        /// Control PaginaCentral_ContentPlaceHolder.
+        /// Control HDrutaArchivoSubido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder PaginaCentral_ContentPlaceHolder;
+        protected global::System.Web.UI.WebControls.HiddenField HDrutaArchivoSubido;
     }
 }

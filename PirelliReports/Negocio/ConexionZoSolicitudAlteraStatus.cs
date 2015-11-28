@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace Negocio
 {
-    public class ConexionZoSolicitudAlteraCliente
+    public class ConexionZoSolicitudAlteraStatus
     {
         public bool InsertarSolicitudes(List<ZoSolicitud> solicitudes)
         {
@@ -21,10 +21,10 @@ namespace Negocio
             {
                 parametros = new ArrayList();
                 parametros.Add(solicitud.CodSolicitud);
-                parametros.Add(solicitud.CodClie);
+                parametros.Add(solicitud.FlgProcesado);
                 parametros.Add(solicitud.Nota);
 
-                ds = ado.ExecuteStoredProcedureDS("SP_INSERT_SOLICITUD_ALTERA_CLIENTE", parametros);
+                ds = ado.ExecuteStoredProcedureDS("SP_INSERT_SOLICITUD_ALTERA_STATUS", parametros);
             }
 
             return true;
@@ -35,7 +35,7 @@ namespace Negocio
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();
             //DataTable dt = new DataTable();
-            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_SOLICITUD_ALTERA_CLIENTE");
+            ds = ado.ExecuteStoredProcedureDS("SP_SELECT_SOLICITUD_ALTERA_STATUS");
 
             return ds;
         }
@@ -46,7 +46,7 @@ namespace Negocio
             DataSet ds = new DataSet();
             //DataTable dt = new DataTable();
             //ds = ado.ExecuteStoredProcedureDS("SP_SINCRONIZAR_PRODUCTOS");
-            ado.ExecuteNonStoredProcedure("SP_ALTERA_CLIENTE_CODSOL");
+            ado.ExecuteNonStoredProcedure("SP_ALTERA_STATUS_CODSOL");
 
             return true;
         }
@@ -54,7 +54,7 @@ namespace Negocio
         public bool BorrarSolicitudes()
         {
             AdoConn ado = new AdoConn();
-            ado.ExecuteNonStoredProcedure("SP_DELETE_SOLICITUD_ALTERA_CLIENTE");
+            ado.ExecuteNonStoredProcedure("SP_DELETE_SOLICITUD_ALTERA_STATUS");
             return true;
         }
 

@@ -22,10 +22,10 @@ namespace PirelliReports
                 GMap1.Width = 660;
 
                 //Adiciona el control de la parte izq superior (moverse, ampliar y reducir)
-                GMap1.addControl(new GControl(GControl.preBuilt.LargeMapControl));
+                GMap1.Add(new GControl(GControl.preBuilt.LargeMapControl));
 
                 //GControl.preBuilt.MapTypeControl: permite elegir un tipo de mapa y otro.
-                GMap1.addControl(new GControl(GControl.preBuilt.MapTypeControl));
+                GMap1.Add(new GControl(GControl.preBuilt.MapTypeControl));
 
                 //Con esto podemos definir el icono que se mostrara en la ubicacion
                 //#region Crear Icono
@@ -48,7 +48,7 @@ namespace PirelliReports
                     "<br />Email: <a href='mailto:derbis.corrales@gmail.com' class='txtBKM'>" +
                     "derbis.corrales@gmail.com</a><br><br></div>";
                 GInfoWindow window = new GInfoWindow(marker, strMarker, true);
-                GMap1.addInfoWindow(window);
+                GMap1.Add(window);
 
                 GMap1.enableHookMouseWheelToZoom = true;
 

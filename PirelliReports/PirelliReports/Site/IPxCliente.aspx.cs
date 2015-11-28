@@ -18,8 +18,8 @@ namespace PirelliReports.Site
         ConexionClientes conClientes = new ConexionClientes();
         PirelliMetodos pMetodos = new PirelliMetodos();
         string ip = string.Empty;
-        DateTime desde = new DateTime();
-        DateTime hasta = new DateTime();
+        //DateTime desde = new DateTime();
+        //DateTime hasta = new DateTime();
         ArrayList codeFilter = new ArrayList();
         protected void Page_Load(object sender, EventArgs e)
          {
