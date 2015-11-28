@@ -31,8 +31,9 @@ namespace PirelliReports.Site
             gvListadoClientes.DataBind();
             
             lblMensaje.Text = "Carga de datos finalizada";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true); 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true); 
+            
                       
             
         }
@@ -44,8 +45,9 @@ namespace PirelliReports.Site
             gvListadoClientes.DataBind();
 
             lblMensaje.Text = "Sincronización finalizada";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+            
    
         }
     }

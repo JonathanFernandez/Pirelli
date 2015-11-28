@@ -8,7 +8,7 @@
     <script>
 
         function openModal() {
-
+           
             $('#modalSincro').modal('show');
         }
         function activarSpinner() {
