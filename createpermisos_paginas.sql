@@ -70,4 +70,4 @@ values('ABMFacturasPromoVisa.aspx'),
 ('SincronizarNeumaticos.aspx'),
 ('UsuarioEdit.aspx'),
 ('VentaMensualCTC.aspx'),
-('VentaTotalxCTCxCliente.aspx')
+('VentaTotalxCTCxCliente.aspx') 
