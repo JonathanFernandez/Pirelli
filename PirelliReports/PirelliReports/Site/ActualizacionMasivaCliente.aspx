@@ -5,9 +5,9 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
 <script>
-   
+
     function openModal() {
-       
+
         $('#modalSincro').modal('show');
     }
     function activarSpinner() {

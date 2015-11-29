@@ -12,6 +12,7 @@ using System.Configuration;
 using System.Collections;
 using Entidades;
 using Subgurim.Controles;
+
 namespace Controles
 {
     public class PirelliMetodos
@@ -20,7 +21,7 @@ namespace Controles
         {
             Hresponse.Clear();
             Hresponse.Buffer = true;
-            Hresponse.AddHeader("content-disposition", "attachment;fileName=" +fileName + ".xls");
+            Hresponse.AddHeader("content-disposition", "attachment;fileName=" + fileName + ".xls");
             Hresponse.Charset = "";
             Hresponse.ContentType = "application/vnd.ms-excel";
 
@@ -38,9 +39,9 @@ namespace Controles
             return fecha.Substring(6, 4) + "/" + fecha.Substring(0, 2) + "/" + fecha.Substring(3, 2);
         }
 
-        public void LlenarMapaConClientes(ArrayList clientes , GMap map)
+        public void LlenarMapaConClientes(ArrayList clientes, GMap map)
         {
-            
+
             GLatLng ubicacion;
             GMarker marker;
             string strMarker;
@@ -51,12 +52,12 @@ namespace Controles
                 marker = new GMarker(ubicacion);
                 strMarker = "<div style='width: 150px; height: 85px'><b>" +
                                 "<span style='color:#ff7e00'></span></b><br>" +
-                                 " "+ c.RazSoc +" <br /> "+ c.DirSuc+" <br />" +
+                                 " " + c.RazSoc + " <br /> " + c.DirSuc + " <br />" +
                                  "</div>";
                 GInfoWindow window = new GInfoWindow(marker, strMarker, false);
                 map.Add(window);
 
-                            
+
             }
         }
     }

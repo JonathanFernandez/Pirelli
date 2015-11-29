@@ -36,6 +36,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -1419,6 +1420,7 @@
     <Content Include="Site\ABMFacturasPromoVisa.aspx" />
     <Content Include="Site\ActualizacionMasivaCliente.aspx" />
     <Content Include="Site\ActualizacionMasivaIP.aspx" />
+    <Content Include="Site\ActualizacionMasivaStatus.aspx" />
     <Content Include="Site\AdministracionPermisos.aspx" />
     <Content Include="Site\AdministracionUsuarios.aspx" />
     <Content Include="Site\Clientes.aspx" />
@@ -1806,6 +1808,13 @@
     </Compile>
     <Compile Include="Site\ActualizacionMasivaIP.aspx.designer.cs">
       <DependentUpon>ActualizacionMasivaIP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ActualizacionMasivaStatus.aspx.cs">
+      <DependentUpon>ActualizacionMasivaStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ActualizacionMasivaStatus.aspx.designer.cs">
+      <DependentUpon>ActualizacionMasivaStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\AdministracionPermisos.aspx.cs">
       <DependentUpon>AdministracionPermisos.aspx</DependentUpon>

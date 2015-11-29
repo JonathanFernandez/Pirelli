@@ -33,7 +33,7 @@ namespace Negocio
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();
             ArrayList parametros;
-           
+
 
             foreach (Zoprodu prod in productos)
             {

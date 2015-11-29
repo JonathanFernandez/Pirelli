@@ -22,7 +22,7 @@ namespace Negocio
                 parametros = new ArrayList();
                 parametros.Add(solicitud.CodSolicitud);
                 parametros.Add(solicitud.Ip);
-                parametros.Add(solicitud.Pais); 
+                parametros.Add(solicitud.Pais);
                 parametros.Add(solicitud.Nota);
 
                 ds = ado.ExecuteStoredProcedureDS("SP_INSERT_SOLICITUD_ALTERA_IP", parametros);
@@ -58,6 +58,6 @@ namespace Negocio
             ado.ExecuteNonStoredProcedure("SP_DELETE_SOLICITUD_ALTERA_IP");
             return true;
         }
-    
+
     }
 }

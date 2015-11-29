@@ -14,13 +14,13 @@ namespace PirelliReports.Site
 {
     public partial class SincronizarClientes : PirelliMaster
     {
-        
-    	ConexionZoClienteTemp conClienteTemp = new ConexionZoClienteTemp();
+
+        ConexionZoClienteTemp conClienteTemp = new ConexionZoClienteTemp();
         List<ZoCliente> clientes = new List<ZoCliente>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-        	if (!IsPostBack)
+            if (!IsPostBack)
             {
                 // Se agrega los clientes de la tabla temporal a la grilla
                 gvListadoClientes.DataSource = conClienteTemp.ListadoDeClientesTemp();
@@ -61,8 +61,8 @@ namespace PirelliReports.Site
                                     cliente.Pais = linea.Substring(150, 2).Trim();
                                     cliente.TelefonoSuc = linea.Substring(155, 11).Trim();
                                     cliente.CodRegion = linea.Substring(169, 2).Trim();
-                                    cliente.Latitud = float.Parse(linea.Substring(250, 12).Trim());
-                                    cliente.Longitud = float.Parse(linea.Substring(263, 12).Trim());
+                                    cliente.Latitud = Convert.ToDouble(linea.Substring(250, 12).Trim());
+                                    cliente.Longitud = Convert.ToDouble(linea.Substring(263, 12).Trim());
                                     // Se borran espacios en blanco al principio y al final de la cadena
                                     cliente.Cod.Trim();
                                     cliente.Cuit.Trim();
@@ -76,7 +76,7 @@ namespace PirelliReports.Site
                                     clientes.Add(cliente);
                                 }
                             }
-                            if(clientes.Count > 0)
+                            if (clientes.Count > 0)
                                 conClienteTemp.InsertarClientesTemp(clientes);
                         }
                     }
@@ -85,7 +85,7 @@ namespace PirelliReports.Site
                         lblMensaje.Text = "Error: " + ex.Message;
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-                        
+
                     }
                     // Se agregan los clientes de la tabla temporal a la grilla
                     gvListadoClientes.DataSource = conClienteTemp.ListadoDeClientesTemp();
@@ -96,14 +96,14 @@ namespace PirelliReports.Site
                 {
                     lblMensaje.Text = "El archivo no tiene ningun cliente";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);  
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }
             }
             else
             {
                 lblMensaje.Text = "El archivo no se encontro. Consulte con el administrador del sistema SAP";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);  
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
         }
 

@@ -9,7 +9,7 @@
        function btnEditarOnClientClick(obj) {
            var row = obj.parentNode.parentNode;
            var rowIndex = row.rowIndex - 1;
-           
+
            document.getElementById("PaginaCentral_ContentPlaceHolder_txtRango").value = row.cells[7].innerHTML;
            if (row.cells[9].innerHTML == "1")
                document.getElementById('PaginaCentral_ContentPlaceHolder_chkBajaLogica').checked = true;
@@ -17,12 +17,12 @@
                document.getElementById('PaginaCentral_ContentPlaceHolder_chkBajaLogica').checked = false;
 
            document.getElementById("PaginaCentral_ContentPlaceHolder_lblEdicion").innerHTML = "Editando " + row.cells[1].innerHTML;
-           
+
            document.getElementById("PaginaCentral_ContentPlaceHolder_IP").value = row.cells[1].innerHTML;
            document.getElementById("PaginaCentral_ContentPlaceHolder_PAIS").value = row.cells[3].innerHTML;
            openModal()
            return false;
-         
+
        }
        function OpenPopUp(url) {
            hidden = open(url, "NewWindow", "top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes");
@@ -70,9 +70,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
-                <asp:LinkButton runat="server" ID="btnOpenModal" OnClientClick="return false;" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</asp:LinkButton>
+                <asp:LinkButton runat="server" ID="btnOpenModal" OnClientClick="return false;" CssClass="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</asp:LinkButton>
 
-                <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
+                <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" Cssclass="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
             </div>
             <br />
             <br />
@@ -86,7 +86,7 @@
                     </Columns>--%>
 
             <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">
-                <asp:GridView runat="server" ID="gvListadoNeumaticos" class="table table-responsive table-bordered table-hover table-striped table-condensed" OnSelectedIndexChanged="gvListadoNeumaticos_SelectedIndexChanged" AutoGenerateColumns="false">
+                <asp:GridView runat="server" ID="gvListadoNeumaticos" Cssclass="table table-responsive table-bordered table-hover table-striped table-condensed" OnSelectedIndexChanged="gvListadoNeumaticos_SelectedIndexChanged" AutoGenerateColumns="false">
                    <%-- <Columns>
                         <asp:CommandField ControlStyle-CssClass="btn btn-warning btn-edit-modal"   HeaderText="Edición"  SelectText="Editar" ShowSelectButton="true" />
                     </Columns>--%>
@@ -228,7 +228,7 @@
                                     <p class="help-block"></p>
 
                                 </div>
-                                <asp:LinkButton runat="server" ID="LinkButton1" OnClick="btnAceptar_Click" class="btn btn-warning pull-left">Aceptar</asp:LinkButton>
+                                <asp:LinkButton runat="server" ID="LinkButton1" OnClick="btnAceptar_Click" CssClass="btn btn-warning pull-left">Aceptar</asp:LinkButton>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PirelliReports.Site {
-    
-    
-    public partial class ActualizacionMasivaIP {
-        
+namespace PirelliReports.Site
+{
+
+
+    public partial class ActualizacionMasivaIP
+    {
+
         /// <summary>
         /// fuSubirArchivo control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuSubirArchivo;
-        
+
         /// <summary>
         /// btnSubirSolicitudes control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnSubirSolicitudes;
-        
+
         /// <summary>
         /// btnLeerSolicitudes control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnLeerSolicitudes;
-        
+
         /// <summary>
         /// btnActualizarSolicitudes control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnActualizarSolicitudes;
-        
+
         /// <summary>
         /// gvListadoSolicitudes control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvListadoSolicitudes;
-        
+
         /// <summary>
         /// lblMensaje control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace PirelliReports.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMensaje;
-        
+
         /// <summary>
         /// HDrutaArchivoSubido control.
         /// </summary>

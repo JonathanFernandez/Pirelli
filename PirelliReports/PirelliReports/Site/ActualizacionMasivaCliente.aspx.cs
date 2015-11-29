@@ -15,50 +15,64 @@ namespace PirelliReports.Site
     {
         ConexionZoSolicitudAlteraCliente conSolicitud = new ConexionZoSolicitudAlteraCliente();
         List<ZoSolicitud> solicitudes = new List<ZoSolicitud>();
-        public string rutaArchivoSubido = "";
-        
+        // public string rutaArchivoSubido = "";
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }    
+        }
 
         protected void btnSubirSolicitudes_Click(object sender, EventArgs e)
         {
             // Specify the path on the server to
             // save the uploaded file to.
-            String savePath = @"c:\temp\";
-            String fileName = "";
+            string savePath = @"c:\temp\";
+            string fileName = "";
+            string[] partsFileName;
+            string extension;
 
             // Before attempting to perform operations
             // on the file, verify that the FileUpload 
             // control contains a file.
+
             if (fuSubirArchivo.HasFile)
             {
                 // Get the name of the file to upload.
                 fileName = fuSubirArchivo.FileName;
+                partsFileName = fileName.Split('.');
+                extension = partsFileName[1];
 
                 // Append the name of the file to upload to the path.
-                savePath += fileName;
+                if (extension.ToUpper() == "TXT")
+                {
+                    savePath += fileName;
 
-                try
-                {
-                    fuSubirArchivo.SaveAs(savePath);
-                }
-                catch (System.Web.HttpException ex)
-                {
-                    lblMensaje.Text = "Error: " + ex.Message;
+                    try
+                    {
+                        fuSubirArchivo.SaveAs(savePath);
+                    }
+                    catch (System.Web.HttpException ex)
+                    {
+                        lblMensaje.Text = "Error: " + ex.Message;
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    }
+
+                    // Notify the user of the name of the file
+                    // was saved under.
+                    lblMensaje.Text = "Se subio el archivo " + fileName;
+                    //rutaArchivoSubido = savePath;
+                    HDrutaArchivoSubido.Value = savePath;
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }
-
-                // Notify the user of the name of the file
-                // was saved under.
-                lblMensaje.Text = "Se subio el archivo " + fileName;
-                rutaArchivoSubido = savePath;
-                HDrutaArchivoSubido.Value = savePath;
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                else
+                {
+                    lblMensaje.Text = "Solo se pueden subir archivos de texto .txt";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                }
             }
             else
             {
@@ -76,7 +90,7 @@ namespace PirelliReports.Site
             {
                 FileInfo fi = new FileInfo(HDrutaArchivoSubido.Value);
                 // Se consulta el tamaño del archivo en bytes
-                if (fi.Length > 0)
+                if (fi.Length > 0 && fi.Extension.ToUpper() == "TXT")
                 {
                     try
                     {
@@ -115,7 +129,7 @@ namespace PirelliReports.Site
                 }
                 else
                 {
-                    lblMensaje.Text = "No hay ninguna solicitud";
+                    lblMensaje.Text = "No hay ninguna solicitud o el tipo de archivo es erroneo. Solo se permiten archivos de texto .txt";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }
@@ -125,7 +139,7 @@ namespace PirelliReports.Site
         protected void btnActualizarSolicitudes_Click(object sender, EventArgs e)
         {
             /* Si la grilla tiene registros*/
-            if (gvListadoSolicitudes.Rows.Count > 0) 
+            if (gvListadoSolicitudes.Rows.Count > 0)
             {
                 conSolicitud.actualizarSolicitudes();
                 solicitudes.Clear();

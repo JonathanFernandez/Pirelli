@@ -11,12 +11,12 @@ namespace Negocio
 {
     public class ConexionZoSolicitudAlteraCliente
     {
-        public bool InsertarSolicitudes(List<ZoSolicitud> solicitudes) 
+        public bool InsertarSolicitudes(List<ZoSolicitud> solicitudes)
         {
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();
             ArrayList parametros;
-            
+
             foreach (ZoSolicitud solicitud in solicitudes)
             {
                 parametros = new ArrayList();
@@ -26,7 +26,7 @@ namespace Negocio
 
                 ds = ado.ExecuteStoredProcedureDS("SP_INSERT_SOLICITUD_ALTERA_CLIENTE", parametros);
             }
-            
+
             return true;
         }
 
@@ -57,6 +57,6 @@ namespace Negocio
             ado.ExecuteNonStoredProcedure("SP_DELETE_SOLICITUD_ALTERA_CLIENTE");
             return true;
         }
-    
+
     }
 }

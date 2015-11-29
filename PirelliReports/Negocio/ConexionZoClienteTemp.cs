@@ -12,7 +12,7 @@ namespace Negocio
 {
     public class ConexionZoClienteTemp
     {
-         public DataSet ListadoDeClientesTemp()
+        public DataSet ListadoDeClientesTemp()
         {
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();
@@ -21,15 +21,15 @@ namespace Negocio
 
             return ds;
         }
-         public bool DeleteClientesTemp()
-         {
-             AdoConn ado = new AdoConn();
-             
-             ado.ExecuteNonStoredProcedure("SP_DELETE_CLIEN1_TEMP");
+        public bool DeleteClientesTemp()
+        {
+            AdoConn ado = new AdoConn();
 
-             return true;
-         }
-        public bool InsertarClientesTemp(List <ZoCliente> clientes)
+            ado.ExecuteNonStoredProcedure("SP_DELETE_CLIEN1_TEMP");
+
+            return true;
+        }
+        public bool InsertarClientesTemp(List<ZoCliente> clientes)
         {
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();
@@ -66,6 +66,6 @@ namespace Negocio
 
             return true;
         }
-        
+
     }
 }

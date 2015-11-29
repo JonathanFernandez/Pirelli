@@ -5,9 +5,9 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
 <script>
-   
+
     function openModal() {
-       
+
         $('#modalSincro').modal('show');
     }
     function activarSpinner() {
@@ -65,7 +65,7 @@
                 <br />
             <br />
             <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">    
-                <asp:GridView ID="gvListadoClientes" class="table table-responsive table-bordered table-hover table-striped table-condensed" AutoGenerateColumns="false" runat="server">
+                <asp:GridView ID="gvListadoClientes" CssClass="table table-responsive table-bordered table-hover table-striped table-condensed" AutoGenerateColumns="false" runat="server">
                     <Columns>
                         <asp:BoundField HeaderText="Codigo" DataField="COD" />
                     </Columns>
