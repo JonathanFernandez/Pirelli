@@ -215,6 +215,32 @@ namespace Negocio
             user.Activo = Convert.ToBoolean(ds.Tables[0].Rows[0]["ACTIVO"]);
             user.Pass = ds.Tables[0].Rows[0]["PASS"].ToString();
 
+            if (ds.Tables[1].Rows.Count > 0)
+            {
+                Paginas p;
+                user.PaginasAccesibles = new List<Paginas>();
+                for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                { 
+                    p = new Paginas();
+                    p.Pagina_id = Convert.ToInt32(ds.Tables[1].Rows[i]["PAGINA_ID"].ToString());
+                    p.Pagina = ds.Tables[1].Rows[i]["PAGINA"].ToString();
+                    user.PaginasAccesibles.Add(p);
+                }
+            }
+
+            if (ds.Tables[2].Rows.Count > 0)
+            {
+                MDPermisos permiso;
+                user.Permisos = new List<MDPermisos>();
+                for (int i = 0; i < ds.Tables[2].Rows.Count; i++)
+                {
+                    permiso = new MDPermisos();
+                    permiso.PermisoID = Convert.ToInt32(ds.Tables[2].Rows[i]["PERMISO_ID"].ToString());
+                    permiso.PermisoDesc = (EnumPermisos)Enum.Parse(typeof(EnumPermisos), ds.Tables[2].Rows[i]["PERMISO_DESC"].ToString());
+
+                    user.Permisos.Add(permiso);
+                }
+            }
             return user;
 
 

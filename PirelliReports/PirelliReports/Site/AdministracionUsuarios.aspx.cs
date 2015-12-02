@@ -153,9 +153,9 @@ namespace PirelliReports.Site
             chkActivo.Checked = false;
             modo.Value = "EDITAR";
 
-            Usuario u = new Usuario();
-
-            u = conUsuario.TraerUsuario(ddlUsuarios.SelectedValue);
+            //Usuario u = new Usuario();
+            //u = conUsuario.TraerUsuario(ddlUsuarios.SelectedValue);
+            ddlUsuarios_SelectedIndexChanged(sender, e);
         }
 
         protected void ddlUsuarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -192,11 +192,22 @@ namespace PirelliReports.Site
 
         protected void btnAlta_Click(object sender, EventArgs e)
         {
-            ddlUsuarios.Enabled = true;
+            ddlUsuarios.Enabled = false;
 
             hdCodigoUsuario.Value = "";
             hdLegajo.Value = "";
             hdMail.Value = "";
+            txtDescripcion.Text = "";
+            txtLegajo.Text = "";
+            txtMailUser.Text = "";
+            txtPassUser.Text = "";
+            txtUsuarioID.Text = "";
+            chkActivo.Checked = false;
+            modo.Value = "ALTA";
+
+            chkListGrupos.Items.Clear();
+
+            conAdminstracion.CargarGrupos(chkListGrupos);
         }
     }
 }

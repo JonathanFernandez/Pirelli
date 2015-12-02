@@ -51,6 +51,14 @@ namespace Entidades
             set { activo = value; }
         }
 
+        private List<MDPermisos> permisos;
+
+        public List<MDPermisos> Permisos
+        {
+            get { return permisos; }
+            set { permisos = value; }
+        }
+
         private List<MDGrupos> grupos;
 
         public List<MDGrupos> Grupos
@@ -58,5 +66,14 @@ namespace Entidades
             get { return grupos; }
             set { grupos = value; }
         }
+
+        private List<Paginas> paginasAccesibles;
+
+        public List<Paginas> PaginasAccesibles
+        {
+            get { return paginasAccesibles; }
+            set { paginasAccesibles = value; }
+        }
+
     }
 }

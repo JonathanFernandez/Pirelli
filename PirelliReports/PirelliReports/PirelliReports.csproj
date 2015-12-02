@@ -56,6 +56,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -1423,6 +1424,7 @@
     <Content Include="Site\ActualizacionMasivaStatus.aspx" />
     <Content Include="Site\AdministracionPermisos.aspx" />
     <Content Include="Site\AdministracionUsuarios.aspx" />
+    <Content Include="Site\AnualCliente.aspx" />
     <Content Include="Site\Clientes.aspx" />
     <Content Include="Site\ClienteXIP.aspx" />
     <Content Include="Site\CrystalViewer.aspx" />
@@ -1431,6 +1433,7 @@
     <Content Include="Site\IPxCliente.aspx" />
     <Content Include="Site\IPxRegion.aspx" />
     <Content Include="Site\Mapa.aspx" />
+    <Content Include="Site\MensualXCliente.aspx" />
     <Content Include="Site\ModificarClienteIP.aspx" />
     <Content Include="Site\Neumaticos.aspx" />
     <Content Include="Site\Promociones.aspx" />
@@ -1492,6 +1495,7 @@
     <Content Include="Sql Scripts\dbo.SP_DELETE_PRODUC1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_DELETE_SOLICITUD_ALTERA_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_DELETE_SOLICITUD_ALTERA_IP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_DELETE_SOLICITUD_ALTERA_STATUS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ELIMINAR_GRUPOS_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ESTRUCTURA_TABLA.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_GEO_CLIENTES_SOLICITUDES.StoredProcedure.sql" />
@@ -1503,6 +1507,8 @@
     <Content Include="Sql Scripts\dbo.SP_INSERT_PRODUC1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_SOLICITUD_ALTERA_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_SOLICITUD_ALTERA_IP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_INSERT_SOLICITUD_ALTERA_STATUS.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_INSERT_ZOSOLICITUD.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_DE_CTC.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_MATRIZ.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_CLAVE.StoredProcedure.sql" />
@@ -1530,19 +1536,25 @@
     <Content Include="Sql Scripts\dbo.SP_SELECT_PAIS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PROMOCIONES.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_PROMODELDIA.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_PROMOVIGENTES_PORDIA.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PROVINCIAS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_REGION.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_REGION_DEL_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_SOLICITUD_ALTERA_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_SOLICITUD_ALTERA_IP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_SOLICITUD_ALTERA_STATUS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_TIPO_PROMO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_USUARIOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_ZOCLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_ZOPRODU.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_ZOSOLICITUD.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_ZOSOLICITUD_DATOSEXTERNOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SINCRONIZAR_CLIENTES.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SINCRONIZAR_PRODUCTOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_UPDATE_ALTERA_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_UPDATE_ALTERA_IP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_UPDATE_ZOSOLICITUD.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VerificarLogin.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VERIFICAR_CLIENTE_EXISTENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VERIFICAR_IP_EXISTENTE.StoredProcedure.sql" />
@@ -1560,6 +1572,7 @@
     <Content Include="Sql Scripts\dbo.VENTATOTALXCTC.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.VENTATOTALXCTCXCLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.Zoclien1_TEMP.Table.sql" />
+    <Content Include="Sql Scripts\dbo.ZoSolicitud_AlteraIP.Table.sql" />
     <Content Include="Sql Scripts\PROD.IpXCliente.StoredProcedure.sql" />
     <Content Include="Sql Scripts\PROD.IpXRegion.StoredProcedure.sql" />
     <Content Include="Sql Scripts\PROD.SP_INSERT_UPDATE_ZOTIPOPROMOxIP.StoredProcedure.sql" />
@@ -1830,6 +1843,13 @@
     <Compile Include="Site\AdministracionUsuarios.aspx.designer.cs">
       <DependentUpon>AdministracionUsuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site\AnualCliente.aspx.cs">
+      <DependentUpon>AnualCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\AnualCliente.aspx.designer.cs">
+      <DependentUpon>AnualCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1885,6 +1905,13 @@
     </Compile>
     <Compile Include="Site\Mapa.aspx.designer.cs">
       <DependentUpon>Mapa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\MensualXCliente.aspx.cs">
+      <DependentUpon>MensualXCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\MensualXCliente.aspx.designer.cs">
+      <DependentUpon>MensualXCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\ModificarClienteIP.aspx.cs">
       <DependentUpon>ModificarClienteIP.aspx</DependentUpon>
