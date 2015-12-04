@@ -197,6 +197,17 @@ namespace Negocio
 
             
         }
+
+        public void SetearEstado(Usuario u, bool activar)
+        {
+            AdoConn ado = new AdoConn();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(u.Usu_id);
+            parametros.Add(activar);
+
+            ado.ExecuteNonStoredProcedure("SP_UPDATE_USUARIO_ESTADO", parametros);
+
+        }
         public Usuario CargarUsuario(string nombre, string password)
         {
             Usuario user = new Usuario();
@@ -261,7 +272,7 @@ namespace Negocio
                 return false;
         }
 
-        public bool ReestablecerMail(string mail)
+        public bool ReestablecerPassword(string mail)
         {
             AdoConn ado = new AdoConn();
             ArrayList parametros = new ArrayList();
@@ -287,16 +298,17 @@ namespace Negocio
             //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
 
             //Asunto
-            mmsg.Subject = "Probando envio de mail PIRELLI";
+            mmsg.Subject = "Reestrabler contraseña PIRELLI";
             mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
 
 
             //Cuerpo del Mensaje
 
 
-
-            mmsg.Body = "Solicitud de Contraseña, ingrese al siguiente link  ";
-            mmsg.IsBodyHtml = false; //Si no queremos que se envíe como HTML
+            string body = "Solicitud de Contraseña, ingrese al siguiente link <a href=\"http://localhost:58935/ReestablecerPass.aspx?mail="+mail+"\">link</a>"; 
+            //"Solicitud de Contraseña, ingrese al siguiente link <a href='localhost:58935/ReestablecerPass.aspx?mail='" + mail + ">link</a>";
+            mmsg.Body = body;
+            mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
 
             //Correo electronico desde la que enviamos el mensaje
             mmsg.From = new System.Net.Mail.MailAddress("jonathan_28_05@hotmail.com");

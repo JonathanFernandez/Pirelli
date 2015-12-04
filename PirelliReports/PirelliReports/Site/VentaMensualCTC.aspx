@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="VentaMensualCTC.aspx.cs" Inherits="PirelliReports.Site.VentaMensualCTC" %>
 
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+<%@ Register Assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
 </asp:Content>
@@ -15,7 +16,10 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
-     <div id="page-wrapper">
+    <div style="display: none;">
+        <CR:CrystalReportViewer ID="crviewer" runat="server" AutoDataBind="true" />
+    </div> 
+    <div id="page-wrapper">
 
             <div class="container-fluid form-pirelli">
 
@@ -104,7 +108,7 @@
                                
                 <!-- /.row -->
                 <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClick="btnAceptar_Click"/>
-                <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
+                <%--<asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
 
                 <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">
                     <asp:GridView ID="gvListadoReporte" class="table table-responsive table-bordered table-hover table-striped table-condensed" runat="server">
@@ -122,7 +126,7 @@
                             </ChartAreas>
                         </asp:Chart>
                      </div>  
-                </div>
+                </div>--%>
                 
 
             </div>

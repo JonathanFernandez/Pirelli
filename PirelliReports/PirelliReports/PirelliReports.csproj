@@ -1381,6 +1381,7 @@
       <DependentUpon>dsReportes.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="ReestablecerPass.aspx" />
     <Content Include="RPT\CLIENTExIP.vb" />
     <Content Include="RPT\IPxCLIENTE.vb" />
     <Content Include="RPT\IPxREGION.vb" />
@@ -1489,6 +1490,7 @@
     <Content Include="Sql Scripts\dbo.SP_ALTERA_IP_CODSOL.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ALTERA_PRECIO_CODSOL.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ALTERA_STATUS_CODSOL.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_ANUAL_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_CLIENTES_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_DELETE_CLIEN1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_DELETE_GRUPOS_USUARIO.StoredProcedure.sql" />
@@ -1511,6 +1513,7 @@
     <Content Include="Sql Scripts\dbo.SP_INSERT_ZOSOLICITUD.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_DE_CTC.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_MATRIZ.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_MENSUAL_POR_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_CLAVE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_CLIENTE_FLGFILBUSQ.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_IP_FLGFILBUSQ.StoredProcedure.sql" />
@@ -1554,6 +1557,7 @@
     <Content Include="Sql Scripts\dbo.SP_SINCRONIZAR_PRODUCTOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_UPDATE_ALTERA_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_UPDATE_ALTERA_IP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_UPDATE_USUARIO_ESTADO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_UPDATE_ZOSOLICITUD.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VerificarLogin.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VERIFICAR_CLIENTE_EXISTENTE.StoredProcedure.sql" />
@@ -1745,6 +1749,19 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReestablecerPass.aspx.cs">
+      <DependentUpon>ReestablecerPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReestablecerPass.aspx.designer.cs">
+      <DependentUpon>ReestablecerPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AnualCliente.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnualCliente.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RPT\CLIENTExIP.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1767,6 +1784,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>IPxREGION2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\MensualxCliente.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MensualxCliente.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RPT\REGIONxIP.cs">
@@ -2022,6 +2045,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="RPT\AnualCliente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AnualCliente.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RPT\CLIENTExIP.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CLIENTExIP.cs</LastGenOutput>
@@ -2037,6 +2064,10 @@
     <EmbeddedResource Include="RPT\IPxREGION2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>IPxREGION2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\MensualxCliente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MensualxCliente.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT\REGIONxIP.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

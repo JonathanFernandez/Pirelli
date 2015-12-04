@@ -12,6 +12,12 @@ using Subgurim.Controles;
 using System.Data;
 using System.Web.Services;
 
+using CrystalDecisions.Web;
+using System.Data.Odbc;
+using System.Data.SqlClient;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+
 namespace PirelliReports.Site
 {
     public partial class AnualCliente : PirelliMaster
@@ -24,16 +30,16 @@ namespace PirelliReports.Site
         {
 
         }
-        protected void btnExportar_Click(object sender, EventArgs e)
-        {
-            pMetodos.ExportGridViewToExcel(gvListadoReporte, "Anual Cliente", Response);
+        //protected void btnExportar_Click(object sender, EventArgs e)
+        //{
+        //    pMetodos.ExportGridViewToExcel(gvListadoReporte, "Anual Cliente", Response);
 
-        }
-        public override void VerifyRenderingInServerForm(Control control)
-        {
-            // this is required for avoid error (control must be placed inside form tag)
+        //}
+        //public override void VerifyRenderingInServerForm(Control control)
+        //{
+        //     this is required for avoid error (control must be placed inside form tag)
 
-        }
+        //}
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -47,10 +53,28 @@ namespace PirelliReports.Site
             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "OpenPopUp('" + url + "');", true);
 
             ArrayList parametros = new ArrayList();
+            dsReportes ds = new dsReportes();
 
             parametros.Add(anual);
+
+
+            ds.tAnualCliente.Merge(conReportes.AnualCliente(parametros));
+            CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();
+            rpt.FileName = Server.MapPath("~/RPT/AnualCliente.rpt");
+            rpt.Load(rpt.FileName, OpenReportMethod.OpenReportByDefault);
+
+            rpt.SetDataSource(ds);
+            crviewer.ReportSource = rpt;
+            //rpt.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, "ajdsfaklj");
+
+            string fileName = txtAnio.Text + "AnualxCliente";
+            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("files/" + fileName + ".pdf"));
+
+
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var hidden = open('files/" + fileName + ".pdf', 'NewWindow', 'top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes');", true);
+
             
-            DataTable dt = conReportes.AnualCliente(parametros);
+            /*DataTable dt = conReportes.AnualCliente(parametros);
             gvListadoReporte.DataSource = dt;
             gvListadoReporte.DataBind();
 
@@ -66,9 +90,7 @@ namespace PirelliReports.Site
             Chart1.Series[0].Points.DataBindXY(x, y);
             Chart1.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Pie;// SeriesChartType.Pie;
             Chart1.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = true;
-
-
-            //Chart1.Legends[0].Enabled = true;
+            Chart1.Legends[0].Enabled = true;*/
         }
     }
 }

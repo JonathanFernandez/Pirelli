@@ -15,83 +15,89 @@ namespace PirelliReports
         public Usuario userLog = new Usuario(); 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            userLog  = ((Usuario)Session["Usuario"]);
-            bool encontro = false;
-
-            //si no tiene acceso a esa pagina lo mando al index
-            string paginaActual = Request.Url.AbsolutePath.Substring(Request.Url.AbsolutePath.LastIndexOf("/") + 1, Request.Url.AbsolutePath.Length - Request.Url.AbsolutePath.LastIndexOf("/") - 1);
-            if (paginaActual != "Index")
+            if (((Usuario)Session["Usuario"]) != null)
             {
-                foreach (Paginas p in userLog.PaginasAccesibles)
+                userLog = ((Usuario)Session["Usuario"]);
+                bool encontro = false;
+
+                //si no tiene acceso a esa pagina lo mando al index
+                string paginaActual = Request.Url.AbsolutePath.Substring(Request.Url.AbsolutePath.LastIndexOf("/") + 1, Request.Url.AbsolutePath.Length - Request.Url.AbsolutePath.LastIndexOf("/") - 1);
+                if (paginaActual != "Index")
                 {
-                    if (paginaActual == p.Pagina.Substring(0, p.Pagina.IndexOf(".")))
+                    foreach (Paginas p in userLog.PaginasAccesibles)
                     {
-                        encontro = true;
-                        break;
+                        if (paginaActual == p.Pagina.Substring(0, p.Pagina.IndexOf(".")))
+                        {
+                            encontro = true;
+                            break;
+                        }
+                    }
+
+                    if (!encontro)
+                        Response.Redirect("~/Index.aspx", false);
+                }
+                //habilito los menues que pueden ver
+                foreach (MDPermisos per in userLog.Permisos)
+                {
+                    switch (per.PermisoDesc)
+                    {
+                        case EnumPermisos.FACTURASPROMOVISA:
+                            FACTURASPROMOVISA.Visible = true;
+                            FACTURASPROMOVISA.Disabled = false;
+                            break;
+                        case EnumPermisos.ENVIOASAP:
+                            ENVIOASAP.Visible = true;
+                            ENVIOASAP.Disabled = false;
+                            break;
+                        case EnumPermisos.CLIENTES:
+                            CLIENTES.Visible = true;
+                            CLIENTES.Disabled = false;
+                            break;
+                        case EnumPermisos.NEUMATICOS:
+                            NEUMATICOS.Visible = true;
+                            NEUMATICOS.Disabled = false;
+                            break;
+                        case EnumPermisos.PROMOCIONES:
+                            PROMOCIONES.Visible = true;
+                            PROMOCIONES.Disabled = false;
+                            break;
+                        case EnumPermisos.MODIFICARCLIENTEIP:
+                            MODIFICARCLIENTEIP.Visible = true;
+                            MODIFICARCLIENTEIP.Disabled = false;
+                            break;
+                        case EnumPermisos.SINZCRONIZACIONCOMERCIAL:
+                            SINZCRONIZACIONCOMERCIAL.Visible = true;
+                            SINZCRONIZACIONCOMERCIAL.Disabled = false;
+                            break;
+                        case EnumPermisos.REPORTESCOMERCIAL:
+                            REPORTESCOMERCIAL.Visible = true;
+                            REPORTESCOMERCIAL.Disabled = false;
+                            break;
+                        case EnumPermisos.ADMINISTRACION:
+                            ADMINISTRACION.Visible = true;
+                            ADMINISTRACION.Disabled = false;
+                            break;
+                        case EnumPermisos.MODIFICACIONESMASIVAS:
+                            MODIFICACIONESMASIVAS.Visible = true;
+                            MODIFICACIONESMASIVAS.Disabled = false;
+                            break;
+                        case EnumPermisos.PERFIL:
+                            PERFIL.Visible = true;
+                            PERFIL.Disabled = false;
+                            break;
                     }
                 }
 
-                if(!encontro)
-                    Response.Redirect("~/Index.aspx", false);
+                lblUsuario.Text = userLog.Usu_desc;
+
+                LoadScripts();
+
+                LoadStyles();
             }
-            //habilito los menues que pueden ver
-            foreach (MDPermisos per in userLog.Permisos)
+            else
             {
-                switch (per.PermisoDesc)
-                {
-                    case EnumPermisos.FACTURASPROMOVISA:
-                        FACTURASPROMOVISA.Visible = true;
-                        FACTURASPROMOVISA.Disabled = false;
-                        break;
-                    case EnumPermisos.ENVIOASAP:
-                        ENVIOASAP.Visible = true;
-                        ENVIOASAP.Disabled = false;
-                        break;
-                    case EnumPermisos.CLIENTES:
-                        CLIENTES.Visible = true;
-                        CLIENTES.Disabled = false;
-                        break;
-                    case EnumPermisos.NEUMATICOS:
-                        NEUMATICOS.Visible = true;
-                        NEUMATICOS.Disabled = false;
-                        break;
-                    case EnumPermisos.PROMOCIONES:
-                        PROMOCIONES.Visible = true;
-                        PROMOCIONES.Disabled = false;
-                        break;
-                    case EnumPermisos.MODIFICARCLIENTEIP:
-                        MODIFICARCLIENTEIP.Visible = true;
-                        MODIFICARCLIENTEIP.Disabled = false;
-                        break;
-                    case EnumPermisos.SINZCRONIZACIONCOMERCIAL:
-                        SINZCRONIZACIONCOMERCIAL.Visible = true;
-                        SINZCRONIZACIONCOMERCIAL.Disabled = false;
-                        break;
-                    case EnumPermisos.REPORTESCOMERCIAL:
-                        REPORTESCOMERCIAL.Visible = true;
-                        REPORTESCOMERCIAL.Disabled = false;
-                        break;
-                    case EnumPermisos.ADMINISTRACION:
-                        ADMINISTRACION.Visible = true;
-                        ADMINISTRACION.Disabled = false;
-                        break;
-                    case EnumPermisos.MODIFICACIONESMASIVAS:
-                        MODIFICACIONESMASIVAS.Visible = true;
-                        MODIFICACIONESMASIVAS.Disabled = false;
-                        break;
-                    case EnumPermisos.PERFIL:
-                        PERFIL.Visible = true;
-                        PERFIL.Disabled = false;
-                        break;
-                }
+                Response.Redirect("~/Login.aspx", false);
             }
-
-            lblUsuario.Text = userLog.Usu_desc;
-            
-            LoadScripts();
-
-            LoadStyles();
         }
 
         private void LoadStyles()

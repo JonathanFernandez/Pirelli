@@ -37,17 +37,34 @@
         <xs:element name="tVentaTotalCTC" msprop:Generator_TableClassName="tVentaTotalCTCDataTable" msprop:Generator_TableVarName="tabletVentaTotalCTC" msprop:Generator_RowChangedName="tVentaTotalCTCRowChanged" msprop:Generator_TablePropName="tVentaTotalCTC" msprop:Generator_RowDeletingName="tVentaTotalCTCRowDeleting" msprop:Generator_RowChangingName="tVentaTotalCTCRowChanging" msprop:Generator_RowEvHandlerName="tVentaTotalCTCRowChangeEventHandler" msprop:Generator_RowDeletedName="tVentaTotalCTCRowDeleted" msprop:Generator_RowClassName="tVentaTotalCTCRow" msprop:Generator_UserTableName="tVentaTotalCTC" msprop:Generator_RowEvArgName="tVentaTotalCTCRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:double" minOccurs="0" />
+              <xs:element name="PERIODO" msprop:Generator_ColumnVarNameInTable="columnPERIODO" msprop:Generator_ColumnPropNameInRow="PERIODO" msprop:Generator_ColumnPropNameInTable="PERIODOColumn" msprop:Generator_UserColumnName="PERIODO" type="xs:string" minOccurs="0" />
+              <xs:element name="TOTAL" msprop:Generator_ColumnVarNameInTable="columnTOTAL" msprop:Generator_ColumnPropNameInRow="TOTAL" msprop:Generator_ColumnPropNameInTable="TOTALColumn" msprop:Generator_UserColumnName="TOTAL" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="tVentaTotalCTCxCliente" msprop:Generator_TableClassName="tVentaTotalCTCxClienteDataTable" msprop:Generator_TableVarName="tabletVentaTotalCTCxCliente" msprop:Generator_TablePropName="tVentaTotalCTCxCliente" msprop:Generator_RowDeletingName="tVentaTotalCTCxClienteRowDeleting" msprop:Generator_RowChangingName="tVentaTotalCTCxClienteRowChanging" msprop:Generator_RowEvHandlerName="tVentaTotalCTCxClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="tVentaTotalCTCxClienteRowDeleted" msprop:Generator_UserTableName="tVentaTotalCTCxCliente" msprop:Generator_RowChangedName="tVentaTotalCTCxClienteRowChanged" msprop:Generator_RowEvArgName="tVentaTotalCTCxClienteRowChangeEvent" msprop:Generator_RowClassName="tVentaTotalCTCxClienteRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="codclie" msprop:Generator_ColumnVarNameInTable="columncodclie" msprop:Generator_ColumnPropNameInRow="codclie" msprop:Generator_ColumnPropNameInTable="codclieColumn" msprop:Generator_UserColumnName="codclie" type="xs:string" minOccurs="0" />
-              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:double" minOccurs="0" />
+              <xs:element name="CODCLIE" msprop:Generator_ColumnVarNameInTable="columnCODCLIE" msprop:Generator_ColumnPropNameInRow="CODCLIE" msprop:Generator_ColumnPropNameInTable="CODCLIEColumn" msprop:Generator_UserColumnName="CODCLIE" type="xs:string" minOccurs="0" />
+              <xs:element name="PERIODO" msprop:Generator_ColumnVarNameInTable="columnPERIODO" msprop:Generator_ColumnPropNameInRow="PERIODO" msprop:Generator_ColumnPropNameInTable="PERIODOColumn" msprop:Generator_UserColumnName="PERIODO" type="xs:string" minOccurs="0" />
+              <xs:element name="TOTAL" msprop:Generator_ColumnVarNameInTable="columnTOTAL" msprop:Generator_ColumnPropNameInRow="TOTAL" msprop:Generator_ColumnPropNameInTable="TOTALColumn" msprop:Generator_UserColumnName="TOTAL" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tAnualCliente" msprop:Generator_TableClassName="tAnualClienteDataTable" msprop:Generator_TableVarName="tabletAnualCliente" msprop:Generator_RowChangedName="tAnualClienteRowChanged" msprop:Generator_TablePropName="tAnualCliente" msprop:Generator_RowDeletingName="tAnualClienteRowDeleting" msprop:Generator_RowChangingName="tAnualClienteRowChanging" msprop:Generator_RowEvHandlerName="tAnualClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="tAnualClienteRowDeleted" msprop:Generator_RowClassName="tAnualClienteRow" msprop:Generator_UserTableName="tAnualCliente" msprop:Generator_RowEvArgName="tAnualClienteRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CLIENTE" msprop:Generator_ColumnVarNameInTable="columnCLIENTE" msprop:Generator_ColumnPropNameInRow="CLIENTE" msprop:Generator_ColumnPropNameInTable="CLIENTEColumn" msprop:Generator_UserColumnName="CLIENTE" type="xs:string" minOccurs="0" />
+              <xs:element name="TOTAL" msprop:Generator_ColumnVarNameInTable="columnTOTAL" msprop:Generator_ColumnPropNameInRow="TOTAL" msprop:Generator_ColumnPropNameInTable="TOTALColumn" msprop:Generator_UserColumnName="TOTAL" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tMensualxCLiente" msprop:Generator_TableClassName="tMensualxCLienteDataTable" msprop:Generator_TableVarName="tabletMensualxCLiente" msprop:Generator_TablePropName="tMensualxCLiente" msprop:Generator_RowDeletingName="tMensualxCLienteRowDeleting" msprop:Generator_RowChangingName="tMensualxCLienteRowChanging" msprop:Generator_RowEvHandlerName="tMensualxCLienteRowChangeEventHandler" msprop:Generator_RowDeletedName="tMensualxCLienteRowDeleted" msprop:Generator_UserTableName="tMensualxCLiente" msprop:Generator_RowChangedName="tMensualxCLienteRowChanged" msprop:Generator_RowEvArgName="tMensualxCLienteRowChangeEvent" msprop:Generator_RowClassName="tMensualxCLienteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PERIODO" msprop:Generator_ColumnVarNameInTable="columnPERIODO" msprop:Generator_ColumnPropNameInRow="PERIODO" msprop:Generator_ColumnPropNameInTable="PERIODOColumn" msprop:Generator_UserColumnName="PERIODO" type="xs:string" minOccurs="0" />
+              <xs:element name="CLIENTE" msprop:Generator_ColumnVarNameInTable="columnCLIENTE" msprop:Generator_ColumnPropNameInRow="CLIENTE" msprop:Generator_ColumnPropNameInTable="CLIENTEColumn" msprop:Generator_UserColumnName="CLIENTE" type="xs:string" minOccurs="0" />
+              <xs:element name="TOTAL" msprop:Generator_ColumnVarNameInTable="columnTOTAL" msprop:Generator_ColumnPropNameInRow="TOTAL" msprop:Generator_ColumnPropNameInTable="TOTALColumn" msprop:Generator_UserColumnName="TOTAL" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

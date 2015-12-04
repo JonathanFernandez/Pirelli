@@ -186,10 +186,15 @@ namespace PirelliReports.Site
             CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();
             rpt.FileName = Server.MapPath("~/RPT/VentaTotalxCTC.rpt");
             rpt.Load(rpt.FileName, OpenReportMethod.OpenReportByDefault);
-
+            
             rpt.SetDataSource(ds);
             crviewer.ReportSource = rpt;
-            
+            //rpt.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, "ajdsfaklj");
+            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("files/asdf.pdf"));
+           
+            //ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var popup=window.open('files/asdf.pdf');popup.focus();", true);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var hidden = open('files/asdf.pdf', 'NewWindow', 'top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes');", true);
+            //hidden = open('files/asdf.pdf', 'NewWindow', 'top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes');
         }
     }
 }
