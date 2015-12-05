@@ -16,6 +16,7 @@ namespace Entidades
         SINZCRONIZACIONCOMERCIAL = 7,
         REPORTESCOMERCIAL = 8,
         ADMINISTRACION = 9,
-        MODIFICACIONESMASIVAS = 10
+        MODIFICACIONESMASIVAS = 10,
+        PERFIL = 13
     }
 }

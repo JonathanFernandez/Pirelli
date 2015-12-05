@@ -20,6 +20,7 @@ namespace PirelliReports.Site
             {
                 conAdminstracion.CargarPermisos(chklistPermisosAlta);
                 cargarGrupos();
+                ddlGrupos_SelectedIndexChanged(sender, e);
             }
         }
 

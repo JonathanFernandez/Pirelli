@@ -20,6 +20,7 @@ namespace PirelliReports
         protected void Page_Load(object sender, EventArgs e)
         {
             
+            
         }
 
       
@@ -59,6 +60,7 @@ namespace PirelliReports
                 //FormsAuthentication.SetAuthCookie(login_username.Text, false);
 
                 user = connUsuario.CargarUsuario(login_username.Text, login_password.Text);
+                connUsuario.SetearEstado(user, true);
 
                 FormsAuthentication.SetAuthCookie(user.Usu_id, false);
                 Session["Usuario"] = user;

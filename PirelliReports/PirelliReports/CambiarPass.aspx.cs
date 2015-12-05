@@ -33,7 +33,7 @@ namespace PirelliReports
             {
                 lblMailInexistente.Visible = false;
 
-                if (connUsuario.ReestablecerMail(mail))
+                if (connUsuario.ReestablecerPassword(mail))
                 {
                     btnLoginVolver.Visible = true;
                 }

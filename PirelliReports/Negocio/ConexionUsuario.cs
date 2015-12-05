@@ -197,6 +197,17 @@ namespace Negocio
 
             
         }
+
+        public void SetearEstado(Usuario u, bool activar)
+        {
+            AdoConn ado = new AdoConn();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(u.Usu_id);
+            parametros.Add(activar);
+
+            ado.ExecuteNonStoredProcedure("SP_UPDATE_USUARIO_ESTADO", parametros);
+
+        }
         public Usuario CargarUsuario(string nombre, string password)
         {
             Usuario user = new Usuario();
@@ -215,6 +226,32 @@ namespace Negocio
             user.Activo = Convert.ToBoolean(ds.Tables[0].Rows[0]["ACTIVO"]);
             user.Pass = ds.Tables[0].Rows[0]["PASS"].ToString();
 
+            if (ds.Tables[1].Rows.Count > 0)
+            {
+                Paginas p;
+                user.PaginasAccesibles = new List<Paginas>();
+                for (int i = 0; i < ds.Tables[1].Rows.Count; i++)
+                { 
+                    p = new Paginas();
+                    p.Pagina_id = Convert.ToInt32(ds.Tables[1].Rows[i]["PAGINA_ID"].ToString());
+                    p.Pagina = ds.Tables[1].Rows[i]["PAGINA"].ToString();
+                    user.PaginasAccesibles.Add(p);
+                }
+            }
+
+            if (ds.Tables[2].Rows.Count > 0)
+            {
+                MDPermisos permiso;
+                user.Permisos = new List<MDPermisos>();
+                for (int i = 0; i < ds.Tables[2].Rows.Count; i++)
+                {
+                    permiso = new MDPermisos();
+                    permiso.PermisoID = Convert.ToInt32(ds.Tables[2].Rows[i]["PERMISO_ID"].ToString());
+                    permiso.PermisoDesc = (EnumPermisos)Enum.Parse(typeof(EnumPermisos), ds.Tables[2].Rows[i]["PERMISO_DESC"].ToString());
+
+                    user.Permisos.Add(permiso);
+                }
+            }
             return user;
 
 
@@ -235,7 +272,7 @@ namespace Negocio
                 return false;
         }
 
-        public bool ReestablecerMail(string mail)
+        public bool ReestablecerPassword(string mail)
         {
             AdoConn ado = new AdoConn();
             ArrayList parametros = new ArrayList();
@@ -261,16 +298,17 @@ namespace Negocio
             //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
 
             //Asunto
-            mmsg.Subject = "Probando envio de mail PIRELLI";
+            mmsg.Subject = "Reestrabler contraseña PIRELLI";
             mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
 
 
             //Cuerpo del Mensaje
 
 
-
-            mmsg.Body = "Solicitud de Contraseña, ingrese al siguiente link  ";
-            mmsg.IsBodyHtml = false; //Si no queremos que se envíe como HTML
+            string body = "Solicitud de Contraseña, ingrese al siguiente link <a href=\"http://localhost:58935/ReestablecerPass.aspx?mail="+mail+"\">link</a>"; 
+            //"Solicitud de Contraseña, ingrese al siguiente link <a href='localhost:58935/ReestablecerPass.aspx?mail='" + mail + ">link</a>";
+            mmsg.Body = body;
+            mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
 
             //Correo electronico desde la que enviamos el mensaje
             mmsg.From = new System.Net.Mail.MailAddress("jonathan_28_05@hotmail.com");

@@ -56,6 +56,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -1507,6 +1508,7 @@
       <DependentUpon>dsReportes.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="ReestablecerPass.aspx" />
     <Content Include="RPT\CLIENTExIP.vb" />
     <Content Include="RPT\IPxCLIENTE.vb" />
     <Content Include="RPT\IPxREGION.vb" />
@@ -1550,6 +1552,7 @@
     <Content Include="Site\ActualizacionMasivaStatus.aspx" />
     <Content Include="Site\AdministracionPermisos.aspx" />
     <Content Include="Site\AdministracionUsuarios.aspx" />
+    <Content Include="Site\AnualCliente.aspx" />
     <Content Include="Site\Clientes.aspx" />
     <Content Include="Site\ClienteXIP.aspx" />
     <Content Include="Site\CrystalViewer.aspx" />
@@ -1558,6 +1561,7 @@
     <Content Include="Site\IPxCliente.aspx" />
     <Content Include="Site\IPxRegion.aspx" />
     <Content Include="Site\Mapa.aspx" />
+    <Content Include="Site\MensualXCliente.aspx" />
     <Content Include="Site\ModificarClienteIP.aspx" />
     <Content Include="Site\Neumaticos.aspx" />
     <Content Include="Site\Promociones.aspx" />
@@ -1613,12 +1617,14 @@
     <Content Include="Sql Scripts\dbo.SP_ALTERA_IP_CODSOL.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ALTERA_PRECIO_CODSOL.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ALTERA_STATUS_CODSOL.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_ANUAL_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_CLIENTES_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_DELETE_CLIEN1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_DELETE_GRUPOS_USUARIO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_DELETE_PRODUC1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_DELETE_SOLICITUD_ALTERA_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_DELETE_SOLICITUD_ALTERA_IP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_DELETE_SOLICITUD_ALTERA_STATUS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ELIMINAR_GRUPOS_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ESTRUCTURA_TABLA.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_GEO_CLIENTES_SOLICITUDES.StoredProcedure.sql" />
@@ -1630,8 +1636,11 @@
     <Content Include="Sql Scripts\dbo.SP_INSERT_PRODUC1_TEMP.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_SOLICITUD_ALTERA_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_INSERT_SOLICITUD_ALTERA_IP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_INSERT_SOLICITUD_ALTERA_STATUS.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_INSERT_ZOSOLICITUD.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_DE_CTC.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_LISTADO_CLIENTES_MATRIZ.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_MENSUAL_POR_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_CLAVE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_CLIENTE_FLGFILBUSQ.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_MODIFICAR_IP_FLGFILBUSQ.StoredProcedure.sql" />
@@ -1657,19 +1666,26 @@
     <Content Include="Sql Scripts\dbo.SP_SELECT_PAIS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PERMISOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PROMOCIONES.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_PROMODELDIA.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_PROMOVIGENTES_PORDIA.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_PROVINCIAS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_REGION.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_REGION_DEL_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_SOLICITUD_ALTERA_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_SOLICITUD_ALTERA_IP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_SOLICITUD_ALTERA_STATUS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_TIPO_PROMO.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_USUARIOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_ZOCLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_ZOPRODU.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_SELECT_ZOSOLICITUD.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SELECT_ZOSOLICITUD_DATOSEXTERNOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SINCRONIZAR_CLIENTES.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_SINCRONIZAR_PRODUCTOS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_UPDATE_ALTERA_CLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_UPDATE_ALTERA_IP.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_UPDATE_USUARIO_ESTADO.StoredProcedure.sql" />
+    <Content Include="Sql Scripts\dbo.SP_UPDATE_ZOSOLICITUD.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VerificarLogin.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VERIFICAR_CLIENTE_EXISTENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_VERIFICAR_IP_EXISTENTE.StoredProcedure.sql" />
@@ -1687,6 +1703,7 @@
     <Content Include="Sql Scripts\dbo.VENTATOTALXCTC.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.VENTATOTALXCTCXCLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.Zoclien1_TEMP.Table.sql" />
+    <Content Include="Sql Scripts\dbo.ZoSolicitud_AlteraIP.Table.sql" />
     <Content Include="Sql Scripts\PROD.IpXCliente.StoredProcedure.sql" />
     <Content Include="Sql Scripts\PROD.IpXRegion.StoredProcedure.sql" />
     <Content Include="Sql Scripts\PROD.SP_INSERT_UPDATE_ZOTIPOPROMOxIP.StoredProcedure.sql" />
@@ -1859,6 +1876,19 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReestablecerPass.aspx.cs">
+      <DependentUpon>ReestablecerPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReestablecerPass.aspx.designer.cs">
+      <DependentUpon>ReestablecerPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\AnualCliente.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnualCliente.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RPT\CLIENTExIP.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1881,6 +1911,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>IPxREGION2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\MensualxCliente.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MensualxCliente.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RPT\REGIONxIP.cs">
@@ -1957,6 +1993,13 @@
     <Compile Include="Site\AdministracionUsuarios.aspx.designer.cs">
       <DependentUpon>AdministracionUsuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site\AnualCliente.aspx.cs">
+      <DependentUpon>AnualCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\AnualCliente.aspx.designer.cs">
+      <DependentUpon>AnualCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2012,6 +2055,13 @@
     </Compile>
     <Compile Include="Site\Mapa.aspx.designer.cs">
       <DependentUpon>Mapa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\MensualXCliente.aspx.cs">
+      <DependentUpon>MensualXCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\MensualXCliente.aspx.designer.cs">
+      <DependentUpon>MensualXCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\ModificarClienteIP.aspx.cs">
       <DependentUpon>ModificarClienteIP.aspx</DependentUpon>
@@ -2122,6 +2172,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="RPT\AnualCliente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AnualCliente.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RPT\CLIENTExIP.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CLIENTExIP.cs</LastGenOutput>
@@ -2137,6 +2191,10 @@
     <EmbeddedResource Include="RPT\IPxREGION2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>IPxREGION2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\MensualxCliente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MensualxCliente.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT\REGIONxIP.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

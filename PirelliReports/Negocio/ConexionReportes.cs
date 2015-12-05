@@ -30,6 +30,24 @@ namespace Negocio
             return dt;
         }
 
+        public DataTable MensualXCliente(ArrayList parametros)
+        {
+            AdoConn ado = new AdoConn();
+            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
+            dt = ado.ExecuteStoredProcedureDT("SP_MENSUAL_POR_CLIENTE", parametros);
+
+            return dt;
+        }
+        public DataTable AnualCliente(ArrayList parametros)
+        {
+            AdoConn ado = new AdoConn();
+            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
+            dt = ado.ExecuteStoredProcedureDT("SP_ANUAL_CLIENTE",parametros);
+
+            return dt;
+        }
         public DataTable VentaTotalxCTC(ArrayList parametros)
         {
             AdoConn ado = new AdoConn();

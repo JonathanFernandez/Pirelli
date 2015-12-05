@@ -146,7 +146,7 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-lg-12" id="googleMaps">
-                                    <%--<cc:GMap ID="GMap1" runat="server" />--%>
+                                    <cc:GMap ID="GMap1" runat="server" />
                                     <br />
                                 </div>
 

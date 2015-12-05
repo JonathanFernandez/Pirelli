@@ -13,6 +13,15 @@ namespace PirelliReports.Site {
     public partial class VentaTotalxCTCxCliente {
         
         /// <summary>
+        /// crviewer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer crviewer;
+        
+        /// <summary>
         /// dpDesde control.
         /// </summary>
         /// <remarks>

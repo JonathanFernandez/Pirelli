@@ -64,6 +64,22 @@ namespace Negocio
 
             return ds;
         }
+        public void CargarClientes(DropDownList ddl)
+        {
+            DataSet ds = new DataSet();
+            
+            ds = ListadoClientes();
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                string mostrar;
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    mostrar = "(" + ds.Tables[0].Rows[i]["COD"].ToString() +") "+ ds.Tables[0].Rows[i]["RAZSOC"].ToString();
+                    ddl.Items.Add(new ListItem(mostrar, ds.Tables[0].Rows[i]["COD"].ToString()));
+                }
+            }
+        }
         public DataSet ListadoAlteraClientes()
         {
             AdoConn ado = new AdoConn();
