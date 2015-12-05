@@ -62,7 +62,7 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-@media(min-width:768px) {
+@media(min-width:1025px) {
     #wrapper {
         padding-left: 225px;
     }
@@ -94,6 +94,28 @@ a{
 
 /* Boostrap override*/
 
+@media(max-width:1025px) {
+    .navbar-toggle {
+        position: absolute;
+        right: 0px;
+        background-color: rgba(51, 51, 51, 0.84);
+    }
+    .navbar .navbar-brand{
+        width: 100% !important;
+    }
+
+    .pirelli-logo {
+    margin: -13px auto !important;
+    }
+    .nav.navbar-right.top-nav{
+        position: absolute;
+        float: right;
+        top: 0px;
+    }
+    .top-nav>li>a{
+        color: #333 !important;
+    }
+}
 .btn-warning{
     background-color: #FEE002;
     color: black;

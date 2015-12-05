@@ -103,6 +103,13 @@
                             <%--<asp:TextBox runat="server" id="txtIP" class="form-control pull-right" ></asp:TextBox>--%>
                             <asp:DropDownList runat="server" ID="ddlCTC" AutoPostBack="true" OnSelectedIndexChanged="ddlCTC_SelectedIndexChanged" class="form-control pull-right" ></asp:DropDownList>
                             <br />
+                        </div>
+                    </div>  
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-inline">
                             <asp:DropDownList runat="server" ID="ddlClientes" class="form-control pull-right" ></asp:DropDownList>
                             <p class="help-block"></p>
                         </div>

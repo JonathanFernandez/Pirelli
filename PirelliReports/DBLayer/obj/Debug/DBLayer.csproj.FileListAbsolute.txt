@@ -11,3 +11,8 @@ C:\workspace\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.csprojResolveAssem
 C:\workspace\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.dll
 C:\workspace\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.csprojResolveAssemblyReference.cache
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\bin\DBLayer.dll.config
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\bin\DBLayer.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\bin\DBLayer.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.dll
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.pdb

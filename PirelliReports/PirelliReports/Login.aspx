@@ -55,6 +55,13 @@
        function lost_login_btn_OnClientClick() {
 
        }
+       function darClick() {
+
+           var objO = document.getElementById("login_lost_btn");
+
+           objO.click();
+
+       }
    </script>
 </head>
 <body>

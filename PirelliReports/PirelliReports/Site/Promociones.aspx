@@ -5,27 +5,94 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-    <script>
-        
-        //$(document).ready(function () {
-        //    $('.only-float').keypress(function (eve) {
-        //        if ((eve.which != 46 || $(this).val().indexOf('.') != -1) && (eve.which < 48 || eve.which > 57) || (eve.which == 46 && $(this).caret().start == 0)) {
-        //            eve.preventDefault();
-        //        }
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.validator.addMethod("decimal", 
+                                        function (value, element) {
+                                        return this.optional(element) || /^\d{0,3}(\.\d{0,2})?$/i.test(value);
+                                        }, "Incluya 2 decimales");
 
-        //        // this part is when left part of number is deleted and leaves a . in the leftmost position. For example, 33.25, then 33 is deleted
-        //        $('.only-float').keyup(function (eve) {
-        //            if ($(this).val().indexOf('.') == 0) {
-        //                $(this).val($(this).val().substring(1));
-        //            }
-        //        });
-        //    });
-        //});
-       
+
+
+            $.validator.addMethod("greaterThan", 
+                                     function(value, element) 
+                                     {            
+                                         var parametro = document.getElementById("PaginaCentral_ContentPlaceHolder_dpDesde").value;
+                                        
+                                         var partesFechaFinal = value.split('/');
+                                         var partesFechaInicial = parametro.split('/')
+                                         var diaFechaFinal = partesFechaFinal[1];
+                                         var mesFechaFinal = partesFechaFinal[0];
+                                         var anioFechaFinal = partesFechaFinal[2];
+                                         var diaFechaInicial = partesFechaInicial[1];
+                                         var mesFechaInicial = partesFechaInicial[0];
+                                         var anioFechaInicial = partesFechaInicial[2];
+
+                                         var fechaFinal = anioFechaFinal + "-" + mesFechaFinal + "-" + diaFechaFinal;
+                                         var fechaInicial = anioFechaInicial + "-" + mesFechaInicial + "-" + diaFechaInicial;
+
+                                         return new Date(fechaFinal) > new Date(fechaInicial);
+                                   
+                                     }, "La fecha final debe ser mayor que la fecha inicial");
+
+            $('form').validate({
+                    rules: 
+                    {
+                        <%=txtDescTipoPromo.UniqueID %>: 
+                        {
+                            required: true,
+                            maxlength: 30
+                        },
+                        <%=dpDesde.UniqueID %>: 
+                        {                        
+                            required: true,
+                            date: true
+                        },
+                        <%=dpHasta.UniqueID %>: 
+                        {                        
+                            required: true,
+                            date: true,
+                            greaterThan: true
+                        }  
+                    },
+                    messages: 
+                    {  
+                    }
+                });
+
+                $.validator.addClassRules({
+                    cuota:
+                    {
+                        required: true,
+                        digits: true,
+                        range: [0, 18]
+                    }
+                });
+
+            
+                $.validator.addClassRules({
+                    porcentaje:
+                    {
+                        required: true,
+                        number: true,
+                        range: [0,100],
+                        decimal: true
+                        //range: [1, 100]
+                    }
+                });
+        });
+        
+        function openModal() {
+           
+            $('#modalMensaje').modal('show');
+        }
+
+
         function btnGuardarOnClientClick() {
-            //document.getElementById("codigoPromo").value = document.getElementById('PaginaCentral_ContentPlaceHolder_ddlPromociones').value;
-            //document.getElementById('PaginaCentral_ContentPlaceHolder_ddlPromociones').disabled = false;
-            //return false;
+            
+            var result = $('form').valid();
+             
+            return result;
         }
 
         function btnEditOnClientClick() {
@@ -67,72 +134,8 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <script type="text/javascript">
-        $(document).ready(function() {     
-      <%--      $.validator.addMethod("greaterThan", 
-                                    function(value, element) 
-                                    {            
-                                        var parametro = document.getElementsByName("<%=dpDesde.UniqueID %>").value;
-                                        
-                                        var partesFechaFinal = value.split('/');
-                                        var partesFechaInicial = parametro.split('/')
-                                        var diaFechaFinal = partesFechaFinal[1];
-                                        var mesFechaFinal = partesFechaFinal[0];
-                                        var anioFechaFinal = partesFechaFinal[2];
-                                        var diaFechaInicial = partesFechaInicial[1];
-                                        var mesFechaInicial = partesFechaInicial[0];
-                                        var anioFechaInicial = partesFechaInicial[2];
-
-                                        var fechaFinal = anioFechaFinal + "-" + mesFechaFinal + "-" + diaFechaFinal;
-                                        var fechaInicial = anioFechaInicial + "-" + mesFechaInicial + "-" + diaFechaInicial;
-
-                                        return new Date(fechaFinal) > new Date(fechaInicial);
-                                   
-                                    }, "La fecha final debe ser mayor que la fecha inicial");--%>
-
-            $('form').validate({
-                rules: 
-                {
-                    <%=txtDescTipoPromo.UniqueID %>: 
-                    {
-                        required: true,
-                        maxlength: 30
-                    },
-                    <%=dpDesde.UniqueID %>: 
-                    {                        
-                        required: true,
-                        date: true
-                    },
-                    <%=dpHasta.UniqueID %>: 
-                    {                        
-                        required: true,
-                        date: true
-                        //greaterThan: true
-                    }  
-                },
-                messages: 
-                {  
-                }
-            });
-
-            $.validator.addClassRules({
-                cuota:
-                {
-                    required: true,
-                    digits: true,
-                    range: [1, 18]
-                }
-            });
-
-            
-            $.validator.addClassRules({
-                porcentaje:
-                {
-                    required: true,
-                    number: true,
-                    range: [1, 100]
-                }
-            });
-      });
+      
+  
     </script>
       
     <div id="page-wrapper"> 
@@ -160,7 +163,7 @@
                     <%--<button class="btn btn-warning"><i class="fa fa-plus"></i>Alta</button>--%>
                     <%--<button class="btn btn-warning disabled"><i class="fa fa-trash"></i>Baja</button>--%>
                     <%--<button class="btn btn-warning"><i class="fa fa-edit"></i>Modificación</button>--%>
-                    <asp:LinkButton runat="server" ID="btnEdit" OnClientClick="btnEditOnClientClick();" CssClass="btn btn-warning"><i class="fa fa-edit"></i> Modificación</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnEdit" OnClick="btnEdit_Click" OnClientClick="btnEditOnClientClick();" CssClass="btn btn-warning"><i class="fa fa-edit"></i> Modificación</asp:LinkButton>
                     <%--<button class="btn btn-warning pull-right disabled"><i class="fa fa-trash"></i>Baja Ĺógica</button>--%>
                 </div>
             </div>
@@ -174,7 +177,7 @@
 
                 <div class="col-lg-4">
                         <label>Nombre de promoción:</label>
-                        <asp:TextBox runat="server" class="form-control" ID="txtDescTipoPromo"  placeholder="Promoción"></asp:TextBox>
+                        <asp:TextBox runat="server" class="form-control" ID="txtDescTipoPromo"  placeholder="Promoción" required></asp:TextBox>
                 </div>
                 <div class="col-lg-4">    
                         <label>Baja Lógica: </label>
@@ -188,7 +191,7 @@
                     <div class="control-group">
                         <div class="controls">
                             <div class="input-group margin-15">
-                                <asp:TextBox runat="server" class="date-picker form-control" ID ="dpDesde" placeholder="Desde" ></asp:TextBox>
+                                <asp:TextBox runat="server" class="date-picker form-control" ID ="dpDesde" placeholder="Desde" required></asp:TextBox>
                                 <label for="date-picker-1" class="input-group-addon btn">
                                     <span class="glyphicon glyphicon-calendar"></span>
 
@@ -196,7 +199,7 @@
                             </div>
 
                             <div class="input-group">
-                                <asp:TextBox runat="server" class="date-picker form-control" ID="dpHasta" placeholder="Hasta" ></asp:TextBox>
+                                <asp:TextBox runat="server" class="date-picker form-control" ID="dpHasta" placeholder="Hasta" required></asp:TextBox>
                                 <label for="date-picker-2" class="input-group-addon btn">
                                     <span class="glyphicon glyphicon-calendar"></span>
 
@@ -227,12 +230,12 @@
 
                         <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Domingo</label>
-                                <asp:TextBox runat="server" class="form-control cuota" TextMode="Number" ID="txtDomingo" placeholder="0" ></asp:TextBox>
+                                <asp:TextBox runat="server" class="form-control cuota" TextMode="Number" ID="txtDomingo" placeholder="0"></asp:TextBox>
                         </div>
 
                         <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Lunes</label>
-                                <asp:TextBox runat="server" class="form-control cuota" ID="txtLunes" placeholder="0" TextMode="Number" ></asp:TextBox>
+                                <asp:TextBox runat="server" class="form-control cuota" ID="txtLunes" placeholder="0" TextMode="Number"></asp:TextBox>
                         </div>
 
                         <div class="form-inline margin-15">
@@ -290,7 +293,9 @@
                     <div class="form-group margin-15">
                         <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu7" placeholder="%"  ></asp:TextBox>
                     </div>
-                        <asp:LinkButton runat="server" ID="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="btnGuardarOnClientClick();" CssClass="btn btn-warning pull-right"><i class="fa fa-edit"></i> Guardar</asp:LinkButton>
+                        <asp:LinkButton runat="server"  ID="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="return btnGuardarOnClientClick();" CssClass="btn btn-warning pull-right"><i class="fa fa-edit"></i> Guardar</asp:LinkButton>
+                      
+
             </div>
 
          
@@ -300,6 +305,26 @@
     </div>
            
     <!-- /.container-fluid -->
+            <%-- MODAL mensaje --%>
+        <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="page-header modal-title" id="myModalSincro">Sincronización
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
+                            <asp:LinkButton runat="server"  ID="btnAceptar" OnClick="btnAceptar_Click" CssClass="btn btn-warning pull-right"><i class="fa fa-edit"></i> Aceptar</asp:LinkButton>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-- Fin modal Sincronización --%>
 
     </div>
        

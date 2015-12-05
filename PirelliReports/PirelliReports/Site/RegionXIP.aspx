@@ -9,26 +9,42 @@
             hidden = open(url, "NewWindow", "top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes");
             return false;
         }
-    </script>
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
-    <script type="text/javascript">
-        $(document).ready(function() {     
+        $(document).ready(function () {
+            $.validator.addMethod("greaterThan",
+                                     function (value, element) {
+                                         var parametro = document.getElementById("PaginaCentral_ContentPlaceHolder_dpDesde").value;
+
+                                         var partesFechaFinal = value.split('/');
+                                         var partesFechaInicial = parametro.split('/')
+                                         var diaFechaFinal = partesFechaFinal[1];
+                                         var mesFechaFinal = partesFechaFinal[0];
+                                         var anioFechaFinal = partesFechaFinal[2];
+                                         var diaFechaInicial = partesFechaInicial[1];
+                                         var mesFechaInicial = partesFechaInicial[0];
+                                         var anioFechaInicial = partesFechaInicial[2];
+
+                                         var fechaFinal = anioFechaFinal + "-" + mesFechaFinal + "-" + diaFechaFinal;
+                                         var fechaInicial = anioFechaInicial + "-" + mesFechaInicial + "-" + diaFechaInicial;
+
+                                         return new Date(fechaFinal) > new Date(fechaInicial);
+
+                                     }, "La fecha final debe ser mayor que la fecha inicial");
             $('form').validate({
-                  rules: 
-                  {
-                  
-                  },
-                  messages: 
-                  {  
-                  }
+                rules:
+                {
+
+                },
+                messages:
+                {
+                }
             });
 
             $.validator.addClassRules({
                 fecha:
                 {
                     required: true,
-                    date: true
+                    date: true,
+                    greaterThan: true
                 }
             });
 
@@ -42,6 +58,9 @@
             });
         });
     </script>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
+   
     <div id="page-wrapper">
 
             <div class="container-fluid form-pirelli">
