@@ -44,14 +44,14 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Actualización masiva status
+                    <h1 class="page-header">Actualización masiva de status
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-refresh"></i> Actualización masiva status
+                            <i class="fa fa-refresh"></i> Actualización masiva de status
                             </li>
                     </ol>
                 </div>
@@ -97,7 +97,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="page-header modal-title" id="myModalSincro">Actualizacion masiva status
+                                    <h4 class="page-header modal-title" id="myModalSincro">Actualizacion masiva de status
                                     </h4>
                                 </div>
                                 <div class="modal-body">

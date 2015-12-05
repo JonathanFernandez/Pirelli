@@ -45,14 +45,14 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Sincronizar Clientes
+                    <h1 class="page-header">Sincronizar clientes
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-user"></i> Sincronizar Clientes
+                            <i class="fa fa-user"></i> Sincronizar clientes
                             </li>
                     </ol>
                 </div>
@@ -114,7 +114,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="page-header modal-title" id="myModalSincro">Sincronización
+                                    <h4 class="page-header modal-title" id="myModalSincro">Sincronizar clientes
                                     </h4>
                                 </div>
                                 <div class="modal-body">

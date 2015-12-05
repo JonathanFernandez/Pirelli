@@ -55,8 +55,8 @@ namespace PirelliReports.Site
                     catch (System.Web.HttpException ex)
                     {
                         lblMensaje.Text = "Error: " + ex.Message;
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                     }
 
                     // Notify the user of the name of the file
@@ -64,22 +64,25 @@ namespace PirelliReports.Site
                     lblMensaje.Text = "Se subio el archivo " + fileName;
                     //rutaArchivoSubido = savePath;
                     HDrutaArchivoSubido.Value = savePath;
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+                    
                 }
                 else
                 {
                     lblMensaje.Text = "Solo se pueden subir archivos de texto .txt";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+                   
                 }
             }
             else
             {
                 // Notify the user that a file was not uploaded.
                 lblMensaje.Text = "No se pudo subir el archivo " + fileName;
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+                
             }
         }
 
@@ -118,8 +121,9 @@ namespace PirelliReports.Site
                     catch (Exception ex)
                     {
                         lblMensaje.Text = "Error: " + ex.Message;
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+                        
 
                     }
                     // Se agregan las solicitudes de la tabla temporal a la grilla
@@ -130,8 +134,8 @@ namespace PirelliReports.Site
                 else
                 {
                     lblMensaje.Text = "No hay ninguna solicitud o el tipo de archivo es erroneo. Solo se permiten archivos de texto .txt";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                 }
             }
         }
@@ -152,8 +156,8 @@ namespace PirelliReports.Site
             {
                 lblMensaje.Text = "No se encontraron solicitudes para la actualizacion masiva";
             }
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
         }
 
     }

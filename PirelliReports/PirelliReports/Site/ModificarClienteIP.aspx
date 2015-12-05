@@ -13,7 +13,26 @@
 </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('form').validate({ // initialize the plugin
+
+            });
+
+            $.validator.addClassRules({
+                codigo:
+                {
+                    required: true,
+                    digits: true,
+                    minlength: 7,
+                    maxlength: 10
+                }
+            });
+        });
+        </script>
     <div id="page-wrapper">
+        
 
         <div class="container-fluid form-pirelli">
 
@@ -54,7 +73,7 @@
                 <div class="col-lg-3 margin-15">
                     <div class="form-inline">
                         <%--<input type="radiobutton" placeholder="Valor A Modificar" class="form-control" />--%>
-                        <asp:TextBox runat="server" ID="txtValorModificar" MaxLength="10" placeholder="Valor A Modificar" class="form-control" />
+                        <asp:TextBox runat="server" ID="txtValorModificar" MaxLength="10" placeholder="Valor A Modificar" class="form-control codigo" />
 
                     </div>
                 </div>
@@ -62,7 +81,7 @@
                  <div class="col-lg-3 margin-15">
                     <div class="form-inline">
                         <%--<input type="text" placeholder="Nuevo Valor" class="form-control"/>--%>
-                        <asp:TextBox runat="server" ID="txtNuevoValor" MaxLength="10" placeholder="Nuevo Valor" class="form-control" />
+                        <asp:TextBox runat="server" ID="txtNuevoValor" MaxLength="10" placeholder="Nuevo Valor" class="form-control codigo" />
                     </div>
                 </div>
 

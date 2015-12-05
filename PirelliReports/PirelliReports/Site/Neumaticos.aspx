@@ -49,6 +49,61 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.validator.addMethod("lettersOnly", function (value, element) {
+                                    return this.optional(element) || /^[a-zA-Z]+$/i.test(value);
+                                  }, "Ingrese una letra");
+ 
+            $('form').validate({
+                rules: 
+                {
+                    <%= txtFiltrosIP.UniqueID %>: 
+                    {
+                        required: false,
+                        digits: true,
+                        minlength: 7
+                    },
+                    <%= txtFiltrosDescripcion.UniqueID %>: 
+                    {                        
+                        required: false,
+                        maxlength: 50
+                    },
+                    <%= txtFiltrosOtros.UniqueID %>: 
+                    {                        
+                        required: false,
+                        maxlength: 20
+                    },
+                    <%= txtFiltrosMarca.UniqueID %>: 
+                    {                        
+                        required: false,
+                        digits: true,
+                        maxlength: 2
+                    },
+                     <%= txtFiltrosRango.UniqueID %>: 
+                    {                        
+                        required: false,
+                        lettersOnly: true,
+                        maxlength: 1
+                     },
+                     <%= txtFiltrosRodado.UniqueID %>: 
+                     {                        
+                        required: false,
+                        number: true
+                     },
+                    <%= txtRango.UniqueID %>: 
+                    {                        
+                        required: false,
+                        lettersOnly: true,
+                        maxlength: 1
+                    }
+                }, 
+                messages: 
+                {
+                }
+            });
+        });
+    </script>
     <div class="container-fluid table-pirelli">
         <!-- Page Heading -->
         <div class="row">

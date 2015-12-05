@@ -43,14 +43,14 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Sincronizar Neumaticos
+                    <h1 class="page-header">Sincronizar neumaticos
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-car"></i> Sincronizar Neumaticos
+                            <i class="fa fa-car"></i> Sincronizar neumaticos
                             </li>
                     </ol>
                 </div>
@@ -97,7 +97,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="page-header modal-title" id="myModalSincro">Sincronización
+                                    <h4 class="page-header modal-title" id="myModalSincro">Sincronizar neumaticos
                                     </h4>
                                 </div>
                                 <div class="modal-body">

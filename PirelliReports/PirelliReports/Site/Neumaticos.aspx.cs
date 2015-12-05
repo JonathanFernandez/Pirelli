@@ -71,7 +71,7 @@ namespace PirelliReports.Site
             parametros.Add((string.IsNullOrEmpty(txtFiltrosOtros.Text) ? "%" : txtFiltrosOtros.Text));
             parametros.Add(ddlFiltrosFamilia.SelectedValue);
             parametros.Add((string.IsNullOrEmpty(txtFiltrosMarca.Text) ? "%" : txtFiltrosMarca.Text));
-            parametros.Add((string.IsNullOrEmpty(txtFiltrosRango.Text) ? "%" : txtFiltrosRango.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosRango.Text) ? "%" : txtFiltrosRango.Text)); // convertir a mayusculas
             parametros.Add((string.IsNullOrEmpty(txtFiltrosRodado.Text) ? 0.0 : Convert.ToDouble(txtFiltrosRodado.Text)));
             parametros.Add(((chkFiltrosBajaLogica.Checked) ? "1" : "0"));
 

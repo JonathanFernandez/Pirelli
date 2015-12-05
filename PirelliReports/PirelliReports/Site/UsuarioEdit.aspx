@@ -58,29 +58,29 @@
             <div class="col-lg-6">
                 <div class="form-inline margin-15">
                     <label>Usuario: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right input-profile" id="txtUsuId" placeholder="" disabled></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right input-profile" id="txtUsuId" placeholder="" disabled="disabled"></asp:TextBox>
                 </div>
 
                 <div class="form-inline margin-15">
                     <label>Legajo: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right input-profile"  id="txtLegajo" placeholder="" disabled> </asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right input-profile"  id="txtLegajo" placeholder="" disabled="disabled"> </asp:TextBox>
                 </div>
 
                 <div class="form-inline">
                     <label>Descripción: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right input-profile" disabled id="txtUsuDesc" placeholder="" ></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right input-profile" disabled="disabled" id="txtUsuDesc" placeholder="" ></asp:TextBox>
                 </div>
             </div>
 
             <div class="col-lg-6">
                 <div class="form-inline margin-15">
                     <label>Estado: </label>
-                    <asp:CheckBox runat="server" ID="chkActivo"/><asp:Label runat="server" ID="lblEstado" disable="true"></asp:Label>
+                    <asp:CheckBox runat="server" ID="chkActivo"/><asp:Label runat="server" ID="lblEstado" disabled="disabled"></asp:Label>
                 </div>
                 
                 <div class="form-inline margin-15">
                     <label>E-Mail: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right" id="txtMail" disabled></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right" id="txtMail" disabled="true"></asp:TextBox>
                 </div>
 
                 <div class="form-inline margin-15">

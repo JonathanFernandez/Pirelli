@@ -75,8 +75,9 @@ namespace PirelliReports.Site
                     catch (Exception ex)
                     {
                         lblMensaje.Text = "Error: " + ex.Message;
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+                       
                     }
 
                     // Se agregan los productos de la tabla temporal a la grilla
@@ -87,15 +88,16 @@ namespace PirelliReports.Site
                 else
                 {
                     lblMensaje.Text = "El archivo no tiene ningun producto";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                 }
             }
             else
             {
                 lblMensaje.Text = "El archivo no se encontro. Consulte con el administrador del sistema SAP";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+                
             }
         }
 
@@ -115,8 +117,8 @@ namespace PirelliReports.Site
             {
                 lblMensaje.Text = "No se encontraron productos para sincronizar";
             }
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
         }
     }
 }

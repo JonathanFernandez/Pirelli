@@ -42,6 +42,7 @@ namespace PirelliReports
 
             scriptStyle = new HtmlHeaderStyleLink("~/Content/css/jquery-ui.min.css");
             scriptStyle.IncludeOn(Page.Header);
+
         }
         private void LoadScripts()
         {
@@ -60,16 +61,23 @@ namespace PirelliReports
             scriptLink = new HtmlHeaderJSLink("~/Content/js/jquery.sticky.js");
             scriptLink.IncludeOn(Page.Header);
 
-            scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/morris/raphael.min.js");
-            scriptLink.IncludeOn(Page.Header);
-            
-            scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/morris/morris.min.js");
+            scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/jquery-validation-1.14.0/jquery.validate.min.js");
             scriptLink.IncludeOn(Page.Header);
 
-            scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/morris/morris-data.js");
+            scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/jquery-validation-1.14.0/additional-methods.min.js");
             scriptLink.IncludeOn(Page.Header);
 
-            
+            scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/jquery-validation-1.14.0/localization/messages_es.min.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            //scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/morris/morris.min.js");
+            //scriptLink.IncludeOn(Page.Header);
+
+            //scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/morris/morris-data.js");
+            //scriptLink.IncludeOn(Page.Header);
+
+            //scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/morris/raphael.min.js");
+            //scriptLink.IncludeOn(Page.Header);
         }
     }
 }

@@ -12,6 +12,36 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function() {     
+            $('form').validate({
+                  rules: 
+                  {
+                  
+                  },
+                  messages: 
+                  {  
+                  }
+            });
+
+            $.validator.addClassRules({
+                fecha:
+                {
+                    required: true,
+                    date: true
+                }
+            });
+
+            $.validator.addClassRules({
+                ip:
+                {
+                    required: true,
+                    digits: true,
+                    minlength: 7
+                }
+            });
+        });
+    </script>
     <div id="page-wrapper">
 
             <div class="container-fluid form-pirelli">
@@ -40,14 +70,14 @@
                             <div class="control-group pull-right">
                                             <div class="controls">
                                                 <div class="input-group margin-15">
-                                                        <asp:TextBox runat="server" ID="dpDesde" class="date-picker form-control" placeholder="Desde"></asp:TextBox>
+                                                        <asp:TextBox runat="server" ID="dpDesde" class="date-picker form-control fecha" placeholder="Desde"></asp:TextBox>
                                                         <label for="dpDesde" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
                                                 </div>
 
                                                 <div class="input-group margin-15">
-                                                        <asp:TextBox runat="server" ID="dpHasta" class="date-picker form-control" placeholder="Hasta"></asp:TextBox>
+                                                        <asp:TextBox runat="server" ID="dpHasta" class="date-picker form-control fecha" placeholder="Hasta"></asp:TextBox>
                                                         <label for="dpHasta" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
@@ -92,7 +122,7 @@
                     <div class="col-lg-6">
                         <div class="form-inline">
                             <label>Seleccione IP: </label>
-                            <asp:TextBox runat="server" id="txtIP" class="form-control pull-right" ></asp:TextBox>
+                            <asp:TextBox runat="server" id="txtIP" class="form-control pull-right ip" ></asp:TextBox>
                             
                             <p class="help-block"></p>
                         </div>
