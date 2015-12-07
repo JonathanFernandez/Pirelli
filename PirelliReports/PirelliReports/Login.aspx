@@ -57,11 +57,19 @@
        }
        function darClick() {
 
-           var objO = document.getElementById("login_lost_btn");
-
-           objO.click();
+           $('.modal-lost-password').css('display', 'block');
+           $('.modal-login').css('display', 'none');
+           $('#login_username').prop('disabled', true);
+           $('#login_password').prop('disabled', true);
+           $('#lost_email').prop('disabled', false);
 
        }
+ 
+       //if (document.getElementById("HDModoModal").value == "MAIL")
+       //{
+       //    darClick();
+       //}
+ 
    </script>
 </head>
 <body>
@@ -184,10 +192,12 @@
             <!-- END # MODAL LOGIN -->
 
     </div>
+   
     </form>
     <%--</form>--%>
      <!-- /#wrapper -->
 
     
 </body>
+    
 </html>

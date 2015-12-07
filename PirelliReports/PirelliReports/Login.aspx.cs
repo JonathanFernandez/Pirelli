@@ -30,10 +30,9 @@ namespace PirelliReports
             if (!connUsuario.VerificarMaiExistente(lost_email.Text))
             {
                 lblMailIncorrecto.Visible = true;
-                string function = "darClick();";
-                
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "mail", "login_lost_btn.click()", true);
+            
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " openModal();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "mail", "darClick();", true);
             }
             else
             {
