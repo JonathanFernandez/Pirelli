@@ -13,6 +13,5 @@ C:\workspace\Pirelli\PirelliReports\Entitdades\obj\Debug\Entidades.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Entitdades\bin\Entidades.dll.config
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Entitdades\bin\Entidades.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Entitdades\bin\Entidades.pdb
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Entitdades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Entitdades\obj\Debug\Entidades.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Entitdades\obj\Debug\Entidades.pdb

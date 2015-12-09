@@ -90,12 +90,12 @@
                         <a href="#" class="btn btn-warning btn-lg" id="login-btn" role="button" data-toggle="modal" data-target="#login_modal">Login</a>
                         <%--<asp:Button runat="server" ID="btnLoginInicio" text="Login" class="btn btn-warning btn-lg"  data-toggle="modal" data-target="#login_modal" ></asp:Button>--%>
                     </p>
-                    <%--<p class="">
+                    <p class="">
                         <label>
-                            <asp:Label runat="server" id="lblPassIncorrecta" Text="Contraseña incorrecta" Visible="false"></asp:Label>
+                            <asp:Label runat="server" id="lblMensaje" Text="Ingrese a su casiila de mensaje, para reestablecer la contraseña" Visible="false"></asp:Label>
                         </label>
                     </p>
-                    <p class="">
+                    <%--<p class="">
                         <label>
                             <asp:Label runat="server" id="lblMailIncorrecto" Text="E-mail incorrecto" Visible="false"></asp:Label>
                         </label>

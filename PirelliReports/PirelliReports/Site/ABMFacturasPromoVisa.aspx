@@ -199,7 +199,7 @@
                                         <div class="form-inline">
                                             <label>Cliente: </label>
                                             <%--<asp:TextBox runat="server" class="form-control pull-right" id="txtEditarCliente" placeholder="Cliente"></asp:TextBox>--%>
-                                            <asp:DropDownList runat="server" ID="ddlEditarCliente" CssClass="form-control pull-right form-medium" placeholder="Cliente"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="ddlEditarCliente" AutoPostBack="true" OnSelectedIndexChanged="ddlEditarCliente_SelectedIndexChanged" CssClass="form-control pull-right form-medium" placeholder="Cliente"></asp:DropDownList>
                                         </div>
                                     </div>
 

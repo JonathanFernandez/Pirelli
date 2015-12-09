@@ -29,38 +29,45 @@ namespace PirelliReports.Site
                 conZonas.cargarProvincia(ddlFiltrosProvincias);
                 //cargarClientesEnMapa(clientesMap);
 
-                ////me centro en argentina
-                //GLatLng ubicacion = new GLatLng(-13.533406, -88.4127875);//(-35.3139685, -65.104704);//(40.381090863719436, -3.6222052574157715);
-                //GMap1.setCenter(ubicacion, 4);
+                //me centro en argentina
+                GLatLng ubicacion = new GLatLng(-13.533406, -88.4127875);//(-35.3139685, -65.104704);//(40.381090863719436, -3.6222052574157715);
+                GMap1.setCenter(ubicacion, 4);
 
-                ////Establecemos alto y ancho en px
-                //GMap1.Height = 600;
-                //GMap1.Width = 558;
+                //Establecemos alto y ancho en px
+                GMap1.Height = 600;
+                GMap1.Width = 558;
 
-                ////Adiciona el control de la parte izq superior (moverse, ampliar y reducir)
-                //GMap1.Add(new GControl(GControl.preBuilt.LargeMapControl));
+                //Adiciona el control de la parte izq superior (moverse, ampliar y reducir)
+                GMap1.Add(new GControl(GControl.preBuilt.LargeMapControl));
 
-                ////GControl.preBuilt.MapTypeControl: permite elegir un tipo de mapa y otro.
-                //GMap1.Add(new GControl(GControl.preBuilt.MapTypeControl));
+                //GControl.preBuilt.MapTypeControl: permite elegir un tipo de mapa y otro.
+                GMap1.Add(new GControl(GControl.preBuilt.MapTypeControl));
 
-                //cargarClientesEnMapa(clientesMap, null);
+                cargarClientesEnMapa(clientesMap);
 
-                //GMap1.enableHookMouseWheelToZoom = true;
+                GMap1.enableHookMouseWheelToZoom = true;
 
-                ////Tipo de mapa a mostrar
-                //GMap1.mapType = GMapType.GTypes.Normal;
+                //Tipo de mapa a mostrar
+                GMap1.mapType = GMapType.GTypes.Normal;
 
-                ////Moverse con el cursor del teclado
-                //GMap1.enableGKeyboardHandler = true;
+                //Moverse con el cursor del teclado
+                GMap1.enableGKeyboardHandler = true;
                  
             }
         }
 
-        private void cargarClientesEnMapa(ArrayList clientes, ArrayList parametros)
+        private void cargarClientesEnMapa(ArrayList clientes)
         {
             clientes.Clear();
             DataSet ds = new DataSet();
-            ds = conClientes.ListadoClientes();
+            ArrayList parametros = new ArrayList();
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosCod.Text) ? "%" : txtFiltrosCod.Text));
+            parametros.Add((string.IsNullOrEmpty(txtFiltrosRazSoc.Text) ? "%" : txtFiltrosRazSoc.Text));
+            parametros.Add(ddlFiltrosProvincias.SelectedValue);
+            parametros.Add(((chkBajaLogica.Checked) ? "1" : "0"));
+
+            ds = conClientes.ListadoClientes(parametros);
+
             ZoCliente c;
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -79,7 +86,7 @@ namespace PirelliReports.Site
                     }
                 }
 
-                //pMetodos.LlenarMapaConClientes(clientes, GMap1);
+                pMetodos.LlenarMapaConClientes(clientes, GMap1);
                 //LlenarMapaConClientes(clientes);
             }
         }
@@ -107,7 +114,31 @@ namespace PirelliReports.Site
             parametros.Add((string.IsNullOrEmpty(txtFiltrosRazSoc.Text) ? "%" : txtFiltrosRazSoc.Text));
             parametros.Add(ddlFiltrosProvincias.SelectedValue);
             parametros.Add(((chkBajaLogica.Checked) ? "1" : "0"));
-            
+
+            GMap1.reset();
+            //me centro en argentina
+            GLatLng ubicacion = new GLatLng(-13.533406, -88.4127875);//(-35.3139685, -65.104704);//(40.381090863719436, -3.6222052574157715);
+            GMap1.setCenter(ubicacion, 4);
+
+            //Establecemos alto y ancho en px
+            GMap1.Height = 600;
+            GMap1.Width = 558;
+
+            //Adiciona el control de la parte izq superior (moverse, ampliar y reducir)
+            GMap1.Add(new GControl(GControl.preBuilt.LargeMapControl));
+
+            //GControl.preBuilt.MapTypeControl: permite elegir un tipo de mapa y otro.
+            GMap1.Add(new GControl(GControl.preBuilt.MapTypeControl));
+
+            cargarClientesEnMapa(clientesMap);
+
+            GMap1.enableHookMouseWheelToZoom = true;
+
+            //Tipo de mapa a mostrar
+            GMap1.mapType = GMapType.GTypes.Normal;
+
+            //Moverse con el cursor del teclado
+            GMap1.enableGKeyboardHandler = true;
 
             gvListadoClientes.DataSource = conClientes.ListadoClientes(parametros);
             gvListadoClientes.DataBind();

@@ -13,6 +13,12 @@
             hidden = open(url, "NewWindow", "top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes");
             return false;
         }
+        function activarSpinner() {
+            $(".spinner-container").css({ display: "block" });
+        }
+        function desactivarSpinner() {
+            $(".spinner-container").css({ display: "none" });
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
@@ -22,6 +28,23 @@
     <div id="page-wrapper">
 
             <div class="container-fluid form-pirelli">
+
+                <div class="spinner-container">
+                <div class="sk-circle">
+                  <div class="sk-circle1 sk-child"></div>
+                  <div class="sk-circle2 sk-child"></div>
+                  <div class="sk-circle3 sk-child"></div>
+                  <div class="sk-circle4 sk-child"></div>
+                  <div class="sk-circle5 sk-child"></div>
+                  <div class="sk-circle6 sk-child"></div>
+                  <div class="sk-circle7 sk-child"></div>
+                  <div class="sk-circle8 sk-child"></div>
+                  <div class="sk-circle9 sk-child"></div>
+                  <div class="sk-circle10 sk-child"></div>
+                  <div class="sk-circle11 sk-child"></div>
+                  <div class="sk-circle12 sk-child"></div>
+                </div>
+            </div>
 
                 <!-- Page Heading -->
                 <div class="row">
@@ -107,7 +130,7 @@
                 </div>
                                
                 <!-- /.row -->
-                <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClick="btnAceptar_Click"/>
+                <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClientClick="activarSpinner();" OnClick="btnAceptar_Click"/>
                 <%--<asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
 
                 <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">

@@ -97,6 +97,7 @@
             });
 
         }
+       
     </script>
 
 </asp:Content>
@@ -130,6 +131,8 @@
                 <asp:LinkButton runat="server" ID="btnVerMapa" OnClientClick="reDrawMaps();" class="btn btn-warning" data-toggle="modal" data-target="#modalMaps"><i class="fa fa-map-marker"></i> Ver Mapa</asp:LinkButton>
 
                 <asp:LinkButton runat="server" ID="btnCrear" OnClientClick="btnCrearOnClientClick();" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Crear Factura</asp:LinkButton>
+
+                <asp:LinkButton runat="server" ID="btnRefrescar" OnClick="btnRefrescar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Refrescar</asp:LinkButton>
                 
                 <asp:TextBox runat="server" class="form-control input-mini inline" AutoPostBack="true" OnTextChanged="txtBuscarFactura_TextChanged" id="txtBuscarFactura" placeholder="Buscar con escáner"></asp:TextBox>
 

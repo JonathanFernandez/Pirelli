@@ -80,10 +80,10 @@
                         <asp:TextBox runat="server" ID="txtLegajo" MaxLength="50" CssClass="form-control" placeholder="Legajo"></asp:TextBox>
                         <p class="help-block"></p>
 
-                        <asp:TextBox runat="server" ID="txtDescripcion" MaxLength="50" CssClass="form-control" placeholder="Descripción"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtMailUser" MaxLength="50"  CssClass="form-control" placeholder="E-mail"></asp:TextBox>
                         <p class="help-block"></p>
 
-                        <asp:TextBox runat="server" ID="txtMailUser" MaxLength="50"  CssClass="form-control" placeholder="E-mail"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtDescripcion" MaxLength="50" CssClass="form-control" placeholder="Descripción"></asp:TextBox>
                         <p class="help-block"></p>
 
                         <asp:TextBox runat="server" ID="txtPassUser" MaxLength="20" TextMode="Password" CssClass="form-control" placeholder="clave"></asp:TextBox>

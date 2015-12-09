@@ -27,6 +27,7 @@ namespace PirelliReports
 
         protected void btn_enviar_Click(object sender, EventArgs e)
         {
+            lblMensaje.Visible = false;
             if (!connUsuario.VerificarMaiExistente(lost_email.Text))
             {
                 lblMailIncorrecto.Visible = true;
@@ -39,6 +40,7 @@ namespace PirelliReports
                 lblPassIncorrecta.Visible = false;
 
                 connUsuario.EnviarCorreo(lost_email.Text);
+                lblMensaje.Visible = true;
                 //return true;
             }
         }
@@ -48,6 +50,7 @@ namespace PirelliReports
         protected void btnLogin_Click(object sender, EventArgs e)
         {
               //Response.Write("<script type=\"text/javascript\">alert('aprete login!!!');</script>");
+            lblMensaje.Visible = false;
             if (!connUsuario.VerificarLogin(login_username.Text, login_password.Text))
             {
                 lblPassIncorrecta.Visible = true;

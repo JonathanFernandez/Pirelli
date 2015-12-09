@@ -125,7 +125,7 @@
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/ActualizacionMasivaIP.aspx"><i class="fa fa-fw fa-user"></i> Actualizacion Masiva IP </asp:HyperLink>
                             </li>
                             <li>
-                                <asp:HyperLink runat="server" NavigateUrl="~/Site/ActualizacionStatus.aspx"><i class="fa fa-fw fa-user"></i> Actualizacion Masiva Status </asp:HyperLink>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/ActualizacionMasivaStatus.aspx"><i class="fa fa-fw fa-user"></i> Actualizacion Masiva Status </asp:HyperLink>
                             </li>
                         </ul>
                     </li>
