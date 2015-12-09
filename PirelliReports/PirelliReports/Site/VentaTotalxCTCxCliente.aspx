@@ -8,7 +8,112 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-    <script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.validator.addMethod("greaterThan", 
+                                    function(value, element) 
+                                    {            
+                                        var parametro = document.getElementById("PaginaCentral_ContentPlaceHolder_dpDesde").value;
+                                        
+                                        var partesFechaFinal = value.split('/');
+                                        var partesFechaInicial = parametro.split('/')
+                                        var diaFechaFinal = partesFechaFinal[0];
+                                        var mesFechaFinal = partesFechaFinal[1];
+                                        var anioFechaFinal = partesFechaFinal[2];
+                                        var diaFechaInicial = partesFechaInicial[0];
+                                        var mesFechaInicial = partesFechaInicial[1];
+                                        var anioFechaInicial = partesFechaInicial[2];
+
+                                        var fechaFinal = anioFechaFinal + "-" + mesFechaFinal + "-" + diaFechaFinal;
+                                        var fechaInicial = anioFechaInicial + "-" + mesFechaInicial + "-" + diaFechaInicial;
+
+                                        return new Date(fechaFinal) > new Date(fechaInicial);
+                                   
+                                    }, "La fecha final debe ser mayor que la fecha inicial");
+
+            $.validator.addMethod("valido", 
+                                    function(value, element) 
+                                    { 
+                                        if (value != "00") 
+                                        {
+                                            return true;
+                                        }
+                                        else
+                                        {
+                                            return false;
+                                        }
+                                    }, "Seleccione un CTC");      
+            
+            $.validator.addMethod("dateValid", 
+                                   function(value, element) 
+                                   {
+                                       // Checks for the following valid date formats:
+                                       // MM/DD/YYYY
+                                       // Also separates date into month, day, and year variables
+                                       var patron = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;;
+ 
+                                       var res = value.match(patron); // is the format ok?
+                                       if (res != null) 
+                                       {
+                                           return true;
+                                       }
+                                       else
+                                       {
+                                           return false;
+                                       }
+                                   }, "Ingrese una fecha valida [dd/mm/yyyy]");
+            $('form').validate({
+                rules: 
+                {
+                    <%=ddlCTC.UniqueID %>: 
+                        {
+                            required: true,
+                            valido: true
+                        },
+                     <%=ddlClientes.UniqueID %>: 
+                        {
+                            required: true,
+                            valido: true
+                        },
+                    <%=dpDesde.UniqueID %>: 
+                        {                        
+                            required: true,
+                            dateValid: true
+                        },
+                    <%=dpHasta.UniqueID %>: 
+                        {                        
+                            required: true,
+                            dateValid: true,
+                            greaterThan: true
+                        }  
+                },
+                messages: 
+                {  
+                    <%=ddlCTC.UniqueID %>: 
+                        {
+                            required: "Seleccione un CTC"
+                        },
+                    <%=ddlClientes.UniqueID %>: 
+                        {
+                            required: "Seleccione un cliente"
+                        },
+                    <%=dpDesde.UniqueID %>: 
+                        {
+                            required: "Se requiere una fecha inicial"
+                        },
+                    <%=dpHasta.UniqueID %>: 
+                        {
+                            required: "Se requiere una fecha final"
+                        }, 
+                }
+            });
+        });
+
+        function btnAceptarOnClientClick() {          
+            var result = $('form').valid();
+            return result;
+        }
+
         function OpenPopUp(url) {
             hidden = open(url, "NewWindow", "top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes");
             return false;
@@ -46,38 +151,26 @@
                         <div class="form-group">
                             <label>Seleccione rango de fechas:</label>
                             <div class="control-group pull-right">
-                                            <div class="controls">
-                                                <div class="input-group margin-15">
-                                                        <asp:TextBox runat="server" ID="dpDesde" class="date-picker form-control" placeholder="Desde"></asp:TextBox>
-                                                        <label for="dpDesde" class="input-group-addon btn">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                        </label>
-                                                </div>
+                                <div class="controls">
+                                    <div class="input-group margin-15">
+                                            <asp:TextBox runat="server" ID="dpDesde" class="date-picker form-control" placeholder="Desde" MaxLength="10"></asp:TextBox>
+                                            <label for="dpDesde" class="input-group-addon btn">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </label>
+                                    </div>
 
-                                                <div class="input-group margin-15">
-                                                        <asp:TextBox runat="server" ID="dpHasta" class="date-picker form-control" placeholder="Hasta"></asp:TextBox>
-                                                        <label for="dpHasta" class="input-group-addon btn">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                        </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <script>
-
-                                            $(".date-picker").datepicker();
-
-                                            //var date = $('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
-
-                                            $(".date-picker").on("change", function () {
-
-                                                var id = $(this).attr("id");
-                                                var val = $("label[for='" + id + "']").text();
-                                                $("#msg").text(val + " changed");
-                                            });
-
-
-                                            $(".date-picker").css("z-index", "9999");
-                                        </script>
+                                    <div class="input-group margin-15">
+                                            <asp:TextBox runat="server" ID="dpHasta" class="date-picker form-control" placeholder="Hasta" MaxLength="10"></asp:TextBox>
+                                            <label for="dpHasta" class="input-group-addon btn">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                $(".date-picker").datepicker();
+                                $(".date-picker").css("z-index", "9999"); 
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -117,7 +210,7 @@
                 </div>
                                
                 <!-- /.row -->
-                <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClick="btnAceptar_Click"/>
+                <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClick="btnAceptar_Click" OnClientClick="return btnAceptarOnClientClick();"/>
                 <%--<asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
 
                 <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">

@@ -11,19 +11,6 @@ C:\workspace\Pirelli v2\PirelliReports\Controles\bin\Negocio.pdb
 C:\workspace\Pirelli v2\PirelliReports\Controles\obj\Debug\Controles.csprojResolveAssemblyReference.cache
 C:\workspace\Pirelli v2\PirelliReports\Controles\obj\Debug\Controles.dll
 C:\workspace\Pirelli v2\PirelliReports\Controles\obj\Debug\Controles.pdb
-C:\workspace\Pirelli\PirelliReports\Controles\bin\Controles.dll.config
-C:\workspace\Pirelli\PirelliReports\Controles\bin\Controles.dll
-C:\workspace\Pirelli\PirelliReports\Controles\bin\Controles.pdb
-C:\workspace\Pirelli\PirelliReports\Controles\bin\DBLayer.dll
-C:\workspace\Pirelli\PirelliReports\Controles\bin\Entidades.dll
-C:\workspace\Pirelli\PirelliReports\Controles\bin\GMaps.dll
-C:\workspace\Pirelli\PirelliReports\Controles\bin\Negocio.dll
-C:\workspace\Pirelli\PirelliReports\Controles\bin\DBLayer.pdb
-C:\workspace\Pirelli\PirelliReports\Controles\bin\Entidades.pdb
-C:\workspace\Pirelli\PirelliReports\Controles\bin\Negocio.pdb
-C:\workspace\Pirelli\PirelliReports\Controles\obj\Debug\Controles.csprojResolveAssemblyReference.cache
-C:\workspace\Pirelli\PirelliReports\Controles\obj\Debug\Controles.dll
-C:\workspace\Pirelli\PirelliReports\Controles\obj\Debug\Controles.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\Controles.dll.config
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\Controles.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\Controles.pdb
@@ -37,3 +24,16 @@ C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\bin\Negocio.
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\obj\Debug\Controles.csprojResolveAssemblyReference.cache
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\obj\Debug\Controles.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\Controles\obj\Debug\Controles.pdb
+C:\workspace\Pirelli\PirelliReports\Controles\bin\Controles.dll.config
+C:\workspace\Pirelli\PirelliReports\Controles\bin\Controles.dll
+C:\workspace\Pirelli\PirelliReports\Controles\bin\Controles.pdb
+C:\workspace\Pirelli\PirelliReports\Controles\bin\DBLayer.dll
+C:\workspace\Pirelli\PirelliReports\Controles\bin\Entidades.dll
+C:\workspace\Pirelli\PirelliReports\Controles\bin\GMaps.dll
+C:\workspace\Pirelli\PirelliReports\Controles\bin\Negocio.dll
+C:\workspace\Pirelli\PirelliReports\Controles\bin\DBLayer.pdb
+C:\workspace\Pirelli\PirelliReports\Controles\bin\Entidades.pdb
+C:\workspace\Pirelli\PirelliReports\Controles\bin\Negocio.pdb
+C:\workspace\Pirelli\PirelliReports\Controles\obj\Debug\Controles.csprojResolveAssemblyReference.cache
+C:\workspace\Pirelli\PirelliReports\Controles\obj\Debug\Controles.dll
+C:\workspace\Pirelli\PirelliReports\Controles\obj\Debug\Controles.pdb

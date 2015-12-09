@@ -8,7 +8,6 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
       <script>
-
           function btnEditarOnClientClick(obj)
           {
               
@@ -63,8 +62,6 @@
               else
                   document.getElementById('PaginaCentral_ContentPlaceHolder_chkBajaLogica').checked = false;
 
-
-
               openModal();
               return false;
           }
@@ -83,18 +80,15 @@
           }
 
           function reDrawMaps() {
-
               $('#modalMaps').on('shown.bs.modal', function () {
 
                   google.maps.event.trigger(document.getElementById("subgurim_GMap1"), "resize");
 
               });
-
           }
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
-  
 
     <div class="container-fluid table-pirelli">
         <!-- Page Heading -->

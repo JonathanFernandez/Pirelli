@@ -4,21 +4,42 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-    <script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.validator.addMethod("alphaNumericOnly", function (value, element) {
+                return this.optional(element) || /^[a-zA-Z0-9]+$/i.test(value);
+            }, "Ingrese solo minusculas, mayusculas y/o numeros");
+
+            $('form').validate({
+                rules: 
+                {
+                      
+                }, 
+                messages: 
+                {
+                }
+            });
+
+            $.validator.addClassRules({
+                grupo:
+                {
+                    alphaNumericOnly: true,
+                    minlength: 3
+                }
+            });
+        });
+
         function openModalMensaje() {
             $('#modalMensaje').modal('show');
         }
+
         function btnAceptarOnClientClick()
         {
-            
             if (document.getElementById("PaginaCentral_ContentPlaceHolder_txtGrupoAlta").value.length < 1)
-            {
-            
+            {          
                 document.getElementById("PaginaCentral_ContentPlaceHolder_lblMensaje").innerHTML = "Ingrese un nombre valido";
-
                 openModalMensaje();
                 return false;
-            
             }
         }
 
@@ -26,7 +47,6 @@
         {
             if (document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarNombre").value.length < 1) {
                 document.getElementById("PaginaCentral_ContentPlaceHolder_lblMensaje").innerHTML = "Ingrese un nombre valido";
-
                 openModalMensaje();
                 return false;
             }
@@ -60,7 +80,7 @@
                     <div class="col-lg-5 margin-15 form-pirelli">
                         <h3>Dar de Alta un Grupo</h3>
                             <div class="form-group">
-                                <asp:TextBox runat="server" MaxLength="50" ID="txtGrupoAlta" CssClass="form-control" placeholder="Nombre de Grupo"></asp:TextBox>
+                                <asp:TextBox runat="server" MaxLength="50" ID="txtGrupoAlta" CssClass="form-control grupo" placeholder="Nombre de Grupo"></asp:TextBox>
                             <p class="help-block"></p>
                                 <div class="checklist-container">
                                   <asp:CheckBoxList runat="server" ID="chklistPermisosAlta"></asp:CheckBoxList>
@@ -76,7 +96,7 @@
                                 <asp:DropDownList runat="server" ID="ddlGrupos" AutoPostBack="true" OnSelectedIndexChanged="ddlGrupos_SelectedIndexChanged" CssClass="form-control" placeholder="Pais"></asp:DropDownList>
                             <p class="help-block"></p>
                                 <div class="form-group">
-                                <asp:TextBox runat="server" MaxLength="50" ID="txtEditarNombre" CssClass="form-control" placeholder="Nombre de Grupo"></asp:TextBox>
+                                <asp:TextBox runat="server" MaxLength="50" ID="txtEditarNombre" CssClass="form-control grupo" placeholder="Nombre de Grupo"></asp:TextBox>
                                 <asp:LinkButton runat="server" ID="btnCambiarNombre" OnClick="btnCambiarNombre_Click" OnClientClick="return btnCambiarNombre();" CssClass="btn btn-warning pull-right margin-15"><i class="fa fa-edit"></i> Cambiar Nombre</asp:LinkButton>
 
                                  <div class="checklist-container">

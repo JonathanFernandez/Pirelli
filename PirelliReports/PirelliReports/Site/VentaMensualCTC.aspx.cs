@@ -42,12 +42,12 @@ namespace PirelliReports.Site
             DateTime desde = new DateTime();
             DateTime hasta = new DateTime();
 
-            desde = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text));
-            hasta = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text));
+            desde = Convert.ToDateTime(pMetodos.ConvertddmmyyyyToyyyymmdd(dpDesde.Text));
+            hasta = Convert.ToDateTime(pMetodos.ConvertddmmyyyyToyyyymmdd(dpHasta.Text));
 
             string ctc = ddlCTC.SelectedValue;
 
-            string url = "CrystalViewer.aspx?reporte=VentaTotalxCTC&ctc=" + ctc + "&desde=" + pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text) + "&hasta=" + pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text);
+            string url = "CrystalViewer.aspx?reporte=VentaTotalxCTC&ctc=" + ctc + "&desde=" + pMetodos.ConvertddmmyyyyToyyyymmdd(dpDesde.Text) + "&hasta=" + pMetodos.ConvertddmmyyyyToyyyymmdd(dpHasta.Text);
             
             ArrayList parametros = new ArrayList();
             dsReportes ds = new dsReportes();
@@ -55,7 +55,6 @@ namespace PirelliReports.Site
             parametros.Add(desde);
             parametros.Add(hasta);
             parametros.Add(ctc);
-
 
             ds.tVentaTotalCTC.Merge(conReportes.VentaTotalxCTC(parametros));
             CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();

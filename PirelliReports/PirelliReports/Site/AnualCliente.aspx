@@ -9,6 +9,56 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+           $.validator.addMethod("anioSiglo21", 
+                                  function(value, element) 
+                                  { 
+                                        var anio = parseInt(value, 10);
+
+                                        if (anio >= 2000) 
+                                        {
+                                            return true;
+                                        }
+                                        else
+                                        {
+                                            return false;      
+                                        }  
+
+                                  }, "Ingrese un año del siglo 21 o posterior");  
+            
+            $('form').validate({
+                rules:
+                {
+                    <%= txtAnio.UniqueID %>: 
+                    {
+                        required: true,
+                        digits: true,
+                        minlength: true,
+                        maxlength: 4,
+                        anioSiglo21: true
+                    },
+                },
+                messages:
+                {
+                    <%= txtAnio.UniqueID %>: 
+                    {
+                        required: "Ingrese un año [YYYY]",
+                        digits: "Solo se permiten digitos [0-9]",
+                        minlength: "Se exige un minimo de 4 digitos",
+                        maxlength: "Se permite un maximo de 4 digitos",
+                        anioSiglo21: true
+                    },
+                }
+            });
+        });
+
+        function btnAceptarOnClientClick() {          
+            var result = $('form').valid();
+            return result;
+        }
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div style="display: none;">
@@ -40,15 +90,12 @@
                         <div class="form-group">
                             <label>Seleccione año:</label>
                              <asp:TextBox runat="server" ID="txtAnio" class="form-control pull-right" placeholder="año"></asp:TextBox>
-                            
                         </div>
                     </div>
                 </div>
-
-                
-                               
+           
                 <!-- /.row -->
-                <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClick="btnAceptar_Click"/>
+                <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClick="btnAceptar_Click" OnClientClick="return btnAceptarOnClientClick();"/>
                 <%--<asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
 
                 <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">

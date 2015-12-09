@@ -6,6 +6,25 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script>
+        $(document).ready(function() {
+            $('form').validate({
+                rules: 
+                {
+                }, 
+                messages: 
+                {
+                }      
+            });
+
+            $.validator.addClassRules({
+                password:
+                {
+                    required: true,
+                    minlength: 10
+                }
+            });
+        });
+
         function openModal() {
             $('#modalMensaje').modal('show');
         }
@@ -63,12 +82,12 @@
 
                 <div class="form-inline margin-15">
                     <label>Legajo: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right input-profile"  id="txtLegajo" placeholder="" disabled="disabled"> </asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right input-profile" id="txtLegajo" placeholder="" disabled="disabled"> </asp:TextBox>
                 </div>
 
                 <div class="form-inline">
                     <label>Descripción: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right input-profile" disabled="disabled" id="txtUsuDesc" placeholder="" ></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right input-profile" id="txtUsuDesc" placeholder="" disabled="disabled"></asp:TextBox>
                 </div>
             </div>
 
@@ -80,29 +99,29 @@
                 
                 <div class="form-inline margin-15">
                     <label>E-Mail: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right" id="txtMail" disabled="true"></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right" id="txtMail" disabled="disabled"></asp:TextBox>
                 </div>
 
                 <div class="form-inline margin-15">
                     <label>Clave Anterior: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right" id="txtPassAnterior" MaxLength="20" TextMode="Password" ></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right password" id="txtPassAnterior" MaxLength="20" TextMode="Password" ></asp:TextBox>
                     <%--<asp:RequiredFieldValidator ID="txtPassAnteriorRequired" ControlToValidate="txtPassAnterior" runat="server" ErrorMessage="Complete Campo"></asp:RequiredFieldValidator>--%>
                 </div>
                 <div class="form-inline margin-15">
                     <label>Clave Nueva: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right" id="txtClaveNueva"  MaxLength="20" TextMode="Password" ></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right password" id="txtClaveNueva"  MaxLength="20" TextMode="Password" ></asp:TextBox>
                     <%--<asp:RequiredFieldValidator ID="txtClaveNuevaRequired" ControlToValidate="txtClaveNueva" runat="server" ErrorMessage="Complete Campo"></asp:RequiredFieldValidator>--%>
                 </div>
                 <div class="form-inline margin-15">
                     <label>Reingrese Clave Nueva: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right" id="txtReingresarClave"  MaxLength="20" TextMode="Password" ></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right password" id="txtReingresarClave"  MaxLength="20" TextMode="Password" ></asp:TextBox>
                     <%--<asp:RequiredFieldValidator ID="txtReingresarClaveRequired" ControlToValidate="txtReingresarClave" runat="server" ErrorMessage="Complete Campo"></asp:RequiredFieldValidator>--%>
                     <%--<asp:CompareValidator ID="txtReingresarCompare" ControlToValidate="txtReingresarClave" ControlToCompare="txtClaveNueva" runat="server" ErrorMessage="Ambas claves deben ser iguales"></asp:CompareValidator>--%>
                 </div>
                 
 
                 <div class="form-inline pull-right">
-                    <asp:Button runat="server" class="btn btn-success" OnClientClick="return btnAceptar_OnClientClick(); "  OnClick="btnAceptar_Click" Text="Aceptar"  ID="btnAceptar" />
+                    <asp:Button runat="server" class="btn btn-success" OnClientClick="return btnAceptar_OnClientClick();"  OnClick="btnAceptar_Click" Text="Aceptar"  ID="btnAceptar" />
                     <asp:Button runat="server" class="btn btn-danger" Text="Cancelar" ID="btnCancelar" OnClientClick="return btnCancelar_OnClientClick();"/>
                     
                 </div>

@@ -29,10 +29,8 @@ namespace PirelliReports.Site
         {
             if (!IsPostBack)
             {
-               
                 gvListadosFacturasVisa.DataSource = conFacturas.ListadoDeFacturas();
                 gvListadosFacturasVisa.DataBind();
-
 
                 cargarFamilia(ddlFiltrosFamilia);
                 cargarTipoPromo(ddlEditarTipoPromo);
@@ -65,7 +63,6 @@ namespace PirelliReports.Site
 
                 //Moverse con el cursor del teclado
                 GMap1.enableGKeyboardHandler = true;
-                
             }
         }
 
@@ -91,7 +88,6 @@ namespace PirelliReports.Site
                 pMetodos.LlenarMapaConClientes(clientes, GMap1);
                 //LlenarMapaConClientes(clientes);
             }
-            
         }
 
         //private void LlenarMapaConClientes(ArrayList clientes)
@@ -110,12 +106,9 @@ namespace PirelliReports.Site
         //                         "</div>";
         //        GInfoWindow window = new GInfoWindow(marker, strMarker, false);
         //        GMap1.Add(window);
-
-
         //    }
         //}
 
-       
         private void cargarCantidadDeRegistros(DropDownList ddl)
         {
            ddl.Items.Add(new ListItem("1000", "1000"));
@@ -124,8 +117,8 @@ namespace PirelliReports.Site
            ddl.Items.Add(new ListItem("4000", "4000"));
            ddl.Items.Add(new ListItem("5000", "5000"));
            ddl.Items.Add(new ListItem("10000", "10000"));
-           
         }
+
         private void cargarFamilia(DropDownList ddl)
         {
             DataSet ds = new DataSet();
@@ -138,9 +131,8 @@ namespace PirelliReports.Site
                     ddl.Items.Add(new ListItem(ds.Tables[0].Rows[i]["FAMILIA"].ToString(), ds.Tables[0].Rows[i]["CODFAMILIA"].ToString()));
                 }
             }
-
-
         }
+
         private void cargarTipoPromo(DropDownList ddl)
         {
             DataSet ds = new DataSet();
@@ -154,9 +146,8 @@ namespace PirelliReports.Site
                     ddl.Items.Add(new ListItem(mostrar, ds.Tables[0].Rows[i]["CodTipoPromo"].ToString()));
                 }
             }
-
-
         }
+
         private void cargarProvincia(DropDownList ddl)
         {
             DataSet ds = new DataSet();
@@ -169,9 +160,8 @@ namespace PirelliReports.Site
                     ddl.Items.Add(new ListItem(ds.Tables[0].Rows[i]["ZODESC"].ToString(), ds.Tables[0].Rows[i]["ZOCOD"].ToString()));
                 }
             }
-
-
         }
+
         private void cargarRegion(DropDownList ddl)
         {
             DataSet ds = new DataSet();
@@ -185,9 +175,8 @@ namespace PirelliReports.Site
                     ddl.Items.Add(new ListItem(mostrar, ds.Tables[0].Rows[i]["REG_COD"].ToString()));
                 }
             }
-
-
         }
+
         private void cargarClientes(DropDownList ddl)
         {
             DataSet ds = new DataSet();
@@ -201,9 +190,8 @@ namespace PirelliReports.Site
                     ddl.Items.Add(new ListItem(mostrar, ds.Tables[0].Rows[i]["Cod"].ToString()));
                 }
             }
-
-
         }
+
         private void cargarMedidas(DropDownList ddl)
         {
             DataSet ds = new DataSet();
@@ -213,21 +201,18 @@ namespace PirelliReports.Site
             {
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    mostrar = "(" + ds.Tables[0].Rows[i]["CODIGO"].ToString() + ") " + ds.Tables[0].Rows[i]["DESCRIPCION"].ToString()
-                        + " " + ds.Tables[0].Rows[i]["Rango"].ToString()
-                        + " " + ds.Tables[0].Rows[i]["Marca"].ToString()
-                        + " " + ds.Tables[0].Rows[i]["pais"].ToString()
-                        + " " + ds.Tables[0].Rows[i]["DISEÑO"].ToString();
+                    mostrar = "(" + ds.Tables[0].Rows[i]["CODIGO"].ToString() + ") " 
+                                + ds.Tables[0].Rows[i]["DESCRIPCION"].ToString()
+                                + " " + ds.Tables[0].Rows[i]["Rango"].ToString()
+                                + " " + ds.Tables[0].Rows[i]["Marca"].ToString()
+                                + " " + ds.Tables[0].Rows[i]["pais"].ToString()
+                                + " " + ds.Tables[0].Rows[i]["DISEÑO"].ToString();
                     ddl.Items.Add(new ListItem(mostrar, ds.Tables[0].Rows[i]["CODIGO"].ToString()));
                 }
             }
-
-
         }
        
         //    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-       
-
         protected void btnFiltrosBuscar_Click(object sender, EventArgs e)
         {
             ArrayList parametros = new ArrayList();
@@ -242,11 +227,13 @@ namespace PirelliReports.Site
             parametros.Add((string.IsNullOrEmpty(txtFiltrosDescripcion.Text) ? "%" : txtFiltrosDescripcion.Text));
 
             if (!string.IsNullOrEmpty(dpFiltrosDesde.Text))
-                parametros.Add(pMetodos.ConvertmmddyyyyToyyyymmdd(dpFiltrosDesde.Text));
+                //parametros.Add(pMetodos.ConvertmmddyyyyToyyyymmdd(dpFiltrosDesde.Text));
+                parametros.Add(pMetodos.ConvertddmmyyyyToyyyymmdd(dpFiltrosDesde.Text));
             else
                 parametros.Add("1900/1/1");
             if (!string.IsNullOrEmpty(dpFiltrosHasta.Text))
-                parametros.Add(pMetodos.ConvertmmddyyyyToyyyymmdd(dpFiltrosHasta.Text));
+                //parametros.Add(pMetodos.ConvertmmddyyyyToyyyymmdd(dpFiltrosHasta.Text));
+                parametros.Add(pMetodos.ConvertddmmyyyyToyyyymmdd(dpFiltrosHasta.Text));
             else
                 parametros.Add("2900/1/1");
 
@@ -255,24 +242,21 @@ namespace PirelliReports.Site
             parametros.Add((string.IsNullOrEmpty(txtFiltrosTicket.Text) ? "%" : txtFiltrosTicket.Text));
             parametros.Add((string.IsNullOrEmpty(txtFiltrosCodPromo.Text) ? "%" : txtFiltrosCodPromo.Text));
             parametros.Add(ddlFiltrosFamilia.SelectedValue.ToString());
-          
 
             gvListadosFacturasVisa.DataSource = conFacturas.ListadoDeFacturas(parametros);
             gvListadosFacturasVisa.DataBind();
-            
-
         }
+
         protected void btnExportar_Click(object sender, EventArgs e)
         {
             pMetodos.ExportGridViewToExcel(gvListadosFacturasVisa, "FacturasVisa", Response);
 
         }
+
         public override void VerifyRenderingInServerForm(Control control)
         {
             // this is required for avoid error (control must be placed inside form tag)
-
         }
-
 
         protected void gvListadosFacturasVisa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -283,8 +267,6 @@ namespace PirelliReports.Site
             txtEditPrecio.Text = gvListadosFacturasVisa.SelectedRow.Cells[5].Text;
             //Response.Write("<script type=\"text/javascript\">alert('"+a+"');</script>");
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalEdit();", true);
-
-
         }
 
         protected void txtBuscarFactura_TextChanged(object sender, EventArgs e)
@@ -310,14 +292,8 @@ namespace PirelliReports.Site
             parametros.Add("%");
             parametros.Add("%");
 
-
             gvListadosFacturasVisa.DataSource = conFacturas.ListadoDeFacturas(parametros);
             gvListadosFacturasVisa.DataBind();
-         
         }
-
-             
-
-        
     }
 }

@@ -35,7 +35,7 @@ namespace Negocio
                     promo.Cuota4 = Convert.ToInt32(ds.Tables[0].Rows[i]["Cuota4"]);
                     promo.Cuota5 = Convert.ToInt32(ds.Tables[0].Rows[i]["Cuota5"]);
                     promo.Cuota6 = Convert.ToInt32(ds.Tables[0].Rows[i]["Cuota6"]);
-                    promo.Cuota7 =Convert.ToInt32( ds.Tables[0].Rows[i]["Cuota7"]);
+                    promo.Cuota7 = Convert.ToInt32( ds.Tables[0].Rows[i]["Cuota7"]);
                     promo.Descu1 = Convert.ToDouble(ds.Tables[0].Rows[i]["Descu1"]);
                     promo.Descu2 = Convert.ToDouble(ds.Tables[0].Rows[i]["Descu2"]);
                     promo.Descu3 = Convert.ToDouble(ds.Tables[0].Rows[i]["Descu3"]);

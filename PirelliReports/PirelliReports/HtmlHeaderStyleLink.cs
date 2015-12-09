@@ -51,6 +51,5 @@ namespace PirelliReports
             string includeStr = this.ResolveUrl(this.url);
             writer.Write(@"<link rel=""Stylesheet"" type=""text/css"" href=""" + ResolveUrl(this.Url) + "\" >");
         }
-
     }
 }

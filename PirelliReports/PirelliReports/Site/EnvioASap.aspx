@@ -5,7 +5,6 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script>
-
         function openModal() {
            
             $('#modalMensaje').modal('show');
@@ -86,7 +85,6 @@
                         </div>--%>
 
                         <asp:LinkButton runat="server" ID="btnOpenModal" OnClientClick="return false;" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</asp:LinkButton>
-
                         <asp:LinkButton runat="server" ID="btnBuscar" OnClick="btnBuscar_Click" class="btn btn-warning" ><i class="fa fa-search"></i> Buscar</asp:LinkButton>
                     </div>
                 </div>
@@ -218,7 +216,6 @@
                         <h4 class="page-header modal-title">Editar</h4>
                         <br />
                         <h2><asp:Label runat="server" ID="lblEdicion"></asp:Label> </h2>
-
                     </div>
                     <div class="modal-body">
                         <div class="row">
@@ -250,22 +247,21 @@
     </div>
         <%-- Fin modal EDIT --%>
          <%-- MODAL mensaje --%>
-                    <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="page-header modal-title" id="myModalSincro">Envio a SAP
-                                    </h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
-                                    </div>
-
-                                </div>
+            <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="page-header modal-title" id="myModalSincro">Envio a SAP
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
          <%-- Fin modal mensaje --%>
 </asp:Content>

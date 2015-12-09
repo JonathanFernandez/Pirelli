@@ -46,7 +46,6 @@ namespace PirelliReports.Site
                 VentaTotalxCTC();
             if (Page.Request["reporte"] == "VentaTotalxCTCxCliente")
                 VentaTotalxCTCxCliente();
-            
         }
 
         private void VentaTotalxCTCxCliente()
@@ -68,8 +67,7 @@ namespace PirelliReports.Site
             rpt.Load(rpt.FileName, OpenReportMethod.OpenReportByDefault);
 
             rpt.SetDataSource(ds);
-            crviewer.ReportSource = rpt;
-            
+            crviewer.ReportSource = rpt; 
         }
 
         private void ClienteXIP()
@@ -85,8 +83,6 @@ namespace PirelliReports.Site
             parametros.Add(hasta);
             parametros.Add(ip);
             parametros.Add(filter);
-
-
 
             ds.tIpXCliente.Merge(conReportes.IPXCliente(parametros));
             CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();
@@ -111,8 +107,6 @@ namespace PirelliReports.Site
             parametros.Add(ip);
             parametros.Add(filter);
 
-
-
             ds.tIpXCliente.Merge(conReportes.IPXCliente(parametros));
             CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();
             rpt.FileName = Server.MapPath("~/RPT/IPxCLIENTE.rpt");
@@ -136,8 +130,6 @@ namespace PirelliReports.Site
             parametros.Add(ip);
             parametros.Add(filter);
 
-
-
             ds.tIpXRegion.Merge(conReportes.IPXRegion(parametros));
             CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();
             rpt.FileName = Server.MapPath("~/RPT/REGIONxIP.rpt");
@@ -160,8 +152,6 @@ namespace PirelliReports.Site
             parametros.Add(hasta);
             parametros.Add(ip);
             parametros.Add(filter);
-
-
 
             ds.tIpXRegion.Merge(conReportes.IPXRegion(parametros));
             CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();

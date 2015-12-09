@@ -37,54 +37,57 @@ namespace PirelliReports
                         Response.Redirect("~/Index.aspx", false);
                 }
                 //habilito los menues que pueden ver
-                foreach (MDPermisos per in userLog.Permisos)
+                if (userLog.Permisos != null && userLog.Permisos.Count > 0)
                 {
-                    switch (per.PermisoDesc)
+                    foreach (MDPermisos per in userLog.Permisos)
                     {
-                        case EnumPermisos.FACTURASPROMOVISA:
-                            FACTURASPROMOVISA.Visible = true;
-                            FACTURASPROMOVISA.Disabled = false;
-                            break;
-                        case EnumPermisos.ENVIOASAP:
-                            ENVIOASAP.Visible = true;
-                            ENVIOASAP.Disabled = false;
-                            break;
-                        case EnumPermisos.CLIENTES:
-                            CLIENTES.Visible = true;
-                            CLIENTES.Disabled = false;
-                            break;
-                        case EnumPermisos.NEUMATICOS:
-                            NEUMATICOS.Visible = true;
-                            NEUMATICOS.Disabled = false;
-                            break;
-                        case EnumPermisos.PROMOCIONES:
-                            PROMOCIONES.Visible = true;
-                            PROMOCIONES.Disabled = false;
-                            break;
-                        case EnumPermisos.MODIFICARCLIENTEIP:
-                            MODIFICARCLIENTEIP.Visible = true;
-                            MODIFICARCLIENTEIP.Disabled = false;
-                            break;
-                        case EnumPermisos.SINZCRONIZACIONCOMERCIAL:
-                            SINZCRONIZACIONCOMERCIAL.Visible = true;
-                            SINZCRONIZACIONCOMERCIAL.Disabled = false;
-                            break;
-                        case EnumPermisos.REPORTESCOMERCIAL:
-                            REPORTESCOMERCIAL.Visible = true;
-                            REPORTESCOMERCIAL.Disabled = false;
-                            break;
-                        case EnumPermisos.ADMINISTRACION:
-                            ADMINISTRACION.Visible = true;
-                            ADMINISTRACION.Disabled = false;
-                            break;
-                        case EnumPermisos.MODIFICACIONESMASIVAS:
-                            MODIFICACIONESMASIVAS.Visible = true;
-                            MODIFICACIONESMASIVAS.Disabled = false;
-                            break;
-                        case EnumPermisos.PERFIL:
-                            PERFIL.Visible = true;
-                            PERFIL.Disabled = false;
-                            break;
+                        switch (per.PermisoDesc)
+                        {
+                            case EnumPermisos.FACTURASPROMOVISA:
+                                FACTURASPROMOVISA.Visible = true;
+                                FACTURASPROMOVISA.Disabled = false;
+                                break;
+                            case EnumPermisos.ENVIOASAP:
+                                ENVIOASAP.Visible = true;
+                                ENVIOASAP.Disabled = false;
+                                break;
+                            case EnumPermisos.CLIENTES:
+                                CLIENTES.Visible = true;
+                                CLIENTES.Disabled = false;
+                                break;
+                            case EnumPermisos.NEUMATICOS:
+                                NEUMATICOS.Visible = true;
+                                NEUMATICOS.Disabled = false;
+                                break;
+                            case EnumPermisos.PROMOCIONES:
+                                PROMOCIONES.Visible = true;
+                                PROMOCIONES.Disabled = false;
+                                break;
+                            case EnumPermisos.MODIFICARCLIENTEIP:
+                                MODIFICARCLIENTEIP.Visible = true;
+                                MODIFICARCLIENTEIP.Disabled = false;
+                                break;
+                            case EnumPermisos.SINZCRONIZACIONCOMERCIAL:
+                                SINZCRONIZACIONCOMERCIAL.Visible = true;
+                                SINZCRONIZACIONCOMERCIAL.Disabled = false;
+                                break;
+                            case EnumPermisos.REPORTESCOMERCIAL:
+                                REPORTESCOMERCIAL.Visible = true;
+                                REPORTESCOMERCIAL.Disabled = false;
+                                break;
+                            case EnumPermisos.ADMINISTRACION:
+                                ADMINISTRACION.Visible = true;
+                                ADMINISTRACION.Disabled = false;
+                                break;
+                            case EnumPermisos.MODIFICACIONESMASIVAS:
+                                MODIFICACIONESMASIVAS.Visible = true;
+                                MODIFICACIONESMASIVAS.Disabled = false;
+                                break;
+                            case EnumPermisos.PERFIL:
+                                PERFIL.Visible = true;
+                                PERFIL.Disabled = false;
+                                break;
+                        }
                     }
                 }
 
@@ -108,8 +111,8 @@ namespace PirelliReports
             scriptStyle = new HtmlHeaderStyleLink("~/Content/css/sb-admin.css");
             scriptStyle.IncludeOn(Page.Header);
 
-            scriptStyle = new HtmlHeaderStyleLink("~/Content/css/plugins/morris.css");
-            scriptStyle.IncludeOn(Page.Header);
+            //scriptStyle = new HtmlHeaderStyleLink("~/Content/css/plugins/morris.css");
+            //scriptStyle.IncludeOn(Page.Header);
 
             scriptStyle = new HtmlHeaderStyleLink("~/Content/font-awesome/css/font-awesome.min.css");
             scriptStyle.IncludeOn(Page.Header);
@@ -118,11 +121,11 @@ namespace PirelliReports
             scriptStyle.IncludeOn(Page.Header);
 
         }
+
         private void LoadScripts()
         {
             imgPirelli.Src = "~/Content/img/logo_pirelli_small.svg";
-         
- 
+
             HtmlHeaderJSLink scriptLink = new HtmlHeaderJSLink("~/Content/js/jquery.js");
             scriptLink.IncludeOn(Page.Header);
 
@@ -142,6 +145,9 @@ namespace PirelliReports
             scriptLink.IncludeOn(Page.Header);
 
             scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/jquery-validation-1.14.0/localization/messages_es.min.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            scriptLink = new HtmlHeaderJSLink("~/Content/js/datepicker.js");
             scriptLink.IncludeOn(Page.Header);
 
             //scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/morris/morris.min.js");
