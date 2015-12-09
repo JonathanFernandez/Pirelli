@@ -36,8 +36,10 @@ namespace PirelliReports.Site
             codigoPromo.Value = ((ZoTipoPromo)promociones[0]).CodTipoPromo.ToString();
             txtDescTipoPromo.Text = ((ZoTipoPromo)promociones[0]).DescTipoPromo;
             chkBajaLogica.Checked = ((ZoTipoPromo)promociones[0]).FlgBajaLogica == "1" ? true : false;
-            dpDesde.Text = ((ZoTipoPromo)promociones[0]).FecDesde.ToString("MM/dd/yyyy");
-            dpHasta.Text = ((ZoTipoPromo)promociones[0]).FecHasta.ToString("MM/dd/yyyy");
+            //dpDesde.Text = ((ZoTipoPromo)promociones[0]).FecDesde.ToString("MM/dd/yyyy");
+            //dpHasta.Text = ((ZoTipoPromo)promociones[0]).FecHasta.ToString("MM/dd/yyyy");
+            dpDesde.Text = ((ZoTipoPromo)promociones[0]).FecDesde.ToString("dd/MM/yyyy");
+            dpHasta.Text = ((ZoTipoPromo)promociones[0]).FecHasta.ToString("dd/MM/yyyy");
             txtDomingo.Text = ((ZoTipoPromo)promociones[0]).Cuota1.ToString();
             txtLunes.Text = ((ZoTipoPromo)promociones[0]).Cuota2.ToString();
             txtMartes.Text = ((ZoTipoPromo)promociones[0]).Cuota3.ToString();
@@ -71,8 +73,10 @@ namespace PirelliReports.Site
             codigoPromo.Value = p.CodTipoPromo.ToString();
             txtDescTipoPromo.Text = p.DescTipoPromo;
             chkBajaLogica.Checked = p.FlgBajaLogica == "1" ? true:false;
-            dpDesde.Text = p.FecDesde.ToString("MM/dd/yyyy");
-            dpHasta.Text = p.FecHasta.ToString("MM/dd/yyyy");
+            //dpDesde.Text = p.FecDesde.ToString("MM/dd/yyyy");
+            //dpHasta.Text = p.FecHasta.ToString("MM/dd/yyyy");
+            dpDesde.Text = p.FecDesde.ToString("dd/MM/yyyy");
+            dpHasta.Text = p.FecHasta.ToString("dd/MM/yyyy");
             txtDomingo.Text = p.Cuota1.ToString();
             txtLunes.Text = p.Cuota2.ToString();
             txtMartes.Text = p.Cuota3.ToString();
@@ -109,8 +113,10 @@ namespace PirelliReports.Site
                 //p.CodTipoPromo = Convert.ToInt32 =
                 p.DescTipoPromo = txtDescTipoPromo.Text;
                 p.FlgBajaLogica = chkBajaLogica.Checked == true ? "1" : "0";
-                p.FecDesde = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text));
-                p.FecHasta = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text));
+                //p.FecDesde = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text));
+                //p.FecHasta = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text));
+                p.FecDesde = Convert.ToDateTime(pMetodos.ConvertddmmyyyyToyyyymmdd(dpDesde.Text));
+                p.FecHasta = Convert.ToDateTime(pMetodos.ConvertddmmyyyyToyyyymmdd(dpHasta.Text));
                 p.Cuota1 = Convert.ToInt32(txtDomingo.Text);
                 p.Cuota2 = Convert.ToInt32(txtLunes.Text);
                 p.Cuota3 = Convert.ToInt32(txtMartes.Text);
@@ -136,8 +142,10 @@ namespace PirelliReports.Site
                 //p.CodTipoPromo = Convert.ToInt32(codigoPromo.Value);
                 p.DescTipoPromo = txtDescTipoPromo.Text;
                 p.FlgBajaLogica = chkBajaLogica.Checked == true ? "1" : "0";
-                p.FecDesde = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text));
-                p.FecHasta = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text));
+                //p.FecDesde = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text));
+                //p.FecHasta = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text));
+                p.FecDesde = Convert.ToDateTime(pMetodos.ConvertddmmyyyyToyyyymmdd(dpDesde.Text));
+                p.FecHasta = Convert.ToDateTime(pMetodos.ConvertddmmyyyyToyyyymmdd(dpHasta.Text));
                 p.Cuota1 = Convert.ToInt32(txtDomingo.Text);
                 p.Cuota2 = Convert.ToInt32(txtLunes.Text);
                 p.Cuota3 = Convert.ToInt32(txtMartes.Text);

@@ -5,6 +5,7 @@ using System.Web;
 
 namespace Entidades
 {
+    //[Serializable]
     public class ZoTipoPromo
     {
         private int codTipoPromo;

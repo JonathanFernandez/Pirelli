@@ -12,8 +12,6 @@
                                         return this.optional(element) || /^\d{0,3}(\.\d{0,2})?$/i.test(value);
                                         }, "Incluya 2 decimales");
 
-
-
             $.validator.addMethod("greaterThan", 
                                      function(value, element) 
                                      {            
@@ -21,11 +19,11 @@
                                         
                                          var partesFechaFinal = value.split('/');
                                          var partesFechaInicial = parametro.split('/')
-                                         var diaFechaFinal = partesFechaFinal[1];
-                                         var mesFechaFinal = partesFechaFinal[0];
+                                         var diaFechaFinal = partesFechaFinal[0];
+                                         var mesFechaFinal = partesFechaFinal[1];
                                          var anioFechaFinal = partesFechaFinal[2];
-                                         var diaFechaInicial = partesFechaInicial[1];
-                                         var mesFechaInicial = partesFechaInicial[0];
+                                         var diaFechaInicial = partesFechaInicial[0];
+                                         var mesFechaInicial = partesFechaInicial[1];
                                          var anioFechaInicial = partesFechaInicial[2];
 
                                          var fechaFinal = anioFechaFinal + "-" + mesFechaFinal + "-" + diaFechaFinal;
@@ -34,6 +32,25 @@
                                          return new Date(fechaFinal) > new Date(fechaInicial);
                                    
                                      }, "La fecha final debe ser mayor que la fecha inicial");
+          
+            $.validator.addMethod("dateValid", 
+                                   function(value, element) 
+                                   {
+                                       // Checks for the following valid date formats:
+                                       // MM/DD/YYYY
+                                       // Also separates date into month, day, and year variables
+                                       var patron = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;;
+ 
+                                       var res = value.match(patron); // is the format ok?
+                                       if (res != null) 
+                                       {
+                                           return true;
+                                       }
+                                       else
+                                       {
+                                           return false;
+                                       }
+                                   }, "Ingrese una fecha valida [dd/mm/yyyy]");
 
             $('form').validate({
                     rules: 
@@ -41,22 +58,34 @@
                         <%=txtDescTipoPromo.UniqueID %>: 
                         {
                             required: true,
-                            maxlength: 30
                         },
                         <%=dpDesde.UniqueID %>: 
                         {                        
                             required: true,
-                            date: true
+                            dateValid: true
                         },
                         <%=dpHasta.UniqueID %>: 
                         {                        
                             required: true,
-                            date: true,
+                            dateValid: true,
                             greaterThan: true
                         }  
                     },
                     messages: 
                     {  
+                        <%=txtDescTipoPromo.UniqueID %>: 
+                        {
+                            required: "Ingrese la descripcion de la promocion"
+                        },
+                        <%=dpDesde.UniqueID %>: 
+                        {                        
+                            required: "Ingrese una fecha inicial"
+                           
+                        },
+                        <%=dpHasta.UniqueID %>: 
+                        {                        
+                            required: "Ingrese una fecha final"
+                        }  
                     }
                 });
 
@@ -75,23 +104,18 @@
                     {
                         required: true,
                         number: true,
-                        range: [0,100],
+                        range: [0, 100],
                         decimal: true
-                        //range: [1, 100]
                     }
                 });
         });
         
         function openModal() {
-           
             $('#modalMensaje').modal('show');
         }
 
-
-        function btnGuardarOnClientClick() {
-            
+        function btnGuardarOnClientClick() {          
             var result = $('form').valid();
-             
             return result;
         }
 
@@ -105,7 +129,6 @@
 
         function btnAltaOnClientClick()
         {
-      
             document.getElementById("PaginaCentral_ContentPlaceHolder_modo").value = "ALTA";
             document.getElementById("PaginaCentral_ContentPlaceHolder_codigoPromo").value = "";
             document.getElementById('PaginaCentral_ContentPlaceHolder_ddlPromociones').disabled = true;
@@ -130,14 +153,8 @@
             return false;
         }
     </script>
-    
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
-    <script type="text/javascript">
-      
-  
-    </script>
-      
     <div id="page-wrapper"> 
         <div class="container-fluid form-pirelli">
 
@@ -177,7 +194,7 @@
 
                 <div class="col-lg-4">
                         <label>Nombre de promoción:</label>
-                        <asp:TextBox runat="server" class="form-control" ID="txtDescTipoPromo"  placeholder="Promoción" required></asp:TextBox>
+                        <asp:TextBox runat="server" class="form-control" ID="txtDescTipoPromo"  placeholder="Promoción" MaxLength="30"></asp:TextBox>
                 </div>
                 <div class="col-lg-4">    
                         <label>Baja Lógica: </label>
@@ -191,7 +208,7 @@
                     <div class="control-group">
                         <div class="controls">
                             <div class="input-group margin-15">
-                                <asp:TextBox runat="server" class="date-picker form-control" ID ="dpDesde" placeholder="Desde" required></asp:TextBox>
+                                <asp:TextBox runat="server" class="date-picker form-control" ID ="dpDesde" placeholder="Desde" MaxLength="10"></asp:TextBox>
                                 <label for="date-picker-1" class="input-group-addon btn">
                                     <span class="glyphicon glyphicon-calendar"></span>
 
@@ -199,7 +216,7 @@
                             </div>
 
                             <div class="input-group">
-                                <asp:TextBox runat="server" class="date-picker form-control" ID="dpHasta" placeholder="Hasta" required></asp:TextBox>
+                                <asp:TextBox runat="server" class="date-picker form-control" ID="dpHasta" placeholder="Hasta" MaxLength="10"></asp:TextBox>
                                 <label for="date-picker-2" class="input-group-addon btn">
                                     <span class="glyphicon glyphicon-calendar"></span>
 
@@ -208,20 +225,9 @@
                         </div>
                     </div>
                 </div>
-                <script>
-                      $(".date-picker").datepicker();
-
-                      //var date = $('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
-
-                      $(".date-picker").on("change", function () {
-
-                          var id = $(this).attr("id");
-                          var val = $("label[for='" + id + "']").text();
-                          $("#msg").text(val + " changed");
-                      });
-
-
-                      $(".date-picker").css("z-index", "9999");
+               <script type="text/javascript">
+                   $(".date-picker").datepicker();
+                   $(".date-picker").css("z-index", "9999");
                 </script>
                 <div class="col-lg-4">
                     <label>Cuotas</label>
@@ -230,32 +236,32 @@
 
                         <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Domingo</label>
-                                <asp:TextBox runat="server" class="form-control cuota" TextMode="Number" ID="txtDomingo" placeholder="0"></asp:TextBox>
+                                <asp:TextBox runat="server" class="form-control cuota" TextMode="Number" ID="txtDomingo" placeholder="0" MaxLength="2"></asp:TextBox>
                         </div>
 
                         <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Lunes</label>
-                                <asp:TextBox runat="server" class="form-control cuota" ID="txtLunes" placeholder="0" TextMode="Number"></asp:TextBox>
+                                <asp:TextBox runat="server" class="form-control cuota" ID="txtLunes" placeholder="0" MaxLength="2"></asp:TextBox>
                         </div>
 
                         <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Martes</label>
-                                <asp:TextBox runat="server" class="form-control cuota" ID="txtMartes" placeholder="0" TextMode="Number"></asp:TextBox>
+                                <asp:TextBox runat="server" class="form-control cuota" ID="txtMartes" placeholder="0" MaxLength="2"></asp:TextBox>
                         </div>
 
                         <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Miércoles</label>
-                                <asp:TextBox runat="server" class="form-control cuota" ID="txtMiercoles" placeholder="0" TextMode="Number"></asp:TextBox>
+                                <asp:TextBox runat="server" class="form-control cuota" ID="txtMiercoles" placeholder="0" MaxLength="2"></asp:TextBox>
                         </div>
 
                         <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Jueves</label>
-                                <asp:TextBox runat="server" class="form-control cuota" ID="txtJueves" placeholder="0" TextMode="Number"></asp:TextBox>
+                                <asp:TextBox runat="server" class="form-control cuota" ID="txtJueves" placeholder="0" MaxLength="2"></asp:TextBox>
                         </div>
 
                         <div class="form-inline margin-15">
                             <label for="inputEmail3" class="col-sm-4 control-label">Viernes</label>
-                                <asp:TextBox runat="server" class="form-control cuota" ID="txtViernes" placeholder="0" TextMode="Number" ></asp:TextBox>
+                                <asp:TextBox runat="server" class="form-control cuota" ID="txtViernes" placeholder="0" MaxLength="2" ></asp:TextBox>
                         </div>
 
                         <div class="form-inline margin-15">
@@ -267,38 +273,34 @@
             <div class="col-lg-4">
                 <label>Descuentos</label>
                     <div class="form-group margin-15">
-                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu1" placeholder="%" ></asp:TextBox>
+                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu1" placeholder="%" MaxLength="5"></asp:TextBox>
                     </div>
 
                     <div class="form-group margin-15">
-                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu2" placeholder="%" ></asp:TextBox>
+                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu2" placeholder="%" MaxLength="5"></asp:TextBox>
                     </div>
 
                     <div class="form-group margin-15">
-                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu3" placeholder="%" ></asp:TextBox>
+                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu3" placeholder="%" MaxLength="5"></asp:TextBox>
                     </div>
 
                     <div class="form-group margin-15">
-                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu4" placeholder="%" ></asp:TextBox>
+                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu4" placeholder="%" MaxLength="5"></asp:TextBox>
                     </div>
 
                     <div class="form-group margin-15">
-                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu5" placeholder="%" ></asp:TextBox>
+                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu5" placeholder="%" MaxLength="5"></asp:TextBox>
                     </div>
 
                     <div class="form-group margin-15">
-                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu6" placeholder="%" ></asp:TextBox>
+                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu6" placeholder="%" MaxLength="5"></asp:TextBox>
                     </div>
 
                     <div class="form-group margin-15">
-                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu7" placeholder="%"  ></asp:TextBox>
+                        <asp:TextBox runat="server" class="form-control porcentaje" ID="txtDescu7" placeholder="%" MaxLength="5"></asp:TextBox>
                     </div>
                         <asp:LinkButton runat="server"  ID="btnGuardar" OnClick="btnGuardar_Click" OnClientClick="return btnGuardarOnClientClick();" CssClass="btn btn-warning pull-right"><i class="fa fa-edit"></i> Guardar</asp:LinkButton>
-                      
-
             </div>
-
-         
         </div>
     <!-- /.row -->
 

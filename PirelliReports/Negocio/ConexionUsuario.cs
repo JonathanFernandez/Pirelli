@@ -181,6 +181,7 @@ namespace Negocio
 
             return ds;
         }
+
         public bool VerificarLogin(string nombre, string password)
         {
             AdoConn ado = new AdoConn();
@@ -194,8 +195,6 @@ namespace Negocio
                 return true;
             else
                 return false;
-
-            
         }
 
         public void SetearEstado(Usuario u, bool activar)
@@ -360,8 +359,5 @@ namespace Negocio
 
             return true;
         }
-
-
-      
     }
 }

@@ -4,8 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-   <script>
-
+   <script type="text/javascript">
        function btnEditarOnClientClick(obj) {
            var row = obj.parentNode.parentNode;
            var rowIndex = row.rowIndex - 1;
@@ -17,23 +16,25 @@
                document.getElementById('PaginaCentral_ContentPlaceHolder_chkBajaLogica').checked = false;
 
            document.getElementById("PaginaCentral_ContentPlaceHolder_lblEdicion").innerHTML = "Editando " + row.cells[1].innerHTML;
-
            document.getElementById("PaginaCentral_ContentPlaceHolder_IP").value = row.cells[1].innerHTML;
            document.getElementById("PaginaCentral_ContentPlaceHolder_PAIS").value = row.cells[3].innerHTML;
            openModal()
            return false;
-
        }
+
        function OpenPopUp(url) {
            hidden = open(url, "NewWindow", "top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes");
            return false;
        }
-       function openModalMensaje() {
-           $('#modalMensaje').modal('show');
-       }
+
        function openModal() {
            $('#modalEdit').modal('show');
        }
+
+       function openModalMensaje() {
+           $('#modalMensaje').modal('show');
+       }
+
        function btnFiltrosLimpiar_OnClientClick() {
            document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosIP").value = "";
            document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosDescripcion").value = "";
@@ -46,64 +47,94 @@
            document.getElementById('PaginaCentral_ContentPlaceHolder_chkFiltrosBajaLogica').checked = false;
            return false;
        }
+
+       function filtroSeleccionado() {          
+           var  ip  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosIP").value;
+           var  descripcion = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosDescripcion").value;
+           var  pais  = document.getElementById("PaginaCentral_ContentPlaceHolder_ddlFiltrosPais").value;
+           var  otros  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosOtros").value;
+           var  familia  = document.getElementById("PaginaCentral_ContentPlaceHolder_ddlFiltrosFamilia").value;
+           var  marca  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosMarca").value;
+           var  rango  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosRango").value;
+           var  rodado  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosRodado").value;
+           var  baja  = document.getElementById("PaginaCentral_ContentPlaceHolder_chkFiltrosBajaLogica").checked;
+           if (ip == "" && descripcion == "" && pais == "%" && otros == "" && familia == "%" && marca == "" && rango == "" && rodado == "" && !baja) 
+           {
+               return false;
+           }
+           else
+           {
+               return true;
+           } 
+       }
+
+       function btnFiltrosBuscarOnClientClick() {
+           return filtroSeleccionado();
+       }
+     
+       $(document).ready(function() {
+           //$.validator.addMethod("lettersOnly", function (value, element) {
+           //    return this.optional(element) || /^[a-zA-Z]+$/i.test(value);
+           //}, "Ingrese una letra");
+
+           $.validator.addMethod("upperCase", 
+                                 function (value, element) {
+                                 return /^[A-Z]{1}$/.test(value);
+                                 }, "Ingrese una sola letra en mayuscula");
+ 
+           $('form').validate({
+               rules: 
+               {
+                   <%= txtFiltrosIP.UniqueID %>: 
+                    {
+                        digits: true,
+                        minlenght: 7,
+                        maxlenght: 7
+                    },
+                   <%= txtFiltrosMarca.UniqueID %>: 
+                   {                        
+                       digits: true,
+                       minlength: 2,
+                       maxlength: 2
+                   },
+                   <%= txtFiltrosRodado.UniqueID %>: 
+                    {                        
+                        number: true
+                    }
+               }, 
+               messages: 
+               {
+                    <%= txtFiltrosIP.UniqueID %>: 
+                    {
+                        digits: "Ingrese solo digitos [0-9] para el IP",
+                        minlenght: "Se requieren al menos 7 dgitos",
+                        maxlenght: "Se permite como maximo 7 digitos"
+                        
+                    },
+                   <%= txtFiltrosMarca.UniqueID %>: 
+                   {                        
+                        digits: "Ingrese solo digitos [0-9] para la marca",
+                        minlenght: "Se requieren al menos 2 dgitos",
+                        maxlenght: "Se permite como maximo 2 digitos"
+                   },
+                   <%= txtFiltrosRodado.UniqueID %>: 
+                    {                        
+                        number: "Ingrese un numero. Puede incluir decimales"
+                    }
+               }
+           });
+
+           $.validator.addClassRules({
+               rango:
+               {
+                   upperCase: true,
+                   maxlength: 1
+               }
+           });
+       });
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $.validator.addMethod("lettersOnly", function (value, element) {
-                                    return this.optional(element) || /^[a-zA-Z]+$/i.test(value);
-                                  }, "Ingrese una letra");
- 
-            $('form').validate({
-                rules: 
-                {
-                    <%= txtFiltrosIP.UniqueID %>: 
-                    {
-                        required: false,
-                        digits: true,
-                        minlength: 7
-                    },
-                    <%= txtFiltrosDescripcion.UniqueID %>: 
-                    {                        
-                        required: false,
-                        maxlength: 50
-                    },
-                    <%= txtFiltrosOtros.UniqueID %>: 
-                    {                        
-                        required: false,
-                        maxlength: 20
-                    },
-                    <%= txtFiltrosMarca.UniqueID %>: 
-                    {                        
-                        required: false,
-                        digits: true,
-                        maxlength: 2
-                    },
-                     <%= txtFiltrosRango.UniqueID %>: 
-                    {                        
-                        required: false,
-                        lettersOnly: true,
-                        maxlength: 1
-                     },
-                     <%= txtFiltrosRodado.UniqueID %>: 
-                     {                        
-                        required: false,
-                        number: true
-                     },
-                    <%= txtRango.UniqueID %>: 
-                    {                        
-                        required: false,
-                        lettersOnly: true,
-                        maxlength: 1
-                    }
-                }, 
-                messages: 
-                {
-                }
-            });
-        });
-    </script>
     <div class="container-fluid table-pirelli">
         <!-- Page Heading -->
         <div class="row">
@@ -142,7 +173,7 @@
 
             <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">
                 <asp:GridView runat="server" ID="gvListadoNeumaticos" Cssclass="table table-responsive table-bordered table-hover table-striped table-condensed" OnSelectedIndexChanged="gvListadoNeumaticos_SelectedIndexChanged" AutoGenerateColumns="false">
-                   <%-- <Columns>
+                    <%-- <Columns>
                         <asp:CommandField ControlStyle-CssClass="btn btn-warning btn-edit-modal"   HeaderText="Edición"  SelectText="Editar" ShowSelectButton="true" />
                     </Columns>--%>
                      <Columns>
@@ -196,7 +227,6 @@
 
             </div>
 
-            
             <%-- MODAL filtros --%>
             <div class="modal fade" id="modalFiltros" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -212,32 +242,32 @@
                                     <div class="form-group">
                                         <%--<label>IP:</label>--%>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosIP" CssClass="form-control" placeholder="Código de Neumatico"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosIP" CssClass="form-control" placeholder="Código de Neumatico" MaxLength="7"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosDescripcion" CssClass="form-control" placeholder="Descripción"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosDescripcion" CssClass="form-control" placeholder="Descripción" MaxLength="50"></asp:TextBox>
                                         <p class="help-block"></p>
 
                                         <asp:DropDownList runat="server" ID="ddlFiltrosPais" CssClass="form-control" placeholder="Pais"></asp:DropDownList>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosOtros" CssClass="form-control" placeholder="Otro"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosOtros" CssClass="form-control" placeholder="Otro" MaxLength="20"></asp:TextBox>
                                         <p class="help-block"></p>
 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                         <asp:DropDownList runat="server" ID="ddlFiltrosFamilia" CssClass="form-control" placeholder="familia"></asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="ddlFiltrosFamilia" CssClass="form-control" placeholder="familia"></asp:DropDownList>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosMarca" CssClass="form-control" placeholder="Marca"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosMarca" CssClass="form-control" placeholder="Marca" MaxLength="2"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosRango" CssClass="form-control" placeholder="Rango"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosRango" CssClass="form-control rango" placeholder="Rango" MaxLength="1"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosRodado" CssClass="form-control" placeholder="Rodado"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosRodado" CssClass="form-control" placeholder="Rodado" MaxLength="2"></asp:TextBox>
                                         <p class="help-block"></p>
 
                                         <div class="form-inline">
@@ -251,7 +281,7 @@
                                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
                                 <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
                                 <asp:LinkButton runat="server" ID="btnLFiltrosimpiar" OnClientClick="return btnFiltrosLimpiar_OnClientClick();" CssClass="btn btn-warning"><i class="fa fa-trash"></i> Limpiar</asp:LinkButton>
-                                <asp:LinkButton runat="server" OnClick="btnFiltrosBuscar_Click" ID="btnFiltrosBuscar" CssClass="btn btn-warning"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
+                                <asp:LinkButton runat="server" OnClientClick="return btnFiltrosBuscarOnClientClick();" OnClick="btnFiltrosBuscar_Click" ID="btnFiltrosBuscar" CssClass="btn btn-warning"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -279,7 +309,7 @@
                                 <div class="form-group">
                                     <%--<label>IP:</label>--%>
 
-                                    <asp:TextBox runat="server" ID="txtRango" MaxLength="1" CssClass="form-control" placeholder="Rango"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtRango" MaxLength="1" CssClass="form-control rango" placeholder="Rango"></asp:TextBox>
                                     <p class="help-block"></p>
 
                                 </div>

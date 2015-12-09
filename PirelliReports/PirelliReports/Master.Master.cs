@@ -111,8 +111,8 @@ namespace PirelliReports
             scriptStyle = new HtmlHeaderStyleLink("~/Content/css/sb-admin.css");
             scriptStyle.IncludeOn(Page.Header);
 
-            scriptStyle = new HtmlHeaderStyleLink("~/Content/css/plugins/morris.css");
-            scriptStyle.IncludeOn(Page.Header);
+            //scriptStyle = new HtmlHeaderStyleLink("~/Content/css/plugins/morris.css");
+            //scriptStyle.IncludeOn(Page.Header);
 
             scriptStyle = new HtmlHeaderStyleLink("~/Content/font-awesome/css/font-awesome.min.css");
             scriptStyle.IncludeOn(Page.Header);
@@ -121,11 +121,11 @@ namespace PirelliReports
             scriptStyle.IncludeOn(Page.Header);
 
         }
+
         private void LoadScripts()
         {
             imgPirelli.Src = "~/Content/img/logo_pirelli_small.svg";
-         
- 
+
             HtmlHeaderJSLink scriptLink = new HtmlHeaderJSLink("~/Content/js/jquery.js");
             scriptLink.IncludeOn(Page.Header);
 
@@ -145,6 +145,9 @@ namespace PirelliReports
             scriptLink.IncludeOn(Page.Header);
 
             scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/jquery-validation-1.14.0/localization/messages_es.min.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            scriptLink = new HtmlHeaderJSLink("~/Content/js/datepicker.js");
             scriptLink.IncludeOn(Page.Header);
 
             //scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/morris/morris.min.js");

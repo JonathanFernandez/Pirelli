@@ -23,17 +23,22 @@ namespace PirelliReports
             
         }
 
-      
-
         protected void btn_enviar_Click(object sender, EventArgs e)
         {
             lblMensaje.Visible = false;
             if (!connUsuario.VerificarMaiExistente(lost_email.Text))
             {
                 lblMailIncorrecto.Visible = true;
+<<<<<<< HEAD
             
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " openModal();", true);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "mail", "darClick();", true);
+=======
+                //string function = "darClick();";
+                
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "mail", "login_lost_btn.click()", true);
+>>>>>>> origin/master
             }
             else
             {
@@ -44,8 +49,6 @@ namespace PirelliReports
                 //return true;
             }
         }
-
-       
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
@@ -73,9 +76,5 @@ namespace PirelliReports
             }
 
         }
-
-       
-       
-       
     }
 }

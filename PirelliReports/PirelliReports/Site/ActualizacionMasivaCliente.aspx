@@ -5,7 +5,6 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
 <script>
-
     function openModal() {
 
         $('#modalSincro').modal('show');
@@ -19,8 +18,6 @@
 </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
-  
-    
     <div id="page-wrapper">
 
         <div class="container-fluid form-pirelli">
@@ -105,7 +102,6 @@
                                     <div class="row">
                                         <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

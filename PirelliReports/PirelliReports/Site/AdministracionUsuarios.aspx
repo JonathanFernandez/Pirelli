@@ -5,7 +5,76 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-    <script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.validator.addMethod("alphaNumericOnly", function (value, element) {
+                return /^[a-zA-Z0-9 ]+$/.test(value);
+            }, "Ingrese solo minusculas, mayusculas, numeros y/o espacios en blanco");
+
+            $('form').validate({
+                rules:
+                {
+                    <%= txtUsuarioID.UniqueID %>: 
+                    {
+                        required: true,
+                        minlength: 7,
+                        maxlength: 50
+                    },
+                    <%= txtLegajo.UniqueID %>: 
+                    {
+                        required: true,
+                        digits: true
+                    },
+                    <%= txtDescripcion.UniqueID %>: 
+                    {
+                        required: true,
+                        alphaNumericOnly: true,
+                        maxlength: 50
+                    },
+                    <%= txtMailUser.UniqueID %>: 
+                    {
+                        required: true,
+                        email: true,
+                        maxlength: 50
+                    },
+                    <%= txtPassUser.UniqueID %>: 
+                    {
+                        required: true,
+                        maxlength: 20
+                    },
+                },
+                messages:
+                {
+                      <%= txtUsuarioID.UniqueID %>: 
+                    {
+                        required: "Ingrese un ID de usuario",
+                        minlength: "Solo se permiten 7 caracteres como minimo en el ID",
+                        maxlength: "Solo se permiten 7 caracteres como maximo en el ID"
+                    },
+                    <%= txtLegajo.UniqueID %>: 
+                    {
+                        required: "Ingrese legajo",
+                        digits: "Solo se permiten digitos [0-9] en el legajo"
+                    },
+                    <%= txtDescripcion.UniqueID %>: 
+                    {
+                        required: "Ingrese descripcion",
+                        maxlength: "Solo se permiten 50 caracteres como maximo en la descripcion"
+                    },
+                    <%= txtMailUser.UniqueID %>: 
+                    {
+                        required: "Ingrese email",
+                        email: "Ingrese email valido xxxx@yyyyy.zzz",
+                        maxlength: "Solo se permiten 50 caracteres como maximo en el email"
+                    },
+                    <%= txtPassUser.UniqueID %>: 
+                    {
+                        required: "Ingrese clave",
+                        maxlength: "Solo se permiten 20 caracteres como maximo en la clave"
+                    },
+                }
+            });
+        });
 
         function btnAceptarOnClientClick()
         {
@@ -35,7 +104,6 @@
         function openModalMensaje() {
             $('#modalMensaje').modal('show');
         }
-
     </script>
 
 </asp:Content>

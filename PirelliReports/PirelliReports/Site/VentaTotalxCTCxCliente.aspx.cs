@@ -40,15 +40,17 @@ namespace PirelliReports.Site
             DateTime desde = new DateTime();
             DateTime hasta = new DateTime();
 
-            desde = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text));
-            hasta = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text));
+            //desde = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text));
+            //hasta = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text));
+
+            desde = Convert.ToDateTime(pMetodos.ConvertddmmyyyyToyyyymmdd(dpDesde.Text));
+            hasta = Convert.ToDateTime(pMetodos.ConvertddmmyyyyToyyyymmdd(dpHasta.Text));
 
             string ctc = ddlCTC.SelectedValue;
 
-            string url = "CrystalViewer.aspx?reporte=VentaTotalxCTCxCliente&ctc=" + ctc + "&desde=" + pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text) + "&hasta=" + pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text) +"&cliente=" + ddlClientes.SelectedValue;
+            string url = "CrystalViewer.aspx?reporte=VentaTotalxCTCxCliente&ctc=" + ctc + "&desde=" + pMetodos.ConvertddmmyyyyToyyyymmdd(dpDesde.Text) + "&hasta=" + pMetodos.ConvertddmmyyyyToyyyymmdd(dpHasta.Text) +"&cliente=" + ddlClientes.SelectedValue;
             //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "OpenPopUp('" + url + "');", true);
-            
-            
+ 
             ArrayList parametros = new ArrayList();
             dsReportes ds = new dsReportes();
 
@@ -56,7 +58,6 @@ namespace PirelliReports.Site
             parametros.Add(hasta);
             parametros.Add(ddlClientes.SelectedValue);
             parametros.Add(ctc);
-
 
             ds.tVentaTotalCTCxCliente.Merge(conReportes.VentaTotalxCTCxCliente(parametros));
             CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new ReportDocument();
@@ -70,8 +71,11 @@ namespace PirelliReports.Site
             string fileName = ddlCTC.SelectedItem.Text + "xCliente";
             rpt.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("files/" + fileName + ".pdf"));
 
+<<<<<<< HEAD
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
 
+=======
+>>>>>>> origin/master
             ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var hidden = open('files/" + fileName + ".pdf', 'NewWindow', 'top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes');", true);
 
             /*DataTable dt = conReportes.VentaTotalxCTCxCliente(parametros);
@@ -91,7 +95,6 @@ namespace PirelliReports.Site
             Chart1.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Bar;// SeriesChartType.Pie;
             Chart1.ChartAreas["ChartArea1"].Area3DStyle.Enable3D = true;
             */
-
         }
                
         protected void ddlCTC_SelectedIndexChanged(object sender, EventArgs e)

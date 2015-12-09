@@ -5,19 +5,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-<script>
-    function openModal() {
-        
-        $('#modalAplicar').modal('show');
-    }
-</script>
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <script type="text/javascript">
 
-        $(document).ready(function () {
-            $('form').validate({ // initialize the plugin
+        function openModal() {
+            $('#modalAplicar').modal('show');
+        }
 
+        $(document).ready(function () {
+            $('form').validate({
             });
 
             $.validator.addClassRules({
@@ -31,8 +26,10 @@
             });
         });
         </script>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
+    
     <div id="page-wrapper">
-        
 
         <div class="container-fluid form-pirelli">
 

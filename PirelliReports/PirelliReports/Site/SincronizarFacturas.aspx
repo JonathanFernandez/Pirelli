@@ -6,9 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script>
-
         function openModal() {
-           
             $('#modalSincro').modal('show');
         }
         function activarSpinner() {
@@ -64,8 +62,7 @@
                 <br />
                 <br />
                 <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">
-                    <asp:GridView ID="gvListadoClientes" class="table table-responsive table-bordered table-hover table-striped table-condensed" runat="server">
-                        
+                    <asp:GridView ID="gvListadoClientes" class="table table-responsive table-bordered table-hover table-striped table-condensed" runat="server">  
                     </asp:GridView>
                 </div>
 
@@ -81,7 +78,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="page-header modal-title" id="myModalSincro">Sincronización
+                        <h4 class="page-header modal-title" id="myModalSincro">Sincronizar Facturas
                         </h4>
                     </div>
                     <div class="modal-body">

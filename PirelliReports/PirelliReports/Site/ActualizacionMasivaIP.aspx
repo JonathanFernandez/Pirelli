@@ -4,8 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-<script>
-
+<script type="text/javascript">
     function openModal() {
 
         $('#modalSincro').modal('show');
@@ -19,8 +18,7 @@
 </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
-  
-    
+
     <div id="page-wrapper">
 
         <div class="container-fluid form-pirelli">

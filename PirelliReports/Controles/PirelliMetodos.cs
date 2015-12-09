@@ -10,6 +10,8 @@ using System.Drawing;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Collections;
+using System.Text;
+using System.Security.Cryptography;
 using Entidades;
 using Subgurim.Controles;
 
@@ -39,6 +41,11 @@ namespace Controles
             return fecha.Substring(6, 4) + "/" + fecha.Substring(0, 2) + "/" + fecha.Substring(3, 2);
         }
 
+        public string ConvertddmmyyyyToyyyymmdd(string fecha)
+        {
+            return fecha.Substring(6, 4) + "/" + fecha.Substring(3, 2) + "/" + fecha.Substring(0, 2);
+        }
+
         public void LlenarMapaConClientes(ArrayList clientes, GMap map)
         {
 
@@ -59,6 +66,39 @@ namespace Controles
 
 
             }
+        }
+
+        private string encriptarClave(string cadena)
+        {
+            byte[] bytes = ASCIIEncoding.ASCII.GetBytes("ZeroCool");
+            if (String.IsNullOrEmpty(cadena))
+            {
+                throw new ArgumentNullException("Cadena vacia");
+            }
+            DESCryptoServiceProvider cryptoProvider = new DESCryptoServiceProvider();
+            MemoryStream memoryStream = new MemoryStream();
+            CryptoStream cryptoStream = new CryptoStream(memoryStream,
+                cryptoProvider.CreateEncryptor(bytes, bytes), CryptoStreamMode.Write);
+            StreamWriter writer = new StreamWriter(cryptoStream);
+            writer.Write(cadena);
+            writer.Flush();
+            cryptoStream.FlushFinalBlock();
+            writer.Flush();
+            return Convert.ToBase64String(memoryStream.GetBuffer(), 0, (int)memoryStream.Length);
+        }
+
+        private string desencriptarClave(string cadena)
+        {
+            byte[] bytes = ASCIIEncoding.ASCII.GetBytes("ZeroCool");
+            if (String.IsNullOrEmpty(cadena))
+            {
+                throw new ArgumentNullException("Cadena vacia");
+            }
+            DESCryptoServiceProvider cryptoProvider = new DESCryptoServiceProvider();
+            MemoryStream memoryStream = new MemoryStream(Convert.FromBase64String(cadena));
+            CryptoStream cryptoStream = new CryptoStream(memoryStream, cryptoProvider.CreateDecryptor(bytes, bytes), CryptoStreamMode.Read);
+            StreamReader reader = new StreamReader(cryptoStream);
+            return reader.ReadToEnd();
         }
     }
 }

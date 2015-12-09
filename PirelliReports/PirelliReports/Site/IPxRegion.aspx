@@ -38,38 +38,26 @@
                         <div class="form-group">
                             <label>Seleccione rango de fechas:</label>
                             <div class="control-group pull-right">
-                                            <div class="controls">
-                                                <div class="input-group margin-15">
-                                                        <asp:TextBox runat="server" ID="dpDesde" class="date-picker form-control" placeholder="Desde"></asp:TextBox>
-                                                        <label for="dpDesde" class="input-group-addon btn">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                        </label>
-                                                </div>
+                                <div class="controls">
+                                    <div class="input-group margin-15">
+                                            <asp:TextBox runat="server" ID="dpDesde" class="date-picker form-control" placeholder="Desde"></asp:TextBox>
+                                            <label for="dpDesde" class="input-group-addon btn">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </label>
+                                    </div>
 
-                                                <div class="input-group margin-15">
-                                                        <asp:TextBox runat="server" ID="dpHasta" class="date-picker form-control" placeholder="Hasta"></asp:TextBox>
-                                                        <label for="dpHasta" class="input-group-addon btn">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                        </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <script>
-
-                                            $(".date-picker").datepicker();
-
-                                            //var date = $('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
-
-                                            $(".date-picker").on("change", function () {
-
-                                                var id = $(this).attr("id");
-                                                var val = $("label[for='" + id + "']").text();
-                                                $("#msg").text(val + " changed");
-                                            });
-
-
-                                            $(".date-picker").css("z-index", "9999");
-                                        </script>
+                                    <div class="input-group margin-15">
+                                            <asp:TextBox runat="server" ID="dpHasta" class="date-picker form-control" placeholder="Hasta"></asp:TextBox>
+                                            <label for="dpHasta" class="input-group-addon btn">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                 $(".date-picker").datepicker();
+                                 $(".date-picker").css("z-index", "9999");
+                            </script>
                         </div>
                     </div>
                 </div>

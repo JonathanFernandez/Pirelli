@@ -5,6 +5,7 @@ using System.Web;
 
 namespace Entidades
 {
+    //[Serializable]
     public class Zoprodu
     {
         private string iP;

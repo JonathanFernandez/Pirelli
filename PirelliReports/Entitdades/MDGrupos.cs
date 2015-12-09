@@ -5,6 +5,7 @@ using System.Web;
 
 namespace Entidades
 {
+    //[Serializable]
     public class MDGrupos
     {
         private int grupo_id;

@@ -5,11 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <title>Pirelli - Login</title>
 
@@ -23,13 +23,13 @@
     <script src="Content/js/login.js"></script>    
 
     <!-- Bootstrap Core CSS -->
-    <link href="Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
-    <link href="Content/css/sb-admin.css" rel="stylesheet">
+    <link href="Content/css/sb-admin.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-    <link href="Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -130,8 +130,8 @@
                                             <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
                                             <span id="text-login-msg">Ingrese su nombre y contraseña.</span>
                                         </div>
-                                        <asp:TextBox runat="server" id="login_username" class="form-control"  placeholder="Usuario" required/>
-                                        <asp:TextBox runat="server" TextMode="Password" class="form-control" id="login_password" placeholder="Contraseña" required/>
+                                        <asp:TextBox runat="server" id="login_username" class="form-control"  placeholder="Usuario" required="required"/>
+                                        <asp:TextBox runat="server" TextMode="Password" class="form-control" id="login_password" placeholder="Contraseña" required="required"/>
                                        <%--<div class="checkbox">
                                             <label>
                                                 <asp:Label runat="server" id="lblPassIncorrecta" Text="Contraseña incorrecta" Visible="false"></asp:Label
@@ -162,7 +162,7 @@
                                             <span id="text-lost-msg">Ingrese su e-mail.</span>
                                         </div>
                                         <%--<input id="lost_email" class="form-control" type="text" placeholder="E-mail" required>--%>
-                                        <asp:TextBox runat="server" id="lost_email" class="form-control" placeholder="E-mail" required />
+                                        <asp:TextBox runat="server" id="lost_email" class="form-control" placeholder="E-mail" required="required" />
                                         <p>
                                                 <label>
                                                     <asp:Label runat="server" id="lblMailIncorrecto" Text="E-mail incorrecto" Visible="false"></asp:Label>

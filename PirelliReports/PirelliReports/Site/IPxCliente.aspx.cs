@@ -40,8 +40,10 @@ namespace PirelliReports.Site
             DateTime desde = new DateTime();
             DateTime hasta = new DateTime();
 
-            desde = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text));
-            hasta = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text));
+            //desde = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text));
+            //hasta = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text));
+            desde = Convert.ToDateTime(pMetodos.ConvertddmmyyyyToyyyymmdd(dpDesde.Text));
+            hasta = Convert.ToDateTime(pMetodos.ConvertddmmyyyyToyyyymmdd(dpHasta.Text));
 
             for (int i = 0; i < chklistFiltro.Items.Count; i++)
             {
@@ -61,10 +63,9 @@ namespace PirelliReports.Site
                 filter = "null";
             else
                filter = filter.Substring(1, filter.Length - 1);
-            string url = "CrystalViewer.aspx?reporte=IPxCliente&ip=" + ip + "&desde=" + pMetodos.ConvertmmddyyyyToyyyymmdd(dpDesde.Text) + "&hasta=" + pMetodos.ConvertmmddyyyyToyyyymmdd(dpHasta.Text)+"&filter="+filter;
+            string url = "CrystalViewer.aspx?reporte=IPxCliente&ip=" + ip + "&desde=" + pMetodos.ConvertddmmyyyyToyyyymmdd(dpDesde.Text) + "&hasta=" + pMetodos.ConvertddmmyyyyToyyyymmdd(dpHasta.Text)+"&filter="+filter;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "OpenPopUp('"+url+"');", true);
             //Response.Redirect(url,false);
-
         }
     }
     

@@ -54,21 +54,9 @@
                                 </div>
                             </div>
                         </div>
-                        <script>
-
-                            $(".date-picker").datepicker();
-
-                            //var date = $('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
-
-                            $(".date-picker").on("change", function () {
-
-                                var id = $(this).attr("id");
-                                var val = $("label[for='" + id + "']").text();
-                                $("#msg").text(val + " changed");
-                            });
-
-
-                            $(".date-picker").css("z-index", "9999");
+                        <script type="text/javascript">
+                             $(".date-picker").datepicker();
+                             $(".date-picker").css("z-index", "9999");
                         </script>
                     </div>
                 </div>

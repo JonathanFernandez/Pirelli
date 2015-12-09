@@ -17,6 +17,7 @@ namespace PirelliReports.Site
     {
         ConexionFacturasPromo conFacturas = new ConexionFacturasPromo();
         PirelliMetodos pMetodos = new PirelliMetodos();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -27,8 +28,6 @@ namespace PirelliReports.Site
                 conFacturas.CargarFamiliaAgrup(ddlFamiliaAgrup);
                 conFacturas.CargarIPFilBusqueda(chklistIPFlgBus);
                 conFacturas.CargarClienteFilBusqueda(chklistCliFlgBus);
-
-
             }
         }
 
@@ -37,6 +36,7 @@ namespace PirelliReports.Site
             gvListadoFacturasAgrupadas.DataSource = conFacturas.ListadoDeFacturasEnvioSAP(txtCodigoCliente.Text, txtDescripcion.Text, txtPromo.Text, Convert.ToInt32(ddlCantidadRegistros.SelectedValue), ddlFamiliaAgrup.SelectedValue);
             gvListadoFacturasAgrupadas.DataBind();
         }
+
         private void cargarCantidadDeRegistros(DropDownList ddl)
         {
             ddl.Items.Add(new ListItem("1000", "1000"));
@@ -45,13 +45,13 @@ namespace PirelliReports.Site
             ddl.Items.Add(new ListItem("4000", "4000"));
             ddl.Items.Add(new ListItem("5000", "5000"));
             ddl.Items.Add(new ListItem("10000", "10000"));
-
         }
 
         protected void btnExportar_Click(object sender, EventArgs e)
         {
             pMetodos.ExportGridViewToExcel(gvListadoFacturasAgrupadas, "Facturas Agrupadas", Response);
         }
+
         public override void VerifyRenderingInServerForm(Control control)
         {
             // this is required for avoid error (control must be placed inside form tag)
@@ -70,7 +70,6 @@ namespace PirelliReports.Site
             lblMensaje.Text = "Facturas enviadas con exito";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true); 
-
         }
     }
 }

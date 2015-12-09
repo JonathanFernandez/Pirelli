@@ -33,9 +33,6 @@ namespace PirelliReports.Site
             lblMensaje.Text = "Carga de datos finalizada";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true); 
-            
-                      
-            
         }
 
         protected void btnSincronizar_Click(object sender, EventArgs e)
@@ -47,8 +44,6 @@ namespace PirelliReports.Site
             lblMensaje.Text = "Sincronización finalizada";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
-            
-   
         }
     }
 }

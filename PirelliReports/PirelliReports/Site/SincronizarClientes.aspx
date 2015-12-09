@@ -5,9 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
 <script>
-
     function openModal() {
-
         $('#modalSincro').modal('show');
     }
     function activarSpinner() {
@@ -19,8 +17,6 @@
 </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
-  
-    
     <div id="page-wrapper">
 
         <div class="container-fluid form-pirelli">

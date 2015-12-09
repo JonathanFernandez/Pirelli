@@ -5,6 +5,7 @@ using System.Web;
 
 namespace Entidades
 {
+    //[Serializable]
     public class ZoCliente
     {
         private string cod;

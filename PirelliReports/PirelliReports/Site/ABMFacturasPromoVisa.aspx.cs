@@ -53,7 +53,7 @@ namespace PirelliReports.Site
                     txtEditarCodigoPostal.Text = solicitud.CodPos;
                     txtEditarVehiculo.Text = solicitud.Vehiculo;
                     txtEditarNota.Text = solicitud.Nota;
-                    dpEditarFecha.Text = solicitud.FechaCompra.ToString("MM/dd/yyyy");
+                    dpEditarFecha.Text = solicitud.FechaCompra.ToString("dd/MM/yyyy");
                     dpEditarFecha_TextChanged(sender, e);
                     cargarCuotaDescuentoDePromo();
                     
@@ -86,7 +86,8 @@ namespace PirelliReports.Site
         }
         private void cargarTipoPromo(DropDownList ddl)
         {
-            string fecha = pMetodos.ConvertmmddyyyyToyyyymmdd(dpEditarFecha.Text);
+            //string fecha = pMetodos.ConvertmmddyyyyToyyyymmdd(dpEditarFecha.Text);
+            string fecha = pMetodos.ConvertddmmyyyyToyyyymmdd(dpEditarFecha.Text);
             DataSet ds = new DataSet();
             ds = conFacturas.CargarPromosVigentesDelDiaSeleccionado(ddlEditarTipoPromo,Convert.ToDateTime(fecha));
             string mostrar;
@@ -105,7 +106,8 @@ namespace PirelliReports.Site
         }
         private void cargarCuotaDescuentoDePromo()
         {
-            string fecha = pMetodos.ConvertmmddyyyyToyyyymmdd(dpEditarFecha.Text);
+            //string fecha = pMetodos.ConvertmmddyyyyToyyyymmdd(dpEditarFecha.Text);
+            string fecha = pMetodos.ConvertddmmyyyyToyyyymmdd(dpEditarFecha.Text);
             DataSet ds = new DataSet();
             ds = conFacturas.PromosVigentesDelDiaSeleccionado(Convert.ToDateTime(fecha), Convert.ToInt32(ddlEditarTipoPromo.SelectedValue));
             if (ds.Tables[0].Rows.Count > 0)
@@ -164,8 +166,6 @@ namespace PirelliReports.Site
                         ddl.Items[i].Selected = true;
                 }
             }
-
-
         }
         private void cargarMedidas(DropDownList ddl)
         {
@@ -239,7 +239,8 @@ namespace PirelliReports.Site
             solicitud.Ip = ddlEditarMedida.SelectedValue.ToString();
             solicitud.Pais = HDPais.Value;
             solicitud.CodClie = ddlEditarCliente.SelectedValue.ToString();
-            solicitud.FechaCompra = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpEditarFecha.Text));
+            //solicitud.FechaCompra = Convert.ToDateTime(pMetodos.ConvertmmddyyyyToyyyymmdd(dpEditarFecha.Text));
+            solicitud.FechaCompra = Convert.ToDateTime(pMetodos.ConvertddmmyyyyToyyyymmdd(dpEditarFecha.Text));
             solicitud.Cantidad = Convert.ToInt32(txtEditarCantidad.Text);
             solicitud.NroFactura = txtEditarNumFactura.Text;
             solicitud.NombreUsu = txtEditarNombre.Text;
@@ -281,8 +282,8 @@ namespace PirelliReports.Site
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true); 
-
         }
+<<<<<<< HEAD
 
         protected void ddlEditarCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -301,5 +302,7 @@ namespace PirelliReports.Site
       
        
         
+=======
+>>>>>>> origin/master
     }
 }

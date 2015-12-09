@@ -3,7 +3,7 @@
 <%@ Register Assembly="GMaps" Namespace="Subgurim.Controles" TagPrefix="cc" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script>
+    <script type="text/javascript">
         $(window).load(function () {
             $(".btn-sticky").sticky({ topSpacing: 50 });
         });
@@ -42,7 +42,6 @@
 
         function btnEditarLimpiarCampos_OnClientClick()
         {
-            
             document.getElementById("PaginaCentral_ContentPlaceHolder_dpEditarFecha").value = "";
             document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditCuota").value = "0";
             document.getElementById("PaginaCentral_ContentPlaceHolder_txtEditarMedida").value = "";
@@ -89,13 +88,11 @@
         }
 
         function reDrawMaps() {
-
             $('#modalMaps').on('shown.bs.modal', function () {
 
                 google.maps.event.trigger(document.getElementById("subgurim_GMap1"), "resize");
 
             });
-
         }
        
     </script>
@@ -135,7 +132,6 @@
                 <asp:LinkButton runat="server" ID="btnRefrescar" OnClick="btnRefrescar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Refrescar</asp:LinkButton>
                 
                 <asp:TextBox runat="server" class="form-control input-mini inline" AutoPostBack="true" OnTextChanged="txtBuscarFactura_TextChanged" id="txtBuscarFactura" placeholder="Buscar con escáner"></asp:TextBox>
-
             </div>
             <%-- MODAL maps --%>
             <div class="modal fade" id="modalMaps" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -152,9 +148,7 @@
                                     <cc:GMap ID="GMap1" runat="server" />
                                     <br />
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -250,21 +244,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <script>
-
-                                            $(".date-picker").datepicker();
-
-                                            //var date = $('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
-
-                                            $(".date-picker").on("change", function () {
-
-                                                var id = $(this).attr("id");
-                                                var val = $("label[for='" + id + "']").text();
-                                                $("#msg").text(val + " changed");
-                                            });
-
-
-                                            $(".date-picker").css("z-index", "9999");
+                                        <script type="text/javascript">
+                                             $(".date-picker").datepicker();
+                                             $(".date-picker").css("z-index", "9999");
                                         </script>
                                     </div>
                                 </div>
@@ -415,22 +397,11 @@
                                         </label>
                                     </div>
                                 </div>
-                                 <script>
 
-                                     $(".date-picker").datepicker();
-
-                                     //var date = $('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
-
-                                     $(".date-picker").on("change", function () {
-
-                                         var id = $(this).attr("id");
-                                         var val = $("label[for='" + id + "']").text();
-                                         $("#msg").text(val + " changed");
-                                     });
-
-
-                                     $(".date-picker").css("z-index", "9999");
-                                        </script>
+                                <script type="text/javascript">
+                                    $(".date-picker").datepicker();
+                                    $(".date-picker").css("z-index", "9999");
+                                </script>
 
                                 <div class="col-lg-3">
                                     <div class="form-inline">
@@ -708,8 +679,8 @@
         <%-- Fin modal EDIT --%>
     </div>
     </div>
-    <script>
-        //window.setTimeout(function () { google.maps.event.trigger("googleMaps", 'resize') }, 0);
+  <%--  <script>
+        window.setTimeout(function () { google.maps.event.trigger("googleMaps", 'resize') }, 0);
 
-    </script>
+    </script>--%>
 </asp:Content>
