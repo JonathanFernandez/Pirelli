@@ -28,12 +28,12 @@ namespace Negocio
             }
             return reg;
         }
-        public DataSet ListadoGeoClientesDeFacturas()
+        public DataSet ListadoGeoClientesDeFacturas(ArrayList parametros)
         {
             AdoConn ado = new AdoConn();
             DataSet ds = new DataSet();
             //DataTable dt = new DataTable();
-            ds = ado.ExecuteStoredProcedureDS("SP_GEO_CLIENTES_SOLICITUDES");
+            ds = ado.ExecuteStoredProcedureDS("SP_GEO_CLIENTES_SOLICITUDES",parametros);
 
             return ds;
         }
@@ -63,6 +63,31 @@ namespace Negocio
             ds = ado.ExecuteStoredProcedureDS("SP_SELECT_ZOCLIENTE",parametros);
 
             return ds;
+        }
+
+        public ZoCliente TraerCliente(string cod)
+        {
+            ZoCliente cliente = new ZoCliente();
+            ArrayList parametros = new ArrayList();
+            parametros.Add(cod);
+            parametros.Add("%");
+            parametros.Add("%");
+            parametros.Add("%");
+            
+            DataSet ds = new DataSet();
+            ds = ListadoClientes(parametros);
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                cliente.Cod = ds.Tables[0].Rows[0]["COD"].ToString();
+                cliente.RazSoc = ds.Tables[0].Rows[0]["RAZSOC"].ToString();
+                cliente.DirSuc = ds.Tables[0].Rows[0]["DIRSUC"].ToString();
+                cliente.CodProv = ds.Tables[0].Rows[0]["CODPROV"].ToString();
+                cliente.TelefonoSuc = ds.Tables[0].Rows[0]["TELEFONOSUC"].ToString();
+                cliente.Ciudad = ds.Tables[0].Rows[0]["CIUDAD"].ToString();
+            }
+
+            return cliente;
         }
         public void CargarClientes(DropDownList ddl)
         {

@@ -1,17 +1,12 @@
-C:\workspace\Pirelli v2\PirelliReports\DBLayer\bin\DBLayer.dll.config
-C:\workspace\Pirelli v2\PirelliReports\DBLayer\bin\DBLayer.dll
-C:\workspace\Pirelli v2\PirelliReports\DBLayer\bin\DBLayer.pdb
-C:\workspace\Pirelli v2\PirelliReports\DBLayer\obj\Debug\DBLayer.csprojResolveAssemblyReference.cache
-C:\workspace\Pirelli v2\PirelliReports\DBLayer\obj\Debug\DBLayer.dll
-C:\workspace\Pirelli v2\PirelliReports\DBLayer\obj\Debug\DBLayer.pdb
-C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.csprojResolveAssemblyReference.cache
+C:\workspace\Pirelli\PirelliReports\DBLayer\bin\DBLayer.dll.config
+C:\workspace\Pirelli\PirelliReports\DBLayer\bin\DBLayer.dll
+C:\workspace\Pirelli\PirelliReports\DBLayer\bin\DBLayer.pdb
+C:\workspace\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.csprojResolveAssemblyReference.cache
+C:\workspace\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.dll
+C:\workspace\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\bin\DBLayer.dll.config
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\bin\DBLayer.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\bin\DBLayer.pdb
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.dll
 C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.pdb
-C:\workspace\Pirelli\PirelliReports\DBLayer\bin\DBLayer.dll.config
-C:\workspace\Pirelli\PirelliReports\DBLayer\bin\DBLayer.dll
-C:\workspace\Pirelli\PirelliReports\DBLayer\bin\DBLayer.pdb
-C:\workspace\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.dll
-C:\workspace\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.pdb
+C:\Users\Jonathan\Documents\GitHub\Pirelli\PirelliReports\DBLayer\obj\Debug\DBLayer.csprojResolveAssemblyReference.cache

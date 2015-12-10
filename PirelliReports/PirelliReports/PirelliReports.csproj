@@ -1507,6 +1507,7 @@
     <Content Include="dsReportes.xss">
       <DependentUpon>dsReportes.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\PirelliWeb.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="ReestablecerPass.aspx" />
     <Content Include="RPT\CLIENTExIP.vb" />
@@ -1610,8 +1611,10 @@
     <Content Include="Sql Scripts\dbo.IPXCLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.IPXREGION.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.MD_GRUPOS.Table.sql" />
+    <Content Include="Sql Scripts\dbo.MD_PAGINAS.Table.sql" />
     <Content Include="Sql Scripts\dbo.MD_PERMISOS.Table.sql" />
     <Content Include="Sql Scripts\dbo.MD_USUARIOS.Table.sql" />
+    <Content Include="Sql Scripts\dbo.PERMISO_PAGINAS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SELECT_PERMISOS_POR_ID.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ALTERA_CLIENTE_CODSOL.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ALTERA_IP_CODSOL.StoredProcedure.sql" />
@@ -1937,6 +1940,12 @@
       <DependentUpon>VentaTotalxCTCxCliente.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RPT\VentaTotalxCTCxCliente2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VentaTotalxCTCxCliente2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2207,6 +2216,10 @@
     <EmbeddedResource Include="RPT\VentaTotalxCTCxCliente.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>VentaTotalxCTCxCliente.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\VentaTotalxCTCxCliente2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VentaTotalxCTCxCliente2.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

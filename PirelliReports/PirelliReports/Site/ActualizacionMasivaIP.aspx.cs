@@ -88,7 +88,7 @@ namespace PirelliReports.Site
             {
                 FileInfo fi = new FileInfo(HDrutaArchivoSubido.Value);
                 // Se consulta el tamaño del archivo en bytes
-                if (fi.Length > 0 && fi.Extension.ToUpper() == "TXT")
+                if (fi.Length > 0 && (fi.Extension.ToUpper() == "TXT" || fi.Extension.ToUpper() == ".TXT"))
                 {
                     try
                     {

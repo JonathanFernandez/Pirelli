@@ -68,6 +68,7 @@ namespace PirelliReports.Site
             string fileName = ddlCTC.SelectedItem.Text;
             rpt.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("files/"+fileName+".pdf"));
 
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
             
             ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var hidden = open('files/" + fileName + ".pdf', 'NewWindow', 'top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes');", true);
 

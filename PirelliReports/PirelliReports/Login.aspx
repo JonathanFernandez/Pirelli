@@ -57,11 +57,19 @@
        }
        function darClick() {
 
-           var objO = document.getElementById("login_lost_btn");
-
-           objO.click();
+           $('.modal-lost-password').css('display', 'block');
+           $('.modal-login').css('display', 'none');
+           $('#login_username').prop('disabled', true);
+           $('#login_password').prop('disabled', true);
+           $('#lost_email').prop('disabled', false);
 
        }
+ 
+       //if (document.getElementById("HDModoModal").value == "MAIL")
+       //{
+       //    darClick();
+       //}
+ 
    </script>
 </head>
 <body>
@@ -82,12 +90,12 @@
                         <a href="#" class="btn btn-warning btn-lg" id="login-btn" role="button" data-toggle="modal" data-target="#login_modal">Login</a>
                         <%--<asp:Button runat="server" ID="btnLoginInicio" text="Login" class="btn btn-warning btn-lg"  data-toggle="modal" data-target="#login_modal" ></asp:Button>--%>
                     </p>
-                    <%--<p class="">
+                    <p class="">
                         <label>
-                            <asp:Label runat="server" id="lblPassIncorrecta" Text="Contraseña incorrecta" Visible="false"></asp:Label>
+                            <asp:Label runat="server" id="lblMensaje" Text="Ingrese a su casiila de mensaje, para reestablecer la contraseña" Visible="false"></asp:Label>
                         </label>
                     </p>
-                    <p class="">
+                    <%--<p class="">
                         <label>
                             <asp:Label runat="server" id="lblMailIncorrecto" Text="E-mail incorrecto" Visible="false"></asp:Label>
                         </label>
@@ -184,10 +192,12 @@
             <!-- END # MODAL LOGIN -->
 
     </div>
+   
     </form>
     <%--</form>--%>
      <!-- /#wrapper -->
 
     
 </body>
+    
 </html>

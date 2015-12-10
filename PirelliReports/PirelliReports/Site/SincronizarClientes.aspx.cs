@@ -123,8 +123,9 @@ namespace PirelliReports.Site
             {
                 lblMensaje.Text = "No se encontraron clientes para sincronizar";
             }
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+            
         }
     }
 }

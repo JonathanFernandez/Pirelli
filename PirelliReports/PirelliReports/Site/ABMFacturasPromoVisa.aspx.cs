@@ -64,6 +64,7 @@ namespace PirelliReports.Site
                 cargarProvincia(ddlEditarProvincia);
                 //cargarRegion(ddlEditarRegion);
                 ddlEditarMedida_SelectedIndexChanged(sender, e);
+                ddlEditarCliente_SelectedIndexChanged(sender, e);
                 //ddlEditarCliente_SelectedIndexChanged(sender, e);
             }
 
@@ -191,6 +192,7 @@ namespace PirelliReports.Site
         protected void dpEditarFecha_TextChanged(object sender, EventArgs e)
         {
             cargarTipoPromo(ddlEditarTipoPromo);
+            cargarCuotaDescuentoDePromo();
         }
         protected void ddlEditarTipoPromo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -221,6 +223,7 @@ namespace PirelliReports.Site
                     
             }
         }
+
         //protected void ddlEditarCliente_SelectedIndexChanged(object sender, EventArgs e)
         //{
         //    DataSet ds = new DataSet();
@@ -279,6 +282,20 @@ namespace PirelliReports.Site
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true); 
+        }
+
+        protected void ddlEditarCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ZoCliente cliente = new ZoCliente();
+            cliente = conClientes.TraerCliente(ddlEditarCliente.SelectedValue);
+            txtEditarNombre.Text = cliente.RazSoc;
+            txtEditarDireccion.Text = cliente.DirSuc;
+            txtEditarTelefono.Text = cliente.TelefonoSuc;
+            txtEditarCiudad.Text = cliente.Ciudad;
+            HDProvincia.Value = cliente.CodProv;
+            ddlEditarProvincia.Items.Clear();
+            cargarProvincia(ddlEditarProvincia);
+
         }
     }
 }

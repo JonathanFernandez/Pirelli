@@ -159,6 +159,8 @@
                 <asp:LinkButton runat="server" ID="btnOpenModal" OnClientClick="return false;" CssClass="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</asp:LinkButton>
 
                 <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" Cssclass="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
+
+                <asp:LinkButton runat="server" ID="btnRefrescar" OnClick="btnRefrescar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Refrescar</asp:LinkButton>
             </div>
             <br />
             <br />
