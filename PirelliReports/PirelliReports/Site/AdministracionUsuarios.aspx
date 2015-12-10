@@ -22,8 +22,8 @@
                     },
                     <%= txtLegajo.UniqueID %>: 
                     {
-                        required: true,
-                        digits: true
+                        required: true
+                        //digits: true
                     },
                     <%= txtDescripcion.UniqueID %>: 
                     {
@@ -53,8 +53,8 @@
                     },
                     <%= txtLegajo.UniqueID %>: 
                     {
-                        required: "Ingrese legajo",
-                        digits: "Solo se permiten digitos [0-9] en el legajo"
+                        required: "Ingrese legajo"
+                        //digits: "Solo se permiten digitos [0-9] en el legajo"
                     },
                     <%= txtDescripcion.UniqueID %>: 
                     {

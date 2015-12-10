@@ -299,13 +299,7 @@ namespace PirelliReports.Site
             
             gvListadosFacturasVisa.DataSource = conFacturas.ListadoDeFacturas(parametros);
             gvListadosFacturasVisa.DataBind();
-<<<<<<< HEAD
 
-
-            
-
-=======
->>>>>>> origin/master
         }
 
         protected void btnExportar_Click(object sender, EventArgs e)
@@ -356,17 +350,10 @@ namespace PirelliReports.Site
             gvListadosFacturasVisa.DataSource = conFacturas.ListadoDeFacturas(parametros);
             gvListadosFacturasVisa.DataBind();
         }
-<<<<<<< HEAD
 
         protected void btnRefrescar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Site/FacturasPromoVisa.aspx",false);
         }
-
-             
-
-        
-=======
->>>>>>> origin/master
     }
 }

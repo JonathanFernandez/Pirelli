@@ -117,6 +117,8 @@
 
                 <asp:LinkButton runat="server" ID="btnVerMapa" OnClientClick="reDrawMaps();" class="btn btn-warning" data-toggle="modal" data-target="#modalMaps"><i class="fa fa-map-marker"></i> Ver Mapa</asp:LinkButton>
 
+                <asp:LinkButton runat="server" ID="btnRefrescar" OnClick="btnRefrescar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Refrescar</asp:LinkButton>
+
             </div>
             <%-- MODAL maps --%>
             <div class="modal fade" id="modalMaps" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -171,8 +173,8 @@
                                         <p class="help-block"></p>
 
                                         <div class="form-inline">
-                                            <label>Baja Lógica: </label>
-                                             <asp:CheckBox runat="server" ID="chkFiltrosBajaLogica" />
+                                            <%--<label>Baja Lógica: </label>--%>
+                                             <asp:CheckBox runat="server" ID="chkFiltrosBajaLogica" Visible="false"/>
                                         </div>
                                    </div>
                                 </div>
@@ -180,7 +182,7 @@
                             <div class="modal-footer">
                                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
                                 <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
-                                <asp:LinkButton runat="server" ID="btnLFiltrosimpiar" OnClientClick="btnFiltrosLimpiar_OnClientClick()" CssClass="btn btn-warning"><i class="fa fa-trash"></i> Limpiar</asp:LinkButton>
+                                <%--<asp:LinkButton runat="server" ID="btnLFiltrosimpiar" OnClientClick="btnFiltrosLimpiar_OnClientClick()" CssClass="btn btn-warning"><i class="fa fa-trash"></i> Limpiar</asp:LinkButton>--%>
                                 <asp:LinkButton runat="server" ID="btnFiltrosBuscar" OnClick="btnFiltrosBuscar_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
                             </div>
                         </div>

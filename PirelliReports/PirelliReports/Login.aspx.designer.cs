@@ -22,7 +22,7 @@ namespace PirelliReports {
         protected global::System.Web.UI.HtmlControls.HtmlForm loginform;
         
         /// <summary>
-<<<<<<< HEAD
+
         /// lblMensaje control.
         /// </summary>
         /// <remarks>
@@ -33,9 +33,8 @@ namespace PirelliReports {
         
         /// <summary>
         /// login_username control.
-=======
         /// Control login_username.
->>>>>>> origin/master
+
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

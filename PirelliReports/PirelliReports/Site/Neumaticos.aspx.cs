@@ -99,6 +99,11 @@ namespace PirelliReports.Site
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalMensaje();", true);
         }
 
+        protected void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Site/Neumaticos.aspx", false);
+        }
+
 
     }
 }

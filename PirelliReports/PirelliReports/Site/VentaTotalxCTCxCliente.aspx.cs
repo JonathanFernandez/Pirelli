@@ -71,11 +71,8 @@ namespace PirelliReports.Site
             string fileName = ddlCTC.SelectedItem.Text + "xCliente";
             rpt.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath("files/" + fileName + ".pdf"));
 
-<<<<<<< HEAD
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
 
-=======
->>>>>>> origin/master
             ClientScript.RegisterStartupScript(this.Page.GetType(), "popupOpener", "var hidden = open('files/" + fileName + ".pdf', 'NewWindow', 'top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes');", true);
 
             /*DataTable dt = conReportes.VentaTotalxCTCxCliente(parametros);

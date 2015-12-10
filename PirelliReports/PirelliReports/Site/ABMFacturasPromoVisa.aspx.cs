@@ -283,7 +283,6 @@ namespace PirelliReports.Site
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true); 
         }
-<<<<<<< HEAD
 
         protected void ddlEditarCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -298,11 +297,5 @@ namespace PirelliReports.Site
             cargarProvincia(ddlEditarProvincia);
 
         }
-
-      
-       
-        
-=======
->>>>>>> origin/master
     }
 }

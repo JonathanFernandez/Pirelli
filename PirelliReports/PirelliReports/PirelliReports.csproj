@@ -1611,8 +1611,10 @@
     <Content Include="Sql Scripts\dbo.IPXCLIENTE.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.IPXREGION.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.MD_GRUPOS.Table.sql" />
+    <Content Include="Sql Scripts\dbo.MD_PAGINAS.Table.sql" />
     <Content Include="Sql Scripts\dbo.MD_PERMISOS.Table.sql" />
     <Content Include="Sql Scripts\dbo.MD_USUARIOS.Table.sql" />
+    <Content Include="Sql Scripts\dbo.PERMISO_PAGINAS.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SELECT_PERMISOS_POR_ID.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ALTERA_CLIENTE_CODSOL.StoredProcedure.sql" />
     <Content Include="Sql Scripts\dbo.SP_ALTERA_IP_CODSOL.StoredProcedure.sql" />

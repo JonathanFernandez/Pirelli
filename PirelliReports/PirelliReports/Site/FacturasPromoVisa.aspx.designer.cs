@@ -49,7 +49,7 @@ namespace PirelliReports.Site {
         protected global::System.Web.UI.WebControls.LinkButton btnCrear;
         
         /// <summary>
-<<<<<<< HEAD
+
         /// btnRefrescar control.
         /// </summary>
         /// <remarks>
@@ -60,9 +60,9 @@ namespace PirelliReports.Site {
         
         /// <summary>
         /// txtBuscarFactura control.
-=======
+
         /// Control txtBuscarFactura.
->>>>>>> origin/master
+
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

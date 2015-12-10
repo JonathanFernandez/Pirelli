@@ -102,7 +102,8 @@
         });
 
         function btnAceptarOnClientClick() {          
-             var result = $('form').valid();
+            var result = $('form').valid();
+            activarSpinner();
              return result;
         }
 
@@ -215,11 +216,9 @@
                 </div>
                                
                 <!-- /.row -->
-<<<<<<< HEAD
-                <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClientClick="activarSpinner();" OnClick="btnAceptar_Click"/>
-=======
+
                 <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClick="btnAceptar_Click"  OnClientClick="return btnAceptarOnClientClick();"/>
->>>>>>> origin/master
+
                 <%--<asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
 
                 <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">

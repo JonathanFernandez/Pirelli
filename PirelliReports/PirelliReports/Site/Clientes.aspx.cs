@@ -204,5 +204,10 @@ namespace PirelliReports.Site
 
         }
 
+        protected void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Site/Clientes.aspx", false);
+        }
+
     }
 }
