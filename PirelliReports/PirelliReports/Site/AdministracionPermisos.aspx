@@ -97,14 +97,14 @@
                             <p class="help-block"></p>
                                 <div class="form-group">
                                 <asp:TextBox runat="server" MaxLength="50" ID="txtEditarNombre" CssClass="form-control grupo" placeholder="Nombre de Grupo"></asp:TextBox>
-                                <asp:LinkButton runat="server" ID="btnCambiarNombre" OnClick="btnCambiarNombre_Click" OnClientClick="return btnCambiarNombre();" CssClass="btn btn-warning pull-right margin-15"><i class="fa fa-edit"></i> Cambiar Nombre</asp:LinkButton>
+                                <asp:LinkButton runat="server" ID="btnCambiarNombre" OnClick="btnCambiarNombre_Click" OnClientClick="return btnCambiarNombre();" CssClass="btn btn-warning pull-right margin-top-15 margin-15"><i class="fa fa-edit"></i> Cambiar Nombre</asp:LinkButton>
 
                                  <div class="checklist-container">
                                   <asp:CheckBoxList runat="server" CssClass="margin-15" ID="chkListPermisosEditar"></asp:CheckBoxList>
                                  </div>
 
-                            <asp:LinkButton runat="server" ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger pull-right"><i class="fa fa-trash"></i> Eliminar</asp:LinkButton>
-                            <asp:LinkButton runat="server" ID="btnEditar" OnClick="btnEditar_Click" CssClass="btn btn-warning pull-right"><i class="fa fa-edit"></i> Modificar</asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger margin-top-15 margin-left-15 pull-right"><i class="fa fa-trash"></i> Eliminar</asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="btnEditar" OnClick="btnEditar_Click" CssClass="btn btn-warning margin-top-15 pull-right"><i class="fa fa-edit"></i> Modificar</asp:LinkButton>
                             
                         </div>
                     </div>
@@ -128,8 +128,10 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
+
+                                        <asp:LinkButton runat="server" ID="btnCerrar" OnClick="btnCerrar_Click" CssClass="btn btn-success margin-right-15 pull-right"><i class="fa fa-check"></i>Aceptar</asp:LinkButton>
                                     </div>
-                                    <asp:LinkButton runat="server" ID="btnCerrar" OnClick="btnCerrar_Click" CssClass="btn btn-danger pull-right"><i class="fa fa-trash"></i>Cerrar</asp:LinkButton>
+                                    
                                 </div>
                             </div>
                         </div>

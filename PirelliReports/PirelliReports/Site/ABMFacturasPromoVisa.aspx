@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-    <script>
+    <script type="text/javascript">
         function openModal() {
 
             $('#modalMensaje').modal('show');
@@ -13,6 +13,126 @@
         {
             window.close();
         }
+        function btnEditarAceptarOnClientClick() {    
+            
+            var result = $('form').valid();
+            return result;
+        }
+        $(document).ready(function () {
+            $.validator.addMethod("decimal", 
+                                        function (value, element) {
+                                            return this.optional(element) || /^\d{0,3}(\.\d{0,2})?$/i.test(value);
+                                        }, "Incluya 2 decimales");
+
+            $.validator.addMethod("dateValid", 
+                                   function(value, element) 
+                                   {
+                                       // Checks for the following valid date formats:
+                                       // MM/DD/YYYY
+                                       // Also separates date into month, day, and year variables
+                                       var patron = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;;
+ 
+                                       var res = value.match(patron); // is the format ok?
+                                       if (res != null) 
+                                       {
+                                           return true;
+                                       }
+                                       else
+                                       {
+                                           return false;
+                                       }
+                                   }, "Ingrese una fecha valida [dd/mm/yyyy]");
+            $('form').validate({
+                rules: 
+                {
+                    <%=dpEditarFecha.UniqueID %>: 
+                        {                        
+                            required: true,
+                            dateValid: true
+                        },
+                    <%=txtEditCuota.UniqueID %>: 
+                        {                        
+                            required: true                         
+                        },
+                    <%=txtDescuento.UniqueID %>: 
+                        {                        
+                            required: true                         
+                        },
+                    <%=txtEditarCantidad.UniqueID %>: 
+                        {                        
+                            required: true,
+                            digits: true
+                        },
+                    <%=txtEditPrecio.UniqueID %>: 
+                        {                        
+                            required: true,
+                            number: true
+                        },
+                     <%=txtEditarNumFactura.UniqueID %>: 
+                        {                        
+                            required: true
+                        },
+                    <%=txtEditarticket.UniqueID %>: 
+                        {                        
+                            required: true,
+                            digits: true
+                        },
+                    <%=txtEditarTarjeta.UniqueID %>: 
+                        {                        
+                            required: true,
+                            digits: true
+                        },
+                    <%=txtEditarNumCompra.UniqueID %>: 
+                        {                        
+                            required: true
+                        }
+
+                },
+                messages: 
+                {  
+                    <%=dpEditarFecha.UniqueID %>: 
+                        {
+                            required: "Se requiere una fecha valida"
+                        },
+                    <%=txtEditCuota.UniqueID %>: 
+                        {                        
+                            required: "Seleccione promoción para completar cuota"                         
+                        },
+                    <%=txtDescuento.UniqueID %>: 
+                        {                        
+                            required: "Seleccione promoción para completar descuento"                                                  
+                        },
+                    <%=txtEditarCantidad.UniqueID %>: 
+                        {                        
+                            required: "Campo obligatorio",
+                            digits: "Solo caracteres numericos"
+                        },
+                    <%=txtEditPrecio.UniqueID %>: 
+                        {                        
+                            required: "Campo obligatorio",
+                            number: "Ingrese valores numericos (caracter como decimal use el punto) "
+                        },
+                    <%=txtEditarNumFactura.UniqueID %>: 
+                        {                        
+                            required: "Campo obligatorio"
+                        },
+                    <%=txtEditarticket.UniqueID %>: 
+                        {                        
+                            required: "Campo obligatorio",
+                            digits: "Solo caracteres numericos"
+                        },
+                    <%=txtEditarTarjeta.UniqueID %>: 
+                        {                        
+                            required: "Campo obligatorio",
+                            digits: "Solo caracteres numericos"
+                        },
+                    <%=txtEditarNumCompra.UniqueID %>: 
+                        {                        
+                            required: "Campo obligatorio"
+                        }
+                }
+            });
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
@@ -61,14 +181,14 @@
                                 <div class="col-lg-2">
                                     <div class="form-inline">
                                         <label>Cuotas: </label>
-                                            <asp:TextBox runat="server" class="form-control input-mini" id="txtEditCuota" placeholder="Cuotas"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control input-medium" id="txtEditCuota" placeholder="Cuotas"></asp:TextBox>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-2">
+                                <div class="col-lg-3">
                                     <div class="form-inline">
                                         <label>Descuento: </label>
-                                        <asp:TextBox runat="server" class="form-control input-mini" id="txtDescuento" placeholder="Descuento"></asp:TextBox>
+                                        <asp:TextBox runat="server" class="form-control input-medium" id="txtDescuento" placeholder="Descuento"></asp:TextBox>
                                         <%--<asp:DropDownList runat="server" ID="ddlDescuento" CssClass="form-control form-medium" placeholder="Descuento"></asp:DropDownList>--%>
                                     </div>
                                 </div>
@@ -84,7 +204,7 @@
                             <%-- Row Columnas --%>
                             <div class="row">
                             <%-- Primera Columna Neumaticos --%>
-                                <div class="col-lg-4 borde-separador">
+                                <div class="col-lg-4">
                                     <h3 class="page-header modal-title margin-15">Neumatico</h3>
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
@@ -117,7 +237,7 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Marca: </label>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarMarca" placeholder="Marca"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarMarca"  placeholder="Marca"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -145,7 +265,7 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Nro Fac: </label>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarNumFactura" placeholder="Factura"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control pull-right" MaxLength="13" id="txtEditarNumFactura" placeholder="Factura"></asp:TextBox>
                                         </div>
                                     </div>
 
@@ -173,7 +293,7 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Nro Comp: </label>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarNumCompra" placeholder="Num Compra"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control pull-right" MaxLength="10" id="txtEditarNumCompra" placeholder="Num Compra"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -181,7 +301,7 @@
 
                                  <%-- Tercera Columna Clientes --%>
 
-                                <div class="col-lg-4 borde-separador">
+                                <div class="col-lg-4">
                                     <h3 class="page-header modal-title margin-15">Cliente</h3>
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
@@ -221,18 +341,18 @@
                                 <h3 class="page-header modal-title margin-15 margin-header">Datos de Usuario</h3>
                            
                                 <%-- Primera Columna Neumaticos --%>
-                                <div class="col-lg-4 borde-separador">
+                                <div class="col-lg-4">
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Nombre: </label>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarNombre" placeholder="Nombre"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarNombre"  placeholder="Nombre"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Dirección: </label>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarDireccion" placeholder="Dirección"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarDireccion"  placeholder="Dirección"></asp:TextBox>
                                         </div>
                                     </div>
 
@@ -245,54 +365,54 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Provincia: </label>
-                                            <asp:DropDownList runat="server" ID="ddlEditarProvincia" CssClass="form-control pull-right" placeholder="Provincia"></asp:DropDownList>
+                                            <asp:DropDownList runat="server" ID="ddlEditarProvincia" CssClass="form-control pull-right"  placeholder="Provincia"></asp:DropDownList>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Teléfono: </label>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarTelefono" placeholder="Telefono"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control pull-right"  id="txtEditarTelefono" placeholder="Telefono"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Nro: </label>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarNumero" placeholder="Número"></asp:TextBox>
+                                            <asp:TextBox runat="server" MaxLength="10" class="form-control pull-right" id="txtEditarNumero" placeholder="Número"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Piso: </label>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarPiso" placeholder="Piso"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control pull-right" MaxLength="2" id="txtEditarPiso" placeholder="Piso"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
                                 <%-- /Segunda Columna--%>
 
                                 <%-- Tercera Columna--%>
-                                <div class="col-lg-4 borde-separador">
+                                <div class="col-lg-4">
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Ciudad: </label>
                                             <%--<asp:DropDownList runat="server" ID="ddlEditarCiudad" CssClass="form-control pull-right" placeholder="Ciudad"></asp:DropDownList>--%>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarCiudad" placeholder="Ciudad"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control pull-right" MaxLength="50" id="txtEditarCiudad"  placeholder="Ciudad"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Cod Postal: </label>
-                                            <asp:TextBox runat="server" class="form-control input-medium pull-right" id="txtEditarCodigoPostal" placeholder="Codigo Postal"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control input-medium pull-right" MaxLength="10" id="txtEditarCodigoPostal" placeholder="Codigo Postal"></asp:TextBox>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Vehículo: </label>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarVehiculo" placeholder="Vehículo"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control pull-right" MaxLength="30" id="txtEditarVehiculo" placeholder="Vehículo"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -307,14 +427,14 @@
                                     <div class="form-inline">
                                         <label>Nota: </label>
                                         <%--<textarea class="form-control input-full" rows="3" id="txtEditarNota"placeholder="Nota"></textarea>--%>
-                                        <asp:TextBox runat="server" TextMode="MultiLine" class="form-control input-full" rows="3" id="txtEditarNota" placeholder="Nota"></asp:TextBox>
+                                        <asp:TextBox runat="server" MaxLength="200" TextMode="MultiLine" class="form-control input-full" rows="3" id="txtEditarNota" placeholder="Nota"></asp:TextBox>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4">
                                     <div class="form-inline">
                                         <br />
-                                        <asp:LinkButton runat="server" ID="btnEditarAceptar" OnClick="btnEditarAceptar_Click" CssClass="btn btn-success btn-block">Aceptar</asp:LinkButton>
+                                        <asp:LinkButton runat="server" ID="btnEditarAceptar" OnClientClick="return btnEditarAceptarOnClientClick();" OnClick="btnEditarAceptar_Click" CssClass="btn btn-success btn-block">Aceptar</asp:LinkButton>
                                         <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Cancelar</button>
                                     </div>
                                 </div>
@@ -329,7 +449,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="page-header modal-title" id="myModalSincro">Envio a SAP
+                                    <h4 class="page-header modal-title" id="myModalSincro">
                                     </h4>
                                 </div>
                                 <div class="modal-body">

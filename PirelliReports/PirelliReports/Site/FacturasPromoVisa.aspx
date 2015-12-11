@@ -129,7 +129,7 @@
 
                 <asp:LinkButton runat="server" ID="btnCrear" OnClientClick="btnCrearOnClientClick();" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Crear Factura</asp:LinkButton>
 
-                <asp:LinkButton runat="server" ID="btnRefrescar" OnClick="btnRefrescar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Refrescar</asp:LinkButton>
+                <asp:LinkButton runat="server" ID="btnRefrescar" OnClick="btnRefrescar_Click" class="btn btn-warning"><i class="fa fa-refresh"></i> Refrescar</asp:LinkButton>
                 
                 <asp:TextBox runat="server" class="form-control input-mini inline" AutoPostBack="true" OnTextChanged="txtBuscarFactura_TextChanged" id="txtBuscarFactura" placeholder="Buscar con escáner"></asp:TextBox>
             </div>
@@ -225,22 +225,18 @@
                                         <label>Rango de fechas</label>
                                         <div class="control-group">
                                             <div class="controls">
-                                                <div class="input-group">
-                                                    <p>
+                                                <div class="input-group margin-15">
                                                         <asp:TextBox runat="server" ID="dpFiltrosDesde" class="date-picker form-control" placeholder="Desde"></asp:TextBox>
                                                         <label for="dpDesde" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
-                                                    </p>
                                                 </div>
 
                                                 <div class="input-group">
-                                                    <p>
                                                         <asp:TextBox runat="server" ID="dpFiltrosHasta" class="date-picker form-control" placeholder="Hasta"></asp:TextBox>
                                                         <label for="dpHasta" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

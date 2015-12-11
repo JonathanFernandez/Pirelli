@@ -120,10 +120,10 @@
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i><a href="index.html">Dashboard</a>
+                            <i class="fa fa-dashboard"></i><a href="index.html"> Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-user"></i>Administración de Usuarios
+                            <i class="fa fa-user"></i> Administración de Usuarios
                             </li>
                     </ol>
                 </div>
@@ -189,8 +189,10 @@
                 <div class="modal-body">
                     <div class="row">
                         <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
+
+                        <asp:LinkButton runat="server" ID="btnCerrar" OnClick="btnCerrar_Click" CssClass="btn btn-success pull-right margin-right-15"><i class="fa fa-check"></i>Aceptar</asp:LinkButton>
                     </div>
-                    <asp:LinkButton runat="server" ID="btnCerrar" OnClick="btnCerrar_Click" CssClass="btn btn-danger pull-right"><i class="fa fa-trash"></i>Cerrar</asp:LinkButton>
+                    
                 </div>
             </div>
         </div>

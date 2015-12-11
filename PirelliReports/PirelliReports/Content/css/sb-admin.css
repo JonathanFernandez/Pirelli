@@ -49,8 +49,16 @@ body {
     margin-bottom: 15px;
 }
 
+.margin-top-15{
+    margin-top: 15px;
+}
+
 .margin-left-15{
     margin-left: 15px;
+}
+
+.margin-right-15{
+    margin-right: 15px;
 }
 
 .margin-header{
@@ -90,6 +98,7 @@ a{
 
 .borde-separador{
     border-right: 1px solid #C3C3C3;
+    border-left: 1px solid #C3C3C3;
 }
 
 /* Boostrap override*/

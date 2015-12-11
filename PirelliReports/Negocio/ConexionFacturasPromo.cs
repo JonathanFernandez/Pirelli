@@ -35,7 +35,7 @@ namespace Negocio
                 solicitud.NroAuto = Convert.ToInt32(ds.Tables[0].Rows[0]["NroAuto"]);
                 solicitud.NombreUsu = ds.Tables[0].Rows[0]["NombreUsu"].ToString();
                 solicitud.DirUsu = ds.Tables[0].Rows[0]["DirUsu"].ToString();
-                solicitud.Nro = Convert.ToInt32(ds.Tables[0].Rows[0]["Nro"]);
+                solicitud.Nro = ds.Tables[0].Rows[0]["Nro"].ToString();
                 solicitud.Dpto = ds.Tables[0].Rows[0]["Dpto"].ToString();
                 solicitud.Piso = ds.Tables[0].Rows[0]["Piso"].ToString();
                 solicitud.Ciudad = ds.Tables[0].Rows[0]["Ciudad"].ToString();

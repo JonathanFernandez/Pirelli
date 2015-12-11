@@ -106,9 +106,9 @@ namespace Entidades
             get { return dirUsu; }
             set { dirUsu = value; }
         }
-        private int nro;
+        private string nro;
 
-        public int Nro
+        public string Nro
         {
             get { return nro; }
             set { nro = value; }

@@ -51,7 +51,7 @@
                 <div class="row">
                     <div class="col-lg-3 margin-15">
                     <div class="form-inline">
-                        <asp:LinkButton runat="server" ID="btnRefrescar" OnClick="btnRefrescar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Refrescar</asp:LinkButton>
+                        <asp:LinkButton runat="server" ID="btnRefrescar" OnClick="btnRefrescar_Click" class="btn btn-warning"><i class="fa fa-refresh"></i> Refrescar</asp:LinkButton>
 
                     </div>
                 </div>

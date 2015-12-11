@@ -117,7 +117,7 @@
 
                 <asp:LinkButton runat="server" ID="btnVerMapa" OnClientClick="reDrawMaps();" class="btn btn-warning" data-toggle="modal" data-target="#modalMaps"><i class="fa fa-map-marker"></i> Ver Mapa</asp:LinkButton>
 
-                <asp:LinkButton runat="server" ID="btnRefrescar" OnClick="btnRefrescar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Refrescar</asp:LinkButton>
+                <asp:LinkButton runat="server" ID="btnRefrescar" OnClick="btnRefrescar_Click" class="btn btn-warning"><i class="fa fa-refresh"></i> Refrescar</asp:LinkButton>
 
             </div>
             <%-- MODAL maps --%>
@@ -298,7 +298,10 @@
 
             </div>
 
-            <%-- MODAL EDIT --%>
+            
+    </div>
+    </div>
+    <%-- MODAL EDIT --%>
             <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog modal-full-width" role="document">
                     <div class="modal-content">
@@ -359,8 +362,7 @@
             </div>
         </div>
         <%-- Fin modal EDIT --%>
-    </div>
-    </div>
+
    <%-- MODAL mensaje --%>
                     <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
