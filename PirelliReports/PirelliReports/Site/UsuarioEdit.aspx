@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-    <script>
+    <script type="text/javascript">
         $(document).ready(function() {
             $('form').validate({
                 rules: 

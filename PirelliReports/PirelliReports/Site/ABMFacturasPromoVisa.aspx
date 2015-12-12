@@ -21,7 +21,7 @@
         $(document).ready(function () {
             $.validator.addMethod("decimal", 
                                         function (value, element) {
-                                            return this.optional(element) || /^\d{0,3}(\.\d{0,2})?$/i.test(value);
+                                            return this.optional(element) || /^\d{0,2}(\.\d{0,2})?$/i.test(value);
                                         }, "Incluya 2 decimales");
 
             $.validator.addMethod("dateValid", 
@@ -56,14 +56,15 @@
                         },
                     <%=txtDescuento.UniqueID %>: 
                         {                        
-                            required: true                         
+                            required: true,
+                            number: true
                         },
                     <%=txtEditarCantidad.UniqueID %>: 
                         {                        
                             required: true,
                             digits: true
                         },
-                    <%=txtEditPrecio.UniqueID %>: 
+                    <%=txtEditarPrecio.UniqueID %>: 
                         {                        
                             required: true,
                             number: true
@@ -100,17 +101,18 @@
                         },
                     <%=txtDescuento.UniqueID %>: 
                         {                        
-                            required: "Seleccione promoción para completar descuento"                                                  
+                            required: "Seleccione promoción para completar descuento",
+                            number: "Ingrese un descuento valido 7.75"
                         },
                     <%=txtEditarCantidad.UniqueID %>: 
                         {                        
                             required: "Campo obligatorio",
                             digits: "Solo caracteres numericos"
                         },
-                    <%=txtEditPrecio.UniqueID %>: 
+                    <%=txtEditarPrecio.UniqueID %>: 
                         {                        
                             required: "Campo obligatorio",
-                            number: "Ingrese valores numericos (caracter como decimal use el punto) "
+                            number: "Ingrese precio en formato 12.56"
                         },
                     <%=txtEditarNumFactura.UniqueID %>: 
                         {                        
@@ -258,7 +260,7 @@
                                     <div class="col-lg-12 margin-15">
                                         <div class="form-inline">
                                             <label>Precio: </label>
-                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditPrecio" placeholder="$"></asp:TextBox>
+                                            <asp:TextBox runat="server" class="form-control pull-right" id="txtEditarPrecio" placeholder="$"></asp:TextBox>
                                         </div>
                                     </div>
 

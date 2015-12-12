@@ -9,12 +9,51 @@
            
             $('#modalMensaje').modal('show');
         }
+
         function activarSpinner() {
             $(".spinner-container").css({ display: "block" });
         }
+
         function desactivarSpinner() {
             $(".spinner-container").css({ display: "none" });
         }
+
+        $(document).ready(function () {
+            $('form').validate({
+                rules: 
+                {
+                    <%=txtCodigoCliente.UniqueID %>: 
+                    {
+                        digits: true,
+                        maxlength: 10
+                    },
+                    <%=txtDescripcion.UniqueID %>: 
+                    {                        
+                        maxlength: 45   
+                    },
+                    <%=txtPromo.UniqueID %>: 
+                    {                        
+                       digits: true
+                    }  
+                },
+                messages: 
+                {  
+                    <%=txtCodigoCliente.UniqueID %>: 
+                    {
+                        digits: "Solo se permiten digitos de [0-9] para el codigo de cliente",
+                        maxlength: "Se permiten 10 digitos como maximo para el codigo de cliente"  
+                    },
+                    <%=txtDescripcion.UniqueID %>: 
+                    {
+                        maxlength: "Se permiten 45 caracteres como maximo para la descripcion"
+                    },
+                    <%=txtPromo.UniqueID %>: 
+                    {
+                        digits: "Solo se permiten digitos de [0-9] para el codigo de la promocion"
+                    }, 
+                }
+            });
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
@@ -58,10 +97,10 @@
                 <div class="col-lg-6">
                     <div class="form-group form-pirelli">
 
-                        <asp:TextBox runat="server" ID="txtCodigoCliente" CssClass="form-control" placeholder="Código de Cliente"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtCodigoCliente" CssClass="form-control" placeholder="Código de Cliente" MaxLength="10"></asp:TextBox>
                         <p class="help-block"></p>
 
-                        <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" placeholder="Descripción de Cliente"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" placeholder="Descripción de Cliente" MaxLength="45"></asp:TextBox>
                         <p class="help-block"></p>
 
                         <%--<asp:TextBox runat="server" ID="txtCantidadRegistro" CssClass="form-control" TextMode="Number" placeholder="Cantidad de Registro"></asp:TextBox>--%>

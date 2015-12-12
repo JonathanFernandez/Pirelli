@@ -12,15 +12,18 @@
             hidden = open(url, "NewWindow", "top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes");
             return false;
         }
+
         function OpenNewTab(url) {
             hidden = open(url);
             return false;
         }
+
         function btnCrearOnClientClick() {
             url = "ABMFacturasPromoVisa.aspx";
             OpenNewTab(url);
             return false;
         }
+
         function btnFiltrosLimpiar_OnClientClick() {
             document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosCodCliente").value = "";
             document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosRazonSocial").value = "";
@@ -89,14 +92,197 @@
 
         function reDrawMaps() {
             $('#modalMaps').on('shown.bs.modal', function () {
-
                 google.maps.event.trigger(document.getElementById("subgurim_GMap1"), "resize");
-
             });
         }
-       
-    </script>
 
+        $(document).ready(function () {
+            $.validator.addMethod("decimal", 
+                                       function (value, element) {
+                                           return this.optional(element) || /^\d{0,2}(\.\d{0,2})?$/i.test(value);
+                                       }, "Incluya 2 decimales");
+
+            $.validator.addMethod("greaterThan", 
+                                   function(value, element) 
+                                   {            
+                                       var parametro = document.getElementById("PaginaCentral_ContentPlaceHolder_dpDesde").value;
+                                        
+                                       var partesFechaFinal = value.split('/');
+                                       var partesFechaInicial = parametro.split('/')
+                                       var diaFechaFinal = partesFechaFinal[0];
+                                       var mesFechaFinal = partesFechaFinal[1];
+                                       var anioFechaFinal = partesFechaFinal[2];
+                                       var diaFechaInicial = partesFechaInicial[0];
+                                       var mesFechaInicial = partesFechaInicial[1];
+                                       var anioFechaInicial = partesFechaInicial[2];
+
+                                       var fechaFinal = anioFechaFinal + "-" + mesFechaFinal + "-" + diaFechaFinal;
+                                       var fechaInicial = anioFechaInicial + "-" + mesFechaInicial + "-" + diaFechaInicial;
+
+                                       return new Date(fechaFinal) > new Date(fechaInicial);
+                                   
+                                   }, "La fecha final debe ser mayor que la fecha inicial");
+
+            $.validator.addMethod("dateValid", 
+                                  function(value, element) 
+                                  {
+                                      // Checks for the following valid date formats:
+                                      // MM/DD/YYYY
+                                      // Also separates date into month, day, and year variables
+                                      var patron = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;;
+ 
+                                      var res = value.match(patron); // is the format ok?
+                                      if (res != null) 
+                                      {
+                                          return true;
+                                      }
+                                      else
+                                      {
+                                          return false;
+                                      }
+                                  }, "Ingrese una fecha valida [dd/mm/yyyy]");
+
+            $('form').validate({
+                rules:
+                {
+                    <%=txtFiltrosIP.UniqueID %>: 
+                    {                        
+                        digits: true,
+                        minlength: 7,
+                        maxlength: 7
+                    },
+                    <%=txtFiltrosAgrup.UniqueID %>: 
+                    {                        
+                        digits: true
+                    },
+                    <%=txtFiltrosDescripcion.UniqueID %>: 
+                    {                        
+                        maxlength: 50
+                    },
+                    <%=txtFiltrosCodCliente.UniqueID %>: 
+                    {                        
+                        digits: true,
+                        minlength: 10,
+                        maxlength: 10
+                    },
+                     <%=txtFiltrosRazonSocial.UniqueID %>: 
+                    {                        
+                        maxlength: 45   
+                    },
+                     <%=txtFiltrosCodPromo.UniqueID %>: 
+                    {                        
+                        digits: true   
+                    },
+                     <%= txtFiltrosCuotas.UniqueID %>: 
+                    {                        
+                        digits: true,
+                        maxlength: 2
+                    },
+                     <%=txtFiltrosTicket.UniqueID %>: 
+                    {                        
+                        digits: true   
+                    },
+                     <%=txtFiltrosFlag.UniqueID %>: 
+                    {                        
+                        digits: true,
+                        maxlength: 1,
+                        range: [0, 1]
+                    },
+                     <%=txtFiltrosDescuento.UniqueID %>: 
+                    {                        
+                        number: true,
+                        decimal: true
+                    },
+                     <%=txtFiltrosUsuarioAlta.UniqueID %>: 
+                    {                        
+                       maxlength: 10
+                    },
+                     <%=txtFiltrosNumeroFactura.UniqueID %>: 
+                    {                        
+                        digits: true,
+                        maxlength: 13
+                    },
+                     <%=dpFiltrosDesde.UniqueID %>: 
+                    {                        
+                        dateValid: true   
+                    },
+                     <%=dpFiltrosHasta.UniqueID %>: 
+                    {                        
+                        dateValid: true,
+                        greaterThan: true   
+                    },
+                },
+                messages:
+                {
+                       <%=txtFiltrosIP.UniqueID %>: 
+                    {                        
+                        digits: "Solo se permiten digitos de [0-9] en la IP",
+                        minlength: "Se requieren 7 digitos como minimo para la IP",
+                        maxlength: "Se permiten 7 digitos como maximo para la IP"
+                    },
+                    <%=txtFiltrosAgrup.UniqueID %>: 
+                    {                        
+                        digits: "Solo se permiten digitos de [0-9] en la agrupacion"
+                    },
+                    <%=txtFiltrosDescripcion.UniqueID %>: 
+                    {                        
+                        maxlength: "Se permiten 50 caracteres como maximo para la IP"
+                    },
+                    <%=txtFiltrosCodCliente.UniqueID %>: 
+                    {                        
+                        digits: "Solo se permiten digitos de [0-9] en el codigo de cliente",
+                        minlength: "Se requieren 10 digitos como minimo para el codigo de cliente",
+                        maxlength: "Se permiten 10 digitos como maximo para el codigo de cliente"
+                    },
+                    <%=txtFiltrosRazonSocial.UniqueID %>: 
+                    {                        
+                        maxlength: "Se permiten 45 caracteres como maximo para la razon social"
+                    },
+                    <%=txtFiltrosCodPromo.UniqueID %>: 
+                    {                        
+                        digits: "Solo se permiten digitos de [0-9] en el codigo de la promocion"
+                    },
+                    <%= txtFiltrosCuotas.UniqueID %>: 
+                    {                        
+                        digits: "Solo se permiten digitos de [0-9] para el numero de cuotas",
+                        maxlength: "Se permiten 2 digitos como maximo para el numero de cuotas"
+                    },
+                    <%=txtFiltrosTicket.UniqueID %>: 
+                    {                        
+                        digits: "Solo se permiten digitos de [0-9] para el ticket"
+                    },
+                    <%=txtFiltrosFlag.UniqueID %>: 
+                    {                        
+                        digits: "Solo se permiten digitos de [0-1] para el flag",
+                        maxlength: "Se permite 1 digito binario para el flag",
+                        range: "Rango valido [0-1]"
+                    },
+                    <%=txtFiltrosDescuento.UniqueID %>: 
+                    {                        
+                        number: "Ingreso un numero. Puede incluir decimales"
+                    },
+                    <%=txtFiltrosUsuarioAlta.UniqueID %>: 
+                    {                        
+                        maxlength: "Se permiten 10 caracteres como maximo para usuario alta"
+                    },
+                    <%=txtFiltrosNumeroFactura.UniqueID %>: 
+                    {                        
+                        digits: "Se permiten digitos de [0-9] para el numero de factura",
+                        maxlength: "Se permiten 13 caracteres como maximo para numero de factura"
+                    },
+                    <%=dpFiltrosDesde.UniqueID %>: 
+                    {                        
+                        dateValid: true   
+                    },
+                    <%=dpFiltrosHasta.UniqueID %>: 
+                    {                        
+                        dateValid: true,
+                        greaterThan: true   
+                    },
+                }
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
 
@@ -154,7 +340,7 @@
                 </div>
             </div>
             <%-- Fin modal MAPS --%>
-
+            
             <%-- MODAL filtros --%>
             <div class="modal fade" id="modalFiltros" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -170,20 +356,20 @@
                                     <div class="form-group">
                                         <%--<label>IP:</label>--%>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosIP" CssClass="form-control" placeholder="IP"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosIP" CssClass="form-control" placeholder="IP" MaxLength="7"></asp:TextBox>
                                         <%--<p class="help-block">Example block-level help text here.</p>--%>
                                         <p class="help-block"></p>
 
                                         <asp:TextBox runat="server" ID="txtFiltrosAgrup" CssClass="form-control" placeholder="Agrup"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosDescripcion" CssClass="form-control" placeholder="Descripción IP"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosDescripcion" CssClass="form-control" placeholder="Descripción IP" MaxLength="50"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosCodCliente" CssClass="form-control" placeholder="Codigo de Cliente"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosCodCliente" CssClass="form-control" placeholder="Codigo de Cliente" MaxLength="10"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosRazonSocial" CssClass="form-control" placeholder="Razon Social"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosRazonSocial" CssClass="form-control" placeholder="Razon Social" MaxLength="45"></asp:TextBox>
                                         <p class="help-block"></p>
 
                                         <asp:TextBox runat="server" ID="txtFiltrosCodPromo" CssClass="form-control" placeholder="Codigo Promo"></asp:TextBox>
@@ -204,16 +390,16 @@
                                         <asp:TextBox runat="server" ID="txtFiltrosTicket" CssClass="form-control" placeholder="Ticket"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosFlag" CssClass="form-control" placeholder="Flag Procesado"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosFlag" CssClass="form-control" placeholder="Flag Procesado" MaxLength="1"></asp:TextBox>
                                         <p class="help-block"></p>
 
                                         <asp:TextBox runat="server" ID="txtFiltrosDescuento" CssClass="form-control" placeholder="Descuento"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosUsuarioAlta" CssClass="form-control" placeholder="Usuario de Alta"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosUsuarioAlta" CssClass="form-control" placeholder="Usuario de Alta" MaxLength="10"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosNumeroFactura" CssClass="form-control" placeholder="Numero de Factura"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosNumeroFactura" CssClass="form-control" placeholder="Numero de Factura" MaxLength="13"></asp:TextBox>
                                         <p class="help-block"></p>
 
                                         <asp:DropDownList runat="server" ID="ddlFiltrosFamilia" CssClass="form-control" placeholder="Familia"></asp:DropDownList>
@@ -226,14 +412,14 @@
                                         <div class="control-group">
                                             <div class="controls">
                                                 <div class="input-group margin-15">
-                                                        <asp:TextBox runat="server" ID="dpFiltrosDesde" class="date-picker form-control" placeholder="Desde"></asp:TextBox>
+                                                        <asp:TextBox runat="server" ID="dpFiltrosDesde" class="date-picker form-control" placeholder="Desde" MaxLength="10"></asp:TextBox>
                                                         <label for="dpDesde" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
                                                 </div>
 
                                                 <div class="input-group">
-                                                        <asp:TextBox runat="server" ID="dpFiltrosHasta" class="date-picker form-control" placeholder="Hasta"></asp:TextBox>
+                                                        <asp:TextBox runat="server" ID="dpFiltrosHasta" class="date-picker form-control" placeholder="Hasta" MaxLength="10"></asp:TextBox>
                                                         <label for="dpHasta" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
@@ -250,7 +436,7 @@
                             <div class="modal-footer">
                                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
                                 <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-close"></i>Cerrar</button>
-                                <asp:LinkButton runat="server" ID="btnLFiltrosimpiar" OnClientClick="btnFiltrosLimpiar_OnClientClick()" CssClass="btn btn-warning"><i class="fa fa-search"></i> Limpiar</asp:LinkButton>
+                                <asp:LinkButton runat="server" ID="btnFiltrosimpiar" OnClientClick="btnFiltrosLimpiar_OnClientClick()" CssClass="btn btn-warning"><i class="fa fa-search"></i> Limpiar</asp:LinkButton>
                                 <asp:LinkButton runat="server" ID="btnFiltrosBuscar" OnClick="btnFiltrosBuscar_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
                             </div>
                         </div>

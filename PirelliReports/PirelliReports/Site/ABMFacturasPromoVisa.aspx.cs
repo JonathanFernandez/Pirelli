@@ -38,7 +38,7 @@ namespace PirelliReports.Site
                     HDPromo.Value = solicitud.CodPromo.ToString();
 
                     txtEditarCantidad.Text = solicitud.Cantidad.ToString();
-                    txtEditPrecio.Text = solicitud.Precio.ToString().Replace(",", "."); ;
+                    txtEditarPrecio.Text = solicitud.Precio.ToString().Replace(",", "."); ;
                     txtEditarNumFactura.Text = solicitud.NroFactura.ToString();
                     txtEditarticket.Text = solicitud.NroTicket.ToString();
                     txtEditarTarjeta.Text = solicitud.NroTarjeta.ToString();
@@ -261,7 +261,7 @@ namespace PirelliReports.Site
             solicitud.NroCom = txtEditarNumCompra.Text;
             solicitud.NroTarjeta = Convert.ToInt32(txtEditarTarjeta.Text);
             solicitud.NroAuto = 0;
-            solicitud.Precio = Convert.ToDouble(txtEditPrecio.Text.Replace(".", ","));
+            solicitud.Precio = Convert.ToDouble(txtEditarPrecio.Text.Replace(".", ","));
             solicitud.CodPromo = Convert.ToInt32(ddlEditarTipoPromo.SelectedValue);
             solicitud.Descuento = Convert.ToDouble(txtDescuento.Text);
             solicitud.CodAux = "";
@@ -294,8 +294,7 @@ namespace PirelliReports.Site
             txtEditarCiudad.Text = cliente.Ciudad;
             HDProvincia.Value = cliente.CodProv;
             ddlEditarProvincia.Items.Clear();
-            cargarProvincia(ddlEditarProvincia);
-           
+            cargarProvincia(ddlEditarProvincia);  
         }
     }
 }

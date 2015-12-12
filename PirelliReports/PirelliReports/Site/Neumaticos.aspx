@@ -48,29 +48,34 @@
            return false;
        }
 
-       function filtroSeleccionado() {          
-           var  ip  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosIP").value;
-           var  descripcion = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosDescripcion").value;
-           var  pais  = document.getElementById("PaginaCentral_ContentPlaceHolder_ddlFiltrosPais").value;
-           var  otros  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosOtros").value;
-           var  familia  = document.getElementById("PaginaCentral_ContentPlaceHolder_ddlFiltrosFamilia").value;
-           var  marca  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosMarca").value;
-           var  rango  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosRango").value;
-           var  rodado  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosRodado").value;
-           var  baja  = document.getElementById("PaginaCentral_ContentPlaceHolder_chkFiltrosBajaLogica").checked;
-           if (ip == "" && descripcion == "" && pais == "%" && otros == "" && familia == "%" && marca == "" && rango == "" && rodado == "" && !baja) 
-           {
-               return false;
-           }
-           else
-           {
-               return true;
-           } 
+       function btnAceptarOnClientClick() {          
+           var result = $('form').valid();
+           return result;
        }
 
-       function btnFiltrosBuscarOnClientClick() {
-           return filtroSeleccionado();
-       }
+       //function filtroSeleccionado() {          
+       //    var  ip  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosIP").value;
+       //    var  descripcion = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosDescripcion").value;
+       //    var  pais  = document.getElementById("PaginaCentral_ContentPlaceHolder_ddlFiltrosPais").value;
+       //    var  otros  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosOtros").value;
+       //    var  familia  = document.getElementById("PaginaCentral_ContentPlaceHolder_ddlFiltrosFamilia").value;
+       //    var  marca  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosMarca").value;
+       //    var  rango  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosRango").value;
+       //    var  rodado  = document.getElementById("PaginaCentral_ContentPlaceHolder_txtFiltrosRodado").value;
+       //    var  baja  = document.getElementById("PaginaCentral_ContentPlaceHolder_chkFiltrosBajaLogica").checked;
+       //    if (ip == "" && descripcion == "" && pais == "%" && otros == "" && familia == "%" && marca == "" && rango == "" && rodado == "" && !baja) 
+       //    {
+       //        return false;
+       //    }
+       //    else
+       //    {
+       //        return true;
+       //    } 
+       //}
+
+       //function btnFiltrosBuscarOnClientClick() {
+       //    return filtroSeleccionado();
+       //}
      
        $(document).ready(function() {
            //$.validator.addMethod("lettersOnly", function (value, element) {
@@ -88,8 +93,8 @@
                    <%= txtFiltrosIP.UniqueID %>: 
                     {
                         digits: true,
-                        minlenght: 7,
-                        maxlenght: 7
+                        minlength: 7,
+                        maxlength: 7
                     },
                    <%= txtFiltrosMarca.UniqueID %>: 
                    {                        
@@ -107,17 +112,17 @@
                     <%= txtFiltrosIP.UniqueID %>: 
                     {
                         digits: "Ingrese solo digitos [0-9] para el IP",
-                        minlenght: "Se requieren al menos 7 dgitos",
-                        maxlenght: "Se permite como maximo 7 digitos"
+                        minlength: "Se requieren al menos 7 dgitos",
+                        maxlength: "Se permite como maximo 7 digitos"
                         
                     },
-                   <%= txtFiltrosMarca.UniqueID %>: 
-                   {                        
+                    <%= txtFiltrosMarca.UniqueID %>: 
+                    {                        
                         digits: "Ingrese solo digitos [0-9] para la marca",
-                        minlenght: "Se requieren al menos 2 dgitos",
-                        maxlenght: "Se permite como maximo 2 digitos"
-                   },
-                   <%= txtFiltrosRodado.UniqueID %>: 
+                        minlength: "Se requieren al menos 2 dgitos",
+                        maxlength: "Se permite como maximo 2 digitos"
+                    },
+                    <%= txtFiltrosRodado.UniqueID %>: 
                     {                        
                         number: "Ingrese un numero. Puede incluir decimales"
                     }
@@ -139,7 +144,7 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Neumaticos
+                <h1 class="page-header"> Neumaticos
                 </h1>
                 <ol class="breadcrumb">
                     <li>
@@ -283,7 +288,7 @@
                                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
                                 <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
                                 <asp:LinkButton runat="server" ID="btnLFiltrosimpiar" OnClientClick="return btnFiltrosLimpiar_OnClientClick();" CssClass="btn btn-warning"><i class="fa fa-trash"></i> Limpiar</asp:LinkButton>
-                                <asp:LinkButton runat="server" OnClientClick="return btnFiltrosBuscarOnClientClick();" OnClick="btnFiltrosBuscar_Click" ID="btnFiltrosBuscar" CssClass="btn btn-warning"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
+                                <asp:LinkButton runat="server" OnClick="btnFiltrosBuscar_Click" ID="btnFiltrosBuscar" CssClass="btn btn-warning"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -315,7 +320,7 @@
                                     <p class="help-block"></p>
 
                                 </div>
-                                <asp:LinkButton runat="server" ID="LinkButton1" OnClick="btnAceptar_Click" CssClass="btn btn-warning pull-left">Aceptar</asp:LinkButton>
+                                <asp:LinkButton runat="server" ID="LinkButton1" OnClick="btnAceptar_Click" CssClass="btn btn-warning pull-left" OnClientClick="return btnAceptarOnClientClick();">Aceptar</asp:LinkButton>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">

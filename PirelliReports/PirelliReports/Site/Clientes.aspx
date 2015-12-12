@@ -7,10 +7,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-      <script>
+      <script type="text/javascript">
           function btnEditarOnClientClick(obj)
           {
-              
               var row = obj.parentNode.parentNode;
               var rowIndex = row.rowIndex - 1;
               
@@ -81,11 +80,147 @@
 
           function reDrawMaps() {
               $('#modalMaps').on('shown.bs.modal', function () {
-
                   google.maps.event.trigger(document.getElementById("subgurim_GMap1"), "resize");
-
               });
           }
+
+          function btnAceptarOnClientClick() {          
+              var result = $('form').valid();
+              return result;
+          }
+
+          $(document).ready(function () {
+              $('form').validate({
+                  rules: 
+                  {
+                      <%= txtFiltrosCod.UniqueID %>: 
+                        {
+                            digits: true,
+                            minlength: 10,
+                            maxlength: 10
+                        },
+                      <%= txtFiltrosRazSoc.UniqueID %>: 
+                        {                        
+                            maxlength: 45
+                        },
+                      // Edicion
+                      <%=  txtMatriz.UniqueID %>: 
+                        {                        
+                            required: true,
+                            digits: true,
+                            minlength: 10,
+                            maxlength: 10
+                        },
+                      <%=  txtRefil.UniqueID %>: 
+                        {                        
+                            required: true,
+                            digits: true,
+                            minlength: 10,
+                            maxlength: 10
+                        },
+                      <%=  txtRazonSocial.UniqueID %>: 
+                        {                        
+                            required: true,
+                            maxlength: 45
+                        },
+                      <%=  txtDireccion.UniqueID %>: 
+                        {                        
+                            required: true,
+                            maxlength: 40
+                        },
+                      <%=  txtEmail.UniqueID %>: 
+                        {                        
+                            required: true,
+                            email: true,
+                            maxlength: 50
+                        },
+                      <%=  txtWeb.UniqueID %>: 
+                        {                        
+                            required: true,
+                            url: true,
+                            maxlength: 100
+                        },
+                      <%=  txtLatitud.UniqueID %>: 
+                        {                        
+                            required: true,
+                            number: true,
+                            minlength: 12,
+                            maxlength: 12
+                        },
+                       <%= txtLongitud.UniqueID %>: 
+                        {                        
+                            required: true,
+                            number: true,
+                            minlength: 12,
+                            maxlength: 12
+                        }
+                  }, 
+                  messages: 
+                  {
+                      <%= txtFiltrosCod.UniqueID %>: 
+                        {
+                            digits: "Solo se permiten digitos de [0-9] en codigo de cliente",
+                            minlength: "El codigo de cliente debe ser tener 10 digitos como minimo",
+                            maxlength: "El codigo de cliente debe ser tener 10 digitos como maximo"
+                        },
+                      <%= txtFiltrosRazSoc.UniqueID %>: 
+                        {                        
+                            maxlength: "La razon social debe tener 45 caracteres como maximo"
+                        },
+                      // Edicion
+                      <%=  txtMatriz.UniqueID %>: 
+                        {                        
+                            required: "Se requiere codigo de matriz",
+                            digits: "Solo se permiten digitos de [0-9] en codigo de matriz",
+                            minlength: "El codigo de matriz debe ser tener 10 digitos como minimo",
+                            maxlength: "El codigo de matriz debe ser tener 10 digitos como maximo"
+                        },
+                      <%=  txtRefil.UniqueID %>: 
+                        {                        
+                            required: "Se requiere codigo refill",
+                            digits: "Solo se permiten digitos de [0-9] en codigo refill",
+                            minlength: "El codigo refill debe ser tener 10 digitos como minimo",
+                            maxlength: "El codigo refill debe ser tener 10 digitos como maximo"
+                        },
+                      <%=  txtRazonSocial.UniqueID %>: 
+                        {                        
+                            required: "Se requiere razon social",
+                            maxlength: "La razon social debe tener 45 caracteres como maximo"
+                        },
+                      <%=  txtDireccion.UniqueID %>: 
+                        {                        
+                            required: "Se requiere direccion",
+                            maxlength: "La direccion debe tener 40 caracteres como maximo"
+                        },
+                      <%=  txtEmail.UniqueID %>: 
+                        {                        
+                            required: "Se requiere email",
+                            email: "Se requiere un email valido xxxxxx@yyy.zzz",
+                            maxlength: "El email debe tener 50 caracteres como maximo"
+                        },
+                      <%=  txtWeb.UniqueID %>: 
+                        {                        
+                            required: "Se requiere una URL",
+                            url: "Ingrese una URL valida http://www.google.com",
+                            maxlength: "La URL tiene un limite de 100 caracteres"
+                        },
+                      <%=  txtLatitud.UniqueID %>: 
+                        {                        
+                            required: true,
+                            number: "Ingrese una latitud valida -34.14151677",
+                            minlength: "La latitud debe tener 12 caracteres como minimo",
+                            maxlength: "La latitud debe tener 12 caracteres como maximo"
+                        },
+                      <%= txtLongitud.UniqueID %>: 
+                        {                        
+                            required: true,
+                            number: "Ingrese una longitud valida -58.59248384",
+                            minlength: "La latitud debe tener 12 caracteres como minimo",
+                            maxlength: "La latitud debe tener 12 caracteres como maximo"
+                        }   
+                    }  
+                });
+            });
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
@@ -118,7 +253,6 @@
                 <asp:LinkButton runat="server" ID="btnVerMapa" OnClientClick="reDrawMaps();" class="btn btn-warning" data-toggle="modal" data-target="#modalMaps"><i class="fa fa-map-marker"></i> Ver Mapa</asp:LinkButton>
 
                 <asp:LinkButton runat="server" ID="btnRefrescar" OnClick="btnRefrescar_Click" class="btn btn-warning"><i class="fa fa-refresh"></i> Refrescar</asp:LinkButton>
-
             </div>
             <%-- MODAL maps --%>
             <div class="modal fade" id="modalMaps" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -159,10 +293,10 @@
                                     <div class="form-group">
                                         <%--<label>IP:</label>--%>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosCod" CssClass="form-control" placeholder="Codigo Cliente"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosCod" CssClass="form-control" placeholder="Codigo Cliente" MaxLength="10"></asp:TextBox>
                                         <p class="help-block"></p>
 
-                                        <asp:TextBox runat="server" ID="txtFiltrosRazSoc" CssClass="form-control" placeholder="Razón Social"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtFiltrosRazSoc" CssClass="form-control" placeholder="Razón Social" MaxLength="45"></asp:TextBox>
                                         <p class="help-block"></p>
 
                                     </div>
@@ -189,7 +323,7 @@
                     </div>
                 </div>
             </div>
-            <%-- Fin modal Filtrros --%>
+            <%-- Fin modal Filtros --%>
             <br />
             <br />
             <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">
@@ -295,10 +429,7 @@
                     </Columns>
                     
                 </asp:GridView>
-
             </div>
-
-            
     </div>
     </div>
     <%-- MODAL EDIT --%>
@@ -356,7 +487,7 @@
                                 </div>
                             </div>
                              <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje2"></asp:Label> </h4>
-                            <asp:LinkButton runat="server" ID="btnAceptar"  OnClick="btnAceptar_Click" class="btn btn-warning"> Aceptar</asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="btnAceptar"  OnClientClick="return btnAceptarOnClientClick();" OnClick="btnAceptar_Click" class="btn btn-warning"> Aceptar</asp:LinkButton>
                     </div>
                 </div>
             </div>

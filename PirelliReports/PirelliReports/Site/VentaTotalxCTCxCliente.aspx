@@ -9,6 +9,25 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
+        function btnAceptarOnClientClick() { 
+            activarSpinner();    
+            var result = $('form').valid();
+            return result;
+        }
+
+        function OpenPopUp(url) {
+            hidden = open(url, "NewWindow", "top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes");
+            return false;
+        }
+
+        function activarSpinner() {
+            $(".spinner-container").css({ display: "block" });
+        }
+
+        function desactivarSpinner() {
+            $(".spinner-container").css({ display: "none" });
+        }
+
         $(document).ready(function () {
             $.validator.addMethod("greaterThan", 
                                     function(value, element) 
@@ -62,6 +81,7 @@
                                            return false;
                                        }
                                    }, "Ingrese una fecha valida [dd/mm/yyyy]");
+
             $('form').validate({
                 rules: 
                 {
@@ -70,7 +90,7 @@
                             required: true,
                             valido: true
                         },
-                     <%=ddlClientes.UniqueID %>: 
+                    <%=ddlClientes.UniqueID %>: 
                         {
                             required: true,
                             valido: true
@@ -108,22 +128,6 @@
                 }
             });
         });
-
-        function btnAceptarOnClientClick() {          
-            var result = $('form').valid();
-            return result;
-        }
-
-        function OpenPopUp(url) {
-            hidden = open(url, "NewWindow", "top=25,left=300,width=800, height=600,status=yes,resizable=yes,scrollbars=yes");
-            return false;
-        }
-        function activarSpinner() {
-            $(".spinner-container").css({ display: "block" });
-        }
-        function desactivarSpinner() {
-            $(".spinner-container").css({ display: "none" });
-        }
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
@@ -232,11 +236,8 @@
                 </div>
                                
                 <!-- /.row -->
-<<<<<<< HEAD
-                <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClientClick="activarSpinner();" OnClick="btnAceptar_Click"/>
-=======
+
                 <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClick="btnAceptar_Click" OnClientClick="return btnAceptarOnClientClick();"/>
->>>>>>> origin/master
                 <%--<asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
 
                 <div class="col-lg-12" style="overflow: auto; width: 98%; height: 400px">

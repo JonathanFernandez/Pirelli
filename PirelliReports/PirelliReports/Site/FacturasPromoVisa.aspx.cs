@@ -106,10 +106,26 @@ namespace PirelliReports.Site
                     c.Cod = ds.Tables[0].Rows[i]["COD"].ToString();
                     c.RazSoc = ds.Tables[0].Rows[i]["RAZSOC"].ToString();
                     c.DirSuc = ds.Tables[0].Rows[i]["DIRSUC"].ToString();
-                    c.Latitud = Convert.ToDouble(ds.Tables[0].Rows[i]["LATITUD"].ToString());
-                    c.Longitud = Convert.ToDouble(ds.Tables[0].Rows[i]["LONGITUD"].ToString());
+                    if (ds.Tables[0].Rows[i]["LATITUD"].ToString() != "") 
+                    { 
+                        c.Latitud = Convert.ToDouble(ds.Tables[0].Rows[i]["LATITUD"].ToString()); 
+                    }
+                    else 
+                    { 
+                        c.Latitud = 0; 
+                    }
+
+                    if (ds.Tables[0].Rows[i]["LONGITUD"].ToString() != "")
+                    {
+                        c.Longitud = Convert.ToDouble(ds.Tables[0].Rows[i]["LONGITUD"].ToString());
+                    }
+                    else
+                    {
+                        c.Longitud = 0;
+                    }               
                     
-                    clientes.Add(c);
+                    if (c.Latitud != 0 && c.Longitud != 0) 
+                        clientes.Add(c);
                 }
                 
                 pMetodos.LlenarMapaConClientes(clientes, GMap1);

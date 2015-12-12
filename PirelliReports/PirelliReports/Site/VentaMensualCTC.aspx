@@ -67,36 +67,36 @@
                 rules: 
                 {
                     <%=ddlCTC.UniqueID %>: 
-                        {
-                            required: true,
-                            valido: true
-                        },
+                    {
+                        required: true,
+                        valido: true
+                    },
                     <%=dpDesde.UniqueID %>: 
-                        {                        
-                            required: true,
-                            dateValid: true
-                        },
+                    {                        
+                        required: true,
+                        dateValid: true
+                    },
                     <%=dpHasta.UniqueID %>: 
-                        {                        
-                            required: true,
-                            dateValid: true,
-                            greaterThan: true
-                        }  
+                    {                        
+                        required: true,
+                        dateValid: true,
+                        greaterThan: true
+                    }  
                 },
                 messages: 
                 {  
-                      <%=ddlCTC.UniqueID %>: 
-                        {
-                            required: "Seleccione un CTC"
-                        },
-                      <%=dpDesde.UniqueID %>: 
-                        {
-                            required: "Se requiere una fecha inicial"
-                        },
-                      <%=dpHasta.UniqueID %>: 
-                        {
-                            required: "Se requiere una fecha final"
-                        }, 
+                    <%=ddlCTC.UniqueID %>: 
+                    {
+                        required: "Seleccione un CTC"
+                    },
+                    <%=dpDesde.UniqueID %>: 
+                    {
+                        required: "Se requiere una fecha inicial"
+                    },
+                    <%=dpHasta.UniqueID %>: 
+                    {
+                        required: "Se requiere una fecha final"
+                    }, 
                 }
             });
         });

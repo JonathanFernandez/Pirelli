@@ -63,8 +63,6 @@ namespace Controles
                                  "</div>";
                 GInfoWindow window = new GInfoWindow(marker, strMarker, false);
                 map.Add(window);
-
-
             }
         }
 
