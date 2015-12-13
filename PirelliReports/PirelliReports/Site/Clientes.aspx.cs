@@ -151,13 +151,13 @@ namespace PirelliReports.Site
         {
             lblCodigo.Text = CODIGO.Value;
             
-            if (!conClientes.VerificarClienteExistente(txtMatriz.Text))
+            if (!string.IsNullOrEmpty(txtMatriz.Text) && !conClientes.VerificarClienteExistente(txtMatriz.Text))
             {
                 lblMensaje2.Text = "Cliente Matriz no existe";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 return;
-            } 
-            if (!conClientes.VerificarClienteExistente(txtRefil.Text))
+            }
+            if (!string.IsNullOrEmpty(txtRefil.Text) && !conClientes.VerificarClienteExistente(txtRefil.Text))
             {
                 lblMensaje2.Text = "Cliente refil no existe";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
@@ -181,11 +181,11 @@ namespace PirelliReports.Site
             parametos.Add(txtWeb.Text);
 
             if (txtLatitud.Text.Length > 0)
-                parametos.Add(Convert.ToDouble(txtLatitud.Text));
+                parametos.Add(Convert.ToDouble(txtLatitud.Text.Replace(".",",")));
             else
                 parametos.Add(DBNull.Value);
             if (txtLongitud.Text.Length > 0)
-                parametos.Add(Convert.ToDouble(txtLongitud.Text));
+                parametos.Add(Convert.ToDouble(txtLongitud.Text.Replace(".", ",")));
             else
                 parametos.Add(DBNull.Value);
             

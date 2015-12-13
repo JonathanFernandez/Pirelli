@@ -45,7 +45,7 @@ namespace Negocio
             DataSet ds = new DataSet();
             ds = ListadoDeProvincias();
             
-            ddl.Items.Add(new ListItem("", "%"));
+            ddl.Items.Add(new ListItem("TODAS", "%"));
 
             if (ds.Tables[0].Rows.Count > 0)
             {

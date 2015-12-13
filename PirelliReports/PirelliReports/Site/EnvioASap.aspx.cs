@@ -18,6 +18,7 @@ namespace PirelliReports.Site
         ConexionFacturasPromo conFacturas = new ConexionFacturasPromo();
         PirelliMetodos pMetodos = new PirelliMetodos();
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -67,9 +68,18 @@ namespace PirelliReports.Site
 
         protected void btnEnviarSap_Click(object sender, EventArgs e)
         {
+            gvListadoFacturasAgrupadas.DataSource = null;//conFacturas.ListadoDeFacturasEnvioSAP2();
+            gvListadoFacturasAgrupadas.DataBind();
             lblMensaje.Text = "Facturas enviadas con exito";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true); 
+        }
+
+      
+        protected void btnResfrescar_Click(object sender, EventArgs e)
+        {
+            gvListadoFacturasAgrupadas.DataSource = conFacturas.ListadoDeFacturasEnvioSAP2();
+            gvListadoFacturasAgrupadas.DataBind();
         }
     }
 }

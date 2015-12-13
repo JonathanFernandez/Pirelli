@@ -215,6 +215,16 @@ namespace Negocio
 
             return ds;
         }
+        public DataSet ListadoDeFacturasEnvioSAP2()
+        {
+            AdoConn ado = new AdoConn();
+            DataSet ds = new DataSet();
+            ArrayList parametros = new ArrayList();
+            //DataTable dt = new DataTable();
+            ds = ado.ExecuteStoredProcedureDS("ST_SOLICITUDES_SAP2");
+
+            return ds;
+        }
         public DataSet ListadoDeFacturas(ArrayList parametros)
         {
             AdoConn ado = new AdoConn();

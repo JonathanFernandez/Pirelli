@@ -140,6 +140,11 @@ a{
     color: white;
 }
 
+.img-sap{
+    margin: 0 auto;
+    display: block;
+}
+
 /* Top Navigation */
 
 .top-nav {
@@ -575,6 +580,10 @@ ul.alert-dropdown {
     background-color: #222;
     padding-bottom: 15px;
     z-index: 99999;
+}
+
+.hidden{
+    display: none;
 }
 
 /* Spinner */

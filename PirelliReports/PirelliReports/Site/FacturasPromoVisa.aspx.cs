@@ -82,11 +82,11 @@ namespace PirelliReports.Site
             parametros.Add((string.IsNullOrEmpty(txtFiltrosDescripcion.Text) ? "%" : txtFiltrosDescripcion.Text));
 
             if (!string.IsNullOrEmpty(dpFiltrosDesde.Text))
-                parametros.Add(pMetodos.ConvertmmddyyyyToyyyymmdd(dpFiltrosDesde.Text));
+                parametros.Add(pMetodos.ConvertddmmyyyyToyyyymmdd(dpFiltrosDesde.Text));
             else
                 parametros.Add("1900/1/1");
             if (!string.IsNullOrEmpty(dpFiltrosHasta.Text))
-                parametros.Add(pMetodos.ConvertmmddyyyyToyyyymmdd(dpFiltrosHasta.Text));
+                parametros.Add(pMetodos.ConvertddmmyyyyToyyyymmdd(dpFiltrosHasta.Text));
             else
                 parametros.Add("2900/1/1");
 

@@ -62,7 +62,7 @@
                 {
                     <%=txtIP.UniqueID %>: 
                     {
-                        required: true,
+                       
                         digits: 7,
                         minlength: 7,
                         maxlength: 7
@@ -83,7 +83,7 @@
                 {  
                     <%=txtIP.UniqueID %>: 
                     {
-                        required: "Ingrese un IP",
+                        
                         digits: "Ingrese solo digitos [0-9] para la IP",
                         minlength: "La IP debe tener 7 digitos como minimo",
                         maxlength: "La IP debe tener 7 digitos como maximo"

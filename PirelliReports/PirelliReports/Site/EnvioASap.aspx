@@ -8,14 +8,23 @@
         function openModal() {
            
             $('#modalMensaje').modal('show');
+
         }
+        function imgSap(){
+            $(".div-trucho").hide();
+            $(".div-piola h4").show();
+        }
+        setTimeout(imgSap, 5000);
+
+        
+        //setTimeout(imgSap, 10000);
 
         function activarSpinner() {
-            $(".spinner-container").css({ display: "block" });
+
         }
 
         function desactivarSpinner() {
-            $(".spinner-container").css({ display: "none" });
+            //$(".spinner-container").css({ display: "none" });
         }
 
         $(document).ready(function () {
@@ -131,7 +140,8 @@
          <div class="row margin-15">
                 <div class="col-lg-12">
                     <asp:LinkButton runat="server" ID="btnExportar" OnClick="btnExportar_Click" class="btn btn-warning"><i class="fa fa-file-excel-o"></i> Envio A Excel</asp:LinkButton>
-                    <asp:LinkButton runat="server" ID="btnEnviarSap" OnClientClick="activarSpinner();" OnClick="btnEnviarSap_Click" class="btn btn-warning"><i class="fa fa-upload"></i> Envio A SAP</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnEnviarSap" OnClientClick="imgSap();" OnClick="btnEnviarSap_Click" class="btn btn-warning"><i class="fa fa-upload"></i> Envio A SAP</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnResfrescar" OnClick="btnResfrescar_Click" class="btn btn-warning"><i class="fa fa-refresh"></i> Refrescar</asp:LinkButton>
                 </div>
          </div>
             <%-- /ROW Form--%>
@@ -296,11 +306,51 @@
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                                <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
+                                <div class="div-trucho">
+                                    <img class="img-sap" src="../Content/img/sap.png" />
+                                      <div class="spinner-container">
+                                        <div class="sk-circle">
+                                            <div class="sk-circle1 sk-child"></div>
+                                            <div class="sk-circle2 sk-child"></div>
+                                            <div class="sk-circle3 sk-child"></div>
+                                            <div class="sk-circle4 sk-child"></div>
+                                            <div class="sk-circle5 sk-child"></div>
+                                            <div class="sk-circle6 sk-child"></div>
+                                            <div class="sk-circle7 sk-child"></div>
+                                            <div class="sk-circle8 sk-child"></div>
+                                            <div class="sk-circle9 sk-child"></div>
+                                            <div class="sk-circle10 sk-child"></div>
+                                            <div class="sk-circle11 sk-child"></div>
+                                            <div class="sk-circle12 sk-child"></div>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-center">Estableciendo conexión...</h4>
+                                </div>
+
+                                <div class="div-piola">
+                                    <h4 style="display: none"><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
          <%-- Fin modal mensaje --%>
+
+             <%-- MODAL SAP --%>
+            <div class="modal fade" id="modalSap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         <%-- Fin modal SAP --%>
 </asp:Content>

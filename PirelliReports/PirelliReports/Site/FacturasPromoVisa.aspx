@@ -95,7 +95,11 @@
                 google.maps.event.trigger(document.getElementById("subgurim_GMap1"), "resize");
             });
         }
-
+        
+        function btnFiltrosBuscarOnClientClick() {          
+            var result = $('form').valid();
+            return result;
+        }
         $(document).ready(function () {
             $.validator.addMethod("decimal", 
                                        function (value, element) {
@@ -104,22 +108,27 @@
 
             $.validator.addMethod("greaterThan", 
                                    function(value, element) 
-                                   {            
-                                       var parametro = document.getElementById("PaginaCentral_ContentPlaceHolder_dpDesde").value;
+                                   {   
+                                       if(document.getElementById("PaginaCentral_ContentPlaceHolder_dpFiltrosDesde").value != "")
+                                       {
+                                           var parametro = document.getElementById("PaginaCentral_ContentPlaceHolder_dpFiltrosDesde").value;
                                         
-                                       var partesFechaFinal = value.split('/');
-                                       var partesFechaInicial = parametro.split('/')
-                                       var diaFechaFinal = partesFechaFinal[0];
-                                       var mesFechaFinal = partesFechaFinal[1];
-                                       var anioFechaFinal = partesFechaFinal[2];
-                                       var diaFechaInicial = partesFechaInicial[0];
-                                       var mesFechaInicial = partesFechaInicial[1];
-                                       var anioFechaInicial = partesFechaInicial[2];
+                                           var partesFechaFinal = value.split('/');
+                                           var partesFechaInicial = parametro.split('/');
+                                           var diaFechaFinal = partesFechaFinal[0];
+                                           var mesFechaFinal = partesFechaFinal[1];
+                                           var anioFechaFinal = partesFechaFinal[2];
+                                           var diaFechaInicial = partesFechaInicial[0];
+                                           var mesFechaInicial = partesFechaInicial[1];
+                                           var anioFechaInicial = partesFechaInicial[2];
 
-                                       var fechaFinal = anioFechaFinal + "-" + mesFechaFinal + "-" + diaFechaFinal;
-                                       var fechaInicial = anioFechaInicial + "-" + mesFechaInicial + "-" + diaFechaInicial;
+                                           var fechaFinal = anioFechaFinal + "-" + mesFechaFinal + "-" + diaFechaFinal;
+                                           var fechaInicial = anioFechaInicial + "-" + mesFechaInicial + "-" + diaFechaInicial;
 
-                                       return new Date(fechaFinal) > new Date(fechaInicial);
+                                           return new Date(fechaFinal) > new Date(fechaInicial);
+                                       }
+                                       else 
+                                           return true;
                                    
                                    }, "La fecha final debe ser mayor que la fecha inicial");
 
@@ -129,7 +138,7 @@
                                       // Checks for the following valid date formats:
                                       // MM/DD/YYYY
                                       // Also separates date into month, day, and year variables
-                                      var patron = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;;
+                                      var patron = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
  
                                       var res = value.match(patron); // is the format ok?
                                       if (res != null) 
@@ -204,11 +213,11 @@
                     },
                      <%=dpFiltrosDesde.UniqueID %>: 
                     {                        
-                        dateValid: true   
+                        //dateValid: true   
                     },
                      <%=dpFiltrosHasta.UniqueID %>: 
                     {                        
-                        dateValid: true,
+                        //dateValid: true,
                         greaterThan: true   
                     },
                 },
@@ -272,12 +281,12 @@
                     },
                     <%=dpFiltrosDesde.UniqueID %>: 
                     {                        
-                        dateValid: true   
+                        dateValid: "Ingrese la fecha inicial en formato [dd/mm/yyyy]"                    
                     },
                     <%=dpFiltrosHasta.UniqueID %>: 
                     {                        
-                        dateValid: true,
-                        greaterThan: true   
+                        dateValid: "Ingrese la fecha final en formato [dd/mm/yyyy]",
+                        greaterThan: "La fecha final debe ser mayor a la fecha inicial"   
                     },
                 }
             });
@@ -412,14 +421,14 @@
                                         <div class="control-group">
                                             <div class="controls">
                                                 <div class="input-group margin-15">
-                                                        <asp:TextBox runat="server" ID="dpFiltrosDesde" class="date-picker form-control" placeholder="Desde" MaxLength="10"></asp:TextBox>
+                                                        <asp:TextBox runat="server" ID="dpFiltrosDesde" class="date-picker form-control" placeholder="Desde" ></asp:TextBox>
                                                         <label for="dpDesde" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
                                                 </div>
 
                                                 <div class="input-group">
-                                                        <asp:TextBox runat="server" ID="dpFiltrosHasta" class="date-picker form-control" placeholder="Hasta" MaxLength="10"></asp:TextBox>
+                                                        <asp:TextBox runat="server" ID="dpFiltrosHasta" class="date-picker form-control" placeholder="Hasta" ></asp:TextBox>
                                                         <label for="dpHasta" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
@@ -436,8 +445,8 @@
                             <div class="modal-footer">
                                 <%--<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalFiltros"><i class="fa fa-search"></i> Filtros</button>--%>
                                 <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-close"></i>Cerrar</button>
-                                <asp:LinkButton runat="server" ID="btnFiltrosimpiar" OnClientClick="btnFiltrosLimpiar_OnClientClick()" CssClass="btn btn-warning"><i class="fa fa-search"></i> Limpiar</asp:LinkButton>
-                                <asp:LinkButton runat="server" ID="btnFiltrosBuscar" OnClick="btnFiltrosBuscar_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
+                                <asp:LinkButton runat="server" ID="btnFiltrosimpiar" OnClientClick="return btnFiltrosLimpiar_OnClientClick();" CssClass="btn btn-warning"><i class="fa fa-search"></i> Limpiar</asp:LinkButton>
+                                <asp:LinkButton runat="server" ID="btnFiltrosBuscar" OnClientClick="return btnFiltrosBuscarOnClientClick();" OnClick="btnFiltrosBuscar_Click" CssClass="btn btn-warning"><i class="fa fa-search"></i> Buscar</asp:LinkButton>
                             </div>
                         </div>
                     </div>
