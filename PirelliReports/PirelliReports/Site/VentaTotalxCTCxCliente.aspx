@@ -9,9 +9,12 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
-        function btnAceptarOnClientClick() { 
-            activarSpinner();    
+        function btnAceptarOnClientClick() {          
             var result = $('form').valid();
+            if (result) 
+            {
+                activarSpinner();
+            }
             return result;
         }
 

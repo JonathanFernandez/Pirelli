@@ -6,7 +6,6 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script>
         function openModal() {
-           
             $('#modalMensaje').modal('show');
         }
 

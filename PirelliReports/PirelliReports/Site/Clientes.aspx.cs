@@ -79,9 +79,24 @@ namespace PirelliReports.Site
                         c.Cod = ds.Tables[0].Rows[i]["COD"].ToString();
                         c.RazSoc = ds.Tables[0].Rows[i]["RAZSOC"].ToString();
                         c.DirSuc = ds.Tables[0].Rows[i]["DIRSUC"].ToString();
-                        c.Latitud = Convert.ToDouble(ds.Tables[0].Rows[i]["LATITUD"].ToString());
-                        c.Longitud = Convert.ToDouble(ds.Tables[0].Rows[i]["LONGITUD"].ToString());
 
+                        if (ds.Tables[0].Rows[i]["LATITUD"].ToString().Replace(',', '.') != "")
+                        {
+                            c.Latitud = Convert.ToDouble(ds.Tables[0].Rows[i]["LATITUD"].ToString().Replace(',', '.'));
+                        }
+                        else 
+                        {
+                            c.Latitud = 0;
+                        }
+
+                        if (ds.Tables[0].Rows[i]["LONGITUD"].ToString().Replace(',', '.') != "")
+                        {
+                            c.Longitud= Convert.ToDouble(ds.Tables[0].Rows[i]["LONGITUD"].ToString().Replace(',', '.'));
+                        }
+                        else
+                        {
+                            c.Longitud = 0;
+                        }
                         clientes.Add(c);
                     }
                 }
@@ -91,7 +106,6 @@ namespace PirelliReports.Site
             }
         }
 
-        
         protected void gvListadoClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);

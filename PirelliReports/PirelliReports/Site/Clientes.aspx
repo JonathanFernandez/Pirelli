@@ -106,50 +106,42 @@
                       // Edicion
                       <%=  txtMatriz.UniqueID %>: 
                         {                        
-                            required: true,
                             digits: true,
                             minlength: 10,
                             maxlength: 10
                         },
                       <%=  txtRefil.UniqueID %>: 
-                        {                        
-                            required: true,
+                        {                                                  
                             digits: true,
                             minlength: 10,
                             maxlength: 10
                         },
                       <%=  txtRazonSocial.UniqueID %>: 
                         {                        
-                            required: true,
                             maxlength: 45
                         },
                       <%=  txtDireccion.UniqueID %>: 
                         {                        
-                            required: true,
                             maxlength: 40
                         },
                       <%=  txtEmail.UniqueID %>: 
                         {                        
-                            required: true,
                             email: true,
                             maxlength: 50
                         },
                       <%=  txtWeb.UniqueID %>: 
                         {                        
-                            required: true,
                             url: true,
                             maxlength: 100
                         },
                       <%=  txtLatitud.UniqueID %>: 
                         {                        
-                            required: true,
                             number: true,
                             minlength: 12,
                             maxlength: 12
                         },
                        <%= txtLongitud.UniqueID %>: 
                         {                        
-                            required: true,
                             number: true,
                             minlength: 12,
                             maxlength: 12
@@ -170,14 +162,12 @@
                       // Edicion
                       <%=  txtMatriz.UniqueID %>: 
                         {                        
-                            required: "Se requiere codigo de matriz",
                             digits: "Solo se permiten digitos de [0-9] en codigo de matriz",
                             minlength: "El codigo de matriz debe ser tener 10 digitos como minimo",
                             maxlength: "El codigo de matriz debe ser tener 10 digitos como maximo"
                         },
                       <%=  txtRefil.UniqueID %>: 
                         {                        
-                            required: "Se requiere codigo refill",
                             digits: "Solo se permiten digitos de [0-9] en codigo refill",
                             minlength: "El codigo refill debe ser tener 10 digitos como minimo",
                             maxlength: "El codigo refill debe ser tener 10 digitos como maximo"
@@ -194,26 +184,22 @@
                         },
                       <%=  txtEmail.UniqueID %>: 
                         {                        
-                            required: "Se requiere email",
                             email: "Se requiere un email valido xxxxxx@yyy.zzz",
                             maxlength: "El email debe tener 50 caracteres como maximo"
                         },
                       <%=  txtWeb.UniqueID %>: 
                         {                        
-                            required: "Se requiere una URL",
                             url: "Ingrese una URL valida http://www.google.com",
                             maxlength: "La URL tiene un limite de 100 caracteres"
                         },
                       <%=  txtLatitud.UniqueID %>: 
                         {                        
-                            required: true,
                             number: "Ingrese una latitud valida -34.14151677",
                             minlength: "La latitud debe tener 12 caracteres como minimo",
                             maxlength: "La latitud debe tener 12 caracteres como maximo"
                         },
                       <%= txtLongitud.UniqueID %>: 
                         {                        
-                            required: true,
                             number: "Ingrese una longitud valida -58.59248384",
                             minlength: "La latitud debe tener 12 caracteres como minimo",
                             maxlength: "La latitud debe tener 12 caracteres como maximo"

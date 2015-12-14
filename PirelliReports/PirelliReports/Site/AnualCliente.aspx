@@ -18,9 +18,12 @@
             $(".spinner-container").css({ display: "none" });
         }
         
-        function btnAceptarOnClientClick() {
-            activarSpinner();
+        function btnAceptarOnClientClick() {          
             var result = $('form').valid();
+            if (result) 
+            {
+                activarSpinner();
+            }
             return result;
         }
 

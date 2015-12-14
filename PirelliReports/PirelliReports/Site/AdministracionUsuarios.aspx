@@ -23,11 +23,9 @@
                     <%= txtLegajo.UniqueID %>: 
                     {
                         required: true
-                        //digits: true
                     },
                     <%= txtDescripcion.UniqueID %>: 
                     {
-                        required: true,
                         alphaNumericOnly: true,
                         maxlength: 50
                     },
@@ -54,11 +52,9 @@
                     <%= txtLegajo.UniqueID %>: 
                     {
                         required: "Ingrese legajo"
-                        //digits: "Solo se permiten digitos [0-9] en el legajo"
                     },
                     <%= txtDescripcion.UniqueID %>: 
                     {
-                        required: "Ingrese descripcion",
                         maxlength: "Solo se permiten 50 caracteres como maximo en la descripcion"
                     },
                     <%= txtMailUser.UniqueID %>: 

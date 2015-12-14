@@ -112,14 +112,14 @@
                     <%= txtFiltrosIP.UniqueID %>: 
                     {
                         digits: "Ingrese solo digitos [0-9] para el IP",
-                        minlength: "Se requieren al menos 7 dgitos",
+                        minlength: "Se requieren al menos 7 digitos",
                         maxlength: "Se permite como maximo 7 digitos"
                         
                     },
                     <%= txtFiltrosMarca.UniqueID %>: 
                     {                        
                         digits: "Ingrese solo digitos [0-9] para la marca",
-                        minlength: "Se requieren al menos 2 dgitos",
+                        minlength: "Se requieren al menos 2 digitos",
                         maxlength: "Se permite como maximo 2 digitos"
                     },
                     <%= txtFiltrosRodado.UniqueID %>: 

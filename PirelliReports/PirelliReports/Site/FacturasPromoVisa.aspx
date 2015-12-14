@@ -105,22 +105,27 @@
             $.validator.addMethod("greaterThan", 
                                    function(value, element) 
                                    {            
-                                       var parametro = document.getElementById("PaginaCentral_ContentPlaceHolder_dpDesde").value;
+                                       if (value != "" && parametro != "") 
+                                       {
+                                           var parametro = document.getElementById("PaginaCentral_ContentPlaceHolder_dpFiltrosDesde").value;
                                         
-                                       var partesFechaFinal = value.split('/');
-                                       var partesFechaInicial = parametro.split('/')
-                                       var diaFechaFinal = partesFechaFinal[0];
-                                       var mesFechaFinal = partesFechaFinal[1];
-                                       var anioFechaFinal = partesFechaFinal[2];
-                                       var diaFechaInicial = partesFechaInicial[0];
-                                       var mesFechaInicial = partesFechaInicial[1];
-                                       var anioFechaInicial = partesFechaInicial[2];
+                                           var partesFechaFinal = value.split('/');
+                                           var partesFechaInicial = parametro.split('/')
+                                           var diaFechaFinal = partesFechaFinal[0];
+                                           var mesFechaFinal = partesFechaFinal[1];
+                                           var anioFechaFinal = partesFechaFinal[2];
+                                           var diaFechaInicial = partesFechaInicial[0];
+                                           var mesFechaInicial = partesFechaInicial[1];
+                                           var anioFechaInicial = partesFechaInicial[2];
 
-                                       var fechaFinal = anioFechaFinal + "-" + mesFechaFinal + "-" + diaFechaFinal;
-                                       var fechaInicial = anioFechaInicial + "-" + mesFechaInicial + "-" + diaFechaInicial;
+                                           var fechaFinal = anioFechaFinal + "-" + mesFechaFinal + "-" + diaFechaFinal;
+                                           var fechaInicial = anioFechaInicial + "-" + mesFechaInicial + "-" + diaFechaInicial;
 
-                                       return new Date(fechaFinal) > new Date(fechaInicial);
-                                   
+                                           return new Date(fechaFinal) > new Date(fechaInicial); 
+                                       
+                                       }
+                                       else
+                                           return true;
                                    }, "La fecha final debe ser mayor que la fecha inicial");
 
             $.validator.addMethod("dateValid", 
@@ -272,12 +277,12 @@
                     },
                     <%=dpFiltrosDesde.UniqueID %>: 
                     {                        
-                        dateValid: true   
+                        dateValid: "Ingrese fecha inicial en formato [dd/mm/yyyy]"
                     },
                     <%=dpFiltrosHasta.UniqueID %>: 
                     {                        
-                        dateValid: true,
-                        greaterThan: true   
+                        dateValid:"Ingrese fecha final en formato [dd/mm/yyyy]",
+                        greaterThan: "La fecha final debe ser mayor que la fecha inicial" 
                     },
                 }
             });

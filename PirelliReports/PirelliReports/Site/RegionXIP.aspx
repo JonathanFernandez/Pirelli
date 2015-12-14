@@ -10,6 +10,11 @@
             return false;
         }
 
+        function btnAceptarOnClientClick() {          
+            var result = $('form').valid();
+            return result;
+        }
+
         $(document).ready(function () {
             $.validator.addMethod("greaterThan",
                                      function (value, element) {
@@ -55,7 +60,6 @@
                 {
                     <%=txtIP.UniqueID %>: 
                     {
-                        required: true,
                         digits: true,
                         minlength: 7,
                         maxlength: 7
@@ -76,7 +80,6 @@
                 {
                      <%=txtIP.UniqueID %>: 
                     {
-                        required: "Ingrese un numero de IP",
                         digits: "Solo se permiten digitos [0-9]",
                         minlength: "Ingrese 7 digitos como minimo",
                         maxlength: "Ingrese 7 digitos como maximo"
@@ -182,7 +185,7 @@
                     </div>  
                 </div>
                 <!-- /.row -->
-                <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar" OnClick="btnAceptar_Click"/>
+                <asp:Button runat="server" ID="btnAceptar" class="btn btn-warning" Text="Aceptar"  OnClientClick="return btnAceptarOnClientClick();" OnClick="btnAceptar_Click"/>
 
             </div>
             <!-- /.container-fluid -->
