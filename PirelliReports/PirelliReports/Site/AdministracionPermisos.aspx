@@ -23,8 +23,8 @@
             $.validator.addClassRules({
                 grupo:
                 {
-                    alphaNumericOnly: true,
-                    minlength: 3
+                    required: true,
+                    alphaNumericOnly: true
                 }
             });
         });

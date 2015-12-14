@@ -87,7 +87,6 @@
                         {                        
                             required: true
                         }
-
                 },
                 messages: 
                 {  
@@ -106,31 +105,31 @@
                         },
                     <%=txtEditarCantidad.UniqueID %>: 
                         {                        
-                            required: "Campo obligatorio",
+                            required: "Ingrese cantidad",
                             digits: "Solo caracteres numericos"
                         },
                     <%=txtEditarPrecio.UniqueID %>: 
                         {                        
-                            required: "Campo obligatorio",
+                            required: "Ingrese precio",
                             number: "Ingrese precio en formato 12.56"
                         },
                     <%=txtEditarNumFactura.UniqueID %>: 
                         {                        
-                            required: "Campo obligatorio"
+                            required: "Ingrese numero de factura"
                         },
                     <%=txtEditarticket.UniqueID %>: 
                         {                        
-                            required: "Campo obligatorio",
+                            required: "Ingrese numero de ticket",
                             digits: "Solo caracteres numericos"
                         },
                     <%=txtEditarTarjeta.UniqueID %>: 
                         {                        
-                            required: "Campo obligatorio",
+                            required: "Ingrese numero de tarjeta",
                             digits: "Solo caracteres numericos"
                         },
                     <%=txtEditarNumCompra.UniqueID %>: 
                         {                        
-                            required: "Campo obligatorio"
+                            required: "Ingrese numero de compra"
                         }
                 }
             });

@@ -118,8 +118,6 @@
                     <%--<asp:RequiredFieldValidator ID="txtReingresarClaveRequired" ControlToValidate="txtReingresarClave" runat="server" ErrorMessage="Complete Campo"></asp:RequiredFieldValidator>--%>
                     <%--<asp:CompareValidator ID="txtReingresarCompare" ControlToValidate="txtReingresarClave" ControlToCompare="txtClaveNueva" runat="server" ErrorMessage="Ambas claves deben ser iguales"></asp:CompareValidator>--%>
                 </div>
-                
-
                 <div class="form-inline pull-right">
                     <asp:Button runat="server" class="btn btn-success" OnClientClick="return btnAceptar_OnClientClick();"  OnClick="btnAceptar_Click" Text="Aceptar"  ID="btnAceptar" />
                     <asp:Button runat="server" class="btn btn-danger" Text="Cancelar" ID="btnCancelar" OnClientClick="return btnCancelar_OnClientClick();"/>
@@ -142,7 +140,6 @@
                                     <div class="row">
                                         <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

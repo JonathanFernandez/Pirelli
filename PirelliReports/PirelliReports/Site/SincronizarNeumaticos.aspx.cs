@@ -54,7 +54,7 @@ namespace PirelliReports.Site
                                     producto.Descrip = linea.Substring(9, 30).Trim();
                                     producto.Familia = linea.Substring(39, 2).Trim();
                                     producto.Pais = linea.Substring(90, 2).Trim();
-                                    producto.Otro = linea.Substring(118, 6).Trim();
+                                    producto.Otro = linea.Substring(118, 16).Trim();
                                     producto.Marca = linea.Substring(142, 2).Trim();
                                     producto.Rango = linea.Substring(144, 1).Trim();
                                     producto.IP.Trim();
@@ -64,7 +64,6 @@ namespace PirelliReports.Site
                                     producto.Otro.Trim();
                                     producto.Marca.Trim();
                                     producto.Rango.Trim();
-                                    //conProductoTemp.InsertarProductoTemp(producto);
                                     productos.Add(producto);
                                 }
                             }
@@ -112,13 +111,16 @@ namespace PirelliReports.Site
                 gvListadoNeumaticos.DataSource = null;
                 gvListadoNeumaticos.DataBind();
                 lblMensaje.Text = "La sincronización ha finalizado con exito";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
             }
             else
             {
                 lblMensaje.Text = "No se encontraron productos para sincronizar";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
             }
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true);
+            
         }
     }
 }

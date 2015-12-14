@@ -106,50 +106,75 @@
                       // Edicion
                       <%=  txtMatriz.UniqueID %>: 
                         {                        
+<<<<<<< HEAD
                            
+=======
+>>>>>>> origin/master
                             digits: true,
                             minlength: 10,
                             maxlength: 10
                         },
                       <%=  txtRefil.UniqueID %>: 
+<<<<<<< HEAD
                         {                        
                            
+=======
+                        {                                                  
+>>>>>>> origin/master
                             digits: true,
                             minlength: 10,
                             maxlength: 10
                         },
                       <%=  txtRazonSocial.UniqueID %>: 
                         {                        
+<<<<<<< HEAD
                             
+=======
+>>>>>>> origin/master
                             maxlength: 45
                         },
                       <%=  txtDireccion.UniqueID %>: 
                         {                        
+<<<<<<< HEAD
                             
+=======
+>>>>>>> origin/master
                             maxlength: 40
                         },
                       <%=  txtEmail.UniqueID %>: 
                         {                        
+<<<<<<< HEAD
                             
+=======
+>>>>>>> origin/master
                             email: true,
                             maxlength: 50
                         },
                       <%=  txtWeb.UniqueID %>: 
                         {                        
+<<<<<<< HEAD
                            
+=======
+>>>>>>> origin/master
                             url: true,
                             maxlength: 100
                         },
                       <%=  txtLatitud.UniqueID %>: 
                         {                        
+<<<<<<< HEAD
                           
+=======
+>>>>>>> origin/master
                             number: true,
                             minlength: 12,
                             maxlength: 12
                         },
                        <%= txtLongitud.UniqueID %>: 
                         {                        
+<<<<<<< HEAD
                             
+=======
+>>>>>>> origin/master
                             number: true,
                             minlength: 12,
                             maxlength: 12
@@ -170,14 +195,20 @@
                       // Edicion
                       <%=  txtMatriz.UniqueID %>: 
                         {                        
+<<<<<<< HEAD
                        
+=======
+>>>>>>> origin/master
                             digits: "Solo se permiten digitos de [0-9] en codigo de matriz",
                             minlength: "El codigo de matriz debe ser tener 10 digitos como minimo",
                             maxlength: "El codigo de matriz debe ser tener 10 digitos como maximo"
                         },
                       <%=  txtRefil.UniqueID %>: 
                         {                        
+<<<<<<< HEAD
                            
+=======
+>>>>>>> origin/master
                             digits: "Solo se permiten digitos de [0-9] en codigo refill",
                             minlength: "El codigo refill debe ser tener 10 digitos como minimo",
                             maxlength: "El codigo refill debe ser tener 10 digitos como maximo"
@@ -194,26 +225,34 @@
                         },
                       <%=  txtEmail.UniqueID %>: 
                         {                        
-                            required: "Se requiere email",
                             email: "Se requiere un email valido xxxxxx@yyy.zzz",
                             maxlength: "El email debe tener 50 caracteres como maximo"
                         },
                       <%=  txtWeb.UniqueID %>: 
                         {                        
+<<<<<<< HEAD
                             
+=======
+>>>>>>> origin/master
                             url: "Ingrese una URL valida http://www.google.com",
                             maxlength: "La URL tiene un limite de 100 caracteres"
                         },
                       <%=  txtLatitud.UniqueID %>: 
                         {                        
+<<<<<<< HEAD
                            
+=======
+>>>>>>> origin/master
                             number: "Ingrese una latitud valida -34.14151677",
                             minlength: "La latitud debe tener 12 caracteres como minimo",
                             maxlength: "La latitud debe tener 12 caracteres como maximo"
                         },
                       <%= txtLongitud.UniqueID %>: 
                         {                        
+<<<<<<< HEAD
                            
+=======
+>>>>>>> origin/master
                             number: "Ingrese una longitud valida -58.59248384",
                             minlength: "La latitud debe tener 12 caracteres como minimo",
                             maxlength: "La latitud debe tener 12 caracteres como maximo"

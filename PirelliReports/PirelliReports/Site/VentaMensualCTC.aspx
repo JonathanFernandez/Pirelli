@@ -103,8 +103,11 @@
 
         function btnAceptarOnClientClick() {          
             var result = $('form').valid();
-            activarSpinner();
-             return result;
+            if (result) 
+            {
+                activarSpinner();
+            }
+            return result;
         }
 
         function OpenPopUp(url) {

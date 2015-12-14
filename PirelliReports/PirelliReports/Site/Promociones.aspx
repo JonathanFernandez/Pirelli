@@ -9,7 +9,7 @@
         $(document).ready(function () {
             $.validator.addMethod("decimal", 
                                         function (value, element) {
-                                        return this.optional(element) || /^\d{0,3}(\.\d{0,2})?$/i.test(value);
+                                            return this.optional(element) || /^\d{0,3}(\.\d{0,2})?$/i.test(value);
                                         }, "Incluya 2 decimales");
 
             $.validator.addMethod("greaterThan", 
