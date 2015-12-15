@@ -16,6 +16,8 @@
         }
 
         $(document).ready(function () {
+            $("#REPORTESCOMERCIAL").addClass("active");
+
             $.validator.addMethod("greaterThan",
                                      function (value, element) {
                                          var parametro = document.getElementById("PaginaCentral_ContentPlaceHolder_dpDesde").value;
@@ -60,10 +62,6 @@
                 {
                     <%=txtIP.UniqueID %>: 
                     {
-<<<<<<< HEAD
-                       
-=======
->>>>>>> origin/master
                         digits: true,
                         minlength: 7,
                         maxlength: 7
@@ -71,12 +69,14 @@
                     <%=dpDesde.UniqueID %>: 
                     {
                         required: true,
+                        errorClass:'error error-fecha',
                         dateValid: true
                     },
                     <%=dpHasta.UniqueID %>: 
                     {
                         required: true,
                         dateValid: true,
+                        errorClass:'error error-fecha',
                         greaterThan: true
                     },
                 },
@@ -84,10 +84,6 @@
                 {
                      <%=txtIP.UniqueID %>: 
                     {
-<<<<<<< HEAD
-                        
-=======
->>>>>>> origin/master
                         digits: "Solo se permiten digitos [0-9]",
                         minlength: "Ingrese 7 digitos como minimo",
                         maxlength: "Ingrese 7 digitos como maximo"
@@ -133,14 +129,14 @@
                             <label>Seleccione rango de fechas:</label>
                             <div class="control-group pull-right">
                                             <div class="controls">
-                                                <div class="input-group margin-15">
+                                                <div class="input-group margin-bottom-30">
                                                         <asp:TextBox runat="server" ID="dpDesde" class="date-picker form-control" placeholder="Desde" MaxLength="10"></asp:TextBox>
                                                         <label for="dpDesde" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </label>
                                                 </div>
 
-                                                <div class="input-group margin-15">
+                                                <div class="input-group margin-bottom-30">
                                                         <asp:TextBox runat="server" ID="dpHasta" class="date-picker form-control" placeholder="Hasta" MaxLength="10"></asp:TextBox>
                                                         <label for="dpHasta" class="input-group-addon btn">
                                                             <span class="glyphicon glyphicon-calendar"></span>

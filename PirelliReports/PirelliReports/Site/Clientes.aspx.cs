@@ -80,18 +80,18 @@ namespace PirelliReports.Site
                         c.RazSoc = ds.Tables[0].Rows[i]["RAZSOC"].ToString();
                         c.DirSuc = ds.Tables[0].Rows[i]["DIRSUC"].ToString();
 
-                        if (ds.Tables[0].Rows[i]["LATITUD"].ToString().Replace(',', '.') != "")
+                        if (ds.Tables[0].Rows[i]["LATITUD"].ToString() != "")
                         {
-                            c.Latitud = Convert.ToDouble(ds.Tables[0].Rows[i]["LATITUD"].ToString().Replace(',', '.'));
+                            c.Latitud = Convert.ToDouble(ds.Tables[0].Rows[i]["LATITUD"]);
                         }
                         else 
                         {
                             c.Latitud = 0;
                         }
 
-                        if (ds.Tables[0].Rows[i]["LONGITUD"].ToString().Replace(',', '.') != "")
+                        if (ds.Tables[0].Rows[i]["LONGITUD"].ToString() != "")
                         {
-                            c.Longitud= Convert.ToDouble(ds.Tables[0].Rows[i]["LONGITUD"].ToString().Replace(',', '.'));
+                            c.Longitud= Convert.ToDouble(ds.Tables[0].Rows[i]["LONGITUD"].ToString());
                         }
                         else
                         {

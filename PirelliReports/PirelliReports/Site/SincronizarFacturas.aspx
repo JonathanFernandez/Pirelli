@@ -6,6 +6,10 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script>
+        $(document).ready(function () {
+            $("#SINZCRONIZACIONCOMERCIAL").addClass("active");
+        });
+
         function openModal() {
             $('#modalSincro').modal('show');
         }

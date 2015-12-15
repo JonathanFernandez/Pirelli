@@ -78,6 +78,8 @@
        //}
      
        $(document).ready(function() {
+           $("#NEUMATICOS").addClass("active");
+
            //$.validator.addMethod("lettersOnly", function (value, element) {
            //    return this.optional(element) || /^[a-zA-Z]+$/i.test(value);
            //}, "Ingrese una letra");
@@ -255,6 +257,7 @@
                                         <asp:TextBox runat="server" ID="txtFiltrosDescripcion" CssClass="form-control" placeholder="Descripción" MaxLength="50"></asp:TextBox>
                                         <p class="help-block"></p>
 
+                                        <label>Seleccione país:</label>
                                         <asp:DropDownList runat="server" ID="ddlFiltrosPais" CssClass="form-control" placeholder="Pais"></asp:DropDownList>
                                         <p class="help-block"></p>
 
@@ -265,6 +268,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
+                                        <label>Seleccione familia:</label>
                                         <asp:DropDownList runat="server" ID="ddlFiltrosFamilia" CssClass="form-control" placeholder="familia"></asp:DropDownList>
                                         <p class="help-block"></p>
 

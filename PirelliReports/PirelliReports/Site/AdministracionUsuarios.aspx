@@ -7,6 +7,8 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         $(document).ready(function () {
+            $("#ADMINISTRACION").addClass("active");
+
             $.validator.addMethod("alphaNumericOnly", function (value, element) {
                 return /^[a-zA-Z0-9 ]+$/.test(value);
             }, "Ingrese solo minusculas, mayusculas, numeros y/o espacios en blanco");

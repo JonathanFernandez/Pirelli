@@ -27,6 +27,8 @@
         }
 
         $(document).ready(function () {
+            $("#ENVIOASAP").addClass("active");
+
             $('form').validate({
                 rules: 
                 {

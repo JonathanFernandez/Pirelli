@@ -28,6 +28,8 @@
         }
 
         $(document).ready(function () {
+            $("#REPORTESCOMERCIAL").addClass("active");
+
            $.validator.addMethod("anioSiglo21", 
                                   function(value, element) 
                                   { 

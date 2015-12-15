@@ -32,6 +32,8 @@
         }
 
         $(document).ready(function () {
+            $("#REPORTESCOMERCIAL").addClass("active");
+
             $.validator.addMethod("greaterThan", 
                                     function(value, element) 
                                     {            

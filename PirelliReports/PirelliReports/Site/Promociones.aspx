@@ -7,6 +7,8 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         $(document).ready(function () {
+            $("#PROMOCIONES").addClass("active");
+
             $.validator.addMethod("decimal", 
                                         function (value, element) {
                                             return this.optional(element) || /^\d{0,3}(\.\d{0,2})?$/i.test(value);
@@ -313,13 +315,13 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="page-header modal-title" id="myModalSincro">Sincronización
+                        <h4 class="page-header modal-title" id="myModalSincro">Promociones
                         </h4>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <h4><asp:Label runat="server" CssClass="margin-left-15" ID="lblMensaje"></asp:Label> </h4>
-                            <asp:LinkButton runat="server"  ID="btnAceptar" OnClick="btnAceptar_Click" CssClass="btn btn-warning pull-right"><i class="fa fa-edit"></i> Aceptar</asp:LinkButton>
+                            <asp:LinkButton runat="server"  ID="btnAceptar" OnClick="btnAceptar_Click" CssClass="btn btn-warning pull-right margin-right-15"><i class="fa fa-edit"></i> Aceptar</asp:LinkButton>
                         </div>
 
                     </div>

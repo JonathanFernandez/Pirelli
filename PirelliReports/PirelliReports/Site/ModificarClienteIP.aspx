@@ -12,6 +12,8 @@
         }
 
         $(document).ready(function () {
+            $("#MODIFICARCLIENTEIP").addClass("active");
+
             $('form').validate({
             });
 

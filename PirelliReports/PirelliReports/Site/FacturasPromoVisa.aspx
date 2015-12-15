@@ -101,6 +101,8 @@
             return result;
         }
         $(document).ready(function () {
+            $("#FACTURASPROMOVISA").addClass("active");
+
             $.validator.addMethod("decimal", 
                                        function (value, element) {
                                            return this.optional(element) || /^\d{0,2}(\.\d{0,2})?$/i.test(value);
@@ -108,22 +110,16 @@
 
             $.validator.addMethod("greaterThan", 
                                    function(value, element) 
-<<<<<<< HEAD
                                    {   
                                        if(document.getElementById("PaginaCentral_ContentPlaceHolder_dpFiltrosDesde").value != "")
-=======
-                                   {            
-                                       if (value != "" && parametro != "") 
->>>>>>> origin/master
+
                                        {
                                            var parametro = document.getElementById("PaginaCentral_ContentPlaceHolder_dpFiltrosDesde").value;
                                         
                                            var partesFechaFinal = value.split('/');
-<<<<<<< HEAD
+
                                            var partesFechaInicial = parametro.split('/');
-=======
-                                           var partesFechaInicial = parametro.split('/')
->>>>>>> origin/master
+
                                            var diaFechaFinal = partesFechaFinal[0];
                                            var mesFechaFinal = partesFechaFinal[1];
                                            var anioFechaFinal = partesFechaFinal[2];
@@ -134,19 +130,12 @@
                                            var fechaFinal = anioFechaFinal + "-" + mesFechaFinal + "-" + diaFechaFinal;
                                            var fechaInicial = anioFechaInicial + "-" + mesFechaInicial + "-" + diaFechaInicial;
 
-<<<<<<< HEAD
+
                                            return new Date(fechaFinal) > new Date(fechaInicial);
                                        }
                                        else 
                                            return true;
-                                   
-=======
-                                           return new Date(fechaFinal) > new Date(fechaInicial); 
-                                       
-                                       }
-                                       else
-                                           return true;
->>>>>>> origin/master
+
                                    }, "La fecha final debe ser mayor que la fecha inicial");
 
             $.validator.addMethod("dateValid", 
@@ -298,22 +287,13 @@
                     },
                     <%=dpFiltrosDesde.UniqueID %>: 
                     {                        
-<<<<<<< HEAD
                         dateValid: "Ingrese la fecha inicial en formato [dd/mm/yyyy]"                    
                     },
                     <%=dpFiltrosHasta.UniqueID %>: 
                     {                        
                         dateValid: "Ingrese la fecha final en formato [dd/mm/yyyy]",
                         greaterThan: "La fecha final debe ser mayor a la fecha inicial"   
-=======
-                        dateValid: "Ingrese fecha inicial en formato [dd/mm/yyyy]"
-                    },
-                    <%=dpFiltrosHasta.UniqueID %>: 
-                    {                        
-                        dateValid:"Ingrese fecha final en formato [dd/mm/yyyy]",
-                        greaterThan: "La fecha final debe ser mayor que la fecha inicial" 
->>>>>>> origin/master
-                    },
+                    }
                 }
             });
         });

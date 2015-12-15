@@ -17,6 +17,8 @@
 
         $(document).ready(function () {
 
+            $("#REPORTESCOMERCIAL").addClass("active");
+
             $.validator.addMethod("greaterThan", 
                                  function(value, element) 
                                  {            
@@ -61,10 +63,6 @@
                 {
                     <%=txtIP.UniqueID %>: 
                     {
-<<<<<<< HEAD
-                        
-=======
->>>>>>> origin/master
                         digits: true,
                         minlength: 7,
                         maxlength: 7
@@ -85,10 +83,7 @@
                 {  
                     <%=txtIP.UniqueID %>: 
                     {
-<<<<<<< HEAD
-                       
-=======
->>>>>>> origin/master
+
                         digits: "Ingrese solo digitos [0-9] para la IP",
                         minlength: "La IP debe tener 7 digitos como minimo",
                         maxlength: "La IP debe tener 7 digitos como maximo"
