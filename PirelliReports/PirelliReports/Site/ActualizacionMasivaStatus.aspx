@@ -5,6 +5,10 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
 <script>
+    $(document).ready(function () {
+        $("#MODIFICACIONESMASIVAS").addClass("active");
+    });
+
     function openModal() {
        
         $('#modalSincro').modal('show');

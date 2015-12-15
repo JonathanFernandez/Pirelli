@@ -9,7 +9,9 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
      <script type="text/javascript">
-          $(document).ready(function () {
+         $(document).ready(function () {
+             $("#REPORTESCOMERCIAL").addClass("active");
+
             $.validator.addMethod("greaterThan", 
                                     function(value, element) 
                                     {            

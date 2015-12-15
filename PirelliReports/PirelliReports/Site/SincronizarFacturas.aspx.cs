@@ -27,6 +27,13 @@ namespace PirelliReports.Site
             string rutaProcesDB = WebConfigurationManager.AppSettings["rutaProcesDB"];
             
             Process.Start(rutaProcesDB);
+
+            DirectoryInfo Carpeta = new DirectoryInfo(@"C:\Facturas");
+            while (Carpeta.GetFiles().Count() > 0)
+            {
+               
+            }
+
             gvListadoClientes.DataSource = connFacturas.ListadoDeZoDatosExternos();
             gvListadoClientes.DataBind();
             

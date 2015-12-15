@@ -49,12 +49,12 @@
               if(row.cells[28].innerHTML == "&nbsp;")
                   document.getElementById("PaginaCentral_ContentPlaceHolder_txtLatitud").value = "";
               else
-                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtLatitud").value = row.cells[28].innerHTML;
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtLatitud").value = row.cells[28].innerHTML.replace(",",".");
 
               if (row.cells[29].innerHTML == "&nbsp;")
                   document.getElementById("PaginaCentral_ContentPlaceHolder_txtLongitud").value = "";
               else
-                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtLongitud").value = row.cells[29].innerHTML;
+                  document.getElementById("PaginaCentral_ContentPlaceHolder_txtLongitud").value = row.cells[29].innerHTML.replace(",",".");
 
               if (row.cells[26].innerHTML == "1")
                   document.getElementById('PaginaCentral_ContentPlaceHolder_chkBajaLogica').checked = true;
@@ -90,37 +90,38 @@
           }
 
           $(document).ready(function () {
+              $("#CLIENTES").addClass("active");
+
               $('form').validate({
                   rules: 
                   {
-                      <%= txtFiltrosCod.UniqueID %>: 
+                      <%=txtFiltrosCod.UniqueID%>: 
                         {
                             digits: true,
                             minlength: 10,
                             maxlength: 10
                         },
-                      <%= txtFiltrosRazSoc.UniqueID %>: 
+                      <%=txtFiltrosRazSoc.UniqueID%>: 
                         {                        
                             maxlength: 45
                         },
-                      // Edicion
-                      <%=  txtMatriz.UniqueID %>: 
+                      <%=txtMatriz.UniqueID%>: 
                         {                        
                             digits: true,
                             minlength: 10,
                             maxlength: 10
                         },
-                      <%=  txtRefil.UniqueID %>: 
-                        {                                                  
+                      <%=txtRefil.UniqueID%>: 
+                          {
                             digits: true,
                             minlength: 10,
                             maxlength: 10
                         },
-                      <%=  txtRazonSocial.UniqueID %>: 
+                      <%=txtRazonSocial.UniqueID%>: 
                         {                        
                             maxlength: 45
                         },
-                      <%=  txtDireccion.UniqueID %>: 
+                      <%=txtDireccion.UniqueID%>: 
                         {                        
                             maxlength: 40
                         },
@@ -129,84 +130,84 @@
                             email: true,
                             maxlength: 50
                         },
-                      <%=  txtWeb.UniqueID %>: 
+                      <%=txtWeb.UniqueID%>: 
                         {                        
                             url: true,
                             maxlength: 100
                         },
-                      <%=  txtLatitud.UniqueID %>: 
+                      <%=txtLatitud.UniqueID%>: 
                         {                        
                             number: true,
                             minlength: 12,
                             maxlength: 12
                         },
-                       <%= txtLongitud.UniqueID %>: 
+                       <%=txtLongitud.UniqueID%>: 
                         {                        
                             number: true,
                             minlength: 12,
                             maxlength: 12
-                        }
+                        },
                   }, 
                   messages: 
                   {
-                      <%= txtFiltrosCod.UniqueID %>: 
+                      <%=txtFiltrosCod.UniqueID%>: 
                         {
                             digits: "Solo se permiten digitos de [0-9] en codigo de cliente",
                             minlength: "El codigo de cliente debe ser tener 10 digitos como minimo",
                             maxlength: "El codigo de cliente debe ser tener 10 digitos como maximo"
                         },
-                      <%= txtFiltrosRazSoc.UniqueID %>: 
+                      <%=txtFiltrosRazSoc.UniqueID%>: 
                         {                        
                             maxlength: "La razon social debe tener 45 caracteres como maximo"
                         },
                       // Edicion
-                      <%=  txtMatriz.UniqueID %>: 
+                      <%=txtMatriz.UniqueID%>: 
                         {                        
                             digits: "Solo se permiten digitos de [0-9] en codigo de matriz",
                             minlength: "El codigo de matriz debe ser tener 10 digitos como minimo",
                             maxlength: "El codigo de matriz debe ser tener 10 digitos como maximo"
                         },
-                      <%=  txtRefil.UniqueID %>: 
+                      <%=txtRefil.UniqueID%>: 
                         {                        
                             digits: "Solo se permiten digitos de [0-9] en codigo refill",
                             minlength: "El codigo refill debe ser tener 10 digitos como minimo",
                             maxlength: "El codigo refill debe ser tener 10 digitos como maximo"
                         },
-                      <%=  txtRazonSocial.UniqueID %>: 
+                      <%=txtRazonSocial.UniqueID%>: 
                         {                        
-                            required: "Se requiere razon social",
+                          
                             maxlength: "La razon social debe tener 45 caracteres como maximo"
                         },
-                      <%=  txtDireccion.UniqueID %>: 
+                      <%=txtDireccion.UniqueID%>: 
                         {                        
-                            required: "Se requiere direccion",
+                            
                             maxlength: "La direccion debe tener 40 caracteres como maximo"
                         },
-                      <%=  txtEmail.UniqueID %>: 
+                      <%=txtEmail.UniqueID%>: 
                         {                        
                             email: "Se requiere un email valido xxxxxx@yyy.zzz",
                             maxlength: "El email debe tener 50 caracteres como maximo"
                         },
-                      <%=  txtWeb.UniqueID %>: 
+                      <%=txtWeb.UniqueID%>: 
                         {                        
                             url: "Ingrese una URL valida http://www.google.com",
                             maxlength: "La URL tiene un limite de 100 caracteres"
                         },
-                      <%=  txtLatitud.UniqueID %>: 
+                      <%=txtLatitud.UniqueID%>: 
                         {                        
                             number: "Ingrese una latitud valida -34.14151677",
                             minlength: "La latitud debe tener 12 caracteres como minimo",
                             maxlength: "La latitud debe tener 12 caracteres como maximo"
                         },
-                      <%= txtLongitud.UniqueID %>: 
+                      <%=txtLongitud.UniqueID%>: 
                         {                        
                             number: "Ingrese una longitud valida -58.59248384",
                             minlength: "La latitud debe tener 12 caracteres como minimo",
                             maxlength: "La latitud debe tener 12 caracteres como maximo"
-                        }   
-                    }  
-                });
-            });
+                        }
+                  }
+               });
+          });
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
@@ -289,6 +290,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
+                                        <label>Seleccione una provincia:</label>
                                         <asp:DropDownList runat="server" ID="ddlFiltrosProvincias" CssClass="form-control" placeholder="Provincias"></asp:DropDownList>
                                         <p class="help-block"></p>
 

@@ -1,3 +1,4 @@
+update Zoclien1 set Latitud = 	null, Longitud = null
 update Zoclien1 set Latitud = 	-34.596345, Longitud = -58.396425			where cod =	'0009700049'
 update Zoclien1 set Latitud = 	-34.609062, Longitud = -58.491182			where cod =	'0009700077'
 update Zoclien1 set Latitud = 	-34.577281, Longitud = -58.455555			where cod =	'0009700090'

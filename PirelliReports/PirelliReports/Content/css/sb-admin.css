@@ -49,6 +49,10 @@ body {
     margin-bottom: 15px;
 }
 
+.margin-bottom-30{
+    margin-bottom: 30px;
+}
+
 .margin-top-15{
     margin-top: 15px;
 }
@@ -64,6 +68,12 @@ body {
 .margin-header{
     margin-left: 15px;
     margin-right: 15px;
+}
+
+.error-fecha{
+    position: absolute;
+    display: block;
+    top: 36px;
 }
 
 .background-black{
@@ -138,6 +148,11 @@ a{
 .btn-warning:focus{
     background-color: #AD9800;
     color: white;
+}
+
+.img-sap{
+    margin: 0 auto;
+    display: block;
 }
 
 /* Top Navigation */
@@ -575,6 +590,10 @@ ul.alert-dropdown {
     background-color: #222;
     padding-bottom: 15px;
     z-index: 99999;
+}
+
+.hidden{
+    display: none;
 }
 
 /* Spinner */
