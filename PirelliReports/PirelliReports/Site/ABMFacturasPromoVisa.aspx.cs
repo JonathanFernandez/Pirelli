@@ -114,7 +114,7 @@ namespace PirelliReports.Site
             {
 
                 txtEditCuota.Text = ds.Tables[0].Rows[0]["CUOTA"].ToString();
-                txtDescuento.Text = ds.Tables[0].Rows[0]["DESCUENTO"].ToString();
+                txtDescuento.Text = ds.Tables[0].Rows[0]["DESCUENTO"].ToString().Replace(",",".");
                 
             }
         }
@@ -263,7 +263,7 @@ namespace PirelliReports.Site
             solicitud.NroAuto = 0;
             solicitud.Precio = Convert.ToDouble(txtEditarPrecio.Text.Replace(".", ","));
             solicitud.CodPromo = Convert.ToInt32(ddlEditarTipoPromo.SelectedValue);
-            solicitud.Descuento = Convert.ToDouble(txtDescuento.Text);
+            solicitud.Descuento = Convert.ToDouble(txtDescuento.Text.Replace(".", ","));
             solicitud.CodAux = "";
             solicitud.Nota = txtEditarNota.Text;
 

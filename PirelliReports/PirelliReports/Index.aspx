@@ -31,13 +31,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <asp:HyperLink runat="server" NavigateUrl="~/Site/FacturasPromoVisa.aspx">
                                 <div class="panel-footer">
-                                    <span class="pull-left">Ver Detalles</span>
+                                    <span class="pull-left">Ir</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
-                            </a>
+                            </asp:HyperLink>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -53,13 +53,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                             <asp:HyperLink runat="server" NavigateUrl="~/Site/Promociones.aspx">
                                 <div class="panel-footer">
-                                    <span class="pull-left">Ver Detalles</span>
+                                    <span class="pull-left">Ir</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
-                            </a>
+                            </asp:HyperLink>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -71,17 +71,17 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">124</div>
-                                        <div>Sincronización</div>
+                                        <div>Sincronización Facturas</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <asp:HyperLink runat="server" NavigateUrl="~/Site/SincronizarFacturas.aspx">
                                 <div class="panel-footer">
-                                    <span class="pull-left">Ver Detalles</span>
+                                    <span class="pull-left">Ir</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
-                            </a>
+                            </asp:HyperLink>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -93,17 +93,17 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">13</div>
-                                        <div>Reportes</div>
+                                        <div>Reportes Mensuales CTC</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <asp:HyperLink runat="server" NavigateUrl="~/Site/VentaMensualCTC.aspx">
                                 <div class="panel-footer">
-                                    <span class="pull-left">Ver Detalles</span>
+                                    <span class="pull-left">Ir</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
-                            </a>
+                            </asp:HyperLink>
                         </div>
                     </div>
                 </div>

@@ -138,14 +138,14 @@
                       <%=txtLatitud.UniqueID%>: 
                         {                        
                             number: true,
-                            minlength: 12,
-                            maxlength: 12
+                            minlength: 10,
+                            maxlength: 10
                         },
                        <%=txtLongitud.UniqueID%>: 
                         {                        
                             number: true,
-                            minlength: 12,
-                            maxlength: 12
+                            minlength: 10,
+                            maxlength: 10
                         },
                   }, 
                   messages: 
@@ -202,8 +202,8 @@
                       <%=txtLongitud.UniqueID%>: 
                         {                        
                             number: "Ingrese una longitud valida -58.59248384",
-                            minlength: "La latitud debe tener 12 caracteres como minimo",
-                            maxlength: "La latitud debe tener 12 caracteres como maximo"
+                            minlength: "La latitud debe tener 10 caracteres como minimo",
+                            maxlength: "La latitud debe tener 10 caracteres como maximo"
                         }
                   }
                });
@@ -220,7 +220,7 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
+                        <asp:HyperLink runat="server" NavigateUrl="~/Index.aspx"><i class="fa fa-dashboard"></i> Index </asp:HyperLink>
                     </li>
                     <li class="active">
                         <i class="fa fa-user"></i> Clientes

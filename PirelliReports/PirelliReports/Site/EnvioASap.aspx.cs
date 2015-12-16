@@ -70,7 +70,7 @@ namespace PirelliReports.Site
         {
             gvListadoFacturasAgrupadas.DataSource = null;//conFacturas.ListadoDeFacturasEnvioSAP2();
             gvListadoFacturasAgrupadas.DataBind();
-            lblMensaje.Text = "Facturas enviadas con exito";
+            lblMensaje.Text = "Error, no se puede establecer conexión";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "desactivarSpinner();", true); 
         }
@@ -78,7 +78,8 @@ namespace PirelliReports.Site
       
         protected void btnResfrescar_Click(object sender, EventArgs e)
         {
-            gvListadoFacturasAgrupadas.DataSource = conFacturas.ListadoDeFacturasEnvioSAP2();
+            //gvListadoFacturasAgrupadas.DataSource = conFacturas.ListadoDeFacturasEnvioSAP2();
+            gvListadoFacturasAgrupadas.DataSource = conFacturas.ListadoDeFacturasEnvioSAP();
             gvListadoFacturasAgrupadas.DataBind();
         }
     }

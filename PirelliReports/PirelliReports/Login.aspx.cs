@@ -62,6 +62,7 @@ namespace PirelliReports
 
                 user = connUsuario.CargarUsuario(login_username.Text, login_password.Text);
                 connUsuario.SetearEstado(user, true);
+                user.Activo = true;
 
                 FormsAuthentication.SetAuthCookie(user.Usu_id, false);
                 Session["Usuario"] = user;

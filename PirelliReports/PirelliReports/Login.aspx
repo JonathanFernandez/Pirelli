@@ -91,9 +91,9 @@
                         <%--<asp:Button runat="server" ID="btnLoginInicio" text="Login" class="btn btn-warning btn-lg"  data-toggle="modal" data-target="#login_modal" ></asp:Button>--%>
                     </p>
                     <p class="">
-                        <label>
+                        <h4>
                             <asp:Label runat="server" id="lblMensaje" Text="Ingrese a su casiila de mensaje, para reestablecer la contraseña" Visible="false"></asp:Label>
-                        </label>
+                        </h4>
                     </p>
                     <%--<p class="">
                         <label>
@@ -162,7 +162,7 @@
                                             <span id="text-lost-msg">Ingrese su e-mail.</span>
                                         </div>
                                         <%--<input id="lost_email" class="form-control" type="text" placeholder="E-mail" required>--%>
-                                        <asp:TextBox runat="server" id="lost_email" class="form-control" placeholder="E-mail" required="required" />
+                                        <asp:TextBox runat="server" id="lost_email" class="form-control" placeholder="E-mail" required="required" disabled />
                                         <p>
                                                 <label>
                                                     <asp:Label runat="server" id="lblMailIncorrecto" Text="E-mail incorrecto" Visible="false"></asp:Label>

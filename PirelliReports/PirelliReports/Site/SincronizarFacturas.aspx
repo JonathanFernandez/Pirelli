@@ -50,7 +50,7 @@
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
+                            <asp:HyperLink runat="server" NavigateUrl="~/Index.aspx"><i class="fa fa-dashboard"></i> Index </asp:HyperLink>
                         </li>
                         <li class="active">
                             <i class="fa fa-barcode"></i> Sincronizar Facturas

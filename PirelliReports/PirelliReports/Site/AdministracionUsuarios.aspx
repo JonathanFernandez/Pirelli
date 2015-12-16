@@ -118,7 +118,7 @@
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i><a href="index.html"> Dashboard</a>
+                            <asp:HyperLink runat="server" NavigateUrl="~/Index.aspx"><i class="fa fa-dashboard"></i> Index </asp:HyperLink>
                         </li>
                         <li class="active">
                             <i class="fa fa-user"></i> Administración de Usuarios
@@ -149,10 +149,10 @@
                         <asp:TextBox runat="server" ID="txtMailUser" MaxLength="50"  CssClass="form-control" placeholder="E-mail"></asp:TextBox>
                         <p class="help-block"></p>
 
-                        <asp:TextBox runat="server" ID="txtDescripcion" MaxLength="50" CssClass="form-control" placeholder="Descripción"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtDescripcion" MaxLength="50" CssClass="form-control" placeholder="Descripción" autocomplete="off" ></asp:TextBox>
                         <p class="help-block"></p>
 
-                        <asp:TextBox runat="server" ID="txtPassUser" MaxLength="20" TextMode="Password" CssClass="form-control" placeholder="clave"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtPassUser" MaxLength="20" TextMode="Password" CssClass="form-control" placeholder="clave" autocomplete="off" ></asp:TextBox>
                         <p class="help-block"></p>
 
                         <div class="form-inline">

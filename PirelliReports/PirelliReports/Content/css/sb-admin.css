@@ -76,6 +76,10 @@ body {
     top: 36px;
 }
 
+#lblMensaje{
+    color: white;
+}
+
 .background-black{
     background-color: rgba(0, 0, 0, 0.6);
 }
@@ -402,7 +406,8 @@ ul.alert-dropdown {
     color: #fff;
 }
 
-.login-wrapper h3{
+
+.login-wrapper h3, .login-wrapper h4{
     color: #ddd;
 }
 

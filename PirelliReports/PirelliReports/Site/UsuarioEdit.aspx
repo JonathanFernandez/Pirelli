@@ -20,7 +20,7 @@
                 password:
                 {
                     required: true,
-                    minlength: 10
+                    maxlength: 10
                 }
             });
         });
@@ -64,7 +64,7 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i><a href="index.html"> Index</a>
+                        <asp:HyperLink runat="server" NavigateUrl="~/Index.aspx"><i class="fa fa-dashboard"></i> Index </asp:HyperLink>
                     </li>
                     <li class="active">
                         <i class="fa fa-edit"></i> Edición Perfil
@@ -104,7 +104,7 @@
 
                 <div class="form-inline margin-15">
                     <label>Clave Anterior: </label>
-                    <asp:TextBox runat="server" class="form-control pull-right password" id="txtPassAnterior" MaxLength="20" TextMode="Password" ></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control pull-right password" id="txtPassAnterior" MaxLength="20" TextMode="Password" autocomplete="off" ></asp:TextBox>
                     <%--<asp:RequiredFieldValidator ID="txtPassAnteriorRequired" ControlToValidate="txtPassAnterior" runat="server" ErrorMessage="Complete Campo"></asp:RequiredFieldValidator>--%>
                 </div>
                 <div class="form-inline margin-15">
@@ -120,7 +120,7 @@
                 </div>
                 <div class="form-inline pull-right">
                     <asp:Button runat="server" class="btn btn-success" OnClientClick="return btnAceptar_OnClientClick();"  OnClick="btnAceptar_Click" Text="Aceptar"  ID="btnAceptar" />
-                    <asp:Button runat="server" class="btn btn-danger" Text="Cancelar" ID="btnCancelar" OnClientClick="return btnCancelar_OnClientClick();"/>
+                    <%--<asp:Button runat="server" class="btn btn-danger" Text="Cancelar" ID="btnCancelar" OnClientClick="return btnCancelar_OnClientClick();"/>--%>
                     
                 </div>
             </div>
