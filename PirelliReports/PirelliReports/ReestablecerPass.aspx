@@ -70,7 +70,7 @@
                         <img class="logo-pirelli" src="Content/img/logo_pirelli.jpg"/>
                     </div>
                     <h2 class="">Bienvenido a Pirelli Promotions & Reports</h2>
-                    <h3> Su contraseña se ha restablecido con el nombre de usuario</h3>
+                    <h3> Su contraseña se ha restablecido, revise su mail </h3>
                     <p class="">
                         
                         <asp:Button runat="server" ID="btnLogin" text="Login" class="btn btn-warning btn-lg" OnClick="btnLogin_Click" ></asp:Button>

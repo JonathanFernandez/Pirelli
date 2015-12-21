@@ -62,6 +62,7 @@ namespace PirelliReports.Site
                 cargarClientes(ddlEditarCliente);
                 cargarMedidas(ddlEditarMedida);
                 cargarProvincia(ddlEditarProvincia);
+                //dpEditarFecha_TextChanged(sender, e);
                 //cargarRegion(ddlEditarRegion);
                 ddlEditarMedida_SelectedIndexChanged(sender, e);
                 ddlEditarCliente_SelectedIndexChanged(sender, e);
@@ -191,6 +192,7 @@ namespace PirelliReports.Site
         }
         protected void dpEditarFecha_TextChanged(object sender, EventArgs e)
         {
+            ddlEditarTipoPromo.Items.Clear();
             cargarTipoPromo(ddlEditarTipoPromo);
             cargarCuotaDescuentoDePromo();
         }

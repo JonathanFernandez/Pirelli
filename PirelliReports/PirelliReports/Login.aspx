@@ -92,7 +92,7 @@
                     </p>
                     <p class="">
                         <h4>
-                            <asp:Label runat="server" id="lblMensaje" Text="Ingrese a su casiila de mensaje, para reestablecer la contraseña" Visible="false"></asp:Label>
+                            <asp:Label runat="server" id="lblMensaje" Text="Ingrese a su casilla de mensaje, para reestablecer la contraseña" Visible="false"></asp:Label>
                         </h4>
                     </p>
                     <%--<p class="">

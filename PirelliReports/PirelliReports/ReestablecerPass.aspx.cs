@@ -18,6 +18,7 @@ namespace PirelliReports
             {
                 string mail = Page.Request["mail"];
                 connUsuario.ReestablecerPassword(mail);
+                connUsuario.EnviarCorreoConPass(mail);
             }
         }
 

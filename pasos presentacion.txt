@@ -1,0 +1,18 @@
+1) crear un grupo
+2) crear un usuario, asignarle ese grupo
+3) entrar con ese usuario.
+4) crear una promocion
+5) crear una factura con la promocion creada
+6) clientes
+7) neumaticos
+8) altera ip/neumaticos
+9) actualizacion masiva clientes (fijarse que los codigos de solicitud sean existentes elgir archivo altera)
+10) actualizacion masiva neumaticos (fijarse que los codigos de solicitud sean existentes elgir archivo altera)
+11)sincronizas factura
+12)mostrar pistola
+13)sincronizar neumaticos (se busca en el archivo c/temp)
+14)sincronizar clientes
+16)Reportes
+
+
+15) actualizacion masiva status (fijarse que los codigos de solicitud sean existentes elgir archivo altera)

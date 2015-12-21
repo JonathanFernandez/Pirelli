@@ -133,7 +133,7 @@ namespace PirelliReports.Site
                 p.Descu7 = Convert.ToDouble(txtDescu7.Text.Replace(".", ","));
 
                 conZoTipoPromo.ModicarPromoVisa(p);
-                lblMensaje.Text = "La factura se modifico correctamente";
+                lblMensaje.Text = "La promoción se modifico correctamente";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
             else
@@ -163,7 +163,7 @@ namespace PirelliReports.Site
 
                 conZoTipoPromo.InsertarPromoVisa(p);
 
-                lblMensaje.Text = "La factura se creo correctamente";
+                lblMensaje.Text = "La promoción se creo correctamente";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
         }

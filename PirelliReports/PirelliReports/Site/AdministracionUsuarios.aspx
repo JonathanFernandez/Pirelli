@@ -149,10 +149,10 @@
                         <asp:TextBox runat="server" ID="txtMailUser" MaxLength="50"  CssClass="form-control" placeholder="E-mail"></asp:TextBox>
                         <p class="help-block"></p>
 
-                        <asp:TextBox runat="server" ID="txtDescripcion" MaxLength="50" CssClass="form-control" placeholder="Descripción" autocomplete="off" ></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtDescripcion" MaxLength="50" CssClass="form-control" placeholder="Descripción" AutoCompleteType="None"></asp:TextBox>
                         <p class="help-block"></p>
 
-                        <asp:TextBox runat="server" ID="txtPassUser" MaxLength="20" TextMode="Password" CssClass="form-control" placeholder="clave" autocomplete="off" ></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtPassUser" MaxLength="20" TextMode="Password" CssClass="form-control" placeholder="clave" AutoCompleteType="Disabled" ></asp:TextBox>
                         <p class="help-block"></p>
 
                         <div class="form-inline">

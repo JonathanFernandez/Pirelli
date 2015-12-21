@@ -283,6 +283,69 @@ namespace Negocio
             return true;
         }
 
+        public bool EnviarCorreoConPass(string mail)
+        {
+            /*-------------------------MENSAJE DE CORREO----------------------*/
+
+            //Creamos un nuevo Objeto de mensaje
+            System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
+
+            //Direccion de correo electronico a la que queremos enviar el mensaje
+            mmsg.To.Add(mail);
+            //mmsg.To.Add("jonathan.fernandez.ex@pirelli.com");
+            //mmsg.To.Add("walter.santucho.it@gmail.com ");
+            //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
+
+            //Asunto
+            mmsg.Subject = "Nueva contraseña PIRELLI";
+            mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
+
+
+            //Cuerpo del Mensaje
+
+
+            string body = "Su contraseña nueva es pirelli, ingrese al siguiente link <a href=\"http://localhost:58935/Login.aspx\">login</a>";
+            //"Solicitud de Contraseña, ingrese al siguiente link <a href='localhost:58935/ReestablecerPass.aspx?mail='" + mail + ">link</a>";
+            mmsg.Body = body;
+            mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
+
+            //Correo electronico desde la que enviamos el mensaje
+            mmsg.From = new System.Net.Mail.MailAddress("jonathan_28_05@hotmail.com");
+
+
+            /*-------------------------CLIENTE DE CORREO----------------------*/
+
+            //Creamos un objeto de cliente de correo
+            System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
+
+            //Hay que crear las credenciales del correo emisor
+            cliente.Credentials = new System.Net.NetworkCredential("jonathan_28_05@hotmail.com", "chevrolet15");
+
+            //Lo siguiente es obligatorio si enviamos el mensaje desde Gmail
+
+            cliente.Port = 587;
+            cliente.EnableSsl = true;
+            cliente.Host = "smtp.live.com";// "smtp-mail.outlook.com";
+            //"smtp.live.com"
+
+            // cliente.Host = "smtp.gmail.com"; //Para Gmail "smtp.gmail.com";
+
+
+            /*-------------------------ENVIO DE CORREO----------------------*/
+
+            try
+            {
+                //Enviamos el mensaje      
+                cliente.Send(mmsg);
+
+                return true;
+            }
+            catch (System.Net.Mail.SmtpException)
+            {
+                //Aquí gestionamos los errores al intentar enviar el correo
+                return false;
+            }
+        }
         public bool EnviarCorreo(string mail)
         {
             /*-------------------------MENSAJE DE CORREO----------------------*/
@@ -304,7 +367,7 @@ namespace Negocio
             //Cuerpo del Mensaje
 
 
-            string body = "Solicitud de Contraseña, ingrese al siguiente link <a href=\"http://localhost:58935/ReestablecerPass.aspx?mail="+mail+"\">link</a>"; 
+            string body = "Solicitud de Contraseña, ingrese al siguiente <a href=\"http://localhost:58935/ReestablecerPass.aspx?mail="+mail+"\">link</a>"; 
             //"Solicitud de Contraseña, ingrese al siguiente link <a href='localhost:58935/ReestablecerPass.aspx?mail='" + mail + ">link</a>";
             mmsg.Body = body;
             mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
